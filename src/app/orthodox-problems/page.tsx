@@ -1,0 +1,145 @@
+import { loadReviewData, loadOrthodoxProblems } from "@/data/loadData";
+import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Orthodox Problems | Shallow Review 2025",
+  description:
+    "Canonical problems in AI alignment that research agendas aim to address",
+};
+
+export default function OrthodoxProblemsPage() {
+  const reviewData = loadReviewData();
+  const { problems, source } = loadOrthodoxProblems();
+
+  // Build a map of problem ID -> agendas that reference it
+  const problemToAgendas: Record<
+    string,
+    { agenda: { id: string; name: string }; section: { id: string; name: string } }[]
+  > = {};
+
+  for (const problem of problems) {
+    problemToAgendas[problem.id] = [];
+  }
+
+  for (const section of reviewData.sections) {
+    for (const agenda of section.agendas) {
+      if (agenda.orthodoxProblems && Array.isArray(agenda.orthodoxProblems)) {
+        for (const problemId of agenda.orthodoxProblems) {
+          if (problemToAgendas[problemId]) {
+            problemToAgendas[problemId].push({
+              agenda: { id: agenda.id, name: agenda.name },
+              section: { id: section.id, name: section.name },
+            });
+          }
+        }
+      }
+    }
+  }
+
+  return (
+    <div className="min-h-screen">
+      <header className="bg-gray-900 text-white py-8">
+        <div className="max-w-4xl mx-auto px-4">
+          <Link href="/" className="text-blue-400 hover:underline text-sm">
+            &larr; Back to overview
+          </Link>
+          <h1 className="text-3xl font-bold mt-4">Orthodox Problems</h1>
+          <p className="text-gray-300 mt-2">
+            Canonical problems in AI alignment that various research agendas aim
+            to address. Each problem represents a core challenge or assumption
+            in the field.
+          </p>
+          <p className="text-gray-400 mt-4 text-sm">
+            Based on{" "}
+            <a
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:underline"
+            >
+              {source.title}
+            </a>{" "}
+            by {source.author} ({source.date})
+          </p>
+        </div>
+      </header>
+
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="space-y-8">
+          {problems.map((problem) => {
+            const agendas = problemToAgendas[problem.id] || [];
+            return (
+              <section
+                key={problem.id}
+                id={`problem-${problem.id}`}
+                className="border-b border-gray-200 pb-8 last:border-0"
+              >
+                <div className="flex items-baseline gap-3">
+                  <span className="text-2xl font-bold text-gray-400">
+                    {problem.id}.
+                  </span>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    {problem.name}
+                  </h2>
+                  <span className="text-sm text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
+                    {agendas.length} agenda{agendas.length !== 1 ? "s" : ""}
+                  </span>
+                </div>
+
+                <p className="text-gray-600 mt-2 ml-9">{problem.description}</p>
+
+                {problem.seeAlso && problem.seeAlso.length > 0 && (
+                  <div className="mt-3 ml-9">
+                    <span className="text-sm text-gray-500">See: </span>
+                    {problem.seeAlso.map((ref, i) => (
+                      <span key={i}>
+                        <a
+                          href={ref.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-blue-600 hover:underline"
+                        >
+                          {ref.title}
+                        </a>
+                        {i < problem.seeAlso!.length - 1 && (
+                          <span className="text-gray-400">, </span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {agendas.length > 0 && (
+                  <div className="mt-4 ml-9">
+                    <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
+                      Relevant Agendas
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {agendas.map(({ agenda, section }) => (
+                        <Link
+                          key={`${section.id}-${agenda.id}`}
+                          href={`/${section.id}/${agenda.id}`}
+                          className="inline-block text-sm bg-blue-50 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-100 transition-colors"
+                        >
+                          {agenda.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </section>
+            );
+          })}
+        </div>
+      </main>
+
+      <footer className="bg-gray-100 py-6 mt-12">
+        <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
+          Based on the Shallow Review of Technical AI Safety, 2025 by
+          technicalities, gavento, et al.
+        </div>
+      </footer>
+    </div>
+  );
+}

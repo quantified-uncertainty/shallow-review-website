@@ -1,0 +1,61 @@
+export interface Paper {
+  title: string;
+  url: string;
+  authors?: string;
+}
+
+export interface OrthodoxProblem {
+  id: string;
+  name: string;
+  description: string;
+  seeAlso?: { title: string; url: string }[];
+}
+
+export interface OrthodoxProblemsSource {
+  title: string;
+  url: string;
+  author: string;
+  date: string;
+}
+
+export interface OrthodoxProblemsData {
+  source: OrthodoxProblemsSource;
+  problems: OrthodoxProblem[];
+}
+
+export interface BroadApproach {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface BroadApproachesData {
+  approaches: BroadApproach[];
+}
+
+export interface Agenda {
+  id: string;
+  name: string;
+  summary?: string;
+  theoryOfChange?: string;
+  seeAlso?: string;
+  orthodoxProblems?: string[];
+  targetCase?: string;
+  broadApproaches?: string[];
+  someNames?: string[];
+  estimatedFTEs?: string;
+  critiques?: string[];
+  fundedBy?: string[];
+  papers: Paper[];
+}
+
+export interface Section {
+  id: string;
+  name: string;
+  description?: string;
+  agendas: Agenda[];
+}
+
+export interface ReviewData {
+  sections: Section[];
+}
