@@ -1,0 +1,8 @@
+# Large reference files
+reference/*.rtf
+reference/*.pdf
+reference/Shallow Review 2025/
+
+# Build artifacts
+.next/
+node_modules/
