@@ -8,6 +8,8 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
+import { convertMarkdownLinks } from "@/utils/markdown";
+import { APPROACH_COLORS } from "@/constants/colors";
 
 interface PageProps {
   params: Promise<{ sectionId: string; agendaId: string }>;
@@ -67,14 +69,6 @@ export default async function AgendaPage({ params }: PageProps) {
     ? getBroadApproachesByIds(allApproaches, agenda.broadApproaches)
     : [];
 
-  // Color mapping for approaches
-  const approachColors: Record<string, string> = {
-    engineering: "bg-blue-50 text-blue-700 hover:bg-blue-100",
-    behavioral: "bg-green-50 text-green-700 hover:bg-green-100",
-    cognitive: "bg-purple-50 text-purple-700 hover:bg-purple-100",
-    "maths-philosophy": "bg-orange-50 text-orange-700 hover:bg-orange-100",
-    theoretical: "bg-gray-100 text-gray-700 hover:bg-gray-200",
-  };
 
   return (
     <div className="min-h-screen">
@@ -120,10 +114,7 @@ export default async function AgendaPage({ params }: PageProps) {
               <p
                 className="text-gray-700"
                 dangerouslySetInnerHTML={{
-                  __html: agenda.seeAlso.replace(
-                    /\[([^\]]+)\]\(([^)]+)\)/g,
-                    '<a href="$2" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">$1</a>'
-                  ),
+                  __html: convertMarkdownLinks(agenda.seeAlso),
                 }}
               />
             </section>
@@ -173,7 +164,7 @@ export default async function AgendaPage({ params }: PageProps) {
                     <Link
                       key={approach.id}
                       href={`/broad-approaches#approach-${approach.id}`}
-                      className={`inline-block text-sm px-2 py-1 rounded transition-colors ${approachColors[approach.id] || "bg-gray-100 text-gray-700"}`}
+                      className={`inline-block text-sm px-2 py-1 rounded transition-colors ${APPROACH_COLORS[approach.id] || "bg-gray-100 text-gray-700"}`}
                       title={approach.description}
                     >
                       {approach.name}
@@ -222,10 +213,7 @@ export default async function AgendaPage({ params }: PageProps) {
                     key={i}
                     className="text-gray-700"
                     dangerouslySetInnerHTML={{
-                      __html: critique.replace(
-                        /\[([^\]]+)\]\(([^)]+)\)/g,
-                        '<a href="$2" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">$1</a>'
-                      ),
+                      __html: convertMarkdownLinks(critique),
                     }}
                   />
                 ))}

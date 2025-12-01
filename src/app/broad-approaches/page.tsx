@@ -1,9 +1,11 @@
 import { loadReviewData, loadBroadApproaches } from "@/data/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
+import { APPROACH_COLORS } from "@/constants/colors";
+import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
 
 export const metadata: Metadata = {
-  title: "Broad Approaches | Shallow Review 2025",
+  title: `Broad Approaches | ${APP_SHORT_TITLE}`,
   description:
     "Research methodologies and approaches used in AI alignment research",
 };
@@ -24,7 +26,7 @@ export default function BroadApproachesPage() {
 
   for (const section of reviewData.sections) {
     for (const agenda of section.agendas) {
-      if (agenda.broadApproaches && Array.isArray(agenda.broadApproaches)) {
+      if (agenda.broadApproaches?.length) {
         for (const approachId of agenda.broadApproaches) {
           if (approachToAgendas[approachId]) {
             approachToAgendas[approachId].push({
@@ -37,14 +39,6 @@ export default function BroadApproachesPage() {
     }
   }
 
-  // Color mapping for approaches
-  const approachColors: Record<string, string> = {
-    engineering: "bg-blue-50 text-blue-700 hover:bg-blue-100",
-    behavioral: "bg-green-50 text-green-700 hover:bg-green-100",
-    cognitive: "bg-purple-50 text-purple-700 hover:bg-purple-100",
-    "maths-philosophy": "bg-orange-50 text-orange-700 hover:bg-orange-100",
-    theoretical: "bg-gray-100 text-gray-700 hover:bg-gray-200",
-  };
 
   return (
     <div className="min-h-screen">
@@ -65,7 +59,7 @@ export default function BroadApproachesPage() {
         <div className="space-y-8">
           {approaches.map((approach) => {
             const agendas = approachToAgendas[approach.id] || [];
-            const colorClass = approachColors[approach.id] || "bg-gray-100 text-gray-700";
+            const colorClass = APPROACH_COLORS[approach.id] || "bg-gray-100 text-gray-700";
             return (
               <section
                 key={approach.id}
@@ -109,8 +103,7 @@ export default function BroadApproachesPage() {
 
       <footer className="bg-gray-100 py-6 mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
-          Based on the Shallow Review of Technical AI Safety, 2025 by
-          technicalities, gavento, et al.
+          Based on the {APP_TITLE} by {APP_AUTHORS}.
         </div>
       </footer>
     </div>

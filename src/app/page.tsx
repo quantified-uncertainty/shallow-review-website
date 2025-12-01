@@ -1,5 +1,6 @@
 import { loadReviewData } from "@/data/loadData";
 import Link from "next/link";
+import { APP_TITLE, APP_DESCRIPTION, APP_AUTHORS } from "@/constants/app";
 
 export default function Home() {
   const data = loadReviewData();
@@ -20,13 +21,8 @@ export default function Home() {
     <div className="min-h-screen">
       <header className="bg-gray-900 text-white py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl font-bold">
-            Shallow Review of Technical AI Safety, 2025
-          </h1>
-          <p className="text-gray-300 mt-4 text-lg">
-            A comprehensive taxonomy of AI safety research with paper links
-            organized into hierarchical categories.
-          </p>
+          <h1 className="text-4xl font-bold">{APP_TITLE}</h1>
+          <p className="text-gray-300 mt-4 text-lg">{APP_DESCRIPTION}</p>
           <div className="mt-6 flex gap-6 text-sm text-gray-400">
             <span>{data.sections.length} sections</span>
             <span>{totalAgendas} research agendas</span>
@@ -86,8 +82,7 @@ export default function Home() {
 
       <footer className="bg-gray-100 py-6 mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
-          Based on the Shallow Review of Technical AI Safety, 2025 by
-          technicalities, gavento, et al.
+          Based on the {APP_TITLE} by {APP_AUTHORS}.
         </div>
       </footer>
     </div>

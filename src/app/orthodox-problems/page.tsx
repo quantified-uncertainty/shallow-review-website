@@ -1,9 +1,10 @@
 import { loadReviewData, loadOrthodoxProblems } from "@/data/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
+import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
 
 export const metadata: Metadata = {
-  title: "Orthodox Problems | Shallow Review 2025",
+  title: `Orthodox Problems | ${APP_SHORT_TITLE}`,
   description:
     "Canonical problems in AI alignment that research agendas aim to address",
 };
@@ -24,7 +25,7 @@ export default function OrthodoxProblemsPage() {
 
   for (const section of reviewData.sections) {
     for (const agenda of section.agendas) {
-      if (agenda.orthodoxProblems && Array.isArray(agenda.orthodoxProblems)) {
+      if (agenda.orthodoxProblems?.length) {
         for (const problemId of agenda.orthodoxProblems) {
           if (problemToAgendas[problemId]) {
             problemToAgendas[problemId].push({
@@ -136,8 +137,7 @@ export default function OrthodoxProblemsPage() {
 
       <footer className="bg-gray-100 py-6 mt-12">
         <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
-          Based on the Shallow Review of Technical AI Safety, 2025 by
-          technicalities, gavento, et al.
+          Based on the {APP_TITLE} by {APP_AUTHORS}.
         </div>
       </footer>
     </div>

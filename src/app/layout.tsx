@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { APP_TITLE, APP_DESCRIPTION } from "@/constants/app";
 
 export const metadata: Metadata = {
-  title: "Shallow Review of Technical AI Safety, 2025",
-  description: "A comprehensive taxonomy of AI safety research with paper links organized into hierarchical categories.",
+  title: APP_TITLE,
+  description: APP_DESCRIPTION,
 };
 
 export default function RootLayout({
