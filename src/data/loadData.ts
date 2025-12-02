@@ -9,6 +9,8 @@ import {
   BroadApproach,
   TargetCasesData,
   TargetCase,
+  FundersData,
+  Funder,
 } from "./types";
 
 /**
@@ -171,4 +173,39 @@ export function getTargetCaseByValue(
   const normalizedId = normalizeTargetCaseId(rawValue);
   if (!normalizedId) return undefined;
   return cases.find((c) => c.id === normalizedId);
+}
+
+/**
+ * Loads the funders taxonomy
+ * @throws Error if the YAML file is missing or malformed
+ */
+export function loadFunders(): FundersData {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/funders.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as FundersData;
+
+    if (!data?.funders || !Array.isArray(data.funders)) {
+      throw new Error("Invalid FundersData structure: missing funders array");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Failed to load funders:", error);
+    throw new Error(
+      `Failed to load funders: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
+}
+
+/**
+ * Retrieves Funders by their IDs
+ * @param funders - Array of all available funders
+ * @param ids - Array of funder IDs to retrieve
+ * @returns Array of matching funders, excluding not-found items
+ */
+export function getFundersByIds(funders: Funder[], ids: string[]): Funder[] {
+  return ids
+    .map((id) => funders.find((f) => f.id === id))
+    .filter((f): f is Funder => f !== undefined);
 }

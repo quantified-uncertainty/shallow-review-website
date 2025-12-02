@@ -6,11 +6,13 @@ import {
   getBroadApproachesByIds,
   loadTargetCases,
   getTargetCaseByValue,
+  loadFunders,
+  getFundersByIds,
 } from "@/data/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
-import { APPROACH_COLORS, TARGET_CASE_COLORS } from "@/constants/colors";
+import { APPROACH_COLORS, TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 import Markdown from "@/components/Markdown";
 
 interface PageProps {
@@ -57,6 +59,7 @@ export default async function AgendaPage({ params }: PageProps) {
   const { problems: allProblems } = loadOrthodoxProblems();
   const { approaches: allApproaches } = loadBroadApproaches();
   const { cases: allCases } = loadTargetCases();
+  const { funders: allFunders } = loadFunders();
   const section = data.sections.find((s) => s.id === decodedSectionId);
   const agenda = section?.agendas.find((a) => a.id === decodedAgendaId);
 
@@ -76,6 +79,9 @@ export default async function AgendaPage({ params }: PageProps) {
     ? getTargetCaseByValue(allCases, agenda.targetCase)
     : undefined;
 
+  const funders = agenda.fundedBy
+    ? getFundersByIds(allFunders, agenda.fundedBy)
+    : [];
 
   return (
     <div className="min-h-screen">
@@ -207,14 +213,25 @@ export default async function AgendaPage({ params }: PageProps) {
             </section>
           )}
 
-          {agenda.fundedBy && agenda.fundedBy.length > 0 && (
+          {funders.length > 0 && (
             <section>
               <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                Funded By
+                <Link href="/funders" className="hover:text-blue-600">
+                  Funded By
+                </Link>
               </h2>
-              <Markdown className="text-gray-700">
-                {agenda.fundedBy.join(", ")}
-              </Markdown>
+              <div className="flex flex-wrap gap-2">
+                {funders.map((funder) => (
+                  <Link
+                    key={funder.id}
+                    href={`/funders#funder-${funder.id}`}
+                    className={`inline-block text-sm px-2 py-1 rounded transition-colors ${FUNDER_COLORS}`}
+                    title={funder.description}
+                  >
+                    {funder.name}
+                  </Link>
+                ))}
+              </div>
             </section>
           )}
 

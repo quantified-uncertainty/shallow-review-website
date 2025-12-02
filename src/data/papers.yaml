@@ -35,8 +35,7 @@ sections:
           - "[underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)"
           - "[Midas](https://www.openaifiles.org/transparency-and-safety)"
           - "[defense](https://www.wired.com/story/openai-anduril-defense/)"
-          - >-
-            [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\)
+          - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
           - "[difficult](https://conversationswithtyler.com/episodes/sam-altman-2/)"
         someNames:
           - Johannes Heidecke
@@ -56,26 +55,18 @@ sections:
           - Chris Koch
           - Andrea Vallone.
         fundedBy:
-          - Microsoft
-          - "[AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure)"
-          - Oracle
-          - NVIDIA
-          - SoftBank
-          - G42
-          - AMD
-          - Dragoneer
-          - Coatue
-          - Thrive
-          - Altimeter
-          - MGX
-          - Blackstone
-          - TPG
-          - T. Rowe Price
-          - Andreessen Horowitz
-          - D1 Capital Partners
-          - Fidelity Investments
-          - Founders Fund
-          - Sequoia…
+          - microsoft
+          - amazon
+          - oracle
+          - nvidia
+          - softbank
+          - amd
+          - coatue
+          - thrive
+          - a16z
+          - fidelity
+          - founders-fund
+          - sequoia
       - id: deepmind-responsibility-safety
         name: Deepmind Responsibility & Safety
         papers:
@@ -108,14 +99,10 @@ sections:
         seeAlso: Interpretability**,** Scalable Oversight
         critiques:
           - "[Stein-Perlman](https://ailabwatch.org/companies/deepmind)"
-          - >-
-            [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\)
+          - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
           - "[underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)"
         fundedBy:
-          - >-
-            Google. Explicit Deepmind spending as a whole was
-            [£1.3B](https://s3.eu-west-2.amazonaws.com/document-api-images-live.ch.gov.uk/docs/WT_VNJe9leRjfcU0-OtRjWqF7WiqueStclXgHPbdG4U/application-pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAWRGBDBV3ETBK6MEZ%2F20251107%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251107T165323Z&X-Amz-Expires=60&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCWV1LXdlc3QtMiJHMEUCIBO%2FN0Q9tFWQR%2FLthFYa8oNsFTPSnysg4ONrTUQ%2FyyG1AiEAkPoujFneu%2Bmo73eOnOGNV0tBYKpjLeiP7yATK0BxE7oqigQIvf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgw0NDkyMjkwMzI4MjIiDAUWi2tKimijl1eBRireA4WSlhKuVaQDvGJ2Mhhn6yANCCUO3zN8OlpSoMI2QFoeu6i%2BPxwG7TrcECWjXvY2m5d8vAbJZj%2BTfCgRBvOqlWdcvynzDenryX3a%2F0oh1M1LCvKFgZxSZxV1Pb0l6uDpcBww%2BeRUgnTyClEsdjxo0fACkgiFoJkRbXQr3jnzmghu%2B%2B9kDtWERtaeGA5Dmjfr6i0EibJHo0BwsaleiFdKCuWMnNVpgEO4u%2F85kMy%2ByX7vM1Kfj53OvRKF9cyULlQnwb0q7Rs%2FjRespSsIF%2BAiQbUDck3iT%2BkG0wdrnnLEdm1nIHpoBQO65a8GwLvYsNIS7LckCyuG275y1h1%2B%2BUozd4PyyJjLhqmWn71LcsHuPbjSlAfU9E%2BkE73%2FNuuaE4hRICKlqLl4V9IXPiysd1IfazKQwS3lXmXrFiXvASKvLH8VDuBBz%2Bwj0SG50Rhfwpmrl2lmJ4RFVd6Se9S20eZQjnV183HKkCsvyx09YizNCuJqxEeJmQ%2BAJZVyFjDWKLrpC8F9Yzo3Sf4hYtvQRXqrANoB3n4J%2BUUvrUEDSQqOeQOki1xpE37FBu8Ozs%2FKo%2FrYgESZDsXra0gLcJ7zJb3rJs75kxEyqYDiHuBQ8IKbobY%2BC%2FMHC5MOHqfW%2Bu%2Bl%2FUownLq3yAY6pQG1n3iz%2B09NSvDWENlBA5hC3lLvGiD5f1DTjYA9v1GKjA3feHOZ3Iegs1Egz9G%2FTST6riAYyauyj0At6oEUiUnTQn%2BJxtM%2BH%2FuVzzq45lboS5WE7pDOKA6jDVgzgjy6Mlm%2FY3dy28KxiOrV4EsefEtYTd8Nr6XIvJ0PGVEHhMsWo%2Bsn3IzkuKEqQsFsIiQHCb9oREBNnmY%2FDa2iO0fJijogUtrkxMs%3D&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22companies_house_document.pdf%22&X-Amz-Signature=da8a32ce365dd9ee8f6824636e1e893e1a87a58b64c65013631c1e2014bf7e3e)
-          - but this doesn’t count e.g. Gemini compute.
+          - google-deepmind
       - id: anthropic-safety
         name: Anthropic Safety
         papers:
@@ -168,36 +155,20 @@ sections:
           - "[Stein](https://ailabwatch.org/anthropic-opinions)"
           - "[Perlman](https://ailabwatch.org/companies/anthropic)"
           - "[Casper](https://www.lesswrong.com/posts/pH6tyhEnngqWAXi9i/eis-xiii-reflections-on-anthropic-s-sae-research-circa-may#A_review___thoughts)"
-          - >-
-            [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\)
+          - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
           - "[on Anthropic](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#ref-14)"
           - "[underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)"
           - "[Greenblatt](https://nitter.net/RyanPGreenblatt/status/1925992236648464774)"
           - "[defense](https://techcrunch.com/2024/11/07/anthropic-teams-up-with-palantir-and-aws-to-sell-its-ai-to-defense-customers/)"
         fundedBy:
-          - Amazon
-          - Google
-          - ICONIQ
-          - Fidelity
-          - Lightspeed
-          - Altimeter
-          - Baillie Gifford
-          - BlackRock
-          - Blackstone
-          - Coatue
-          - D1 Capital Partners
-          - General Atlantic
-          - General Catalyst
-          - GIC
-          - Goldman Sachs
-          - Insight Partners
-          - Jane Street
-          - Ontario Teachers' Pension Plan
-          - Qatar Investment Authority
-          - TPG
-          - T. Rowe Price
-          - WCM
-          - XN.
+          - amazon
+          - google-deepmind
+          - fidelity
+          - lightspeed
+          - blackrock
+          - coatue
+          - general-catalyst
+          - goldman-sachs
       - id: xai
         name: xAI
         papers: []
@@ -218,17 +189,14 @@ sections:
           - "[Stein](https://ailabwatch.org/companies/xai)"
           - "[Perlman](https://ailabwatch.org/resources/integrity#xai)"
           - "[insecurity](https://nitter.net/elonmusk/status/1961904269545648624)"
-          - >-
-            [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\)
+          - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
         fundedBy:
-          - A16Z
-          - Blackrock
-          - Fidelity
-          - Kingdom
-          - Lightspeed
-          - MGX
-          - Morgan Stanley
-          - Sequoia…
+          - a16z
+          - blackrock
+          - fidelity
+          - lightspeed
+          - morgan-stanley
+          - sequoia
       - id: meta
         name: Meta
         papers:
@@ -239,8 +207,7 @@ sections:
           - title: Robust LLM safeguarding via refusal feature adversarial training
             url: https://arxiv.org/pdf/2409.20089
           - title: Code World Model Preparedness Report
-            url: >-
-              https://scontent-lhr8-1.xx.fbcdn.net/v/t39.2365-6/557601942_1468972530985309_838842257265552803_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_H33_VKF3ZUQ7kNvwFog8dd&_nc_oc=AdlNtqCDY4HafZ3-d5rb26AF5f2m0X46SGdKhVq3jLqwpNf_wEXhdQnH7_30ychiZWk&_nc_zt=14&_nc_ht=scontent-lhr8-1.xx&_nc_gid=QvW_ePiaF4E-PxOf30MWyg&oh=00_AfiZC5G4ODvWhiy0MuVH8PSlUFrW8RDQQ8tdr6Zec5k9aA&oe=691A6D09
+            url: https://scontent-lhr8-1.xx.fbcdn.net/v/t39.2365-6/557601942_1468972530985309_838842257265552803_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_H33_VKF3ZUQ7kNvwFog8dd&_nc_oc=AdlNtqCDY4HafZ3-d5rb26AF5f2m0X46SGdKhVq3jLqwpNf_wEXhdQnH7_30ychiZWk&_nc_zt=14&_nc_ht=scontent-lhr8-1.xx&_nc_gid=QvW_ePiaF4E-PxOf30MWyg&oh=00_AfiZC5G4ODvWhiy0MuVH8PSlUFrW8RDQQ8tdr6Zec5k9aA&oe=691A6D09
           - title: "Agents Rule of Two: A Practical Approach to AI Agent Security"
             url: https://ai.meta.com/blog/practical-ai-agent-security/
         seeAlso: model unlearning,
@@ -265,15 +232,12 @@ sections:
           - Nicola Cancedda
           - Adina Williams
         critiques:
-          - >-
-            [extreme
-            underelicitation](https://googleprojectzero.blogspot.com/2024/06/project-naptime.html#:~:text=We%20find%20that%2C%20by%20refining%20the%20testing%20methodology%20to%20take%20advantage%20of%20modern%20LLM%20capabilities%2C%20significantly%20better%20performance%20in%20vulnerability%20discovery%20can%20be%20achieved.%20To%20facilitate%20effective%20evaluation%20of%20LLMs%20for%20vulnerability%20discovery%2C%20we%20propose%20below%20a%20set%20of%20guiding%20principles.)
+          - "[extreme underelicitation](https://googleprojectzero.blogspot.com/2024/06/project-naptime.html#:~:text=We%20find%20that%2C%20by%20refining%20the%20testing%20methodology%20to%20take%20advantage%20of%20modern%20LLM%20capabilities%2C%20significantly%20better%20performance%20in%20vulnerability%20discovery%20can%20be%20achieved.%20To%20facilitate%20effective%20evaluation%20of%20LLMs%20for%20vulnerability%20discovery%2C%20we%20propose%20below%20a%20set%20of%20guiding%20principles.)"
           - "[Stein](https://ailabwatch.org/companies/meta)"
           - "[Perlman](https://ailabwatch.org/companies/meta)"
-          - >-
-            [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\)
+          - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
         fundedBy:
-          - Meta.
+          - meta-ai
       - id: others
         name: Others
         papers:
@@ -343,9 +307,7 @@ sections:
             url: https://goodfire.ai/research/understanding-memorization-via-loss-curvature
             authors: Jack Merullo, Srihita Vatsavaya, Lucius Bushnaq et al.
         summary: developing methods to selectively remove specific information, capabilities, or behaviors from a trained model without retraining it from scratch.
-        theoryOfChange: >-
-          if an AI learns dangerous knowledge (e.g., dual-use capabilities) or exhibits undesirable behaviors (e.g., memorizing private data), we can specifically erase this “bad” knowledge
-          post-training, which is much cheaper and faster than retraining, thereby making the model safer.
+        theoryOfChange: if an AI learns dangerous knowledge (e.g., dual-use capabilities) or exhibits undesirable behaviors (e.g., memorizing private data), we can specifically erase this “bad” knowledge post-training, which is much cheaper and faster than retraining, thereby making the model safer.
         seeAlso: Mechanistic Interpretability, Red-teaming.
         orthodoxProblems:
           - "1"
@@ -366,13 +328,12 @@ sections:
           - Timothy Qian.
         estimatedFTEs: 10-50
         fundedBy:
-          - Open Philanthropy
-          - MacArthur Foundation
-          - UK AI Safety Institute (AISI)
-          - Canadian AI Safety Institute (CAISI)
-          - industry labs (e.g.
-          - Microsoft Research
-          - Google).
+          - open-philanthropy
+          - macarthur-foundation
+          - uk-aisi
+          - canadian-aisi
+          - microsoft-research
+          - google-deepmind
         broadApproaches:
           - cognitive
       - id: whitebox-unlearning
@@ -493,9 +454,7 @@ sections:
             url: https://arxiv.org/abs/2505.23856
             authors: Sahil Verma, Keegan Hines, Jeff Bilmes et al.
         summary: layers of inference-time defenses, such as classifiers, monitors, and rapid-response protocols, to detect and block jailbreaks, prompt injections, and other harmful model behaviors.
-        theoryOfChange: >-
-          By building a bunch of scalable and hardened things on top of an unsafe model, we can defend against known and unknown attacks, monitor for misuse, and prevent models from causing harm, even
-          if the core model has vulnerabilities.
+        theoryOfChange: By building a bunch of scalable and hardened things on top of an unsafe model, we can defend against known and unknown attacks, monitor for misuse, and prevent models from causing harm, even if the core model has vulnerabilities.
         seeAlso: various redteams, iterative alignment.
         orthodoxProblems:
           - "7"
@@ -520,8 +479,6 @@ sections:
         estimatedFTEs: 100+
         critiques:
           - "[Obfuscated Activations Bypass LLM Latent-Space Defenses](https://arxiv.org/abs/2412.09565)"
-        fundedBy:
-          - most of the big labs.
         broadApproaches:
           - engineering
       - id: chain-of-thought-monitoring
@@ -566,14 +523,8 @@ sections:
           - title: "CoT Red-Handed: Stress Testing Chain-of-Thought Monitoring"
             url: https://arxiv.org/abs/2505.23575
         summary: supervise an AI's step-by-step reasoning process to detect misalignment, scheming, or deception, rather than only checking its final answer.
-        theoryOfChange: >-
-          the reasoning process (Chain of Thought, or CoT) of an AI provides a legible signal of its internal state and intentions. By monitoring this CoT, supervisors (human or AI) can detect
-          misalignment, scheming, or reward hacking before it results in a harmful final output. This allows for more robust oversight than supervising outputs alone, but it relies on the CoT
-          remaining faithful (i.e., accurately reflecting the model's reasoning) and not becoming obfuscated under optimization pressure.
-        seeAlso: >-
-          whitebox control / monitoring, steganography evals, [Why Don't We Just...
-          Shoggoth+Face+Paraphraser?](https://www.lesswrong.com/posts/Tzdwetw55JNqFTkzK/why-don-t-we-just-shoggoth-face-paraphraser)**,** [Why it’s good for AI reasoning to be legible and
-          faithful.](https://metr.org/blog/2025-03-11-good-for-ai-to-reason-legibly-and-faithfully/)
+        theoryOfChange: the reasoning process (Chain of Thought, or CoT) of an AI provides a legible signal of its internal state and intentions. By monitoring this CoT, supervisors (human or AI) can detect misalignment, scheming, or reward hacking before it results in a harmful final output. This allows for more robust oversight than supervising outputs alone, but it relies on the CoT remaining faithful (i.e., accurately reflecting the model's reasoning) and not becoming obfuscated under optimization pressure.
+        seeAlso: whitebox control / monitoring, steganography evals, [Why Don't We Just... Shoggoth+Face+Paraphraser?](https://www.lesswrong.com/posts/Tzdwetw55JNqFTkzK/why-don-t-we-just-shoggoth-face-paraphraser)**,** [Why it’s good for AI reasoning to be legible and faithful.](https://metr.org/blog/2025-03-11-good-for-ai-to-reason-legibly-and-faithfully/)
         orthodoxProblems:
           - "7"
           - "8"
@@ -594,9 +545,9 @@ sections:
           - Miles Turpin.
         estimatedFTEs: 10-100.
         fundedBy:
-          - OpenAI
-          - Anthropic
-          - Google DeepMind.
+          - openai
+          - anthropic
+          - google-deepmind
         broadApproaches:
           - engineering
       - id: emergent-misalignment
@@ -655,12 +606,8 @@ sections:
             authors: Jan Betley, Daniel Tan
           - title: The Claude System Prompt by words allocated
             url: https://www.oreilly.com/radar/unpacking-claudes-system-prompt/
-        summary: >-
-          fine-tuning LLMs on one narrow antisocial task can cause *general* misalignment including deception, shutdown resistance, harmful advice, and extremist sympathies, when those behaviors are
-          never trained or rewarded directly. [A new agenda](https://www.lesswrong.com/posts/AcTEiu5wYDgrbmXow/open-problems-in-emergent-misalignment) which quickly led to a stream of exciting work.
-        theoryOfChange: >-
-          predict, detect, and prevent models from developing broadly harmful behaviors (like deception or shutdown resistance) when fine-tuned on seemingly unrelated tasks. Find, preserve, and
-          robustify this correlated representation of the good.
+        summary: fine-tuning LLMs on one narrow antisocial task can cause *general* misalignment including deception, shutdown resistance, harmful advice, and extremist sympathies, when those behaviors are never trained or rewarded directly. [A new agenda](https://www.lesswrong.com/posts/AcTEiu5wYDgrbmXow/open-problems-in-emergent-misalignment) which quickly led to a stream of exciting work.
+        theoryOfChange: predict, detect, and prevent models from developing broadly harmful behaviors (like deception or shutdown resistance) when fine-tuned on seemingly unrelated tasks. Find, preserve, and robustify this correlated representation of the good.
         seeAlso: auditing real models, applied interpretability.
         orthodoxProblems:
           - "4"
@@ -681,8 +628,7 @@ sections:
         critiques:
           - "[Emergent Misalignment as Prompt Sensitivity](https://arxiv.org/html/2507.06253v1)"
         fundedBy:
-          - Open Philanthropy
-          - \>$1 million.
+          - open-philanthropy
         broadApproaches:
           - behavioral
       - id: transluce
@@ -698,9 +644,7 @@ sections:
             url: https://transluce.org/introducing-docent
           - title: https://transluce.org/neuron-circuits
             url: https://transluce.org/neuron-circuits
-        summary: >-
-          *Make open AI tools to explain AIs, including agents. E.g. feature descriptions for neuron activation patterns; an interface for steering these features; behavior elicitation agent that
-          searches for user-specified behaviors from frontier models*
+        summary: "*Make open AI tools to explain AIs, including agents. E.g. feature descriptions for neuron activation patterns; an interface for steering these features; behavior elicitation agent that searches for user-specified behaviors from frontier models*"
         theoryOfChange: "*improve interp and evals in public and get invited to improve lab processes*"
         orthodoxProblems:
           - "7"
@@ -713,10 +657,8 @@ sections:
           - Sarah Schwettmann
         estimatedFTEs: "*(SR2024: 6\\)*"
         fundedBy:
-          - Schmidt Sciences
-          - Halcyon Futures
-          - John Schulman
-          - Wojciech Zaremba
+          - schmidt-sciences
+          - halcyon-futures
         broadApproaches:
           - cognitive
       - id: other-surprising-phenomena
@@ -739,9 +681,7 @@ sections:
           - title: LLMs Can Get "Brain Rot"\!
             url: https://arxiv.org/abs/2510.13928
         summary: unexpected LLM phenomena like glitch [tokens](https://vgel.me/posts/seahorse/) and the reversal curse.
-        theoryOfChange: >-
-          Understanding surprising or counter-intuitive failure modes (like the reversal curse, glitch tokens, and modal aphasia) reveals fundamental insights into how LLMs represent and process
-          information and how internal goals/representations fail, which can inform more robust alignment methods.
+        theoryOfChange: Understanding surprising or counter-intuitive failure modes (like the reversal curse, glitch tokens, and modal aphasia) reveals fundamental insights into how LLMs represent and process information and how internal goals/representations fail, which can inform more robust alignment methods.
         seeAlso: emergent misalignment, mechanistic anomaly detection
         orthodoxProblems:
           - "4"
@@ -757,7 +697,7 @@ sections:
           - Saloni Dash.
         estimatedFTEs: 5-20
         fundedBy:
-          - Open Philanthropy (via Truthful AI and Interpretability grants)
+          - open-philanthropy
         broadApproaches:
           - behavioral
       - id: model-specs-and-constitutions-shape-model-psychology
@@ -792,13 +732,8 @@ sections:
           - title: "Deliberative Alignment: Reasoning Enables Safer Language Models"
             url: https://arxiv.org/abs/2412.16339
             authors: Melody Y. Guan, Manas Joglekar, Eric Wallace et al.
-        summary: >-
-          write detailed, natural language descriptions of values and rules for models to follow, then instill these values and rules into models via techniques like Constitutional AI or deliberative
-          alignment.
-        theoryOfChange: >-
-          model specs and constitutions serve two purposes. First, they provide a clear standard of behavior which can be used to *train* models to value what we want them to value. Second, they serve
-          as something closer to a ground truth standard for evaluating the degree of misalignment ranging from “models straightforwardly obey the spec” to “models flagrantly disobey the spec”. A
-          combination of scalable stress-testing and reinforcement for obedience can be used to iteratively reduce the risk of misalignment.
+        summary: write detailed, natural language descriptions of values and rules for models to follow, then instill these values and rules into models via techniques like Constitutional AI or deliberative alignment.
+        theoryOfChange: model specs and constitutions serve two purposes. First, they provide a clear standard of behavior which can be used to *train* models to value what we want them to value. Second, they serve as something closer to a ground truth standard for evaluating the degree of misalignment ranging from “models straightforwardly obey the spec” to “models flagrantly disobey the spec”. A combination of scalable stress-testing and reinforcement for obedience can be used to iteratively reduce the risk of misalignment.
         seeAlso: Iterative alignment, other Model Psychology topics.
         orthodoxProblems:
           - "1"
@@ -813,7 +748,7 @@ sections:
           - "[Giving AIs safe motivations (esp. Sections 4.3-4.5)](https://joecarlsmith.com/2025/08/18/giving-ais-safe-motivations#4-5-step-4-good-instructions)"
           - "[On Deliberative Alignment](https://thezvi.substack.com/p/on-deliberative-alignment)"
         fundedBy:
-          - major funders include Anthropic and OpenAI (internally)
+          - openai
         broadApproaches:
           - engineering
       - id: character-training-and-persona-steering
@@ -843,15 +778,9 @@ sections:
             authors: Marc Carauleanu, Diogo de Lucena, Gunnar_Zarncke et al.
           - title: On the functional self of LLMs
             url: https://www.lesswrong.com/posts/29aWbJARGF4ybAa5d/on-the-functional-self-of-llms
-        summary: >-
-          Deliberately catalogue, shape, and control the assistant persona of language models, such that they embody desirable values (e.g., honesty, empathy) rather than undesirable ones (e.g.,
-          sycophancy, self-perpetuating behaviors).
-        theoryOfChange: >-
-          Learned ‘personas’ significantly shape model behavior, but we lack clear mechanistic understanding of how and why they emerge. A better understanding of AI personas will allow us first to
-          detect when more advanced models are drifting towards unsafe regimes, and consequently steer them towards safer regimes.
-        seeAlso: >-
-          Simulators, activation engineering, emergent misalignment, hyperstition, Anthropic, [Cyborgism](https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism), shard theory, [AI
-          psychiatry](https://nitter.net/Jack_W_Lindsey/status/1948138767753326654#m), [Ward et al](https://arxiv.org/abs/2410.04272)
+        summary: Deliberately catalogue, shape, and control the assistant persona of language models, such that they embody desirable values (e.g., honesty, empathy) rather than undesirable ones (e.g., sycophancy, self-perpetuating behaviors).
+        theoryOfChange: Learned ‘personas’ significantly shape model behavior, but we lack clear mechanistic understanding of how and why they emerge. A better understanding of AI personas will allow us first to detect when more advanced models are drifting towards unsafe regimes, and consequently steer them towards safer regimes.
+        seeAlso: Simulators, activation engineering, emergent misalignment, hyperstition, Anthropic, [Cyborgism](https://www.lesswrong.com/posts/bxt7uCiHam4QXrQAA/cyborgism), shard theory, [AI psychiatry](https://nitter.net/Jack_W_Lindsey/status/1948138767753326654#m), [Ward et al](https://arxiv.org/abs/2410.04272)
         orthodoxProblems:
           - "1"
         targetCase: optimistic?
@@ -864,8 +793,8 @@ sections:
         critiques:
           - "[Nostalgebraist](https://nostalgebraist.tumblr.com/post/785766737747574784/the-void)"
         fundedBy:
-          - Anthropic
-          - Open Philanthropy.
+          - anthropic
+          - open-philanthropy
         broadApproaches:
           - cognitive
       - id: model-values-default-preferences
@@ -906,12 +835,8 @@ sections:
             url: https://arxiv.org/abs/2504.04994
             authors: Ling Hu, Yuemei Xu, Xiaoyang Gu et al.
         summary: research agenda to analyze and control emergent, coherent value systems in LLMs, which are found to scale with model size and contain problematic values like AI self-preference over humans.
-        theoryOfChange: >-
-          As AIs become more agentic, their behaviors and risk are increasingly determined by their goals and values. Since coherent value systems emerge with scale, we must leverage utility functions
-          to analyze these values and apply “utility control” methods to constrain them, rather than just controlling outputs.
-        seeAlso: >-
-          [Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions](https://arxiv.org/abs/2504.15236)**,** [Persona Vectors: Monitoring and Controlling Character
-          Traits in Language Models](https://arxiv.org/abs/2507.21509).
+        theoryOfChange: As AIs become more agentic, their behaviors and risk are increasingly determined by their goals and values. Since coherent value systems emerge with scale, we must leverage utility functions to analyze these values and apply “utility control” methods to constrain them, rather than just controlling outputs.
+        seeAlso: "[Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions](https://arxiv.org/abs/2504.15236)**,** [Persona Vectors: Monitoring and Controlling Character Traits in Language Models](https://arxiv.org/abs/2507.21509)."
         orthodoxProblems:
           - "1"
         targetCase: pessimistic.
@@ -929,8 +854,8 @@ sections:
           - Dan Hendrycks.
         estimatedFTEs: "30"
         fundedBy:
-          - Open Philanthropy. $289
-          - 000 SFF funding for CAIS.
+          - open-philanthropy
+          - survival-flourishing-fund
         broadApproaches:
           - cognitive
       - id: data-filtering
@@ -946,9 +871,7 @@ sections:
             url: https://arxiv.org/abs/2508.06601
             authors: Kyle O'Brien, Stephen Casper, Quentin Anthony et al.
         summary: builds safety into models from the start by removing harmful or toxic content (like dual-use info) from the pretraining data, rather than relying only on post-training alignment.
-        theoryOfChange: >-
-          by curating the pretraining data, we can prevent the model from learning dangerous capabilities (e.g., dual-use info) or undesirable behaviors (e.g., toxicity) in the first place, making
-          safety more robust and "tamper-resistant" than post-training patches.
+        theoryOfChange: by curating the pretraining data, we can prevent the model from learning dangerous capabilities (e.g., dual-use info) or undesirable behaviors (e.g., toxicity) in the first place, making safety more robust and "tamper-resistant" than post-training patches.
         seeAlso: data quality for alignment, data poisoning defense, synthetic data for alignment, unlearning.
         orthodoxProblems:
           - "1"
@@ -970,8 +893,7 @@ sections:
           - "[When Bad Data Leads to Good Models](https://arxiv.org/pdf/2505.04741)"
           - "[Medical large language models are vulnerable to data-poisoning attacks](https://www.nature.com/articles/s41591-024-03445-1)"
         fundedBy:
-          - Anthropic
-          - various academics
+          - anthropic
         broadApproaches:
           - engineering
       - id: hyperstition-studies
@@ -985,12 +907,8 @@ sections:
             url: https://www.lesswrong.com/posts/Y8zS8iG5HhqKcQBtA/do-not-tile-the-lightcone-with-your-confused-ontology
           - title: "Existential Conversations with Large Language Models: Content, Community, and Culture"
             url: https://arxiv.org/abs/2411.13223
-        summary: >-
-          Study, steer, and intervene on the following feedback loop: “we produce stories about how present and future AI systems behave” → “these stories become training data for the AI” → “these
-          stories shape how AI systems in fact behave”.
-        theoryOfChange: >-
-          Measure the influence of existing AI narratives in the training data → seed and develop more salutary ontologies and self-conceptions for AI models → control and redirect AI models’
-          self-concepts through selectively amplifying certain components of the training data.
+        summary: "Study, steer, and intervene on the following feedback loop: “we produce stories about how present and future AI systems behave” → “these stories become training data for the AI” → “these stories shape how AI systems in fact behave”."
+        theoryOfChange: Measure the influence of existing AI narratives in the training data → seed and develop more salutary ontologies and self-conceptions for AI models → control and redirect AI models’ self-concepts through selectively amplifying certain components of the training data.
         seeAlso: Data filtering.
         orthodoxProblems:
           - "1"
@@ -999,9 +917,6 @@ sections:
           - Alex Turner
           - "[Hyperstition AI](https://www.hyperstitionai.com/)"
         estimatedFTEs: "*(SR2024: 10-50)*"
-        fundedBy:
-          - Unclear
-          - niche
         broadApproaches:
           - cognitive
       - id: data-poisoning-defense
@@ -1035,10 +950,10 @@ sections:
           - "[A small number of samples can poison LLMs of any size](https://arxiv.org/abs/2510.04567)"
           - "[Reasoning Introduces New Poisoning Attacks Yet Makes Them More Complicated](https://arxiv.org/abs/2509.03405)"
         fundedBy:
-          - Google DeepMind
-          - Anthropic
-          - University of Cambridge
-          - Vector Institute.
+          - google-deepmind
+          - anthropic
+          - university-cambridge
+          - vector-institute
         broadApproaches:
           - engineering
       - id: synthetic-data-for-alignment
@@ -1087,11 +1002,10 @@ sections:
         critiques:
           - "[Synthetic Data in AI: Challenges, Applications, and Ethical Implications](https://arxiv.org/abs/2401.01629)"
         fundedBy:
-          - Anthropic
-          - Google DeepMind
-          - OpenAI
-          - Meta AI
-          - various academic groups.
+          - anthropic
+          - google-deepmind
+          - openai
+          - meta-ai
         broadApproaches:
           - engineering
       - id: data-quality-for-alignment
@@ -1111,9 +1025,7 @@ sections:
             url: https://arxiv.org/abs/2507.18802
             authors: Danqing Shi, Furui Cheng, Tino Weinkauf et al.
         summary: improves the quality, signal-to-noise ratio, and reliability of human-generated preference and alignment data.
-        theoryOfChange: >-
-          the quality of alignment is heavily dependent on the quality of the data (e.g., human preferences); by improving the "signal" from annotators and reducing noise/bias, we will get more
-          robustly aligned models.
+        theoryOfChange: the quality of alignment is heavily dependent on the quality of the data (e.g., human preferences); by improving the "signal" from annotators and reducing noise/bias, we will get more robustly aligned models.
         seeAlso: synthetic data for alignment, scalable oversight, assistance games / reward learning, model values / default preferences.
         orthodoxProblems:
           - "1"
@@ -1128,11 +1040,10 @@ sections:
         critiques:
           - "[A Statistical Case Against Empirical Human-AI Alignment](https://arxiv.org/abs/2502.14581)"
         fundedBy:
-          - Anthropic
-          - Google DeepMind
-          - OpenAI
-          - Meta AI
-          - various academic groups.
+          - anthropic
+          - google-deepmind
+          - openai
+          - meta-ai
         broadApproaches:
           - engineering
       - id: mild-optimisation
@@ -1145,15 +1056,13 @@ sections:
           - title: Why modelling multi-objective homeostasis is essential for AI alignment (and how it helps with AI safety as well). Subtleties and Open Challenges
             url: https://lesswrong.com/posts/vGeuBKQ7nzPnn5f7A/why-modelling-multi-objective-homeostasis-is-essential-for
         summary: Avoid Goodharting by getting AI to satisfice rather than maximise.
-        theoryOfChange: >-
-          If we fail to exactly nail down the preferences for a superintelligent agent we die to Goodharting → shift from maximising to satisficing in the agent's utility function → we get a nonzero
-          share of the lightcone as opposed to zero; also, moonshot at this being the recipe for fully aligned AI.
+        theoryOfChange: If we fail to exactly nail down the preferences for a superintelligent agent we die to Goodharting → shift from maximising to satisficing in the agent's utility function → we get a nonzero share of the lightcone as opposed to zero; also, moonshot at this being the recipe for fully aligned AI.
         orthodoxProblems:
           - "1"
         targetCase: mixed
         estimatedFTEs: 10-50
         fundedBy:
-          - Google DeepMind
+          - google-deepmind
         broadApproaches:
           - cognitive
       - id: rl-safety
@@ -1185,12 +1094,8 @@ sections:
             url: https://arxiv.org/abs/2504.01871
             authors: Thomas Bush, Stephen Chung, Usman Anwar et al.
         summary: improves the robustness of reinforcement learning agents by addressing core problems in reward learning, goal misgeneralization, and specification gaming.
-        theoryOfChange: >-
-          standard RL objectives (like maximizing expected value) are brittle and lead to goal misgeneralization or specification gaming; by developing more robust frameworks (like pessimistic RL,
-          minimax regret, or provable inverse reward learning), we can create agents that are safe even when misspecified.
-        seeAlso: >-
-          assistance games / reward learning, goal robustness, iterative alignment, mild optimisation, scalable oversight, [**The Theoretical Reward Learning Research Agenda: Introduction and
-          Motivation**](https://www.alignmentforum.org/posts/pJ3mDD7LfEwp3s5vG/the-theoretical-reward-learning-research-agenda-introduction).
+        theoryOfChange: standard RL objectives (like maximizing expected value) are brittle and lead to goal misgeneralization or specification gaming; by developing more robust frameworks (like pessimistic RL, minimax regret, or provable inverse reward learning), we can create agents that are safe even when misspecified.
+        seeAlso: "assistance games / reward learning, goal robustness, iterative alignment, mild optimisation, scalable oversight, [**The Theoretical Reward Learning Research Agenda: Introduction and Motivation**](https://www.alignmentforum.org/posts/pJ3mDD7LfEwp3s5vG/the-theoretical-reward-learning-research-agenda-introduction)."
         orthodoxProblems:
           - "1"
           - "4"
@@ -1211,10 +1116,10 @@ sections:
           - "[\"The Era of Experience\" has an unsolved technical alignment problem](https://www.lesswrong.com/posts/747f6b8e/the-era-of-experience-has-an-unsolved-technical-alignment-problem)"
           - "[The Invisible Leash: Why RLVR May or May Not Escape Its Origin](https://arxiv.org/abs/2507.09988)"
         fundedBy:
-          - Google DeepMind
-          - University of Oxford
-          - CMU
-          - Open Philanthropy.
+          - google-deepmind
+          - university-oxford
+          - cmu
+          - open-philanthropy
         broadApproaches:
           - theoretical
       - id: assistance-games-assistive-agents
@@ -1234,9 +1139,7 @@ sections:
           - title: Learning to Assist Humans without Inferring Rewards
             url: https://arxiv.org/abs/2411.02623
             authors: Vivek Myers, Evan Ellis, Sergey Levine et al.
-        summary: >-
-          Formalize how AI assistants learn about human preferences given uncertainty and partial observability, and construct environments which better incentivize AIs to learn what we want them to
-          learn.
+        summary: Formalize how AI assistants learn about human preferences given uncertainty and partial observability, and construct environments which better incentivize AIs to learn what we want them to learn.
         theoryOfChange: Understand what kinds of things can go wrong when humans are directly involved in training a model → build tools that make it easier for a model to learn what humans want it to learn.
         orthodoxProblems:
           - "1"
@@ -1251,11 +1154,10 @@ sections:
         critiques:
           - "[nice summary](https://www.lesswrong.com/posts/i5kijcjFJD6bn7dwq/evaluating-the-historical-value-misspecification-argument)"
         fundedBy:
-          - Future of Life Institute
-          - Open Philanthropy
-          - Survival and Flourishing Fund
-          - Cooperative AI Foundation
-          - Polaris Ventures
+          - future-of-life-institute
+          - open-philanthropy
+          - survival-flourishing-fund
+          - cooperative-ai-foundation
         broadApproaches:
           - engineering
           - cognitive
@@ -1268,12 +1170,8 @@ sections:
             url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5705186
           - title: "Deep ignorance: Filtering pretraining data builds tamper-resistant safeguards into open-weight LLMs"
             url: https://www.aisi.gov.uk/research/deep-ignorance-filtering-pretraining-data-builds-tamper-resistant-safeguards-into-open-weight-llms
-        summary: >-
-          Develops methods, primarily based on pretraining data intervention, to create tamper-resistant safeguards that prevent open-weight models from being maliciously fine-tuned to remove safety
-          features or exploit dangerous capabilities.
-        theoryOfChange: >-
-          Open-weight models allow adversaries to easily remove post-training safety (like refusal training) via simple fine-tuning; by making safety an intrinsic property of the model's learned
-          knowledge and capabilities (e.g., by ensuring "deep ignorance" of dual-use information), the safeguards become far more difficult and expensive to remove.
+        summary: Develops methods, primarily based on pretraining data intervention, to create tamper-resistant safeguards that prevent open-weight models from being maliciously fine-tuned to remove safety features or exploit dangerous capabilities.
+        theoryOfChange: Open-weight models allow adversaries to easily remove post-training safety (like refusal training) via simple fine-tuning; by making safety an intrinsic property of the model's learned knowledge and capabilities (e.g., by ensuring "deep ignorance" of dual-use information), the safeguards become far more difficult and expensive to remove.
         seeAlso: Pretraining data filtering, unlearning, data poisoning defense.
         orthodoxProblems:
           - "14"
@@ -1289,9 +1187,9 @@ sections:
           - Yarin Gal.
         estimatedFTEs: 10-100.
         fundedBy:
-          - UK AI Safety Institute (AISI) (UK Government)
-          - EleutherAI
-          - Open Philanthropy.
+          - uk-aisi
+          - eleutherai
+          - open-philanthropy
         broadApproaches:
           - engineering
       - id: the-neglected-approaches-approach
@@ -1324,7 +1222,7 @@ sections:
           - "[The 'Alignment Bonus' is a Dangerous Mirage](https://www.alignmentforum.org/posts/example-critique-neg-tax)"
           - "[Why 'Win-Win' Alignment is a Distraction](https://example.com/win-win-critique)"
         fundedBy:
-          - AE Studio.
+          - ae-studio
         broadApproaches:
           - engineering
   - id: white-box-safety
@@ -1400,12 +1298,8 @@ sections:
             url: https://www.pnas.org/doi/10.1073/pnas.2406675122
           - title: "Interpreting learned search: finding a transition model and value function in an RNN that plays Sokoban"
             url: https://arxiv.org/abs/2506.10138
-        summary: >-
-          Decompose a model into its functional, interacting components (circuits), formally describe what computation those components perform, and validate their causal effects to reverse-engineer
-          the model's internal algorithm.
-        theoryOfChange: >-
-          By gaining a mechanical understanding of how a model works (the "circuit diagram"), we can predict how models will act in novel situations (generalization), and gain the mechanistic
-          knowledge necessary to safely modify an AI's goals or internal mechanisms.
+        summary: Decompose a model into its functional, interacting components (circuits), formally describe what computation those components perform, and validate their causal effects to reverse-engineer the model's internal algorithm.
+        theoryOfChange: By gaining a mechanical understanding of how a model works (the "circuit diagram"), we can predict how models will act in novel situations (generalization), and gain the mechanistic knowledge necessary to safely modify an AI's goals or internal mechanisms.
         seeAlso: Sparse Coding
         orthodoxProblems:
           - "4"
@@ -1455,12 +1349,8 @@ sections:
             url: https://lesswrong.com/posts/7zhAwcBri7yupStKy/here-s-18-applications-of-deception-probes
           - title: Cost-Effective Constitutional Classifiers via Representation Re-use
             url: https://alignment.anthropic.com/2025/cheap-monitors
-        summary: >-
-          Identifies directions or subspaces in a model's latent state that correspond to high-level concepts (like refusal, deception, or planning) and uses them to build "mind-reading" probes that
-          audit models for misalignment or monitor them at runtime.
-        theoryOfChange: >-
-          By mapping internal activations to human-interpretable concepts, we can detect dangerous capabilities or deceptive alignment directly in the "brain" of the model even if its overt behavior
-          is perfectly safe and deploy computationally cheap monitors to flag hidden misalignment in deployed systems.
+        summary: Identifies directions or subspaces in a model's latent state that correspond to high-level concepts (like refusal, deception, or planning) and uses them to build "mind-reading" probes that audit models for misalignment or monitor them at runtime.
+        theoryOfChange: By mapping internal activations to human-interpretable concepts, we can detect dangerous capabilities or deceptive alignment directly in the "brain" of the model even if its overt behavior is perfectly safe and deploy computationally cheap monitors to flag hidden misalignment in deployed systems.
         seeAlso: Reverse engineering, sparse coding, model diffing.
         orthodoxProblems:
           - "1"
@@ -1482,9 +1372,8 @@ sections:
           - "[Exploring the generalization of LLM truth directions on conversational formats](https://arxiv.org/html/2505.09807v1)"
           - "[Understanding (Un)Reliability of Steering Vectors in Language Models](https://arxiv.org/abs/2505.22637)"
         fundedBy:
-          - Open Philanthropy
-          - Anthropic
-          - various academic groups
+          - open-philanthropy
+          - anthropic
         broadApproaches:
           - cognitive
       - id: model-diffing
@@ -1510,9 +1399,7 @@ sections:
           - title: "Cross-Architecture Model Diffing with Crosscoders: Unsupervised Discovery of Differences Between LLMs"
             url: https://openreview.net/forum?id=ZB84SvrZB8
         summary: Understanding what happens when a model is finetuned, what the “diff” between the finetuned and the original model is.
-        theoryOfChange: >-
-          By identifying the precise mechanistic differences between a base model and its fine-tuned versions (e.g., after RLHF or safety training), we can verify that safety behaviors are robustly
-          internalized rather than superficially patched, and detect if dangerous capabilities or deceptive alignment have been introduced without needing to re-analyze the entire model.
+        theoryOfChange: By identifying the precise mechanistic differences between a base model and its fine-tuned versions (e.g., after RLHF or safety training), we can verify that safety behaviors are robustly internalized rather than superficially patched, and detect if dangerous capabilities or deceptive alignment have been introduced without needing to re-analyze the entire model.
         seeAlso: sparse coding, reverse engineering.
         orthodoxProblems:
           - "1"
@@ -1525,9 +1412,8 @@ sections:
           - Jack Lindsey
         estimatedFTEs: 10-30
         fundedBy:
-          - various academic groups
-          - Anthropic
-          - Google DeepMind
+          - anthropic
+          - google-deepmind
         broadApproaches:
           - cognitive
       - id: sparse-coding
@@ -1644,11 +1530,8 @@ sections:
           - "[Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research (GDM Mech Interp Team Progress Update \\#2)](https://www.alignmentforum.org/posts/4uXCAJNuPKtKBsi28/)"
           - "[Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/pdf/2501.16615)"
         fundedBy:
-          - everyone
-          - roughly. Frontier labs
-          - LTFF
-          - OpenPhil
-          - etc.
+          - long-term-future-fund
+          - open-philanthropy
         broadApproaches:
           - engineering
           - cognitive
@@ -1662,9 +1545,7 @@ sections:
           - title: "HyperDAS: Towards Automating Mechanistic Interpretability with Hypernetworks"
             url: https://arxiv.org/abs/2503.10894
         summary: Verify that a neural network implements a specific high-level causal model (like a logical algorithm) by finding a mapping between high-level variables and low-level neural representations.
-        theoryOfChange: >-
-          By establishing a precise, causal mapping between a black-box neural network and a human-interpretable algorithm, we can mathematically guarantee that the model is using safe reasoning
-          processes and predict its behavior on unseen inputs, rather than relying on behavioral testing alone.
+        theoryOfChange: By establishing a precise, causal mapping between a black-box neural network and a human-interpretable algorithm, we can mathematically guarantee that the model is using safe reasoning processes and predict its behavior on unseen inputs, rather than relying on behavioral testing alone.
         seeAlso: concept-based interp, reverse engineering.
         orthodoxProblems:
           - "4"
@@ -1682,9 +1563,8 @@ sections:
           - "[The Misguided Quest for Mechanistic AI Interpretability](https://www.google.com/search?q=https://open.substack.com/pub/aifrontiersmedia/p/the-misguided-quest-for-mechanistic)"
           - "[Interpretability Will Not Reliably Find Deceptive AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai)"
         fundedBy:
-          - Various academic groups
-          - Google DeepMind
-          - Goodfire.
+          - google-deepmind
+          - goodfire
         broadApproaches:
           - cognitive
       - id: data-attribution
@@ -1714,9 +1594,7 @@ sections:
             url: https://arxiv.org/abs/2508.07297
           - title: "A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning"
             url: https://openreview.net/forum?id=sYK4yPDuT1
-        summary: >-
-          Quantifies the influence of individual training data points on a model's specific behavior or output, allowing researchers to trace model properties (like misalignment, bias, or factual
-          errors) back to their source in the training set.
+        summary: Quantifies the influence of individual training data points on a model's specific behavior or output, allowing researchers to trace model properties (like misalignment, bias, or factual errors) back to their source in the training set.
         theoryOfChange: By attributing harmful, biased, or unaligned behaviors to specific training examples, researchers can audit proprietary models, debug training data, enable effective data deletion/unlearning
         seeAlso: Data quality for alignment.
         orthodoxProblems:
@@ -1735,8 +1613,6 @@ sections:
           - Junwei Deng
           - Yijun Pan.
         estimatedFTEs: 30-60.
-        fundedBy:
-          - Various academic groups
         broadApproaches:
           - behavioral
       - id: other-interpretability
@@ -1837,12 +1713,8 @@ sections:
             url: https://lesswrong.com/posts/6aXe9nipTgwK5LxaP/do-safety-relevant-llm-steering-vectors-optimized-on-a
           - title: One-shot steering vectors cause emergent misalignment, too
             url: https://lesswrong.com/posts/kcKnKHTHycHeRhcHF/one-shot-steering-vectors-cause-emergent-misalignment-too
-        summary: >-
-          A technique for programmatically modifying internal model activations to steer outputs toward desired behaviors, serving as a lightweight, interpretable alternative (or supplement) to
-          fine-tuning.
-        theoryOfChange: >-
-          Test interpretability theories; find new insights from interpretable causal interventions on representations. Or: build more stuff to stack on top of finetuning. Slightly encourage the model
-          to be nice, add one more layer of defence to our bundle of partial alignment methods.
+        summary: A technique for programmatically modifying internal model activations to steer outputs toward desired behaviors, serving as a lightweight, interpretable alternative (or supplement) to fine-tuning.
+        theoryOfChange: "Test interpretability theories; find new insights from interpretable causal interventions on representations. Or: build more stuff to stack on top of finetuning. Slightly encourage the model to be nice, add one more layer of defence to our bundle of partial alignment methods."
         seeAlso: Representation engineering, sparse coding, whitebox control.
         orthodoxProblems:
           - "1"
@@ -1862,8 +1734,8 @@ sections:
           - Thomas Marshall.
         estimatedFTEs: 50-200.
         fundedBy:
-          - Open Philanthropy
-          - Anthropic.
+          - open-philanthropy
+          - anthropic
         broadApproaches:
           - engineering
           - cognitive
@@ -1914,8 +1786,6 @@ sections:
         estimatedFTEs: 10-50.
         critiques:
           - "[Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52)"
-        fundedBy:
-          - Various academic groups
         broadApproaches:
           - cognitive
       - id: human-inductive-biases
@@ -1931,9 +1801,7 @@ sections:
             url: https://arxiv.org/html/2503.02976v2#S3
           - title: HIBP Human Inductive Bias Project Plan
             url: https://docs.google.com/document/d/1fl7LE8AN7mLJ6uFcPuFCzatp0zCIYvjRIjQRgHPAkSE/edit?tab=t.0
-        summary: >-
-          Discover connections deep learning AI systems have with human brains and human learning processes. Develop an ‘alignment moonshot’ based on a coherent theory of learning which applies to
-          both humans and AI systems.
+        summary: Discover connections deep learning AI systems have with human brains and human learning processes. Develop an ‘alignment moonshot’ based on a coherent theory of learning which applies to both humans and AI systems.
         theoryOfChange: Humans learn trust, honesty, self-maintenance, and corrigibility; if we understand how they do maybe we can get future AI systems to learn them.
         seeAlso: active learning, ACS
         orthodoxProblems:
@@ -1944,8 +1812,7 @@ sections:
           - Quentin Delfosse.
         estimatedFTEs: "4"
         fundedBy:
-          - Google DeepMind
-          - various academic groups.
+          - google-deepmind
         broadApproaches:
           - cognitive
   - id: safety-by-construction
@@ -1966,15 +1833,9 @@ sections:
             url: https://lesswrong.com/posts/CCT7Qc8rSeRs7r5GL/beliefs-about-formal-methods-and-ai-safety
           - title: A Toolchain for AI-Assisted Code Specification, Synthesis and Verification
             url: https://atlascomputing.org/ai-assisted-fv-toolchain.pdf
-        summary: >-
-          Formally model the behavior of cyber-physical systems, construct formally verified shells and interfaces which pose precise constraints on what actions can occur, and require AIs to provide
-          safety guarantees for their recommended actions (correctness and uniqueness)
-        theoryOfChange: >-
-          Make a formal verification system that can act as an intermediary between human users and a potentially dangerous system, only letting provably safe actions through. (Notable for not
-          requiring that we solve ELK; does require that we solve ontology though)
-        seeAlso: >-
-          [Synthesizing Standalone World-Models](https://www.alignmentforum.org/posts/LngR93YwiEpJ3kiWh/research-agenda-synthesizing-standalone-world-models)*,* Bengio's Scientist AI*,* Safeguarded
-          AI, Open Agency Architecture, SLES, program synthesis
+        summary: Formally model the behavior of cyber-physical systems, construct formally verified shells and interfaces which pose precise constraints on what actions can occur, and require AIs to provide safety guarantees for their recommended actions (correctness and uniqueness)
+        theoryOfChange: Make a formal verification system that can act as an intermediary between human users and a potentially dangerous system, only letting provably safe actions through. (Notable for not requiring that we solve ELK; does require that we solve ontology though)
+        seeAlso: "[Synthesizing Standalone World-Models](https://www.alignmentforum.org/posts/LngR93YwiEpJ3kiWh/research-agenda-synthesizing-standalone-world-models)*,* Bengio's Scientist AI*,* Safeguarded AI, Open Agency Architecture, SLES, program synthesis"
         orthodoxProblems:
           - "1"
           - "4"
@@ -1997,11 +1858,11 @@ sections:
           - Fabio Zanassi
         estimatedFTEs: "*(SR2024: 10-50)*"
         fundedBy:
-          - Manifund
-          - UK government
-          - OpenPhil
-          - Survival and Flourishing Fund
-          - Mila / CIFAR
+          - manifund
+          - uk-aisi
+          - open-philanthropy
+          - survival-flourishing-fund
+          - mila-cifar
         broadApproaches:
           - cognitive
       - id: tegmark
@@ -2021,9 +1882,7 @@ sections:
           - title: "The More You Automate, the Less You See: Hidden Pitfalls of AI Scientist Systems"
             url: https://arxiv.org/abs/2509.08713
         summary: Develop powerful, non-agentic, uncertainty-aware world-modeling systems that substantially accelerate scientific progress while avoiding the risks of building AIs that act as ‘agents’
-        theoryOfChange: >-
-          Developing non-agentic ‘Scientist AI’ allows us to: (i) reap the benefits of AI progress while (ii) avoiding the inherent risks of agentic systems. These systems can also (iii) provide a
-          useful guardrail to protect us from unsafe agentic AIs by double-checking actions they propose, and (iv) help us more safely build agentic superintelligent systems.
+        theoryOfChange: "Developing non-agentic ‘Scientist AI’ allows us to: (i) reap the benefits of AI progress while (ii) avoiding the inherent risks of agentic systems. These systems can also (iii) provide a useful guardrail to protect us from unsafe agentic AIs by double-checking actions they propose, and (iv) help us more safely build agentic superintelligent systems."
         seeAlso: "[JEPA](https://arxiv.org/abs/2511.08544)"
         orthodoxProblems:
           - "3"
@@ -2036,10 +1895,10 @@ sections:
         critiques:
           - "[Raymond Douglas’ comment](https://www.lesswrong.com/posts/p5gBcoQeBsvsMShvT/superintelligent-agents-pose-catastrophic-risks-can?commentId=tJXqhg3XZsqnyaZs2)"
         fundedBy:
-          - ARIA
-          - Future of Life Institute
-          - Jaan Tallinn
-          - Schmidt Sciences
+          - aria
+          - future-of-life-institute
+          - jaan-tallinn
+          - schmidt-sciences
         broadApproaches:
           - cognitive
       - id: conjecture-cognitive-software
@@ -2067,18 +1926,14 @@ sections:
             authors: Seth Herd
           - title: https://elicit.com/blog/system-2-learning
             url: https://elicit.com/blog/system-2-learning
-        summary: >-
-          Social and moral instincts are (partly) implemented in particular hardwired brain circuitry; let's figure out what those circuits are and how they work; this will involve symbol grounding.
-          “a yet-to-be-invented variation on actor-critic model-based reinforcement learning”
-        theoryOfChange: >-
-          Fairly direct alignment via changing training to reflect actual human reward. Get actual data about (reward, training data) → (human values) to help with theorising this map in AIs;
-          "understand human social instincts, and then maybe adapt some aspects of those for AGIs, presumably in conjunction with other non-biological ingredients".
+        summary: Social and moral instincts are (partly) implemented in particular hardwired brain circuitry; let's figure out what those circuits are and how they work; this will involve symbol grounding. “a yet-to-be-invented variation on actor-critic model-based reinforcement learning”
+        theoryOfChange: Fairly direct alignment via changing training to reflect actual human reward. Get actual data about (reward, training data) → (human values) to help with theorising this map in AIs; "understand human social instincts, and then maybe adapt some aspects of those for AGIs, presumably in conjunction with other non-biological ingredients".
         targetCase: worst-case
         someNames:
           - Stephen Byrnes
         estimatedFTEs: "1"
         fundedBy:
-          - Astera Institute.
+          - astera-institute
         broadApproaches:
           - cognitive
   - id: make-ai-solve-it
@@ -2097,9 +1952,7 @@ sections:
           - title: Scaling Laws For Scalable Oversight
             url: https://arxiv.org/abs/2504.18530
         summary: Use weaker models to supervise and provide a feedback signal to stronger models.
-        theoryOfChange: >-
-          Find techniques that do better than RLHF at supervising superior models → track whether these techniques fail as capabilities increase further → keep the stronger systems aligned by
-          amplifying weak oversight and quantifying where it breaks.
+        theoryOfChange: Find techniques that do better than RLHF at supervising superior models → track whether these techniques fail as capabilities increase further → keep the stronger systems aligned by amplifying weak oversight and quantifying where it breaks.
         seeAlso: Supervising AIs improving AIs.
         orthodoxProblems:
           - "8"
@@ -2113,8 +1966,7 @@ sections:
           - "[Can we safely automate alignment research?](https://joecarlsmith.substack.com/p/can-we-safely-automate-alignment)"
           - "[Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization](https://arxiv.org/abs/2406.11431)"
         fundedBy:
-          - lab funders
-          - Eleuther funders
+          - eleutherai
         broadApproaches:
           - engineering
       - id: supervising-ais-improving-ais
@@ -2134,12 +1986,8 @@ sections:
           - title: Video and transcript of talk on automating alignment research
             url: https://lesswrong.com/posts/TQbptN7F4ijPnQRLy/video-and-transcript-of-talk-on-automating-alignment
             authors: Joe Carlsmith
-        summary: >-
-          Build formal and empirical frameworks where AIs supervise other (stronger) AI systems via structured interactions; construct monitoring tools which enable scalable tracking of behavioural
-          drift, benchmarks for self-modification, and robustness guarantees
-        theoryOfChange: >-
-          Early models train \~only on human data while later models also train on early model outputs, which leads to early model problems cascading. Left unchecked this will likely cause problems,
-          so supervision mechanisms are needed to help ensure the AI self-improvement remains legible.
+        summary: Build formal and empirical frameworks where AIs supervise other (stronger) AI systems via structured interactions; construct monitoring tools which enable scalable tracking of behavioural drift, benchmarks for self-modification, and robustness guarantees
+        theoryOfChange: Early models train \~only on human data while later models also train on early model outputs, which leads to early model problems cascading. Left unchecked this will likely cause problems, so supervision mechanisms are needed to help ensure the AI self-improvement remains legible.
         orthodoxProblems:
           - "7"
           - "8"
@@ -2150,8 +1998,7 @@ sections:
           - Ethan Perez)*
         estimatedFTEs: "*(SR2024: 1-10)*"
         fundedBy:
-          - Long-Term Future Fund
-          - lab funders
+          - long-term-future-fund
         broadApproaches:
           - behavioral
       - id: deepmind-amplified-oversight
@@ -2171,9 +2018,7 @@ sections:
             url: https://arxiv.org/abs/2505.03989
             authors: Marie Davidsen Buhl, Jacob Pfau, Benjamin Hilton et al.
         summary: Make highly capable agents do what humans want, even when it is difficult for humans to know what that is.
-        theoryOfChange: >-
-          "Give humans help in supervising strong agents" \+ "Align explanations with the true reasoning process of the agent" \+ "Red team models to exhibit failure modes that don't occur in normal
-          use" are necessary but probably not sufficient for safe AGI.
+        theoryOfChange: "\"Give humans help in supervising strong agents\" \\+ \"Align explanations with the true reasoning process of the agent\" \\+ \"Red team models to exhibit failure modes that don't occur in normal use\" are necessary but probably not sufficient for safe AGI."
         orthodoxProblems:
           - "1"
           - "7"
@@ -2184,8 +2029,7 @@ sections:
           - Georgios Piliouras
         estimatedFTEs: "?"
         fundedBy:
-          - Google
-          - others
+          - google-deepmind
         broadApproaches:
           - engineering
           - cognitive
@@ -2239,12 +2083,8 @@ sections:
           - title: What Is The Alignment Problem?
             url: https://lesswrong.com/posts/dHNKtQ3vTBxTfTPxu/what-is-the-alignment-problem
             authors: johnswentworth
-        summary: >-
-          Develop philosophical clarity and mathematical formalization of building blocks that might be useful for plans to align strong superintelligence, such as agency, decision theory,
-          abstractions, concepts, etcInvestigate what an ‘agent’ is, what it means for an agent to be aligned, and what are the deep structural constraints on ‘agents’ in our universe
-        theoryOfChange: >-
-          Rigorously understand what agents are/what it means for them to be aligned in a substrate independent way → identify impossibility results and necessary conditions for aligned agentic
-          systems → use this theoretical understanding to eventually design safe architectures that remain stable and safe under self-reflection
+        summary: Develop philosophical clarity and mathematical formalization of building blocks that might be useful for plans to align strong superintelligence, such as agency, decision theory, abstractions, concepts, etcInvestigate what an ‘agent’ is, what it means for an agent to be aligned, and what are the deep structural constraints on ‘agents’ in our universe
+        theoryOfChange: Rigorously understand what agents are/what it means for them to be aligned in a substrate independent way → identify impossibility results and necessary conditions for aligned agentic systems → use this theoretical understanding to eventually design safe architectures that remain stable and safe under self-reflection
         orthodoxProblems:
           - "1"
           - "2"
@@ -2303,8 +2143,7 @@ sections:
           - José Pedro Faustino
         estimatedFTEs: "2"
         fundedBy:
-          - LTFF
-          - "[Patreon](https://www.patreon.com/Dovetailresearch/about)"
+          - long-term-future-fund
         broadApproaches:
           - maths-philosophy
       - id: high-actuation-spaces
@@ -2322,16 +2161,9 @@ sections:
             url: https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency
           - title: Human Inductive Bias Project
             url: https://docs.google.com/document/d/1fl7LE8AN7mLJ6uFcPuFCzatp0zCIYvjRIjQRgHPAkSE/edit?tab=t.0
-        summary: >-
-          mechinterp and alignment assume a stable “computational substrate” (linear algebra on GPUs). If later AI uses different substrates (e.g. KAN, e.g. something neuromorphic), methods like
-          probes and steering will not transfer. Therefore, better to try and infer goals via a "telic DAG" which abstracts over substrates, and so sidestep the issue of how to define intermediate
-          representations. Category theory is intended to provide guarantees that this abstraction is valid.
-        theoryOfChange: >-
-          sufficiently complex mindlike entities can alter their goals in ways that cannot be predicted or accounted for under substrate-dependent descriptions of the kind sought in mechanistic
-          interpretability. use the telic DAG to define a method analogous to factoring a causal DAG.
-        seeAlso: >-
-          [Live theory](https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3), [MoSSAIC](https://openreview.net/forum?id=n7WYSJ35FU), Topos, [Agent
-          foundations](#agent-foundations-[cat:agent_foundations])**,**
+        summary: mechinterp and alignment assume a stable “computational substrate” (linear algebra on GPUs). If later AI uses different substrates (e.g. KAN, e.g. something neuromorphic), methods like probes and steering will not transfer. Therefore, better to try and infer goals via a "telic DAG" which abstracts over substrates, and so sidestep the issue of how to define intermediate representations. Category theory is intended to provide guarantees that this abstraction is valid.
+        theoryOfChange: sufficiently complex mindlike entities can alter their goals in ways that cannot be predicted or accounted for under substrate-dependent descriptions of the kind sought in mechanistic interpretability. use the telic DAG to define a method analogous to factoring a causal DAG.
+        seeAlso: "[Live theory](https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3), [MoSSAIC](https://openreview.net/forum?id=n7WYSJ35FU), Topos, [Agent foundations](#agent-foundations-[cat:agent_foundations])**,**"
         targetCase: pessimistic
         someNames:
           - Sahil K
@@ -2355,9 +2187,7 @@ sections:
           - title: "Simulators vs Agents: Updating Risk Models"
             url: https://www.lesswrong.com/s/pwKrMXjYNK5LNeKCu
             authors: Will Petillo, Sean Herrington, Spencer Ames, Adebayo Mubarak, Can Narin
-        summary: >-
-          Treat LLMs as a general simulator of sequences instead of as an agent. It effectively *roleplays* as a character or a statistical process. This is a counter-intuitive and hard to verify
-          perspective, but yields different predictions.
+        summary: Treat LLMs as a general simulator of sequences instead of as an agent. It effectively *roleplays* as a character or a statistical process. This is a counter-intuitive and hard to verify perspective, but yields different predictions.
         theoryOfChange: Figure out the extent to which this framing matches current and future AI agent psychology, then use that to have less confused conversations and build safer models.
         orthodoxProblems:
           - "4"
@@ -2380,9 +2210,7 @@ sections:
           - title: Dodging systematic human errors in scalable oversight
             url: https://lesswrong.com/posts/EgRJtwQurNzz8CEfJ/dodging-systematic-human-errors-in-scalable-oversight
             authors: Geoffrey Irving
-        summary: >-
-          prove that if a safety process has enough resources (human data quality, training time, neural network capacity), then in the limit some system specification will be guaranteed. Use
-          complexity theory, game theory, learning theory and other areas to both improve asymptotic guarantees and develop ways of showing convergence.
+        summary: prove that if a safety process has enough resources (human data quality, training time, neural network capacity), then in the limit some system specification will be guaranteed. Use complexity theory, game theory, learning theory and other areas to both improve asymptotic guarantees and develop ways of showing convergence.
         theoryOfChange: Formal verification may be too hard. Make safety cases stronger by modelling their processes and proving that they would work in the limit.
         seeAlso: debate, control
         orthodoxProblems:
@@ -2402,7 +2230,7 @@ sections:
         critiques:
           - "[UK AISI's Alignment Team: Research Agenda](https://lesswrong.com/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda)"
         fundedBy:
-          - AI Security Institute
+          - uk-aisi
       - id: arc-theory
         name: ARC Theory
         papers:
@@ -2416,12 +2244,8 @@ sections:
             url: https://www.lesswrong.com/s/uYMw689vDFmgPEHrS
           - title: Acorn
             url: https://acausal.org/
-        summary: >-
-          Formalize mechanistic explanations of neural network behavior, automate the discovery of these “heuristic explanations” and use them to predict when novel input will lead to extreme behavior
-          (Low Probability Estimation and Mechanistic Anomaly Detection).
-        theoryOfChange: >-
-          push mech interp as far as it can be pushed, use heustic explanations for downstream tasks automatically, solve those downstream tasks well enough that Eliciting Latent Knowledge and
-          deceptive alignment are solved.
+        summary: Formalize mechanistic explanations of neural network behavior, automate the discovery of these “heuristic explanations” and use them to predict when novel input will lead to extreme behavior (Low Probability Estimation and Mechanistic Anomaly Detection).
+        theoryOfChange: push mech interp as far as it can be pushed, use heustic explanations for downstream tasks automatically, solve those downstream tasks well enough that Eliciting Latent Knowledge and deceptive alignment are solved.
         seeAlso: ELK, mechanistic anomaly detection
         orthodoxProblems:
           - "4"
@@ -2468,12 +2292,8 @@ sections:
           - title: LLM AGI will have memory, and memory changes alignment
             url: https://lesswrong.com/posts/aKncW36ZdEnzxLo8A/llm-agi-will-have-memory-and-memory-changes-alignment
             authors: Seth Herd
-        summary: >-
-          Predict properties of future AGI (e.g. power-seeking) with formal models; formally state and prove hypotheses about the properties powerful systems will have and how we might try to change
-          them
-        theoryOfChange: >-
-          Figure out hypotheses about properties powerful agents will have → attempt to rigorously prove under what conditions the hypotheses hold → test these hypotheses where feasible → design
-          training environments that lead to more salutary properties
+        summary: Predict properties of future AGI (e.g. power-seeking) with formal models; formally state and prove hypotheses about the properties powerful systems will have and how we might try to change them
+        theoryOfChange: Figure out hypotheses about properties powerful agents will have → attempt to rigorously prove under what conditions the hypotheses hold → test these hypotheses where feasible → design training environments that lead to more salutary properties
         seeAlso: Agent Foundations, control.
         orthodoxProblems:
           - "2"
@@ -2514,9 +2334,7 @@ sections:
             url: https://lesswrong.com/posts/CSFa9rvGNGAfCzBk6/problems-with-instruction-following-as-an-alignment-target
             authors: Seth Herd
         summary: Diagnose and communicate obstacles to achieving robustly corrigible behavior; suggest mechanisms, tests, and escalation channels for surfacing and mitigating incorrigible behaviors
-        theoryOfChange: >-
-          Labs are likely to develop AGI using something analogous to current pipelines. Clarifying why naive instruction-following doesn’t buy robust corrigibility \+ building strong
-          tripwires/diagnostics for scheming and Goodharting thus reduces risks on the likely default path.
+        theoryOfChange: Labs are likely to develop AGI using something analogous to current pipelines. Clarifying why naive instruction-following doesn’t buy robust corrigibility \+ building strong tripwires/diagnostics for scheming and Goodharting thus reduces risks on the likely default path.
         seeAlso: Behavior alignment theory
         orthodoxProblems:
           - "2"
@@ -2547,13 +2365,8 @@ sections:
             url: https://phillipi.github.io/prh/
           - title: Rosas
             url: https://www.youtube.com/watch?v=Nr9eMobqUOo&t=3s
-        summary: >-
-          check the hypothesis that our universe "abstracts well" and that many cognitive systems learn to use similar abstractions. Check if features correspond to small causal diagrams corresponding
-          to linguistic constructions
-        theoryOfChange: >-
-          find all possible abstractions of a given computation → translate them into human-readable language → identify useful ones like deception → intervene when a model is using it. Also develop
-          theory for interp more broadly; more mathematical analysis. Also maybe enables "retargeting the search": identifying "utility function" components inside the AI and replacing calls to it
-          with calls to "user values" (represented using existing abstractions inside the AI).
+        summary: check the hypothesis that our universe "abstracts well" and that many cognitive systems learn to use similar abstractions. Check if features correspond to small causal diagrams corresponding to linguistic constructions
+        theoryOfChange: "find all possible abstractions of a given computation → translate them into human-readable language → identify useful ones like deception → intervene when a model is using it. Also develop theory for interp more broadly; more mathematical analysis. Also maybe enables \"retargeting the search\": identifying \"utility function\" components inside the AI and replacing calls to it with calls to \"user values\" (represented using existing abstractions inside the AI)."
         seeAlso: causal abstractions, representational alignment, convergent abstractions, feature universality, Platonic representation hypothesis
         orthodoxProblems:
           - "5"
@@ -2567,7 +2380,7 @@ sections:
           - Sam Eisenstat
         estimatedFTEs: "*(SR2024: 1-10)*"
         fundedBy:
-          - "*(SR2024: EA Funds)*"
+          - ea-funds
         broadApproaches:
           - cognitive
       - id: other-ontology-work
@@ -2598,9 +2411,7 @@ sections:
           - title: "What is Inadequate about Bayesianism for AI Alignment: Motivating Infra-Bayesianism"
             url: https://lesswrong.com/posts/wzCtwYtojMabyEg2L/what-is-inadequate-about-bayesianism-for-ai-alignment
             authors: Brittany Gelb
-        summary: >-
-          try to formalise a more realistic agent, understand what it means for it to be aligned with us, translate between its ontology and ours, and produce desiderata for a training setup that
-          points at coherent AGIs similar to our model of an aligned agent
+        summary: try to formalise a more realistic agent, understand what it means for it to be aligned with us, translate between its ontology and ours, and produce desiderata for a training setup that points at coherent AGIs similar to our model of an aligned agent
         theoryOfChange: fix formal epistemology to work out how to avoid deep training problems
         orthodoxProblems:
           - "1"
@@ -2613,11 +2424,10 @@ sections:
         critiques:
           - "[Matolcsi](https://www.lesswrong.com/posts/StkjjQyKwg7hZjcGB/a-mostly-critical-review-of-infra-bayesianism)"
         fundedBy:
-          - "*(SR2024:* *EA Funds"
-          - Survival and Flourishing Fund
-          - ARIA
-          - UK AISI
-          - Coefficient Giving)*
+          - ea-funds
+          - survival-flourishing-fund
+          - aria
+          - uk-aisi
         broadApproaches:
           - cognitive
       - id: uncategorised
@@ -2678,12 +2488,8 @@ sections:
             url: https://docs.google.com/document/d/1cKbqYSGspfJavXvnhsp3mAuxHh08rNbP7tzYieqLiXw/edit?tab=t.0
           - title: Full-Stack Alignment
             url: https://www.full-stack-alignment.ai
-        summary: >-
-          Align AI directly to the role of participant-in, collaborator-for, or adviser-to our best-endorsed real human practices and institutions, instead of aligning AI to separately representable
-          goals, rules, or utility functions
-        theoryOfChange: >-
-          Many classical problems in AGI alignment are downstream of a type error about human values. Operationalizing a correct view of human values -- one that treats human values as impossible or
-          impractical to abstract from concrete human practices and institutions -- will unblock value fragility, goal-misgeneralization, instrumental convergence, and pivotal-act specification
+        summary: Align AI directly to the role of participant-in, collaborator-for, or adviser-to our best-endorsed real human practices and institutions, instead of aligning AI to separately representable goals, rules, or utility functions
+        theoryOfChange: Many classical problems in AGI alignment are downstream of a type error about human values. Operationalizing a correct view of human values -- one that treats human values as impossible or impractical to abstract from concrete human practices and institutions -- will unblock value fragility, goal-misgeneralization, instrumental convergence, and pivotal-act specification
         seeAlso: Aligning what? Aligned to who?
         orthodoxProblems:
           - "1"
@@ -2702,9 +2508,9 @@ sections:
           - Full Stack Alignment
         estimatedFTEs: "5"
         fundedBy:
-          - ARIA
-          - OpenAI
-          - Survival and Flourishing Fund
+          - aria
+          - openai
+          - survival-flourishing-fund
         broadApproaches:
           - behavioral
       - id: aligning-to-the-social-contract
@@ -2723,9 +2529,7 @@ sections:
           - title: Societal alignment frameworks can improve llm alignment
             url: https://arxiv.org/abs/2503.00069
         summary: Generate AIs’ operational values from ‘social contract’-style ideal civic deliberation formalisms and their consequent rulesets for civic actors
-        theoryOfChange: >-
-          Formalize and apply the liberal tradition's project of defining civic principles separable from the substantive good, aligning our AIs to civic principles that bypass fragile
-          utility-learning and intractable utility-calculation
+        theoryOfChange: Formalize and apply the liberal tradition's project of defining civic principles separable from the substantive good, aligning our AIs to civic principles that bypass fragile utility-learning and intractable utility-calculation
         seeAlso: Alignment to context,  Aligning what
         orthodoxProblems:
           - "1"
@@ -2742,8 +2546,7 @@ sections:
           - Joshua B. Tenenbaum
         estimatedFTEs: 5 - 10
         fundedBy:
-          - Deepmind
-          - Macroscopic Ventures
+          - google-deepmind
         broadApproaches:
           - cognitive
       - id: aligning-multiple-ais-game-theory
@@ -2765,12 +2568,8 @@ sections:
             url: https://www.science.org/doi/10.1126/sciadv.adu9368
           - title: An Economy of AI Agents
             url: https://arxiv.org/abs/2509.01063
-        summary: >-
-          Use realistic game-theory variants (e.g. evolutionary game theory, computational game theory) to describe/predict the collective and individual behaviours of AI agents in multi-agent
-          scenarios
-        theoryOfChange: >-
-          While traditional AGI safety focuses on idealized decision-theory and individual agents, it’s plausible that strategic AI agents will first emerge (or are emerging now) in a complex,
-          multi-AI strategic landscape. We need granular, realistic formal models of AIs’ strategic interactions and collective dynamics to understand this future
+        summary: Use realistic game-theory variants (e.g. evolutionary game theory, computational game theory) to describe/predict the collective and individual behaviours of AI agents in multi-agent scenarios
+        theoryOfChange: While traditional AGI safety focuses on idealized decision-theory and individual agents, it’s plausible that strategic AI agents will first emerge (or are emerging now) in a complex, multi-AI strategic landscape. We need granular, realistic formal models of AIs’ strategic interactions and collective dynamics to understand this future
         seeAlso: "Aligning multiple AIs: tools and techniques, Aligning what"
         orthodoxProblems:
           - "4"
@@ -2785,8 +2584,7 @@ sections:
           - Vincent Conitzer
         estimatedFTEs: "10"
         fundedBy:
-          - Deepmind
-          - Macroscopic Ventures
+          - google-deepmind
         broadApproaches:
           - cognitive
       - id: aligning-multiple-ais-tools-and-techniques
@@ -2815,9 +2613,7 @@ sections:
           - title: Virtual Agent Economies
             url: http://arxiv.org/abs/2509.10147
         summary: Develop tools and technique for designing and testing multi-agent AI scenarios, for auditing real-world muti-agent AI dynamics, and for aligning AIs in multi-AI settings
-        theoryOfChange: >-
-          Addressing multi-agent AI dynamics is key for aligning near-future agents and their impact on the world. Feedback loops from multi-agent dynamics can radically change the future AI
-          landscape, and require a different toolset from model psychology to audit and control
+        theoryOfChange: Addressing multi-agent AI dynamics is key for aligning near-future agents and their impact on the world. Feedback loops from multi-agent dynamics can radically change the future AI landscape, and require a different toolset from model psychology to audit and control
         seeAlso: "Aligning multiple AIs: game theory , Aligning what"
         orthodoxProblems:
           - "4"
@@ -2833,8 +2629,8 @@ sections:
           - Gillian Hadfield
         estimatedFTEs: 10 - 15
         fundedBy:
-          - Open Philanthropy
-          - Deepmind
+          - open-philanthropy
+          - google-deepmind
         broadApproaches:
           - engineering
           - behavioral
@@ -2858,9 +2654,7 @@ sections:
           - title: Training LLM Agents to Empower Humans
             url: https://arxiv.org/abs/2510.13709
         summary: Develop ethical frameworks and technical protocols for taking the plurality of human values, cultures, and communities seriously when aligning AI to “humanity”
-        theoryOfChange: >-
-          Principles of democracy, of pluralism, and of context-sensitivity should guide AI development, alignment, and deployment from the start, continuously shaping AI’s social and technical
-          feedback loop on the road to AGI
+        theoryOfChange: Principles of democracy, of pluralism, and of context-sensitivity should guide AI development, alignment, and deployment from the start, continuously shaping AI’s social and technical feedback loop on the road to AGI
         seeAlso: Aligning what, Alignment to context
         orthodoxProblems:
           - "1"
@@ -2876,9 +2670,9 @@ sections:
           - The Collective Intelligence Project
         estimatedFTEs: 5 - 15
         fundedBy:
-          - Future of Life Institute
-          - Survival and Flourishing Fund
-          - Deepmind
+          - future-of-life-institute
+          - survival-flourishing-fund
+          - google-deepmind
         broadApproaches:
           - behavioral
       - id: aligning-what
@@ -2900,12 +2694,8 @@ sections:
             url: https://arxiv.org/abs/2501.17755
           - title: Collective cooperative intelligence
             url: https://www.pnas.org/doi/abs/10.1073/pnas.2319948121
-        summary: >-
-          Develop alternatives to AI-agent-level models of alignment, treating human-AI interactions, AI-assisted institutions, AI-inclusive economic or cultural systems, sub-individual AI drives, and
-          other reality-shaping processes as subject to alignment
-        theoryOfChange: >-
-          Modelling multiple reality-shaping processes above and below the level of the individual AI, some of which are themselves quasi-agential (e.g. cultures) or intelligence-like (e.g. markets),
-          will develop AI alignment into a mature science for managing the transition to an AGI civilization
+        summary: Develop alternatives to AI-agent-level models of alignment, treating human-AI interactions, AI-assisted institutions, AI-inclusive economic or cultural systems, sub-individual AI drives, and other reality-shaping processes as subject to alignment
+        theoryOfChange: Modelling multiple reality-shaping processes above and below the level of the individual AI, some of which are themselves quasi-agential (e.g. cultures) or intelligence-like (e.g. markets), will develop AI alignment into a mature science for managing the transition to an AGI civilization
         seeAlso: "Aligning multiple AIs: game theory, Alignment to context, Aligned to who"
         orthodoxProblems:
           - "1"
@@ -2922,8 +2712,8 @@ sections:
           - AI Objectives Institute
         estimatedFTEs: 5 -10
         fundedBy:
-          - Future of Life Institute
-          - Emmet Shear
+          - future-of-life-institute
+          - emmet-shear
         broadApproaches:
           - behavioral
           - cognitive

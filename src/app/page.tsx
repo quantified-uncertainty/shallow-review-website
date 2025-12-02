@@ -3,9 +3,11 @@ import {
   loadOrthodoxProblems,
   loadBroadApproaches,
   loadTargetCases,
+  loadFunders,
   getOrthodoxProblemsByIds,
   getBroadApproachesByIds,
   getTargetCaseByValue,
+  getFundersByIds,
 } from "@/data/loadData";
 import { FlattenedAgenda } from "@/data/types";
 import HomePageContent from "@/components/HomePageContent";
@@ -15,6 +17,7 @@ export default function Home() {
   const { problems: allProblems } = loadOrthodoxProblems();
   const { approaches: allApproaches } = loadBroadApproaches();
   const { cases: allCases } = loadTargetCases();
+  const { funders: allFunders } = loadFunders();
 
   const totalPapers = data.sections.reduce(
     (acc, section) =>
@@ -46,6 +49,9 @@ export default function Home() {
       resolvedTargetCase: agenda.targetCase
         ? getTargetCaseByValue(allCases, agenda.targetCase)
         : undefined,
+      resolvedFunders: agenda.fundedBy
+        ? getFundersByIds(allFunders, agenda.fundedBy)
+        : [],
     }))
   );
 

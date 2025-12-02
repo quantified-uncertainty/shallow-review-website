@@ -39,6 +39,16 @@ export interface TargetCase {
   description: string;
 }
 
+export interface Funder {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface FundersData {
+  funders: Funder[];
+}
+
 export interface TargetCasesData {
   cases: TargetCase[];
 }
@@ -76,4 +86,5 @@ export interface FlattenedAgenda extends Agenda {
   resolvedProblems: OrthodoxProblem[];
   resolvedApproaches: BroadApproach[];
   resolvedTargetCase: TargetCase | undefined;
+  resolvedFunders: Funder[];
 }

@@ -65,6 +65,12 @@ export default function HomePageContent({
             >
               Target Cases
             </Link>
+            <Link
+              href="/funders"
+              className="text-blue-400 hover:text-blue-300"
+            >
+              Funders
+            </Link>
             <div className="ml-auto flex gap-1 bg-gray-800 rounded-lg p-1">
               <button
                 onClick={() => setViewMode("list")}

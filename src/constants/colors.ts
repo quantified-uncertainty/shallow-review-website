@@ -19,3 +19,8 @@ export const TARGET_CASE_COLORS: Record<string, string> = {
   "worst-case": "bg-purple-50 text-purple-800 hover:bg-purple-100",
   mixed: "bg-gray-100 text-gray-800 hover:bg-gray-200",
 };
+
+/**
+ * Default color scheme for funder badges
+ */
+export const FUNDER_COLORS = "bg-teal-50 text-teal-800 hover:bg-teal-100";

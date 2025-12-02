@@ -1,0 +1,200 @@
+funders:
+  # Major AI Labs
+  - id: openai
+    name: OpenAI
+    description: AI research company focused on developing safe and beneficial AGI.
+
+  - id: anthropic
+    name: Anthropic
+    description: AI safety company building reliable, interpretable, and steerable AI systems.
+
+  - id: google-deepmind
+    name: Google DeepMind
+    description: Google's AI research laboratory combining DeepMind and Google Brain.
+
+  - id: meta-ai
+    name: Meta AI
+    description: Meta's AI research division working on fundamental AI research.
+
+  - id: microsoft
+    name: Microsoft
+    description: Technology company with significant AI research and safety investments.
+
+  - id: microsoft-research
+    name: Microsoft Research
+    description: Microsoft's research division conducting fundamental and applied AI research.
+
+  # Major Philanthropic Funders
+  - id: open-philanthropy
+    name: Open Philanthropy
+    description: Philanthropic organization that is one of the largest funders of AI safety research.
+
+  - id: survival-flourishing-fund
+    name: Survival and Flourishing Fund
+    description: Charitable fund focused on existential risk reduction and long-term flourishing.
+
+  - id: long-term-future-fund
+    name: Long-Term Future Fund
+    description: EA Funds grantmaking program focused on existential risk reduction.
+
+  - id: ea-funds
+    name: EA Funds
+    description: Effective Altruism Funds providing grants for high-impact causes.
+
+  - id: future-of-life-institute
+    name: Future of Life Institute
+    description: Non-profit working to reduce existential risks from advanced AI.
+
+  - id: manifund
+    name: Manifund
+    description: Regranting platform for funding projects in the EA and rationalist communities.
+
+  # Government and Safety Institutes
+  - id: uk-aisi
+    name: UK AI Safety Institute
+    description: UK Government institute focused on AI safety evaluation and research.
+
+  - id: us-aisi
+    name: US AI Safety Institute
+    description: US Government institute within NIST focused on AI safety.
+
+  - id: aria
+    name: ARIA
+    description: UK Advanced Research and Invention Agency funding high-risk research.
+
+  - id: canadian-aisi
+    name: Canadian AI Safety Institute
+    description: Canadian institute focused on AI safety research and policy.
+
+  # Tech Companies and Investors
+  - id: amazon
+    name: Amazon
+    description: Technology company with cloud computing (AWS) and AI investments.
+
+  - id: aws
+    name: AWS
+    description: Amazon Web Services, major cloud computing provider.
+
+  - id: nvidia
+    name: NVIDIA
+    description: Computing company providing GPU hardware for AI research.
+
+  - id: oracle
+    name: Oracle
+    description: Enterprise software company with cloud and AI investments.
+
+  - id: amd
+    name: AMD
+    description: Semiconductor company providing computing hardware.
+
+  # Venture Capital and Private Investors
+  - id: a16z
+    name: Andreessen Horowitz
+    description: Venture capital firm investing in AI companies.
+
+  - id: founders-fund
+    name: Founders Fund
+    description: Venture capital firm founded by Peter Thiel.
+
+  - id: sequoia
+    name: Sequoia Capital
+    description: Venture capital firm investing in technology companies.
+
+  - id: lightspeed
+    name: Lightspeed Venture Partners
+    description: Global venture capital firm.
+
+  - id: general-catalyst
+    name: General Catalyst
+    description: Venture capital firm focused on technology investments.
+
+  - id: thrive
+    name: Thrive Capital
+    description: Venture capital firm investing in technology companies.
+
+  - id: coatue
+    name: Coatue Management
+    description: Investment management firm focused on technology.
+
+  - id: softbank
+    name: SoftBank
+    description: Japanese conglomerate with major technology investments.
+
+  - id: jaan-tallinn
+    name: Jaan Tallinn
+    description: Co-founder of Skype and major funder of existential risk research.
+
+  - id: emmet-shear
+    name: Emmet Shear
+    description: Co-founder of Twitch and AI safety advocate.
+
+  # Financial Institutions
+  - id: blackrock
+    name: BlackRock
+    description: Global investment management corporation.
+
+  - id: fidelity
+    name: Fidelity Investments
+    description: Financial services corporation.
+
+  - id: goldman-sachs
+    name: Goldman Sachs
+    description: Investment banking and financial services company.
+
+  - id: morgan-stanley
+    name: Morgan Stanley
+    description: Investment bank and financial services company.
+
+  # Academic and Research Institutions
+  - id: schmidt-sciences
+    name: Schmidt Sciences
+    description: Philanthropic initiative founded by Eric and Wendy Schmidt.
+
+  - id: macarthur-foundation
+    name: MacArthur Foundation
+    description: Philanthropic foundation supporting research and social change.
+
+  - id: mila-cifar
+    name: Mila / CIFAR
+    description: Quebec AI institute and Canadian Institute for Advanced Research.
+
+  - id: university-oxford
+    name: University of Oxford
+    description: UK university with significant AI safety research programs.
+
+  - id: university-cambridge
+    name: University of Cambridge
+    description: UK university with AI research centers.
+
+  - id: cmu
+    name: Carnegie Mellon University
+    description: US research university with leading AI programs.
+
+  - id: vector-institute
+    name: Vector Institute
+    description: Canadian AI research institute.
+
+  # Other Organizations
+  - id: eleutherai
+    name: EleutherAI
+    description: Grassroots collective of researchers working on open-source AI.
+
+  - id: cooperative-ai-foundation
+    name: Cooperative AI Foundation
+    description: Organization focused on AI cooperation research.
+
+  - id: astera-institute
+    name: Astera Institute
+    description: Research institution focused on science and technology.
+
+  - id: halcyon-futures
+    name: Halcyon Futures
+    description: Organization supporting AI safety research.
+
+  - id: goodfire
+    name: Goodfire
+    description: AI interpretability research company.
+
+  - id: ae-studio
+    name: AE Studio
+    description: Technology studio with AI safety research interests.

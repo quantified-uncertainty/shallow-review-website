@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { FlattenedAgenda } from "@/data/types";
-import { APPROACH_COLORS, TARGET_CASE_COLORS } from "@/constants/colors";
+import { APPROACH_COLORS, TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 
 type SortField =
   | "name"
@@ -71,9 +71,7 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
           comparison = a.resolvedProblems.length - b.resolvedProblems.length;
           break;
         case "fundedBy":
-          comparison = (a.fundedBy?.join(", ") || "").localeCompare(
-            b.fundedBy?.join(", ") || ""
-          );
+          comparison = a.resolvedFunders.length - b.resolvedFunders.length;
           break;
         case "names":
           comparison = (a.someNames?.join(", ") || "").localeCompare(
@@ -235,10 +233,23 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               </td>
 
               {/* Funded By */}
-              <td className="px-3 py-3 text-sm text-gray-600 max-w-xs">
-                {agenda.fundedBy && agenda.fundedBy.length > 0
-                  ? truncate(agenda.fundedBy.join(", "), 50)
-                  : "—"}
+              <td className="px-3 py-3">
+                <div className="flex flex-wrap gap-1">
+                  {agenda.resolvedFunders.length > 0 ? (
+                    agenda.resolvedFunders.map((funder) => (
+                      <Link
+                        key={funder.id}
+                        href={`/funders#funder-${funder.id}`}
+                        className={`inline-block text-xs px-2 py-0.5 rounded ${FUNDER_COLORS}`}
+                        title={funder.description}
+                      >
+                        {funder.name}
+                      </Link>
+                    ))
+                  ) : (
+                    <span className="text-gray-400">—</span>
+                  )}
+                </div>
               </td>
 
               {/* Some Names */}
