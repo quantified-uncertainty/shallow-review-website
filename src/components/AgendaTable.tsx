@@ -1,0 +1,256 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import Link from "next/link";
+import { FlattenedAgenda } from "@/data/types";
+import { APPROACH_COLORS, TARGET_CASE_COLORS } from "@/constants/colors";
+
+type SortField =
+  | "name"
+  | "section"
+  | "papers"
+  | "ftes"
+  | "targetCase"
+  | "approaches"
+  | "problems"
+  | "fundedBy"
+  | "names";
+
+type SortDirection = "asc" | "desc";
+
+interface AgendaTableProps {
+  agendas: FlattenedAgenda[];
+}
+
+function truncate(text: string, maxLength: number): string {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trim() + "...";
+}
+
+export default function AgendaTable({ agendas }: AgendaTableProps) {
+  const [sortField, setSortField] = useState<SortField>("name");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+
+  const handleSort = (field: SortField) => {
+    if (sortField === field) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortDirection("asc");
+    }
+  };
+
+  const sortedAgendas = useMemo(() => {
+    const sorted = [...agendas].sort((a, b) => {
+      let comparison = 0;
+
+      switch (sortField) {
+        case "name":
+          comparison = a.name.localeCompare(b.name);
+          break;
+        case "section":
+          comparison = a.sectionName.localeCompare(b.sectionName);
+          break;
+        case "papers":
+          comparison = (a.papers?.length || 0) - (b.papers?.length || 0);
+          break;
+        case "ftes":
+          comparison = (a.estimatedFTEs || "").localeCompare(
+            b.estimatedFTEs || ""
+          );
+          break;
+        case "targetCase":
+          comparison = (a.resolvedTargetCase?.name || "").localeCompare(
+            b.resolvedTargetCase?.name || ""
+          );
+          break;
+        case "approaches":
+          comparison = a.resolvedApproaches.length - b.resolvedApproaches.length;
+          break;
+        case "problems":
+          comparison = a.resolvedProblems.length - b.resolvedProblems.length;
+          break;
+        case "fundedBy":
+          comparison = (a.fundedBy?.join(", ") || "").localeCompare(
+            b.fundedBy?.join(", ") || ""
+          );
+          break;
+        case "names":
+          comparison = (a.someNames?.join(", ") || "").localeCompare(
+            b.someNames?.join(", ") || ""
+          );
+          break;
+      }
+
+      return sortDirection === "asc" ? comparison : -comparison;
+    });
+
+    return sorted;
+  }, [agendas, sortField, sortDirection]);
+
+  const SortHeader = ({
+    field,
+    children,
+    className = "",
+  }: {
+    field: SortField;
+    children: React.ReactNode;
+    className?: string;
+  }) => (
+    <th
+      className={`px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none ${className}`}
+      onClick={() => handleSort(field)}
+    >
+      <div className="flex items-center gap-1">
+        {children}
+        <span className="text-gray-400">
+          {sortField === field ? (sortDirection === "asc" ? "▲" : "▼") : ""}
+        </span>
+      </div>
+    </th>
+  );
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="bg-gray-50 sticky top-0">
+          <tr>
+            <SortHeader field="name">Name</SortHeader>
+            <SortHeader field="section">Section</SortHeader>
+            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              Summary
+            </th>
+            <SortHeader field="papers" className="text-right">
+              Papers
+            </SortHeader>
+            <SortHeader field="ftes">FTEs</SortHeader>
+            <SortHeader field="targetCase">Target Case</SortHeader>
+            <SortHeader field="approaches">Approaches</SortHeader>
+            <SortHeader field="problems">Problems</SortHeader>
+            <SortHeader field="fundedBy">Funded By</SortHeader>
+            <SortHeader field="names">Names</SortHeader>
+          </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
+          {sortedAgendas.map((agenda) => (
+            <tr
+              key={`${agenda.sectionId}-${agenda.id}`}
+              className="hover:bg-gray-50"
+            >
+              {/* Name */}
+              <td className="px-3 py-3 whitespace-nowrap">
+                <Link
+                  href={`/${agenda.sectionId}/${agenda.id}`}
+                  className="text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  {agenda.name}
+                </Link>
+              </td>
+
+              {/* Section */}
+              <td className="px-3 py-3 whitespace-nowrap">
+                <Link
+                  href={`/${agenda.sectionId}`}
+                  className="text-gray-600 hover:text-blue-600"
+                >
+                  {agenda.sectionName}
+                </Link>
+              </td>
+
+              {/* Summary */}
+              <td
+                className="px-3 py-3 text-sm text-gray-600 max-w-xs"
+                title={agenda.summary || ""}
+              >
+                {agenda.summary ? truncate(agenda.summary, 100) : "—"}
+              </td>
+
+              {/* Papers */}
+              <td className="px-3 py-3 whitespace-nowrap text-right text-sm text-gray-600">
+                {agenda.papers?.length || 0}
+              </td>
+
+              {/* FTEs */}
+              <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-600">
+                {agenda.estimatedFTEs || "—"}
+              </td>
+
+              {/* Target Case */}
+              <td className="px-3 py-3 whitespace-nowrap">
+                {agenda.resolvedTargetCase ? (
+                  <Link
+                    href={`/target-cases#case-${agenda.resolvedTargetCase.id}`}
+                    className={`inline-block text-xs px-2 py-1 rounded ${TARGET_CASE_COLORS[agenda.resolvedTargetCase.id] || "bg-gray-100 text-gray-700"}`}
+                    title={agenda.resolvedTargetCase.description}
+                  >
+                    {agenda.resolvedTargetCase.name}
+                  </Link>
+                ) : agenda.targetCase ? (
+                  <span className="text-xs text-gray-500">
+                    {agenda.targetCase}
+                  </span>
+                ) : (
+                  <span className="text-gray-400">—</span>
+                )}
+              </td>
+
+              {/* Broad Approaches */}
+              <td className="px-3 py-3">
+                <div className="flex flex-wrap gap-1">
+                  {agenda.resolvedApproaches.length > 0 ? (
+                    agenda.resolvedApproaches.map((approach) => (
+                      <Link
+                        key={approach.id}
+                        href={`/broad-approaches#approach-${approach.id}`}
+                        className={`inline-block text-xs px-2 py-0.5 rounded ${APPROACH_COLORS[approach.id] || "bg-gray-100 text-gray-700"}`}
+                        title={approach.description}
+                      >
+                        {approach.name}
+                      </Link>
+                    ))
+                  ) : (
+                    <span className="text-gray-400">—</span>
+                  )}
+                </div>
+              </td>
+
+              {/* Orthodox Problems */}
+              <td className="px-3 py-3">
+                <div className="flex flex-wrap gap-1">
+                  {agenda.resolvedProblems.length > 0 ? (
+                    agenda.resolvedProblems.map((problem) => (
+                      <Link
+                        key={problem.id}
+                        href={`/orthodox-problems#problem-${problem.id}`}
+                        className="inline-block text-xs bg-amber-50 text-amber-800 px-2 py-0.5 rounded hover:bg-amber-100"
+                        title={problem.description}
+                      >
+                        {problem.id}
+                      </Link>
+                    ))
+                  ) : (
+                    <span className="text-gray-400">—</span>
+                  )}
+                </div>
+              </td>
+
+              {/* Funded By */}
+              <td className="px-3 py-3 text-sm text-gray-600 max-w-xs">
+                {agenda.fundedBy && agenda.fundedBy.length > 0
+                  ? truncate(agenda.fundedBy.join(", "), 50)
+                  : "—"}
+              </td>
+
+              {/* Some Names */}
+              <td className="px-3 py-3 text-sm text-gray-600 max-w-xs">
+                {agenda.someNames && agenda.someNames.length > 0
+                  ? truncate(agenda.someNames.join(", "), 50)
+                  : "—"}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

@@ -69,3 +69,11 @@ export interface Section {
 export interface ReviewData {
   sections: Section[];
 }
+
+export interface FlattenedAgenda extends Agenda {
+  sectionId: string;
+  sectionName: string;
+  resolvedProblems: OrthodoxProblem[];
+  resolvedApproaches: BroadApproach[];
+  resolvedTargetCase: TargetCase | undefined;
+}
