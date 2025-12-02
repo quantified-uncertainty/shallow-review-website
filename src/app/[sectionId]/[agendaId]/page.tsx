@@ -4,12 +4,14 @@ import {
   getOrthodoxProblemsByIds,
   loadBroadApproaches,
   getBroadApproachesByIds,
+  loadTargetCases,
+  getTargetCaseByValue,
 } from "@/data/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
-import { convertMarkdownLinks } from "@/utils/markdown";
-import { APPROACH_COLORS } from "@/constants/colors";
+import { APPROACH_COLORS, TARGET_CASE_COLORS } from "@/constants/colors";
+import Markdown from "@/components/Markdown";
 
 interface PageProps {
   params: Promise<{ sectionId: string; agendaId: string }>;
@@ -54,6 +56,7 @@ export default async function AgendaPage({ params }: PageProps) {
   const data = loadReviewData();
   const { problems: allProblems } = loadOrthodoxProblems();
   const { approaches: allApproaches } = loadBroadApproaches();
+  const { cases: allCases } = loadTargetCases();
   const section = data.sections.find((s) => s.id === decodedSectionId);
   const agenda = section?.agendas.find((a) => a.id === decodedAgendaId);
 
@@ -68,6 +71,10 @@ export default async function AgendaPage({ params }: PageProps) {
   const broadApproaches = agenda.broadApproaches
     ? getBroadApproachesByIds(allApproaches, agenda.broadApproaches)
     : [];
+
+  const targetCase = agenda.targetCase
+    ? getTargetCaseByValue(allCases, agenda.targetCase)
+    : undefined;
 
 
   return (
@@ -90,9 +97,9 @@ export default async function AgendaPage({ params }: PageProps) {
       <main className="max-w-4xl mx-auto px-4 py-8">
         {agenda.summary && (
           <div className="mb-8">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <Markdown className="text-lg text-gray-700 leading-relaxed">
               {agenda.summary}
-            </p>
+            </Markdown>
           </div>
         )}
 
@@ -102,7 +109,7 @@ export default async function AgendaPage({ params }: PageProps) {
               <h2 className="text-lg font-semibold text-gray-900 mb-2">
                 Theory of Change
               </h2>
-              <p className="text-gray-700">{agenda.theoryOfChange}</p>
+              <Markdown className="text-gray-700">{agenda.theoryOfChange}</Markdown>
             </section>
           )}
 
@@ -111,12 +118,7 @@ export default async function AgendaPage({ params }: PageProps) {
               <h2 className="text-lg font-semibold text-gray-900 mb-2">
                 See Also
               </h2>
-              <p
-                className="text-gray-700"
-                dangerouslySetInnerHTML={{
-                  __html: convertMarkdownLinks(agenda.seeAlso),
-                }}
-              />
+              <Markdown className="text-gray-700">{agenda.seeAlso}</Markdown>
             </section>
           )}
 
@@ -146,9 +148,21 @@ export default async function AgendaPage({ params }: PageProps) {
             {agenda.targetCase && (
               <div>
                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
-                  Target Case
+                  <Link href="/target-cases" className="hover:text-blue-600">
+                    Target Case
+                  </Link>
                 </h3>
-                <p className="text-gray-700">{agenda.targetCase}</p>
+                {targetCase ? (
+                  <Link
+                    href={`/target-cases#case-${targetCase.id}`}
+                    className={`inline-block text-sm px-2 py-1 rounded transition-colors ${TARGET_CASE_COLORS[targetCase.id] || "bg-gray-100 text-gray-700"}`}
+                    title={targetCase.description}
+                  >
+                    {targetCase.name}
+                  </Link>
+                ) : (
+                  <p className="text-gray-700">{agenda.targetCase}</p>
+                )}
               </div>
             )}
 
@@ -198,7 +212,9 @@ export default async function AgendaPage({ params }: PageProps) {
               <h2 className="text-lg font-semibold text-gray-900 mb-2">
                 Funded By
               </h2>
-              <p className="text-gray-700">{agenda.fundedBy.join(", ")}</p>
+              <Markdown className="text-gray-700">
+                {agenda.fundedBy.join(", ")}
+              </Markdown>
             </section>
           )}
 
@@ -209,13 +225,9 @@ export default async function AgendaPage({ params }: PageProps) {
               </h2>
               <ul className="space-y-1">
                 {agenda.critiques.map((critique, i) => (
-                  <li
-                    key={i}
-                    className="text-gray-700"
-                    dangerouslySetInnerHTML={{
-                      __html: convertMarkdownLinks(critique),
-                    }}
-                  />
+                  <li key={i} className="text-gray-700">
+                    <Markdown>{critique}</Markdown>
+                  </li>
                 ))}
               </ul>
             </section>

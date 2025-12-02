@@ -1,0 +1,20 @@
+cases:
+  - id: optimistic
+    name: Optimistic
+    description: Assumes AI alignment is relatively tractable and that current or near-term techniques may be sufficient. Focuses on incremental improvements and practical deployment rather than worst-case scenarios.
+
+  - id: average-case
+    name: Average Case
+    description: Focuses on typical expected outcomes rather than extreme scenarios. Emphasizes practical safety measures that work well in normal operation, without necessarily handling all edge cases.
+
+  - id: mixed
+    name: Mixed
+    description: Combines elements of different approaches, or applies different assumptions to different aspects of the problem. May use pessimistic assumptions for some risks while being optimistic about others.
+
+  - id: pessimistic
+    name: Pessimistic
+    description: Assumes AI alignment is difficult and that achieving safe AI requires substantial effort, novel breakthroughs, or solving hard open problems. Prioritizes robustness against adversarial or deceptive AI behavior.
+
+  - id: worst-case
+    name: Worst Case
+    description: Designs for the most challenging possible scenarios, including highly capable adversarial AI systems. Prioritizes formal guarantees and provable safety properties over practical convenience.

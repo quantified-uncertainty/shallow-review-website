@@ -6,7 +6,7 @@ interface PaperCardProps {
 
 export default function PaperCard({ paper }: PaperCardProps) {
   return (
-    <li className="py-1">
+    <div className="py-1">
       <a
         href={paper.url}
         target="_blank"
@@ -18,6 +18,6 @@ export default function PaperCard({ paper }: PaperCardProps) {
       {paper.authors && (
         <span className="text-gray-500 text-sm ml-2">— {paper.authors}</span>
       )}
-    </li>
+    </div>
   );
 }

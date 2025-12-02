@@ -33,6 +33,16 @@ export interface BroadApproachesData {
   approaches: BroadApproach[];
 }
 
+export interface TargetCase {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface TargetCasesData {
+  cases: TargetCase[];
+}
+
 export interface Agenda {
   id: string;
   name: string;

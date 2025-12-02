@@ -7,6 +7,8 @@ import {
   OrthodoxProblem,
   BroadApproachesData,
   BroadApproach,
+  TargetCasesData,
+  TargetCase,
 } from "./types";
 
 /**
@@ -113,4 +115,60 @@ export function getBroadApproachesByIds(
   return ids
     .map((id) => approaches.find((a) => a.id === id))
     .filter((a): a is BroadApproach => a !== undefined);
+}
+
+/**
+ * Loads the target cases taxonomy
+ * @throws Error if the YAML file is missing or malformed
+ */
+export function loadTargetCases(): TargetCasesData {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/targetCases.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as TargetCasesData;
+
+    if (!data?.cases || !Array.isArray(data.cases)) {
+      throw new Error(
+        "Invalid TargetCasesData structure: missing cases array"
+      );
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Failed to load target cases:", error);
+    throw new Error(
+      `Failed to load target cases: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
+}
+
+/**
+ * Normalizes a target case string to match a canonical ID
+ * Handles variations like "pessimistic.", "Pessimistic", "worst-case", etc.
+ */
+export function normalizeTargetCaseId(targetCase: string): string | null {
+  const normalized = targetCase.toLowerCase().replace(/[.*?]/g, "").trim();
+
+  if (normalized.includes("pessimistic")) return "pessimistic";
+  if (normalized.includes("optimistic")) return "optimistic";
+  if (normalized.includes("worst") || normalized.includes("worst-case")) return "worst-case";
+  if (normalized.includes("average")) return "average-case";
+  if (normalized.includes("mixed") || normalized.includes("varies")) return "mixed";
+
+  return null;
+}
+
+/**
+ * Retrieves a Target Case by a raw string value
+ * @param cases - Array of all available cases
+ * @param rawValue - Raw target case string from agenda data
+ * @returns Matching case or undefined
+ */
+export function getTargetCaseByValue(
+  cases: TargetCase[],
+  rawValue: string
+): TargetCase | undefined {
+  const normalizedId = normalizeTargetCaseId(rawValue);
+  if (!normalizedId) return undefined;
+  return cases.find((c) => c.id === normalizedId);
 }
