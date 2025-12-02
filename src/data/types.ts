@@ -43,6 +43,8 @@ export interface Funder {
   id: string;
   name: string;
   description: string;
+  website?: string;
+  wikipedia?: string;
 }
 
 export interface FundersData {
@@ -51,6 +53,11 @@ export interface FundersData {
 
 export interface TargetCasesData {
   cases: TargetCase[];
+}
+
+export interface AgendaResource {
+  title: string;
+  url: string;
 }
 
 export interface Agenda {
@@ -66,6 +73,9 @@ export interface Agenda {
   estimatedFTEs?: string;
   critiques?: string[];
   fundedBy?: string[];
+  lesswrongTags?: string[];
+  resources?: AgendaResource[];
+  wikipedia?: string;
   papers: Paper[];
 }
 

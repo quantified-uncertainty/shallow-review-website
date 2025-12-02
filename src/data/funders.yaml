@@ -3,189 +3,270 @@ funders:
   - id: openai
     name: OpenAI
     description: AI research company focused on developing safe and beneficial AGI.
+    website: https://openai.com/
+    wikipedia: https://en.wikipedia.org/wiki/OpenAI
 
   - id: anthropic
     name: Anthropic
     description: AI safety company building reliable, interpretable, and steerable AI systems.
+    website: https://www.anthropic.com/
+    wikipedia: https://en.wikipedia.org/wiki/Anthropic
 
   - id: google-deepmind
     name: Google DeepMind
     description: Google's AI research laboratory combining DeepMind and Google Brain.
+    website: https://deepmind.google/
+    wikipedia: https://en.wikipedia.org/wiki/Google_DeepMind
 
   - id: meta-ai
     name: Meta AI
     description: Meta's AI research division working on fundamental AI research.
+    website: https://ai.meta.com/
+    wikipedia: https://en.wikipedia.org/wiki/Meta_AI
 
   - id: microsoft
     name: Microsoft
     description: Technology company with significant AI research and safety investments.
+    website: https://www.microsoft.com/
+    wikipedia: https://en.wikipedia.org/wiki/Microsoft
 
   - id: microsoft-research
     name: Microsoft Research
     description: Microsoft's research division conducting fundamental and applied AI research.
+    website: https://www.microsoft.com/en-us/research/
+    wikipedia: https://en.wikipedia.org/wiki/Microsoft_Research
 
   # Major Philanthropic Funders
   - id: open-philanthropy
     name: Open Philanthropy
     description: Philanthropic organization that is one of the largest funders of AI safety research.
+    website: https://www.openphilanthropy.org/
+    wikipedia: https://en.wikipedia.org/wiki/Open_Philanthropy
 
   - id: survival-flourishing-fund
     name: Survival and Flourishing Fund
     description: Charitable fund focused on existential risk reduction and long-term flourishing.
+    website: https://survivalandflourishing.fund/
 
   - id: long-term-future-fund
     name: Long-Term Future Fund
     description: EA Funds grantmaking program focused on existential risk reduction.
+    website: https://funds.effectivealtruism.org/funds/far-future
 
   - id: ea-funds
     name: EA Funds
     description: Effective Altruism Funds providing grants for high-impact causes.
+    website: https://funds.effectivealtruism.org/
 
   - id: future-of-life-institute
     name: Future of Life Institute
     description: Non-profit working to reduce existential risks from advanced AI.
+    website: https://futureoflife.org/
+    wikipedia: https://en.wikipedia.org/wiki/Future_of_Life_Institute
 
   - id: manifund
     name: Manifund
     description: Regranting platform for funding projects in the EA and rationalist communities.
+    website: https://manifund.org/
 
   # Government and Safety Institutes
   - id: uk-aisi
     name: UK AI Safety Institute
     description: UK Government institute focused on AI safety evaluation and research.
+    website: https://www.aisi.gov.uk/
+    wikipedia: https://en.wikipedia.org/wiki/AI_Safety_Institute
 
   - id: us-aisi
     name: US AI Safety Institute
     description: US Government institute within NIST focused on AI safety.
+    website: https://www.nist.gov/artificial-intelligence-safety-institute
+    wikipedia: https://en.wikipedia.org/wiki/AI_Safety_Institute
 
   - id: aria
     name: ARIA
     description: UK Advanced Research and Invention Agency funding high-risk research.
+    website: https://www.aria.org.uk/
+    wikipedia: https://en.wikipedia.org/wiki/Advanced_Research_and_Invention_Agency
 
   - id: canadian-aisi
     name: Canadian AI Safety Institute
     description: Canadian institute focused on AI safety research and policy.
+    website: https://ised-isde.canada.ca/site/ised/en/canadian-artificial-intelligence-safety-institute
 
   # Tech Companies and Investors
   - id: amazon
     name: Amazon
     description: Technology company with cloud computing (AWS) and AI investments.
+    website: https://www.amazon.com/
+    wikipedia: https://en.wikipedia.org/wiki/Amazon_(company)
 
   - id: aws
     name: AWS
     description: Amazon Web Services, major cloud computing provider.
+    website: https://aws.amazon.com/
+    wikipedia: https://en.wikipedia.org/wiki/Amazon_Web_Services
 
   - id: nvidia
     name: NVIDIA
     description: Computing company providing GPU hardware for AI research.
+    website: https://www.nvidia.com/
+    wikipedia: https://en.wikipedia.org/wiki/Nvidia
 
   - id: oracle
     name: Oracle
     description: Enterprise software company with cloud and AI investments.
+    website: https://www.oracle.com/
+    wikipedia: https://en.wikipedia.org/wiki/Oracle_Corporation
 
   - id: amd
     name: AMD
     description: Semiconductor company providing computing hardware.
+    website: https://www.amd.com/
+    wikipedia: https://en.wikipedia.org/wiki/AMD
 
   # Venture Capital and Private Investors
   - id: a16z
     name: Andreessen Horowitz
     description: Venture capital firm investing in AI companies.
+    website: https://a16z.com/
+    wikipedia: https://en.wikipedia.org/wiki/Andreessen_Horowitz
 
   - id: founders-fund
     name: Founders Fund
     description: Venture capital firm founded by Peter Thiel.
+    website: https://foundersfund.com/
+    wikipedia: https://en.wikipedia.org/wiki/Founders_Fund
 
   - id: sequoia
     name: Sequoia Capital
     description: Venture capital firm investing in technology companies.
+    website: https://sequoiacap.com/
+    wikipedia: https://en.wikipedia.org/wiki/Sequoia_Capital
 
   - id: lightspeed
     name: Lightspeed Venture Partners
     description: Global venture capital firm.
+    website: https://lsvp.com/
+    wikipedia: https://en.wikipedia.org/wiki/Lightspeed_Venture_Partners
 
   - id: general-catalyst
     name: General Catalyst
     description: Venture capital firm focused on technology investments.
+    website: https://www.generalcatalyst.com/
+    wikipedia: https://en.wikipedia.org/wiki/General_Catalyst
 
   - id: thrive
     name: Thrive Capital
     description: Venture capital firm investing in technology companies.
+    website: https://thrivecap.com/
+    wikipedia: https://en.wikipedia.org/wiki/Thrive_Capital
 
   - id: coatue
     name: Coatue Management
     description: Investment management firm focused on technology.
+    website: https://www.coatue.com/
+    wikipedia: https://en.wikipedia.org/wiki/Coatue_Management
 
   - id: softbank
     name: SoftBank
     description: Japanese conglomerate with major technology investments.
+    website: https://group.softbank/en
+    wikipedia: https://en.wikipedia.org/wiki/SoftBank_Group
 
   - id: jaan-tallinn
     name: Jaan Tallinn
     description: Co-founder of Skype and major funder of existential risk research.
+    wikipedia: https://en.wikipedia.org/wiki/Jaan_Tallinn
 
   - id: emmet-shear
-    name: Emmet Shear
+    name: Emmett Shear
     description: Co-founder of Twitch and AI safety advocate.
+    wikipedia: https://en.wikipedia.org/wiki/Emmett_Shear
 
   # Financial Institutions
   - id: blackrock
     name: BlackRock
     description: Global investment management corporation.
+    website: https://www.blackrock.com/
+    wikipedia: https://en.wikipedia.org/wiki/BlackRock
 
   - id: fidelity
     name: Fidelity Investments
     description: Financial services corporation.
+    website: https://www.fidelity.com/
+    wikipedia: https://en.wikipedia.org/wiki/Fidelity_Investments
 
   - id: goldman-sachs
     name: Goldman Sachs
     description: Investment banking and financial services company.
+    website: https://www.goldmansachs.com/
+    wikipedia: https://en.wikipedia.org/wiki/Goldman_Sachs
 
   - id: morgan-stanley
     name: Morgan Stanley
     description: Investment bank and financial services company.
+    website: https://www.morganstanley.com/
+    wikipedia: https://en.wikipedia.org/wiki/Morgan_Stanley
 
   # Academic and Research Institutions
   - id: schmidt-sciences
     name: Schmidt Sciences
     description: Philanthropic initiative founded by Eric and Wendy Schmidt.
+    website: https://www.schmidtsciences.org/
+    wikipedia: https://en.wikipedia.org/wiki/Schmidt_Sciences
 
   - id: macarthur-foundation
     name: MacArthur Foundation
     description: Philanthropic foundation supporting research and social change.
+    website: https://www.macfound.org/
+    wikipedia: https://en.wikipedia.org/wiki/MacArthur_Foundation
 
   - id: mila-cifar
     name: Mila / CIFAR
     description: Quebec AI institute and Canadian Institute for Advanced Research.
+    website: https://mila.quebec/en
+    wikipedia: https://en.wikipedia.org/wiki/Mila_(research_institute)
 
   - id: university-oxford
     name: University of Oxford
     description: UK university with significant AI safety research programs.
+    website: https://www.ox.ac.uk/
+    wikipedia: https://en.wikipedia.org/wiki/University_of_Oxford
 
   - id: university-cambridge
     name: University of Cambridge
     description: UK university with AI research centers.
+    website: https://www.cam.ac.uk/
+    wikipedia: https://en.wikipedia.org/wiki/University_of_Cambridge
 
   - id: cmu
     name: Carnegie Mellon University
     description: US research university with leading AI programs.
+    website: https://www.cmu.edu/
+    wikipedia: https://en.wikipedia.org/wiki/Carnegie_Mellon_University
 
   - id: vector-institute
     name: Vector Institute
     description: Canadian AI research institute.
+    website: https://vectorinstitute.ai/
+    wikipedia: https://en.wikipedia.org/wiki/Vector_Institute_(Canada)
 
   # Other Organizations
   - id: eleutherai
     name: EleutherAI
     description: Grassroots collective of researchers working on open-source AI.
+    website: https://www.eleuther.ai/
+    wikipedia: https://en.wikipedia.org/wiki/EleutherAI
 
   - id: cooperative-ai-foundation
     name: Cooperative AI Foundation
     description: Organization focused on AI cooperation research.
+    website: https://www.cooperativeai.com/
 
   - id: astera-institute
     name: Astera Institute
     description: Research institution focused on science and technology.
+    website: https://astera.org/
 
   - id: halcyon-futures
     name: Halcyon Futures
@@ -194,7 +275,9 @@ funders:
   - id: goodfire
     name: Goodfire
     description: AI interpretability research company.
+    website: https://www.goodfire.ai/
 
   - id: ae-studio
     name: AE Studio
     description: Technology studio with AI safety research interests.
+    website: https://ae.studio/

@@ -78,6 +78,31 @@ export default function FundersPage() {
 
                 <p className="text-gray-600 mt-2">{funder.description}</p>
 
+                {(funder.website || funder.wikipedia) && (
+                  <div className="mt-2 flex gap-4 text-sm">
+                    {funder.website && (
+                      <a
+                        href={funder.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        Website
+                      </a>
+                    )}
+                    {funder.wikipedia && (
+                      <a
+                        href={funder.wikipedia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        Wikipedia
+                      </a>
+                    )}
+                  </div>
+                )}
+
                 {agendas.length > 0 && (
                   <div className="mt-4">
                     <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">

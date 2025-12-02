@@ -14,6 +14,9 @@ import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
 import { APPROACH_COLORS, TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 import Markdown from "@/components/Markdown";
+import lesswrongTagsLookup from "@/data/lesswrongTagsLookup.json";
+
+const tagsLookup = lesswrongTagsLookup as Record<string, { name: string; postCount: number }>;
 
 interface PageProps {
   params: Promise<{ sectionId: string; agendaId: string }>;
@@ -231,6 +234,37 @@ export default async function AgendaPage({ params }: PageProps) {
                     {funder.name}
                   </Link>
                 ))}
+              </div>
+            </section>
+          )}
+
+          {agenda.lesswrongTags && agenda.lesswrongTags.length > 0 && (
+            <section>
+              <h2 className="text-lg font-semibold text-gray-900 mb-2">
+                LessWrong Tags
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {agenda.lesswrongTags.map((slug) => {
+                  const tagInfo = tagsLookup[slug];
+                  const displayName = tagInfo?.name || slug;
+                  const postCount = tagInfo?.postCount;
+                  return (
+                    <a
+                      key={slug}
+                      href={`https://www.lesswrong.com/tag/${slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm bg-green-50 text-green-800 px-2 py-1 rounded hover:bg-green-100 transition-colors"
+                    >
+                      {displayName}
+                      {postCount !== undefined && (
+                        <span className="text-xs text-green-600">
+                          ({postCount} posts)
+                        </span>
+                      )}
+                    </a>
+                  );
+                })}
               </div>
             </section>
           )}
