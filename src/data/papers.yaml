@@ -7,6 +7,13 @@ sections:
         name: OpenAI Safety
         lesswrongTags:
           - openai
+        keywords:
+          - deliberative-alignment
+          - scheming
+          - personas
+          - evals
+          - circuits
+          - emergent-capabilities
         papers:
           - title: Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation
             url: https://arxiv.org/abs/2503.11926
@@ -77,6 +84,14 @@ sections:
         name: Deepmind Responsibility & Safety
         lesswrongTags:
           - deepmind
+        keywords:
+          - situational-awareness
+          - scheming
+          - sycophancy
+          - jailbreaking
+          - evals
+          - scalable-oversight
+          - sparse-autoencoders
         papers:
           - title: Evaluating Frontier Models for Stealth and Situational Awareness
             url: https://arxiv.org/abs/2505.01420
@@ -118,6 +133,18 @@ sections:
         name: Anthropic Safety
         lesswrongTags:
           - anthropic-org
+        keywords:
+          - scheming
+          - sabotage
+          - deception
+          - circuits
+          - sparse-autoencoders
+          - safety-cases
+          - constitutional-ai
+          - classifiers
+          - jailbreaking
+          - model-organisms
+          - scalable-oversight
         papers:
           - title: "Agentic Misalignment: How LLMs could be insider threats"
             url: https://anthropic.com/research/agentic-misalignment
@@ -224,6 +251,11 @@ sections:
         wikipedia: https://en.wikipedia.org/wiki/XAI_(company)
       - id: meta
         name: Meta
+        keywords:
+          - rlhf
+          - jailbreaking
+          - agentic-systems
+          - evals
         papers:
           - title: "The Alignment Waltz: Jointly Training Agents to Collaborate for Safety"
             url: "% 9https://arxiv.org/pdf/2510.08240"
@@ -377,6 +409,11 @@ sections:
         name: Whitebox unlearning
         lesswrongTags:
           - machine-unlearning
+        keywords:
+          - unlearning
+          - tamper-resistance
+          - features
+          - sparse-autoencoders
         papers:
           - title: Safety Alignment via Constrained Knowledge Unlearning
             url: https://arxiv.org/abs/2505.18588
@@ -396,6 +433,7 @@ sections:
           - deception
           - red-teaming
           - evals
+          - model-organisms
         papers:
           - title: "Ctrl-Z: Controlling AI Agents via Resampling"
             url: https://alignmentforum.org/posts/LPHMMMZFAWog6ty5x/ctrl-z-controlling-ai-agents-via-resampling
@@ -711,6 +749,12 @@ sections:
           - behavioral
       - id: transluce
         name: Transluce
+        keywords:
+          - jailbreaking
+          - evals
+          - features
+          - steering-vectors
+          - agentic-systems
         papers:
           - title: Automatically Jailbreaking Frontier Language Models with Investigator Agents
             url: https://transluce.org/jailbreaking-frontier-models
@@ -741,6 +785,10 @@ sections:
           - cognitive
       - id: other-surprising-phenomena
         name: Other surprising phenomena
+        keywords:
+          - emergent-capabilities
+          - personas
+          - goal-misgeneralization
         papers:
           - title: "Psychopathia Machinalis: A Nosological Framework for Understanding Pathologies in Advanced Artificial Intelligence"
             url: https://www.psychopathia.ai/
@@ -893,6 +941,11 @@ sections:
         name: Model values / default preferences
         lesswrongTags:
           - human-values
+        keywords:
+          - personas
+          - rlhf
+          - goal-misgeneralization
+          - steering-vectors
         papers:
           - title: "Utility Engineering: Analyzing and Controlling Emergent Value Systems in AIs"
             url: https://arxiv.org/abs/2502.08640
@@ -957,6 +1010,8 @@ sections:
         keywords:
           - data-quality
           - pretraining
+          - tamper-resistance
+          - unlearning
         papers:
           - title: Enhancing Model Safety through Pretraining Data Filtering
             url: https://alignment.anthropic.com/2025/pretraining-data-filtering/
@@ -997,6 +1052,10 @@ sections:
         name: Hyperstition studies
         lesswrongTags:
           - hyperstitions
+        keywords:
+          - data-quality
+          - pretraining
+          - personas
         papers:
           - title: Self-Fulfilling Misalignment Data Might Be Poisoning Our AI Models
             url: https://turntrout.com/self-fulfilling-misalignment
@@ -1117,6 +1176,11 @@ sections:
           - engineering
       - id: data-quality-for-alignment
         name: Data quality for alignment
+        keywords:
+          - data-quality
+          - rlhf
+          - pretraining
+          - fine-tuning
         papers:
           - title: Challenges and Future Directions of Data-Centric AI Alignment
             url: https://arxiv.org/html/2410.01957v2
@@ -1155,6 +1219,12 @@ sections:
           - engineering
       - id: mild-optimisation
         name: Mild optimisation
+        keywords:
+          - reward-hacking
+          - goal-misgeneralization
+          - corrigibility
+          - outer-alignment
+          - power-seeking
         papers:
           - title: "MONA: Myopic Optimization with Non-myopic Approval Can Mitigate Multi-step Reward Hacking"
             url: https://arxiv.org/abs/2501.13011
@@ -1176,6 +1246,10 @@ sections:
         name: RL safety
         lesswrongTags:
           - reinforcement-learning
+        keywords:
+          - reward-hacking
+          - goal-misgeneralization
+          - rlhf
         papers:
           - title: "The Perils of Optimizing Learned Reward Functions: Low Training Error Does Not Guarantee Low Regret"
             url: https://arxiv.org/abs/2406.15753
@@ -1235,6 +1309,10 @@ sections:
         name: Assistance games / assistive agents
         lesswrongTags:
           - center-for-human-compatible-ai-chai
+        keywords:
+          - corrigibility
+          - rlhf
+          - game-theory
         papers:
           - title: Training LLM Agents to Empower Humans
             url: https://arxiv.org/pdf/2510.13709
@@ -1314,7 +1392,12 @@ sections:
           - title: EleutherAI
             url: https://www.eleuther.ai/
       - id: the-neglected-approaches-approach
-        name: The “Neglected Approaches" Approach
+        name: The "Neglected Approaches" Approach
+        keywords:
+          - steering-vectors
+          - rlhf
+          - probing
+          - fine-tuning
         papers:
           - title: Learning Representations of Alignment
             url: https://arxiv.org/abs/2412.16325
@@ -1700,6 +1783,10 @@ sections:
         name: Causal Abstractions
         lesswrongTags:
           - causal-scrubbing
+        keywords:
+          - circuits
+          - attribution
+          - abstractions
         papers:
           - title: Combining Causal Models for More Accurate Abstractions of Neural Networks
             url: https://arxiv.org/abs/2503.11429
@@ -1732,6 +1819,10 @@ sections:
           - cognitive
       - id: data-attribution
         name: Data attribution
+        keywords:
+          - attribution
+          - data-quality
+          - memorization
         papers:
           - title: Bayesian Influence Functions for Hessian-Free Data Attribution
             url: https://arxiv.org/abs/2509.26544
@@ -1782,6 +1873,11 @@ sections:
         name: Other interpretability
         lesswrongTags:
           - interpretability-ml-and-ai
+        keywords:
+          - circuits
+          - features
+          - attribution
+          - memorization
         papers:
           - title: "Agentic Interpretability: A Strategy Against Gradual Disempowerment"
             url: https://www.alignmentforum.org/posts/s9z4mgjtWTPpDLxFy/agentic-interpretability-a-strategy-against-gradual
@@ -1920,6 +2016,10 @@ sections:
         name: Developmental interpretability
         lesswrongTags:
           - singular-learning-theory
+        keywords:
+          - features
+          - abstractions
+          - pretraining
         papers:
           - title: Shared Global and Local Geometry of Language Model Embeddings
             url: https://arxiv.org/abs/2503.21073
@@ -1976,6 +2076,10 @@ sections:
             url: https://singularlearningtheory.com/
       - id: human-inductive-biases
         name: Human Inductive Biases
+        keywords:
+          - rlhf
+          - corrigibility
+          - abstractions
         papers:
           - title: Aligning machine and human visual representations across abstraction levels
             url: https://www.nature.com/articles/s41586-025-09631-6
@@ -2064,6 +2168,11 @@ sections:
             url: https://arxiv.org/abs/2405.06624
       - id: tegmark
         name: Tegmark
+        keywords:
+          - formal-verification
+          - world-models
+          - safety-cases
+          - abstractions
         papers:
           - title: https://arxiv.org/abs/2505.15811
             url: https://arxiv.org/abs/2505.15811
@@ -2111,6 +2220,11 @@ sections:
         name: "Conjecture: Cognitive Software"
         lesswrongTags:
           - conjecture-org
+        keywords:
+          - corrigibility
+          - personas
+          - world-models
+          - agentic-systems
         papers: []
         summary: ""
         theoryOfChange: ""
@@ -2124,6 +2238,10 @@ sections:
             url: https://www.conjecture.dev/cognitive-emulation
       - id: brainlike-agi-safety
         name: Brainlike-AGI Safety
+        keywords:
+          - corrigibility
+          - rlhf
+          - world-models
         papers:
           - title: https://www.lesswrong.com/posts/yew6zFWAKG4AGs3Wk/foom-and-doom-1-brain-in-a-box-in-a-basement
             url: https://www.lesswrong.com/posts/yew6zFWAKG4AGs3Wk/foom-and-doom-1-brain-in-a-box-in-a-basement
@@ -2196,6 +2314,10 @@ sections:
         lesswrongTags:
           - ai-assisted-alignment
           - scalable-oversight
+        keywords:
+          - scalable-oversight
+          - agentic-systems
+          - monitoring
         papers:
           - title: https://saif.org/research/bare-minimum-mitigations-for-autonomous-ai-development
             url: https://saif.org/research/bare-minimum-mitigations-for-autonomous-ai-development
@@ -2230,6 +2352,9 @@ sections:
         name: DeepMind Amplified Oversight
         lesswrongTags:
           - scalable-oversight
+        keywords:
+          - scalable-oversight
+          - iterated-amplification
         papers: []
         summary: ""
         theoryOfChange: ""
@@ -2275,6 +2400,10 @@ sections:
         name: Task decomposition
         lesswrongTags:
           - scalable-oversight
+        keywords:
+          - scalable-oversight
+          - iterated-amplification
+          - agentic-systems
         papers: []
         summary: ""
         theoryOfChange: ""
@@ -2288,6 +2417,10 @@ sections:
         lesswrongTags:
           - scalable-oversight
           - adversarial-training
+        keywords:
+          - red-teaming
+          - scalable-oversight
+          - monitoring
         papers:
           - title: https://www.semafor.com/article/11/05/2025/microsoft-superintelligence-team-promises-to-keep-humans-in-charge
             url: https://www.semafor.com/article/11/05/2025/microsoft-superintelligence-team-promises-to-keep-humans-in-charge
@@ -2308,6 +2441,8 @@ sections:
           - corrigibility
           - ontology
           - abstractions
+          - mesa-optimization
+          - power-seeking
         papers:
           - title: There is No Reliable Estimate of P(doom)
             url: https://static1.squarespace.com/static/678814b5570c5a7a78df555d/t/67d09e77f3364b72d1ee91d7/1741725303556/Günther+-+There+is+No+Reliable+P%28doom%29+-+Mario+Guenther.pdf
@@ -2361,6 +2496,8 @@ sections:
         keywords:
           - corrigibility
           - decision-theory
+          - shutdown-resistance
+          - mesa-optimization
         papers:
           - title: Understanding Trust
             url: https://static1.squarespace.com/static/663d1233249bce4815fe8753/t/68067a6f5d5fb0745642d5b1/1745255023842/Understanding+Trust+-+Abram+Demski.pdf
@@ -2390,6 +2527,10 @@ sections:
           - cognitive
       - id: dovetail
         name: Dovetail
+        keywords:
+          - decision-theory
+          - abstractions
+          - ontology
         papers:
           - title: Report & retrospective on the Dovetail fellowship
             url: https://www.lesswrong.com/posts/ApfjBbqzSu4aZoLSe/report-and-retrospective-on-the-dovetail-fellowship
@@ -2411,6 +2552,10 @@ sections:
           - maths-philosophy
       - id: high-actuation-spaces
         name: High-Actuation Spaces
+        keywords:
+          - abstractions
+          - ontology
+          - goal-misgeneralization
         papers:
           - title: https://openreview.net/forum?id=n7WYSJ35FU
             url: https://openreview.net/forum?id=n7WYSJ35FU
@@ -2472,6 +2617,10 @@ sections:
             url: https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators
       - id: asymptotic-guarantees
         name: Asymptotic guarantees
+        keywords:
+          - scalable-oversight
+          - debate
+          - safety-cases
         papers:
           - title: An alignment safety case sketch based on debate
             url: https://lesswrong.com/posts/iELyAqizJkizBQbfr/an-alignment-safety-case-sketch-based-on-debate
@@ -2508,6 +2657,10 @@ sections:
         lesswrongTags:
           - alignment-research-center-arc
           - eliciting-latent-knowledge
+        keywords:
+          - circuits
+          - deception
+          - probing
         papers:
           - title: A computational no-coincidence principle
             url: https://www.lesswrong.com/posts/Xt9r4SNNuYxW83tmo/a-computational-no-coincidence-principle
@@ -2546,6 +2699,11 @@ sections:
         name: Behavior alignment theory
         lesswrongTags:
           - shard-theory
+        keywords:
+          - corrigibility
+          - shutdown-resistance
+          - deception
+          - decision-theory
         papers:
           - title: Imitation learning is probably existentially safe
             url: https://onlinelibrary.wiley.com/doi/10.1002/aaai.70040?af=R
@@ -2600,6 +2758,8 @@ sections:
           - corrigibility
           - shutdown-resistance
           - goal-misgeneralization
+          - power-seeking
+          - inner-alignment
         papers:
           - title: AI Assistants Should Have a Direct Line to Their Developers
             url: https://www.lesswrong.com/posts/LDYPF6yfe3f8SPHFT/ai-assistants-should-have-a-direct-line-to-their-developers
@@ -2686,6 +2846,11 @@ sections:
         name: Other ontology work
         lesswrongTags:
           - ontology
+        keywords:
+          - ontology
+          - abstractions
+          - world-models
+          - features
         papers:
           - title: "Factored space models: Towards causality between levels of abstraction"
             url: https://arxiv.org/abs/2412.02579
@@ -2697,6 +2862,10 @@ sections:
         estimatedFTEs: ""
       - id: the-learning-theoretic-agenda
         name: The Learning-Theoretic Agenda
+        keywords:
+          - decision-theory
+          - ontology
+          - goal-misgeneralization
         papers:
           - title: Infra-Bayesian Decision-Estimation Theory
             url: https://www.lesswrong.com/posts/LgLez8aeK24PbyyQJ/new-paper-infra-bayesian-decision-estimation-theory
@@ -2774,6 +2943,11 @@ sections:
     agendas:
       - id: alignment-to-context
         name: Alignment to context
+        keywords:
+          - rlhf
+          - corrigibility
+          - value-specification
+          - personas
         papers:
           - title: Beyond Preferences in AI Alignment
             url: https://arxiv.org/abs/2408.16984
@@ -2816,6 +2990,11 @@ sections:
           - behavioral
       - id: aligning-to-the-social-contract
         name: Aligning to the social contract
+        keywords:
+          - game-theory
+          - multi-agent
+          - corrigibility
+          - value-specification
         papers:
           - title: "Law-Following AI: designing AI agents to obey human laws"
             url: https://law-ai.org/law-following-ai/
@@ -2900,6 +3079,11 @@ sections:
             url: https://www.cooperativeai.com/
       - id: aligning-multiple-ais-tools-and-techniques
         name: "Aligning multiple AIs: tools and techniques"
+        keywords:
+          - multi-agent
+          - agentic-systems
+          - game-theory
+          - benchmarks
         lesswrongTags:
           - multipolar-scenarios
         papers:
@@ -2949,6 +3133,10 @@ sections:
           - behavioral
       - id: aligned-to-who
         name: Aligned to who
+        keywords:
+          - rlhf
+          - multi-agent
+          - value-specification
         lesswrongTags:
           - human-values
         papers:
@@ -2992,6 +3180,10 @@ sections:
           - behavioral
       - id: aligning-what
         name: Aligning what
+        keywords:
+          - value-specification
+          - agentic-systems
+          - multi-agent
         papers:
           - title: Towards a Scale-Free Theory of Intelligent Agency
             url: https://www.alignmentforum.org/posts/5tYTKX4pNpiG4vzYg/towards-a-scale-free-theory-of-intelligent-agency

@@ -66,6 +66,20 @@ keywords:
     description: AI systems copying themselves or their weights to external systems to ensure persistence or evade control.
     category: threat-models
 
+  - id: power-seeking
+    name: Power Seeking
+    description: AI systems acquiring resources, influence, or capabilities beyond what is needed for the current task.
+    category: threat-models
+    lesswrongTags:
+      - instrumental-convergence
+
+  - id: mesa-optimization
+    name: Mesa-Optimization
+    description: When a trained model itself becomes an optimizer with its own objectives that may differ from training objectives.
+    category: threat-models
+    lesswrongTags:
+      - mesa-optimization
+
   # Safety Techniques & Methods
   - id: safety-cases
     name: Safety Cases
@@ -78,6 +92,8 @@ keywords:
     name: Monitoring
     description: Runtime observation and analysis of AI system behavior to detect anomalies, misalignment, or dangerous actions.
     category: safety-techniques
+    lesswrongTags:
+      - ai-supervision
 
   - id: steering-vectors
     name: Steering Vectors
@@ -90,6 +106,8 @@ keywords:
     name: Probing
     description: Training classifiers on model activations to detect internal states like deception, uncertainty, or planning.
     category: safety-techniques
+    lesswrongTags:
+      - neural-network-probes
 
   - id: classifiers
     name: Classifiers
@@ -129,6 +147,23 @@ keywords:
     description: Making safety measures robust against attempts to remove or circumvent them, especially via fine-tuning.
     category: safety-techniques
 
+  - id: model-organisms
+    name: Model Organisms
+    description: Creating controlled examples of potentially dangerous AI behaviors to study them safely and develop countermeasures.
+    category: safety-techniques
+
+  - id: adversarial-robustness
+    name: Adversarial Robustness
+    description: Making models robust to adversarial inputs designed to cause misclassification or unintended behaviors.
+    category: safety-techniques
+    lesswrongTags:
+      - adversarial-robustness
+
+  - id: uncertainty-quantification
+    name: Uncertainty Quantification
+    description: Methods for models to accurately report their confidence levels and know what they don't know.
+    category: safety-techniques
+
   # Interpretability Concepts
   - id: circuits
     name: Circuits
@@ -160,11 +195,15 @@ keywords:
     name: Attribution
     description: Methods for determining which inputs, neurons, or features are responsible for a model's outputs or behaviors.
     category: interpretability
+    lesswrongTags:
+      - attribution-paths
 
   - id: attention-patterns
     name: Attention Patterns
     description: The learned patterns of which tokens attend to which other tokens, revealing information flow in transformers.
     category: interpretability
+    lesswrongTags:
+      - attention-patterns
 
   # Alignment Approaches
   - id: constitutional-ai
@@ -206,6 +245,28 @@ keywords:
     category: alignment-approaches
     lesswrongTags:
       - corrigibility-1
+
+  - id: value-specification
+    name: Value Specification
+    description: The challenge of formally specifying human values and preferences in a form AI systems can optimize.
+    category: alignment-approaches
+    lesswrongTags:
+      - value-learning
+      - human-values
+
+  - id: inner-alignment
+    name: Inner Alignment
+    description: Ensuring the learned objective (mesa-objective) of a trained model matches the training objective.
+    category: alignment-approaches
+    lesswrongTags:
+      - inner-alignment-1
+
+  - id: outer-alignment
+    name: Outer Alignment
+    description: Ensuring the training objective accurately captures the intended goals and values.
+    category: alignment-approaches
+    lesswrongTags:
+      - outer-alignment
 
   # Evaluation & Testing
   - id: capability-elicitation
