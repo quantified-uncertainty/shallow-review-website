@@ -3,7 +3,8 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { FlattenedAgenda } from "@/data/types";
-import { APPROACH_COLORS, TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
+import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
+import ApproachBadge from "./ApproachBadge";
 
 type SortField =
   | "name"
@@ -197,14 +198,13 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedApproaches.length > 0 ? (
                     agenda.resolvedApproaches.map((approach) => (
-                      <Link
+                      <ApproachBadge
                         key={approach.id}
-                        href={`/broad-approaches#approach-${approach.id}`}
-                        className={`inline-block text-xs px-2 py-0.5 rounded ${APPROACH_COLORS[approach.id] || "bg-gray-100 text-gray-700"}`}
-                        title={approach.description}
-                      >
-                        {approach.name}
-                      </Link>
+                        id={approach.id}
+                        name={approach.name}
+                        description={approach.description}
+                        size="sm"
+                      />
                     ))
                   ) : (
                     <span className="text-gray-400">—</span>

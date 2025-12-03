@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
+import Header from "@/components/Header";
+import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Methodology | ${APP_SHORT_TITLE}`,
@@ -55,20 +57,23 @@ export default function MethodologyPage() {
   ];
 
   return (
-    <div className="min-h-screen">
-      <header className="bg-gray-900 text-white py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-blue-400 hover:underline text-sm">
-            &larr; Back to overview
-          </Link>
-          <h1 className="text-3xl font-bold mt-4">Methodology</h1>
-          <p className="text-gray-300 mt-2">
-            Sources, data processing, and related reviews
-          </p>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
 
       <main className="max-w-4xl mx-auto px-4 py-8">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <Link href="/" className="hover:text-blue-600">
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-gray-700">Methodology</span>
+        </nav>
+
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">Methodology</h1>
+        <p className="text-gray-600 text-lg mb-8">
+          Sources, data processing, and related reviews
+        </p>
         <div className="prose prose-gray max-w-none">
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Data Sources</h2>
@@ -236,12 +241,6 @@ export default function MethodologyPage() {
           </div>
         </div>
       </main>
-
-      <footer className="bg-gray-100 py-6 mt-12">
-        <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
-          Based on the {APP_TITLE} by {APP_AUTHORS}.
-        </div>
-      </footer>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import { loadReviewData, loadOrthodoxProblems } from "@/data/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
+import Header from "@/components/Header";
+import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Orthodox Problems | ${APP_SHORT_TITLE}`,
@@ -39,34 +41,37 @@ export default function OrthodoxProblemsPage() {
   }
 
   return (
-    <div className="min-h-screen">
-      <header className="bg-gray-900 text-white py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-blue-400 hover:underline text-sm">
-            &larr; Back to overview
-          </Link>
-          <h1 className="text-3xl font-bold mt-4">Orthodox Problems</h1>
-          <p className="text-gray-300 mt-2">
-            Canonical problems in AI alignment that various research agendas aim
-            to address. Each problem represents a core challenge or assumption
-            in the field.
-          </p>
-          <p className="text-gray-400 mt-4 text-sm">
-            Based on{" "}
-            <a
-              href={source.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:underline"
-            >
-              {source.title}
-            </a>{" "}
-            by {source.author} ({source.date})
-          </p>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
 
       <main className="max-w-4xl mx-auto px-4 py-8">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <Link href="/" className="hover:text-blue-600">
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-gray-700">Orthodox Problems</span>
+        </nav>
+
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">Orthodox Problems</h1>
+        <p className="text-gray-600 text-lg mb-4">
+          Canonical problems in AI alignment that various research agendas aim
+          to address. Each problem represents a core challenge or assumption
+          in the field.
+        </p>
+        <p className="text-gray-500 text-sm mb-8">
+          Based on{" "}
+          <a
+            href={source.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            {source.title}
+          </a>{" "}
+          by {source.author} ({source.date})
+        </p>
         <div className="space-y-8">
           {problems.map((problem) => {
             const agendas = problemToAgendas[problem.id] || [];
@@ -134,12 +139,6 @@ export default function OrthodoxProblemsPage() {
           })}
         </div>
       </main>
-
-      <footer className="bg-gray-100 py-6 mt-12">
-        <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
-          Based on the {APP_TITLE} by {APP_AUTHORS}.
-        </div>
-      </footer>
     </div>
   );
 }

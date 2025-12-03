@@ -1,6 +1,8 @@
 import { loadReviewData } from "@/data/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Header from "@/components/Header";
+import { ChevronRight } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ sectionId: string }>;
@@ -38,20 +40,23 @@ export default async function SectionPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen">
-      <header className="bg-gray-900 text-white py-6">
-        <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-gray-400 hover:text-white text-sm mb-2 inline-block">
-            ← Back to Overview
-          </Link>
-          <h1 className="text-3xl font-bold">{section.name}</h1>
-          {section.description && (
-            <p className="text-gray-300 mt-2">{section.description}</p>
-          )}
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
 
       <main className="max-w-4xl mx-auto px-4 py-8">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <Link href="/" className="hover:text-blue-600">
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-gray-700">{section.name}</span>
+        </nav>
+
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">{section.name}</h1>
+        {section.description && (
+          <p className="text-gray-600 text-lg mb-8">{section.description}</p>
+        )}
         <div className="grid gap-4">
           {section.agendas.map((agenda) => (
             <Link

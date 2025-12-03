@@ -3,6 +3,16 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { APPROACH_COLORS } from "@/constants/colors";
 import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
+import { Wrench, Activity, Brain, Sigma, Waypoints, LucideIcon, ChevronRight } from "lucide-react";
+import Header from "@/components/Header";
+
+const APPROACH_ICONS: Record<string, LucideIcon> = {
+  engineering: Wrench,
+  behavioral: Activity,
+  cognitive: Brain,
+  "maths-philosophy": Sigma,
+  theoretical: Waypoints,
+};
 
 export const metadata: Metadata = {
   title: `Broad Approaches | ${APP_SHORT_TITLE}`,
@@ -41,33 +51,38 @@ export default function BroadApproachesPage() {
 
 
   return (
-    <div className="min-h-screen">
-      <header className="bg-gray-900 text-white py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <Link href="/" className="text-blue-400 hover:underline text-sm">
-            &larr; Back to overview
-          </Link>
-          <h1 className="text-3xl font-bold mt-4">Broad Approaches</h1>
-          <p className="text-gray-300 mt-2">
-            Research methodologies and paradigms used across AI alignment
-            research agendas. Many agendas combine multiple approaches.
-          </p>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-50">
+      <Header />
 
       <main className="max-w-4xl mx-auto px-4 py-8">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <Link href="/" className="hover:text-blue-600">
+            Home
+          </Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-gray-700">Broad Approaches</span>
+        </nav>
+
+        <h1 className="text-4xl font-bold text-gray-900 mb-2">Broad Approaches</h1>
+        <p className="text-gray-600 text-lg mb-8">
+          Research methodologies and paradigms used across AI alignment
+          research agendas. Many agendas combine multiple approaches.
+        </p>
         <div className="space-y-8">
           {approaches.map((approach) => {
             const agendas = approachToAgendas[approach.id] || [];
             const colorClass = APPROACH_COLORS[approach.id] || "bg-gray-100 text-gray-700";
+            const Icon = APPROACH_ICONS[approach.id];
             return (
               <section
                 key={approach.id}
                 id={`approach-${approach.id}`}
                 className="border-b border-gray-200 pb-8 last:border-0"
               >
-                <div className="flex items-baseline gap-3">
-                  <h2 className="text-xl font-semibold text-gray-900">
+                <div className="flex items-center gap-3">
+                  <h2 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
+                    {Icon && <Icon className="w-5 h-5" />}
                     {approach.name}
                   </h2>
                   <span className="text-sm text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
@@ -100,12 +115,6 @@ export default function BroadApproachesPage() {
           })}
         </div>
       </main>
-
-      <footer className="bg-gray-100 py-6 mt-12">
-        <div className="max-w-4xl mx-auto px-4 text-center text-gray-600 text-sm">
-          Based on the {APP_TITLE} by {APP_AUTHORS}.
-        </div>
-      </footer>
     </div>
   );
 }
