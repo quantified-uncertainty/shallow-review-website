@@ -314,6 +314,11 @@ sections:
         name: Unlearning
         lesswrongTags:
           - machine-unlearning
+        keywords:
+          - unlearning
+          - memorization
+          - tamper-resistance
+          - fine-tuning
         papers:
           - title: Modifying LLM Beliefs with Synthetic Document Finetuning
             url: https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf
@@ -383,6 +388,14 @@ sections:
         name: Control
         lesswrongTags:
           - ai-control
+        keywords:
+          - scheming
+          - safety-cases
+          - monitoring
+          - sabotage
+          - deception
+          - red-teaming
+          - evals
         papers:
           - title: "Ctrl-Z: Controlling AI Agents via Resampling"
             url: https://alignmentforum.org/posts/LPHMMMZFAWog6ty5x/ctrl-z-controlling-ai-agents-via-resampling
@@ -476,6 +489,12 @@ sections:
             url: https://arxiv.org/abs/2312.06942
       - id: safeguards-inference-time-auxiliaries
         name: Safeguards (inference-time auxiliaries)
+        keywords:
+          - jailbreaking
+          - prompt-injection
+          - classifiers
+          - monitoring
+          - red-teaming
         papers:
           - title: "Constitutional Classifiers: Defending against Universal Jailbreaks across Thousands of Hours of Red Teaming"
             url: https://arxiv.org/abs/2501.18837
@@ -526,6 +545,13 @@ sections:
         name: Chain of thought monitoring
         lesswrongTags:
           - chain-of-thought-alignment
+        keywords:
+          - faithfulness
+          - obfuscation
+          - monitoring
+          - reward-hacking
+          - deception
+          - scheming
         papers:
           - title: "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety"
             url: https://arxiv.org/abs/2507.11473
@@ -597,6 +623,13 @@ sections:
         name: Emergent misalignment
         lesswrongTags:
           - deceptive-alignment
+        keywords:
+          - fine-tuning
+          - reward-hacking
+          - shutdown-resistance
+          - deception
+          - personas
+          - goal-misgeneralization
         papers:
           - title: "Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs"
             url: https://arxiv.org/abs/2502.17424
@@ -749,6 +782,11 @@ sections:
         name: Model specs and constitutions (shape model psychology)
         lesswrongTags:
           - constitutional-ai
+        keywords:
+          - constitutional-ai
+          - deliberative-alignment
+          - personas
+          - rlhf
         papers:
           - title: OpenAI Model Spec
             url: https://model-spec.openai.com/
@@ -802,6 +840,11 @@ sections:
         name: Character training and persona steering
         lesswrongTags:
           - sycophancy
+        keywords:
+          - personas
+          - sycophancy
+          - steering-vectors
+          - fine-tuning
         papers:
           - title: "Open Character Training: Shaping the Persona of AI Assistants through Constitutional AI"
             url: https://arxiv.org/pdf/2511.01689
@@ -911,6 +954,9 @@ sections:
           - cognitive
       - id: data-filtering
         name: Data filtering
+        keywords:
+          - data-quality
+          - pretraining
         papers:
           - title: Enhancing Model Safety through Pretraining Data Filtering
             url: https://alignment.anthropic.com/2025/pretraining-data-filtering/
@@ -974,6 +1020,10 @@ sections:
           - cognitive
       - id: data-poisoning-defense
         name: Data poisoning defense
+        keywords:
+          - data-poisoning
+          - data-quality
+          - tamper-resistance
         papers:
           - title: A small number of samples can poison LLMs of any size
             url: https://example-blog.com/a-small-number-of-samples-can-poison-llms
@@ -1011,6 +1061,10 @@ sections:
           - engineering
       - id: synthetic-data-for-alignment
         name: Synthetic data for alignment
+        keywords:
+          - synthetic-data
+          - data-quality
+          - rlhf
         papers:
           - title: Aligning Large Language Models via Fully Self-Synthetic Data
             url: https://arxiv.org/abs/2510.06652
@@ -1222,6 +1276,11 @@ sections:
         name: Harm reduction for open weights
         lesswrongTags:
           - open-source-ai
+        keywords:
+          - tamper-resistance
+          - unlearning
+          - fine-tuning
+          - pretraining
         papers:
           - title: Tamper-Resistant Safeguards for Open-Weight LLMs
             url: https://arxiv.org/abs/2408.00761
@@ -1296,6 +1355,12 @@ sections:
         lesswrongTags:
           - interpretability-ml-and-ai
           - transformer-circuits
+        keywords:
+          - circuits
+          - features
+          - attention-patterns
+          - attribution
+          - superposition
         papers:
           - title: The Circuits Research Landscape
             url: https://www.neuronpedia.org/graph/info
@@ -1399,6 +1464,12 @@ sections:
         name: Concept-based auditing and monitoring
         lesswrongTags:
           - ai-auditing
+        keywords:
+          - probing
+          - deception
+          - monitoring
+          - steering-vectors
+          - features
         papers:
           - title: Toward universal steering and monitoring of AI models
             url: https://arxiv.org/abs/2502.03708
@@ -1451,6 +1522,10 @@ sections:
         name: Model diffing
         lesswrongTags:
           - model-diffing
+        keywords:
+          - sparse-autoencoders
+          - fine-tuning
+          - features
         papers:
           - title: Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences
             url: https://arxiv.org/abs/2510.13900
@@ -1493,6 +1568,12 @@ sections:
         name: Sparse Coding
         lesswrongTags:
           - sparse-autoencoders-saes
+        keywords:
+          - sparse-autoencoders
+          - features
+          - superposition
+          - circuits
+          - attribution
         papers:
           - title: Weight-sparse transformers have interpretable circuits
             url: https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf
@@ -1766,6 +1847,11 @@ sections:
         name: Activation engineering
         lesswrongTags:
           - activation-engineering
+        keywords:
+          - steering-vectors
+          - features
+          - personas
+          - probing
         papers:
           - title: "Persona Vectors: Monitoring and Controlling Character Traits in Language Models"
             url: https://arxiv.org/abs/2507.21509
@@ -1923,6 +2009,10 @@ sections:
         name: Guaranteed Safe AI
         lesswrongTags:
           - guaranteed-safe-ai
+        keywords:
+          - formal-verification
+          - world-models
+          - safety-cases
         papers:
           - title: "SafePlanBench: evaluating a Guaranteed Safe AI Approach for LLM-based Agents"
             url: https://manifund.org/projects/safeplanbench-evaluating-a-guaranteed-safe-ai-approach-for-llm-based-agents
@@ -1988,6 +2078,10 @@ sections:
             url: https://futureoflife.org/
       - id: scientist-ai
         name: Scientist AI
+        keywords:
+          - world-models
+          - agentic-systems
+          - corrigibility
         papers:
           - title: "Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path?"
             url: https://arxiv.org/abs/2502.15657
@@ -2061,6 +2155,10 @@ sections:
     agendas:
       - id: weak-to-strong-generalization
         name: Weak-to-strong generalization
+        keywords:
+          - scalable-oversight
+          - capability-elicitation
+          - rlhf
         papers:
           - title: Debate Helps Weak-to-Strong Generalization
             url: https://arxiv.org/abs/2501.13124
@@ -2141,6 +2239,10 @@ sections:
         name: Debate
         lesswrongTags:
           - debate-ai-safety-technique-1
+        keywords:
+          - debate
+          - scalable-oversight
+          - safety-cases
         papers:
           - title: AI Debate Aids Assessment of Controversial Claims
             url: https://arxiv.org/abs/2506.02175
@@ -2201,6 +2303,11 @@ sections:
         name: Agent foundations
         lesswrongTags:
           - agent-foundations
+        keywords:
+          - decision-theory
+          - corrigibility
+          - ontology
+          - abstractions
         papers:
           - title: There is No Reliable Estimate of P(doom)
             url: https://static1.squarespace.com/static/678814b5570c5a7a78df555d/t/67d09e77f3364b72d1ee91d7/1741725303556/Günther+-+There+is+No+Reliable+P%28doom%29+-+Mario+Guenther.pdf
@@ -2251,6 +2358,9 @@ sections:
         name: Tiling agents
         lesswrongTags:
           - tiling-agents
+        keywords:
+          - corrigibility
+          - decision-theory
         papers:
           - title: Understanding Trust
             url: https://static1.squarespace.com/static/663d1233249bce4815fe8753/t/68067a6f5d5fb0745642d5b1/1745255023842/Understanding+Trust+-+Abram+Demski.pdf
@@ -2335,6 +2445,10 @@ sections:
         name: Simulators
         lesswrongTags:
           - simulator-theory
+        keywords:
+          - personas
+          - world-models
+          - ontology
         papers:
           - title: A Three-Layer Model of LLM Psychology
             url: https://www.alignmentforum.org/posts/zuXo9imNKYspu9HGv/a-three-layer-model-of-llm-psychology
@@ -2482,6 +2596,10 @@ sections:
         name: Other corrigibility
         lesswrongTags:
           - corrigibility-1
+        keywords:
+          - corrigibility
+          - shutdown-resistance
+          - goal-misgeneralization
         papers:
           - title: AI Assistants Should Have a Direct Line to Their Developers
             url: https://www.lesswrong.com/posts/LDYPF6yfe3f8SPHFT/ai-assistants-should-have-a-direct-line-to-their-developers
@@ -2520,6 +2638,11 @@ sections:
         name: Natural abstractions
         lesswrongTags:
           - natural-abstraction
+        keywords:
+          - abstractions
+          - ontology
+          - features
+          - world-models
         papers:
           - title: "Natural Latents: Latent Variables Stable Across Ontologies"
             url: https://arxiv.org/abs/2509.03780
@@ -2732,6 +2855,10 @@ sections:
         lesswrongTags:
           - game-theory
           - multipolar-scenarios
+        keywords:
+          - game-theory
+          - multi-agent
+          - decision-theory
         papers:
           - title: 2502.14143 - Multi-Agent Risks from Advanced AI
             url: https://arxiv.org/abs/2502.14143

@@ -4,10 +4,12 @@ import {
   loadBroadApproaches,
   loadTargetCases,
   loadFunders,
+  loadKeywords,
   getOrthodoxProblemsByIds,
   getBroadApproachesByIds,
   getTargetCaseByValue,
   getFundersByIds,
+  getKeywordsByIds,
 } from "@/data/loadData";
 import { FlattenedAgenda } from "@/data/types";
 import HomePageContent from "@/components/HomePageContent";
@@ -18,6 +20,7 @@ export default function Home() {
   const { approaches: allApproaches } = loadBroadApproaches();
   const { cases: allCases } = loadTargetCases();
   const { funders: allFunders } = loadFunders();
+  const { keywords: allKeywords } = loadKeywords();
 
   const totalPapers = data.sections.reduce(
     (acc, section) =>
@@ -51,6 +54,9 @@ export default function Home() {
         : undefined,
       resolvedFunders: agenda.fundedBy
         ? getFundersByIds(allFunders, agenda.fundedBy)
+        : [],
+      resolvedKeywords: agenda.keywords
+        ? getKeywordsByIds(allKeywords, agenda.keywords)
         : [],
     }))
   );

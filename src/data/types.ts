@@ -69,6 +69,25 @@ export interface AgendaResource {
   url: string;
 }
 
+export interface Keyword {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  lesswrongTags?: string[];
+}
+
+export interface KeywordCategory {
+  id: string;
+  name: string;
+  description: string;
+}
+
+export interface KeywordsData {
+  keywords: Keyword[];
+  categories: KeywordCategory[];
+}
+
 export interface Agenda {
   id: string;
   name: string;
@@ -83,6 +102,7 @@ export interface Agenda {
   critiques?: string[];
   fundedBy?: string[];
   lesswrongTags?: string[];
+  keywords?: string[];
   resources?: AgendaResource[];
   wikipedia?: string;
   papers: Paper[];
@@ -106,4 +126,5 @@ export interface FlattenedAgenda extends Agenda {
   resolvedApproaches: BroadApproach[];
   resolvedTargetCase: TargetCase | undefined;
   resolvedFunders: Funder[];
+  resolvedKeywords: Keyword[];
 }

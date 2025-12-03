@@ -13,6 +13,8 @@ import {
   Funder,
   ResearchersData,
   Researcher,
+  KeywordsData,
+  Keyword,
 } from "./types";
 
 /**
@@ -245,4 +247,39 @@ export function getResearchersByIds(researchers: Researcher[], ids: string[]): R
   return ids
     .map((id) => researchers.find((r) => r.id === id))
     .filter((r): r is Researcher => r !== undefined);
+}
+
+/**
+ * Loads the keywords taxonomy
+ * @throws Error if the YAML file is missing or malformed
+ */
+export function loadKeywords(): KeywordsData {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/keywords.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as KeywordsData;
+
+    if (!data?.keywords || !Array.isArray(data.keywords)) {
+      throw new Error("Invalid KeywordsData structure: missing keywords array");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Failed to load keywords:", error);
+    throw new Error(
+      `Failed to load keywords: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
+}
+
+/**
+ * Retrieves Keywords by their IDs
+ * @param keywords - Array of all available keywords
+ * @param ids - Array of keyword IDs to retrieve
+ * @returns Array of matching keywords, excluding not-found items
+ */
+export function getKeywordsByIds(keywords: Keyword[], ids: string[]): Keyword[] {
+  return ids
+    .map((id) => keywords.find((k) => k.id === id))
+    .filter((k): k is Keyword => k !== undefined);
 }

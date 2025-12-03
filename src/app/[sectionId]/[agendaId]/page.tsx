@@ -10,6 +10,8 @@ import {
   getFundersByIds,
   loadResearchers,
   getResearchersByIds,
+  loadKeywords,
+  getKeywordsByIds,
 } from "@/data/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -79,6 +81,7 @@ export default async function AgendaPage({ params }: PageProps) {
   const { cases: allCases } = loadTargetCases();
   const { funders: allFunders } = loadFunders();
   const { researchers: allResearchers } = loadResearchers();
+  const { keywords: allKeywords } = loadKeywords();
   const section = data.sections.find((s) => s.id === decodedSectionId);
   const agenda = section?.agendas.find((a) => a.id === decodedAgendaId);
 
@@ -106,9 +109,13 @@ export default async function AgendaPage({ params }: PageProps) {
     ? getResearchersByIds(allResearchers, agenda.someNames)
     : [];
 
+  const keywords = agenda.keywords
+    ? getKeywordsByIds(allKeywords, agenda.keywords)
+    : [];
+
   // Computed flags
   const hasResources = agenda.resources || agenda.wikipedia || (agenda.lesswrongTags && agenda.lesswrongTags.length > 0);
-  const hasClassification = orthodoxProblems.length > 0 || targetCase || broadApproaches.length > 0;
+  const hasClassification = orthodoxProblems.length > 0 || targetCase || broadApproaches.length > 0 || keywords.length > 0;
   const hasPeopleFunding = (agenda.someNames && agenda.someNames.length > 0) || funders.length > 0 || agenda.estimatedFTEs;
   const hasCritiques = agenda.critiques && agenda.critiques.length > 0;
 
@@ -255,6 +262,28 @@ export default async function AgendaPage({ params }: PageProps) {
                               title={problem.description}
                             >
                               {problem.id}. {problem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {keywords.length > 0 && (
+                      <div className="sm:col-span-4">
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          <Link href="/keywords" className="hover:text-blue-600">
+                            Keywords
+                          </Link>
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {keywords.map((keyword) => (
+                            <Link
+                              key={keyword.id}
+                              href={`/keywords#keyword-${keyword.id}`}
+                              className="inline-block text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded hover:bg-slate-200 transition-colors"
+                              title={keyword.description}
+                            >
+                              {keyword.name}
                             </Link>
                           ))}
                         </div>
