@@ -69,6 +69,10 @@ sections:
           - fidelity
           - founders-fund
           - sequoia
+        resources:
+          - title: OpenAI Safety
+            url: https://openai.com/safety/
+        wikipedia: https://en.wikipedia.org/wiki/OpenAI
       - id: deepmind-responsibility-safety
         name: Deepmind Responsibility & Safety
         lesswrongTags:
@@ -107,6 +111,9 @@ sections:
           - "[underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims)"
         fundedBy:
           - google-deepmind
+        resources:
+          - title: DeepMind Responsibility & Safety
+            url: https://deepmind.google/about/responsibility-safety/
       - id: anthropic-safety
         name: Anthropic Safety
         lesswrongTags:
@@ -175,6 +182,12 @@ sections:
           - coatue
           - general-catalyst
           - goldman-sachs
+        resources:
+          - title: Anthropic Research
+            url: https://www.anthropic.com/research
+          - title: Alignment Science Blog
+            url: https://alignment.anthropic.com/
+        wikipedia: https://en.wikipedia.org/wiki/Anthropic
       - id: xai
         name: xAI
         lesswrongTags:
@@ -205,6 +218,10 @@ sections:
           - lightspeed
           - morgan-stanley
           - sequoia
+        resources:
+          - title: xAI
+            url: https://x.ai/
+        wikipedia: https://en.wikipedia.org/wiki/XAI_(company)
       - id: meta
         name: Meta
         papers:
@@ -246,6 +263,10 @@ sections:
           - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
         fundedBy:
           - meta-ai
+        resources:
+          - title: Meta AI
+            url: https://ai.meta.com/
+        wikipedia: https://en.wikipedia.org/wiki/Meta_AI
       - id: others
         name: Others
         papers:
@@ -346,6 +367,7 @@ sections:
           - google-deepmind
         broadApproaches:
           - cognitive
+        wikipedia: https://en.wikipedia.org/wiki/Machine_unlearning
       - id: whitebox-unlearning
         name: Whitebox unlearning
         lesswrongTags:
@@ -447,6 +469,11 @@ sections:
         broadApproaches:
           - engineering
           - behavioral
+        resources:
+          - title: Redwood Research
+            url: https://www.redwoodresearch.org/
+          - title: "AI Control: Improving Safety Despite Intentional Subversion"
+            url: https://arxiv.org/abs/2312.06942
       - id: safeguards-inference-time-auxiliaries
         name: Safeguards (inference-time auxiliaries)
         papers:
@@ -1224,6 +1251,9 @@ sections:
           - open-philanthropy
         broadApproaches:
           - engineering
+        resources:
+          - title: EleutherAI
+            url: https://www.eleuther.ai/
       - id: the-neglected-approaches-approach
         name: The “Neglected Approaches" Approach
         papers:
@@ -1361,6 +1391,10 @@ sections:
           - "[Activation space interpretability may be doomed](https://www.lesswrong.com/posts/gYfpPbww3wQRaxAFD/activation-space-interpretability-may-be-doomed)"
         broadApproaches:
           - cognitive
+        resources:
+          - title: Transformer Circuits Thread
+            url: https://transformer-circuits.pub/
+        wikipedia: https://en.wikipedia.org/wiki/Mechanistic_interpretability
       - id: concept-based-auditing-and-monitoring
         name: Concept-based auditing and monitoring
         lesswrongTags:
@@ -1576,6 +1610,11 @@ sections:
         broadApproaches:
           - engineering
           - cognitive
+        resources:
+          - title: Towards Monosemanticity (Anthropic)
+            url: https://transformer-circuits.pub/2023/monosemantic-features
+          - title: "Sparse Autoencoders Find Highly Interpretable Features in Language Models"
+            url: https://arxiv.org/abs/2309.08600
       - id: causal-abstractions
         name: Causal Abstractions
         lesswrongTags:
@@ -1786,6 +1825,11 @@ sections:
         broadApproaches:
           - engineering
           - cognitive
+        resources:
+          - title: "Alignment Forum: Activation Engineering"
+            url: https://www.alignmentforum.org/w/activation-engineering
+          - title: "Representation Engineering: A Top-Down Approach to AI Transparency"
+            url: https://arxiv.org/abs/2310.01405
       - id: developmental-interpretability
         name: Developmental interpretability
         lesswrongTags:
@@ -1837,6 +1881,13 @@ sections:
           - "[Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52)"
         broadApproaches:
           - cognitive
+        resources:
+          - title: DevInterp
+            url: https://devinterp.com/
+          - title: Timaeus
+            url: https://timaeus.co/
+          - title: Singular Learning Theory
+            url: https://singularlearningtheory.com/
       - id: human-inductive-biases
         name: Human Inductive Biases
         papers:
@@ -1916,6 +1967,11 @@ sections:
           - mila-cifar
         broadApproaches:
           - cognitive
+        resources:
+          - title: GSAI Summit
+            url: https://www.gsais.org/
+          - title: "Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems"
+            url: https://arxiv.org/abs/2405.06624
       - id: tegmark
         name: Tegmark
         papers:
@@ -1925,6 +1981,11 @@ sections:
         theoryOfChange: ""
         targetCase: ""
         estimatedFTEs: ""
+        resources:
+          - title: Tegmark Group
+            url: https://tegmark.org/
+          - title: Future of Life Institute
+            url: https://futureoflife.org/
       - id: scientist-ai
         name: Scientist AI
         papers:
@@ -1962,6 +2023,11 @@ sections:
         seeAlso: "[uploadism](https://www.alignmentforum.org/posts/AzFxTMFfkTt4mhMKt/alignment-as-uploading-with-more-steps)"
         targetCase: ""
         estimatedFTEs: ""
+        resources:
+          - title: Conjecture
+            url: https://www.conjecture.dev/
+          - title: Cognitive Emulation
+            url: https://www.conjecture.dev/cognitive-emulation
       - id: brainlike-agi-safety
         name: Brainlike-AGI Safety
         papers:
@@ -2022,6 +2088,11 @@ sections:
           - eleutherai
         broadApproaches:
           - engineering
+        resources:
+          - title: OpenAI Research
+            url: https://openai.com/index/weak-to-strong-generalization/
+          - title: "Weak-to-Strong Generalization: Eliciting Strong Capabilities With Weak Supervision"
+            url: https://arxiv.org/abs/2312.09390
       - id: supervising-ais-improving-ais
         name: Supervising AIs improving AIs
         lesswrongTags:
@@ -2093,6 +2164,11 @@ sections:
         broadApproaches:
           - engineering
           - cognitive
+        resources:
+          - title: "AI Safety via Debate"
+            url: https://arxiv.org/abs/1805.00899
+          - title: Anthropic Debate Progress Update
+            url: https://www.alignmentforum.org/posts/QtqysYdJRenWFeWc4/anthropic-fall-2023-debate-progress-update
       - id: task-decomposition
         name: Task decomposition
         lesswrongTags:
@@ -2102,6 +2178,9 @@ sections:
         theoryOfChange: ""
         targetCase: ""
         estimatedFTEs: ""
+        resources:
+          - title: Iterated Distillation and Amplification
+            url: https://ai-alignment.com/iterated-distillation-and-amplification-157debfd1616
       - id: adversarial-oversight
         name: Adversarial oversight
         lesswrongTags:
@@ -2163,6 +2242,11 @@ sections:
         estimatedFTEs: ""
         broadApproaches:
           - cognitive
+        resources:
+          - title: MIRI Research
+            url: https://intelligence.org/research/
+          - title: Technical Agenda
+            url: https://intelligence.org/files/TechnicalAgenda.pdf
       - id: tiling-agents
         name: Tiling agents
         lesswrongTags:
@@ -2269,6 +2353,9 @@ sections:
         estimatedFTEs: 1.5?
         broadApproaches:
           - cognitive
+        resources:
+          - title: Simulators (LessWrong)
+            url: https://www.lesswrong.com/posts/vJFdjigzmcXMhNTsx/simulators
       - id: asymptotic-guarantees
         name: Asymptotic guarantees
         papers:
@@ -2337,6 +2424,10 @@ sections:
         broadApproaches:
           - cognitive
           - maths-philosophy
+        resources:
+          - title: Alignment Research Center
+            url: https://www.alignment.org/
+        wikipedia: https://en.wikipedia.org/wiki/Alignment_Research_Center
       - id: behavior-alignment-theory
         name: Behavior alignment theory
         lesswrongTags:
@@ -2463,6 +2554,11 @@ sections:
           - ea-funds
         broadApproaches:
           - cognitive
+        resources:
+          - title: Natural Abstraction Hypothesis (LessWrong)
+            url: https://www.lesswrong.com/posts/Fut8dtFsBYRz8atFF/the-natural-abstraction-hypothesis-implications-and-evidence
+          - title: AXRP Podcast Episode
+            url: https://axrp.net/episode/2022/05/23/episode-15-natural-abstractions-john-wentworth.html
       - id: other-ontology-work
         name: Other ontology work
         lesswrongTags:
@@ -2672,6 +2768,9 @@ sections:
           - google-deepmind
         broadApproaches:
           - cognitive
+        resources:
+          - title: Cooperative AI Foundation
+            url: https://www.cooperativeai.com/
       - id: aligning-multiple-ais-tools-and-techniques
         name: "Aligning multiple AIs: tools and techniques"
         lesswrongTags:

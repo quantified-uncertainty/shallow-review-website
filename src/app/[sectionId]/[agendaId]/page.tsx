@@ -15,6 +15,7 @@ import PaperCard from "@/components/PaperCard";
 import { APPROACH_COLORS, TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 import Markdown from "@/components/Markdown";
 import lesswrongTagsLookup from "@/data/lesswrongTagsLookup.json";
+import { ExternalLink } from "lucide-react";
 
 const tagsLookup = lesswrongTagsLookup as Record<string, { name: string; postCount: number }>;
 
@@ -238,13 +239,36 @@ export default async function AgendaPage({ params }: PageProps) {
             </section>
           )}
 
-          {agenda.lesswrongTags && agenda.lesswrongTags.length > 0 && (
+          {(agenda.resources || agenda.wikipedia || (agenda.lesswrongTags && agenda.lesswrongTags.length > 0)) && (
             <section>
               <h2 className="text-lg font-semibold text-gray-900 mb-2">
-                LessWrong Tags
+                Resources
               </h2>
-              <div className="flex flex-wrap gap-2">
-                {agenda.lesswrongTags.map((slug) => {
+              <div className="flex flex-wrap gap-3">
+                {agenda.wikipedia && (
+                  <a
+                    href={agenda.wikipedia}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded hover:bg-gray-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    Wikipedia
+                  </a>
+                )}
+                {agenda.resources?.map((resource, i) => (
+                  <a
+                    key={i}
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded hover:bg-gray-200 transition-colors"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    {resource.title}
+                  </a>
+                ))}
+                {agenda.lesswrongTags?.map((slug) => {
                   const tagInfo = tagsLookup[slug];
                   const displayName = tagInfo?.name || slug;
                   const postCount = tagInfo?.postCount;
@@ -254,11 +278,12 @@ export default async function AgendaPage({ params }: PageProps) {
                       href={`https://www.lesswrong.com/tag/${slug}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm bg-green-50 text-green-800 px-2 py-1 rounded hover:bg-green-100 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-sm bg-gray-100 text-gray-800 px-3 py-1.5 rounded hover:bg-gray-200 transition-colors"
                     >
-                      {displayName}
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      LessWrong: {displayName}
                       {postCount !== undefined && (
-                        <span className="text-xs text-green-600">
+                        <span className="text-xs text-gray-500">
                           ({postCount} posts)
                         </span>
                       )}
