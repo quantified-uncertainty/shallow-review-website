@@ -11,6 +11,8 @@ import {
   TargetCase,
   FundersData,
   Funder,
+  ResearchersData,
+  Researcher,
 } from "./types";
 
 /**
@@ -208,4 +210,39 @@ export function getFundersByIds(funders: Funder[], ids: string[]): Funder[] {
   return ids
     .map((id) => funders.find((f) => f.id === id))
     .filter((f): f is Funder => f !== undefined);
+}
+
+/**
+ * Loads the researchers taxonomy
+ * @throws Error if the YAML file is missing or malformed
+ */
+export function loadResearchers(): ResearchersData {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/researchers.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as ResearchersData;
+
+    if (!data?.researchers || !Array.isArray(data.researchers)) {
+      throw new Error("Invalid ResearchersData structure: missing researchers array");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Failed to load researchers:", error);
+    throw new Error(
+      `Failed to load researchers: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
+}
+
+/**
+ * Retrieves Researchers by their IDs
+ * @param researchers - Array of all available researchers
+ * @param ids - Array of researcher IDs to retrieve
+ * @returns Array of matching researchers, excluding not-found items
+ */
+export function getResearchersByIds(researchers: Researcher[], ids: string[]): Researcher[] {
+  return ids
+    .map((id) => researchers.find((r) => r.id === id))
+    .filter((r): r is Researcher => r !== undefined);
 }

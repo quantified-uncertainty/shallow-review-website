@@ -8,6 +8,8 @@ import {
   getTargetCaseByValue,
   loadFunders,
   getFundersByIds,
+  loadResearchers,
+  getResearchersByIds,
 } from "@/data/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -76,6 +78,7 @@ export default async function AgendaPage({ params }: PageProps) {
   const { approaches: allApproaches } = loadBroadApproaches();
   const { cases: allCases } = loadTargetCases();
   const { funders: allFunders } = loadFunders();
+  const { researchers: allResearchers } = loadResearchers();
   const section = data.sections.find((s) => s.id === decodedSectionId);
   const agenda = section?.agendas.find((a) => a.id === decodedAgendaId);
 
@@ -97,6 +100,10 @@ export default async function AgendaPage({ params }: PageProps) {
 
   const funders = agenda.fundedBy
     ? getFundersByIds(allFunders, agenda.fundedBy)
+    : [];
+
+  const researchers = agenda.someNames
+    ? getResearchersByIds(allResearchers, agenda.someNames)
     : [];
 
   // Computed flags
@@ -283,12 +290,26 @@ export default async function AgendaPage({ params }: PageProps) {
                       </div>
                     )}
 
-                    {agenda.someNames && agenda.someNames.length > 0 && (
+                    {researchers.length > 0 && (
                       <div>
                         <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          Some Names
+                          <Link href="/researchers" className="hover:text-blue-600">
+                            Some Names
+                          </Link>
                         </h3>
-                        <p className="text-gray-700">{agenda.someNames.join(", ")}</p>
+                        <div className="flex flex-wrap gap-x-1 gap-y-1">
+                          {researchers.map((researcher, i) => (
+                            <span key={researcher.id}>
+                              <Link
+                                href={`/researchers#researcher-${researcher.id}`}
+                                className="text-gray-700 hover:text-blue-600 hover:underline"
+                              >
+                                {researcher.name}
+                              </Link>
+                              {i < researchers.length - 1 && <span className="text-gray-400">,</span>}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     )}
 

@@ -40,22 +40,22 @@ sections:
           - "[Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\\(and/or%2C%20at%20Anthropic%20in%20particular\\)"
           - "[difficult](https://conversationswithtyler.com/episodes/sam-altman-2/)"
         someNames:
-          - Johannes Heidecke
-          - Boaz Barak
-          - Mia Glaese
-          - Jenny Nitishinskaya
-          - Lama Ahmad
-          - Naomi Bashkansky
-          - Miles Wang
-          - Wojciech Zaremba
-          - David Robinson
-          - Zico Kolter
-          - Jerry Tworek
-          - Eric Wallace
-          - Olivia Watkins
-          - Kai Chen
-          - Chris Koch
-          - Andrea Vallone.
+          - johannes-heidecke
+          - boaz-barak
+          - mia-glaese
+          - jenny-nitishinskaya
+          - lama-ahmad
+          - naomi-bashkansky
+          - miles-wang
+          - wojciech-zaremba
+          - david-robinson
+          - zico-kolter
+          - jerry-tworek
+          - eric-wallace
+          - olivia-watkins
+          - kai-chen
+          - chris-koch
+          - andrea-vallone
         fundedBy:
           - microsoft
           - amazon
@@ -155,15 +155,15 @@ sections:
             url: https://lesswrong.com/posts/7ExkgcDudwhag73vw/existing-safety-frameworks-imply-unreasonable-confidence
         seeAlso: Interpretability**,** Scalable Oversight
         someNames:
-          - Chris Olah
-          - Evan Hubinger
-          - Sam Marks
-          - Johannes Treutlein
-          - Sam Bowman
-          - Euan Ong
-          - Fabien Roger
-          - Adam Jermyn
-          - Holden Karnofsky
+          - chris-olah
+          - evan-hubinger
+          - sam-marks
+          - johannes-treutlein
+          - sam-bowman
+          - euan-ong
+          - fabien-roger
+          - adam-jermyn
+          - holden-karnofsky
         critiques:
           - "[Stein](https://ailabwatch.org/anthropic-opinions)"
           - "[Perlman](https://ailabwatch.org/companies/anthropic)"
@@ -195,14 +195,14 @@ sections:
         papers: []
         seeAlso: None.
         someNames:
-          - Dan Hendrycks (advisor)
-          - Juntang Zhuang
-          - Toby Pohlen
-          - Lianmin Zheng
-          - Piaoyang Cui
-          - Nikita Popov
-          - Ying Sheng
-          - Sehoon Kim
+          - dan-hendrycks
+          - juntang-zhuang
+          - toby-pohlen
+          - lianmin-zheng
+          - piaoyang-cui
+          - nikita-popov
+          - ying-sheng
+          - sehoon-kim
         critiques:
           - "[framework](https://www.lesswrong.com/posts/hQyrTDuTXpqkxrnoH/xai-s-new-safety-framework-is-dreadful)"
           - "[hacking](https://x.com/g_leech_/status/1990543987846078854)"
@@ -237,25 +237,25 @@ sections:
             url: https://ai.meta.com/blog/practical-ai-agent-security/
         seeAlso: model unlearning,
         someNames:
-          - Shuchao Bi
-          - Hongyuan Zhan
-          - Jingyu Zhang
-          - Haozhu Wang
-          - Eric Michael Smith
-          - Sid Wang
-          - Amr Sharaf
-          - Mahesh Pasupuleti
-          - Jason Weston
-          - ShengYun Peng
-          - Ivan Evtimov
-          - Song Jiang
-          - Pin-Yu Chen
-          - Evangelia Spiliopoulou
-          - Lei Yu
-          - Virginie Do
-          - Karen Hambardzumyan
-          - Nicola Cancedda
-          - Adina Williams
+          - shuchao-bi
+          - hongyuan-zhan
+          - jingyu-zhang
+          - haozhu-wang
+          - eric-michael-smith
+          - sid-wang
+          - amr-sharaf
+          - mahesh-pasupuleti
+          - jason-weston
+          - shengyun-peng
+          - ivan-evtimov
+          - song-jiang
+          - pin-yu-chen
+          - evangelia-spiliopoulou
+          - lei-yu
+          - virginie-do
+          - karen-hambardzumyan
+          - nicola-cancedda
+          - adina-williams
         critiques:
           - "[extreme underelicitation](https://googleprojectzero.blogspot.com/2024/06/project-naptime.html#:~:text=We%20find%20that%2C%20by%20refining%20the%20testing%20methodology%20to%20take%20advantage%20of%20modern%20LLM%20capabilities%2C%20significantly%20better%20performance%20in%20vulnerability%20discovery%20can%20be%20achieved.%20To%20facilitate%20effective%20evaluation%20of%20LLMs%20for%20vulnerability%20discovery%2C%20we%20propose%20below%20a%20set%20of%20guiding%20principles.)"
           - "[Stein](https://ailabwatch.org/companies/meta)"
@@ -346,17 +346,17 @@ sections:
           - "10"
         targetCase: pessimistic.
         someNames:
-          - Rowan Wang
-          - Avery Griffin
-          - Johannes Treutlein
-          - Zico Kolter
-          - Bruce W. Lee
-          - Addie Foote
-          - Alex Infanger
-          - Zesheng Shi
-          - Yucheng Zhou
-          - Jing Li
-          - Timothy Qian.
+          - rowan-wang
+          - avery-griffin
+          - johannes-treutlein
+          - zico-kolter
+          - bruce-w-lee
+          - addie-foote
+          - alex-infanger
+          - zesheng-shi
+          - yucheng-zhou
+          - jing-li
+          - timothy-qian
         estimatedFTEs: 10-50
         fundedBy:
           - open-philanthropy
@@ -457,11 +457,11 @@ sections:
         targetCase: "*worst-case*"
         someNames:
           - "*Redwood"
-          - UK AISI
-          - Buck Shlegeris
-          - Ryan Greenblatt
-          - Kshitij Sachan
-          - Alex Mallen*
+          - uk-aisi
+          - buck-shlegeris
+          - ryan-greenblatt
+          - kshitij-sachan
+          - alex-mallen
         estimatedFTEs: "*(SR2024: 9\\)*"
         critiques:
           - "[Wentworth](https://www.lesswrong.com/posts/8wBN8cdNAv3c7vt6p/the-case-against-ai-control-research)"
@@ -502,21 +502,21 @@ sections:
           - "12"
         targetCase: optimistic.
         someNames:
-          - Mrinank Sharma
-          - Meg Tong
-          - Jesse Mu
-          - Alwin Peng
-          - Julian Michael
-          - Henry Sleight
-          - Theodore Sumers
-          - Raj Agarwal
-          - Nathan Bailey
-          - Edoardo Debenedetti
-          - Ilia Shumailov
-          - Tianqi Fan
-          - Sahil Verma
-          - Keegan Hines
-          - Jeff Bilmes
+          - mrinank-sharma
+          - meg-tong
+          - jesse-mu
+          - alwin-peng
+          - julian-michael
+          - henry-sleight
+          - theodore-sumers
+          - raj-agarwal
+          - nathan-bailey
+          - edoardo-debenedetti
+          - ilia-shumailov
+          - tianqi-fan
+          - sahil-verma
+          - keegan-hines
+          - jeff-bilmes
         estimatedFTEs: 100+
         critiques:
           - "[Obfuscated Activations Bypass LLM Latent-Space Defenses](https://arxiv.org/abs/2412.09565)"
@@ -574,18 +574,18 @@ sections:
           - "12"
         targetCase: average case.
         someNames:
-          - Bowen Baker
-          - Joost Huizinga
-          - Leo Gao
-          - Scott Emmons
-          - Erik Jenner
-          - Yanda Chen
-          - James Chua
-          - Owain Evans
-          - Tomek Korbak
-          - Mikita Balesni
-          - Xinpeng Wang
-          - Miles Turpin.
+          - bowen-baker
+          - joost-huizinga
+          - leo-gao
+          - scott-emmons
+          - erik-jenner
+          - yanda-chen
+          - james-chua
+          - owain-evans
+          - tomek-korbak
+          - mikita-balesni
+          - xinpeng-wang
+          - miles-turpin
         estimatedFTEs: 10-100.
         fundedBy:
           - openai
@@ -659,16 +659,16 @@ sections:
           - "7"
         targetCase: pessimistic.
         someNames:
-          - Truthful AI
-          - Jan Betley
-          - James Chua
-          - Mia Taylor
-          - Miles Wang
-          - Edward Turner
-          - Anna Soligo
-          - Alex Cloud
-          - Nathan Hu
-          - Owain Evans.
+          - truthful-ai
+          - jan-betley
+          - james-chua
+          - mia-taylor
+          - miles-wang
+          - edward-turner
+          - anna-soligo
+          - alex-cloud
+          - nathan-hu
+          - owain-evans
         estimatedFTEs: 10-50
         critiques:
           - "[Emergent Misalignment as Prompt Sensitivity](https://arxiv.org/html/2507.06253v1)"
@@ -696,10 +696,10 @@ sections:
           - "8"
         targetCase: "*pessimistic*"
         someNames:
-          - Jacob Steinhardt
-          - Neil Chowdhury
-          - Vincent Huang
-          - Sarah Schwettmann
+          - jacob-steinhardt
+          - neil-chowdhury
+          - vincent-huang
+          - sarah-schwettmann
         estimatedFTEs: "*(SR2024: 6\\)*"
         fundedBy:
           - schmidt-sciences
@@ -732,14 +732,14 @@ sections:
           - "4"
         targetCase: pessimistic
         someNames:
-          - Truthful AI
-          - Theia Vogel
-          - Stewart Slocum
-          - Nell Watson
-          - Samuel G. B. Johnson
-          - Liwei Jiang
-          - Monika Jotautaite
-          - Saloni Dash.
+          - truthful-ai
+          - theia-vogel
+          - stewart-slocum
+          - nell-watson
+          - samuel-g-b-johnson
+          - liwei-jiang
+          - monika-jotautaite
+          - saloni-dash
         estimatedFTEs: 5-20
         fundedBy:
           - open-philanthropy
@@ -786,8 +786,8 @@ sections:
           - "1"
         targetCase: optimistic.
         someNames:
-          - Amanda Askell
-          - Joe Carlsmith
+          - amanda-askell
+          - joe-carlsmith
         estimatedFTEs: ""
         critiques:
           - "[LLM AGI may reason about its goals and discover misalignments by default](https://www.alignmentforum.org/posts/4XdxiqBsLKqiJ9xRM/llm-agi-may-reason-about-its-goals-and-discover)"
@@ -834,10 +834,10 @@ sections:
           - "1"
         targetCase: optimistic?
         someNames:
-          - Amanda Askell
-          - Jack Lindsey
-          - Sharan Maiya
-          - Evan Hubinger
+          - amanda-askell
+          - jack-lindsey
+          - sharan-maiya
+          - evan-hubinger
         estimatedFTEs: ""
         critiques:
           - "[Nostalgebraist](https://nostalgebraist.tumblr.com/post/785766737747574784/the-void)"
@@ -892,17 +892,17 @@ sections:
           - "1"
         targetCase: pessimistic.
         someNames:
-          - Mantas Mazeika
-          - Xuwang Yin
-          - Rishub Tamirisa
-          - Jaehyuk Lim
-          - Bruce W. Lee
-          - Richard Ren
-          - Long Phan
-          - Norman Mu
-          - Adam Khoja
-          - Oliver Zhang
-          - Dan Hendrycks.
+          - mantas-mazeika
+          - xuwang-yin
+          - rishub-tamirisa
+          - jaehyuk-lim
+          - bruce-w-lee
+          - richard-ren
+          - long-phan
+          - norman-mu
+          - adam-khoja
+          - oliver-zhang
+          - dan-hendrycks
         estimatedFTEs: "30"
         fundedBy:
           - open-philanthropy
@@ -929,16 +929,16 @@ sections:
           - "4"
         targetCase: average case
         someNames:
-          - Yanda Chen
-          - Pratyush Maini
-          - Kyle O'Brien
-          - Stephen Casper
-          - Simon Pepin Lehalleur
-          - Jesse Hoogland
-          - Himanshu Beniwal
-          - Sachin Goyal
-          - Mycal Tucker
-          - Dylan Sam.
+          - yanda-chen
+          - pratyush-maini
+          - kyle-obrien
+          - stephen-casper
+          - simon-pepin-lehalleur
+          - jesse-hoogland
+          - himanshu-beniwal
+          - sachin-goyal
+          - mycal-tucker
+          - dylan-sam
         estimatedFTEs: 10-50.
         critiques:
           - "[When Bad Data Leads to Good Models](https://arxiv.org/pdf/2505.04741)"
@@ -967,7 +967,7 @@ sections:
           - "1"
         targetCase: optimistic
         someNames:
-          - Alex Turner
+          - alex-turner
           - "[Hyperstition AI](https://www.hyperstitionai.com/)"
         estimatedFTEs: "*(SR2024: 10-50)*"
         broadApproaches:
@@ -992,12 +992,12 @@ sections:
           - "14"
         targetCase: pessimistic.
         someNames:
-          - Alexandra Souly
-          - Javier Rando
-          - Ed Chapman
-          - Hanna Foerster
-          - Ilia Shumailov
-          - Yiren Zhao.
+          - alexandra-souly
+          - javier-rando
+          - ed-chapman
+          - hanna-foerster
+          - ilia-shumailov
+          - yiren-zhao
         estimatedFTEs: 5-20.
         critiques:
           - "[A small number of samples can poison LLMs of any size](https://arxiv.org/abs/2510.04567)"
@@ -1043,14 +1043,14 @@ sections:
           - "7"
         targetCase: optimistic.
         someNames:
-          - Mianqiu Huang
-          - Xiaoran Liu
-          - Rylan Schaeffer
-          - Nevan Wichers
-          - Aram Ebtekar
-          - Jiaxin Wen
-          - Vishakh Padmakumar
-          - Benjamin Newman.
+          - mianqiu-huang
+          - xiaoran-liu
+          - rylan-schaeffer
+          - nevan-wichers
+          - aram-ebtekar
+          - jiaxin-wen
+          - vishakh-padmakumar
+          - benjamin-newman
         estimatedFTEs: 50-150.
         critiques:
           - "[Synthetic Data in AI: Challenges, Applications, and Ethical Implications](https://arxiv.org/abs/2401.01629)"
@@ -1085,10 +1085,10 @@ sections:
           - "7"
         targetCase: average case.
         someNames:
-          - Maarten Buyl
-          - Kelsey Kraus
-          - Margaret Kroll
-          - Danqing Shi.
+          - maarten-buyl
+          - kelsey-kraus
+          - margaret-kroll
+          - danqing-shi
         estimatedFTEs: 20-50.
         critiques:
           - "[A Statistical Case Against Empirical Human-AI Alignment](https://arxiv.org/abs/2502.14581)"
@@ -1157,15 +1157,15 @@ sections:
           - "7"
         targetCase: pessimistic.
         someNames:
-          - Joar Skalse
-          - Karim Abdel Sadek
-          - Matthew Farrugia-Roberts
-          - Benjamin Plaut
-          - Fang Wu
-          - Stephen Zhao
-          - Alessandro Abate
-          - Steven Byrnes
-          - Michael Cohen.
+          - joar-skalse
+          - karim-abdel-sadek
+          - matthew-farrugia-roberts
+          - benjamin-plaut
+          - fang-wu
+          - stephen-zhao
+          - alessandro-abate
+          - steven-byrnes
+          - michael-cohen
         estimatedFTEs: 20-70.
         critiques:
           - "[\"The Era of Experience\" has an unsolved technical alignment problem](https://www.lesswrong.com/posts/747f6b8e/the-era-of-experience-has-an-unsolved-technical-alignment-problem)"
@@ -1203,10 +1203,10 @@ sections:
           - "10"
         targetCase: Varies
         someNames:
-          - Joar Skalse
-          - Anca Dragan
-          - Caspar Oesterheld
-          - David Krueger
+          - joar-skalse
+          - anca-dragan
+          - caspar-oesterheld
+          - david-krueger
         estimatedFTEs: "?"
         critiques:
           - "[nice summary](https://www.lesswrong.com/posts/i5kijcjFJD6bn7dwq/evaluating-the-historical-value-misspecification-argument)"
@@ -1236,14 +1236,14 @@ sections:
           - "14"
         targetCase: Average case.
         someNames:
-          - Kyle O'Brien
-          - Stephen Casper
-          - Quentin Anthony
-          - Tomek Korbak
-          - Rishub Tamirisa
-          - Mantas Mazeika
-          - Stella Biderman
-          - Yarin Gal.
+          - kyle-obrien
+          - stephen-casper
+          - quentin-anthony
+          - tomek-korbak
+          - rishub-tamirisa
+          - mantas-mazeika
+          - stella-biderman
+          - yarin-gal
         estimatedFTEs: 10-100.
         fundedBy:
           - uk-aisi
@@ -1273,12 +1273,12 @@ sections:
           - "14"
         targetCase: optimistic.
         someNames:
-          - AE Studio
-          - Gunnar Zarncke
-          - Cameron Berg
-          - Michael Vaiana
-          - Judd Rosenblatt
-          - Diogo Schwerz de Lucena.
+          - ae-studio
+          - gunnar-zarncke
+          - cameron-berg
+          - michael-vaiana
+          - judd-rosenblatt
+          - diogo-schwerz-de-lucena
         estimatedFTEs: "15"
         critiques:
           - "[The 'Alignment Bonus' is a Dangerous Mirage](https://www.alignmentforum.org/posts/example-critique-neg-tax)"
@@ -1371,15 +1371,15 @@ sections:
           - "7"
         targetCase: worst case.
         someNames:
-          - Lucius Bushnaq
-          - Dan Braun
-          - Lee Sharkey
-          - Aaron Mueller
-          - Atticus Geiger
-          - Sheridan Feucht
-          - David Bau
-          - Yonatan Belinkov
-          - Stefan Heimersheim.
+          - lucius-bushnaq
+          - dan-braun
+          - lee-sharkey
+          - aaron-mueller
+          - atticus-geiger
+          - sheridan-feucht
+          - david-bau
+          - yonatan-belinkov
+          - stefan-heimersheim
         estimatedFTEs: 100-200.
         critiques:
           - "[Interpretability Will Not Reliably Find Deceptive AI](https://www.alignmentforum.org/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai)"
@@ -1429,15 +1429,15 @@ sections:
           - "12"
         targetCase: pessimistic
         someNames:
-          - Daniel Beaglehole
-          - Adityanarayanan Radhakrishnan
-          - Enric Boix-Adserà
-          - Tom Wollschläger
-          - Anna Soligo
-          - Jack Lindsey
-          - Brian Christian
-          - Ling Hu
-          - Nicholas Goldowsky-Dill
+          - daniel-beaglehole
+          - adityanarayanan-radhakrishnan
+          - enric-boix-adser
+          - tom-wollschlger
+          - anna-soligo
+          - jack-lindsey
+          - brian-christian
+          - ling-hu
+          - nicholas-goldowsky-dill
         estimatedFTEs: 50-100.
         critiques:
           - "[Exploring the generalization of LLM truth directions on conversational formats](https://arxiv.org/html/2505.09807v1)"
@@ -1478,11 +1478,11 @@ sections:
           - "1"
         targetCase: pessimistic
         someNames:
-          - Julian Minder
-          - Clément Dumas
-          - Neel Nanda
-          - Trenton Bricken
-          - Jack Lindsey
+          - julian-minder
+          - clment-dumas
+          - neel-nanda
+          - trenton-bricken
+          - jack-lindsey
         estimatedFTEs: 10-30
         fundedBy:
           - anthropic
@@ -1589,15 +1589,15 @@ sections:
           - "7"
         targetCase: Optimistic / pessimistic
         someNames:
-          - Leo Gao
-          - Dan Mossing
-          - Emmanuel Ameisen
-          - Jack Lindsey
-          - Adam Pearce
-          - Thomas Heap
-          - Abhinav Menon
-          - Kenny Peng
-          - Tim Lawson.
+          - leo-gao
+          - dan-mossing
+          - emmanuel-ameisen
+          - jack-lindsey
+          - adam-pearce
+          - thomas-heap
+          - abhinav-menon
+          - kenny-peng
+          - tim-lawson
         estimatedFTEs: 50-100.
         critiques:
           - "[Sparse Autoencoders Can Interpret Randomly Initialized Transformers](https://arxiv.org/abs/2501.17727)"
@@ -1633,13 +1633,13 @@ sections:
           - "4"
         targetCase: worst case
         someNames:
-          - Atticus Geiger
-          - Christopher Potts
-          - Thomas Icard
-          - Theodora-Mara Pîslar
-          - Sara Magliacane
-          - Jiuding Sun
-          - Jing Huang.
+          - atticus-geiger
+          - christopher-potts
+          - thomas-icard
+          - theodora-mara-pslar
+          - sara-magliacane
+          - jiuding-sun
+          - jing-huang
         estimatedFTEs: 10-30
         critiques:
           - "[The Misguided Quest for Mechanistic AI Interpretability](https://www.google.com/search?q=https://open.substack.com/pub/aifrontiersmedia/p/the-misguided-quest-for-mechanistic)"
@@ -1684,16 +1684,16 @@ sections:
           - "4"
         targetCase: Average case.
         someNames:
-          - Philipp Alexander Kreer
-          - Wilson Wu
-          - Jin Hwa Lee
-          - Matthew Smith
-          - Abhilasha Ravichander
-          - Andrew Wang
-          - Jiacheng Liu
-          - Jiaqi Ma
-          - Junwei Deng
-          - Yijun Pan.
+          - philipp-alexander-kreer
+          - wilson-wu
+          - jin-hwa-lee
+          - matthew-smith
+          - abhilasha-ravichander
+          - andrew-wang
+          - jiacheng-liu
+          - jiaqi-ma
+          - junwei-deng
+          - yijun-pan
         estimatedFTEs: 30-60.
         broadApproaches:
           - behavioral
@@ -1748,16 +1748,16 @@ sections:
           - "7"
         targetCase: Mixed.
         someNames:
-          - Lee Sharkey
-          - Dario Amodei
-          - David Chalmers
-          - Been Kim
-          - Neel Nanda
-          - David D. Baek
-          - Lauren Greenspan
-          - Dmitry Vaintrob
-          - Sam Marks
-          - Jacob Pfau.
+          - lee-sharkey
+          - dario-amodei
+          - david-chalmers
+          - been-kim
+          - neel-nanda
+          - david-d-baek
+          - lauren-greenspan
+          - dmitry-vaintrob
+          - sam-marks
+          - jacob-pfau
         estimatedFTEs: 30-60.
         broadApproaches:
           - engineering
@@ -1806,18 +1806,18 @@ sections:
           - "1"
         targetCase: optimistic
         someNames:
-          - Runjin Chen
-          - Andy Arditi
-          - David Krueger
-          - Jan Wehner
-          - Narmeen Oozeer
-          - Reza Bayat
-          - Adam Karvonen
-          - Jiuding Sun
-          - Tim Tian Hua
-          - Helena Casademunt
-          - Jacob Dunefsky
-          - Thomas Marshall.
+          - runjin-chen
+          - andy-arditi
+          - david-krueger
+          - jan-wehner
+          - narmeen-oozeer
+          - reza-bayat
+          - adam-karvonen
+          - jiuding-sun
+          - tim-tian-hua
+          - helena-casademunt
+          - jacob-dunefsky
+          - thomas-marshall
         estimatedFTEs: 50-200.
         fundedBy:
           - open-philanthropy
@@ -1869,13 +1869,13 @@ sections:
           - "7"
         targetCase: mixed
         someNames:
-          - Simplex
-          - Insight \+ Interaction Lab
-          - Paul Riechers
-          - Adam Shai
-          - Martin Wattenberg
-          - Blake Richards
-          - Mateusz Piotrowski
+          - simplex
+          - insight-interaction-lab
+          - paul-riechers
+          - adam-shai
+          - martin-wattenberg
+          - blake-richards
+          - mateusz-piotrowski
         estimatedFTEs: 10-50.
         critiques:
           - "[Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52)"
@@ -1908,8 +1908,8 @@ sections:
           - "4"
         targetCase: pessimistic
         someNames:
-          - Lukas Muttenthaler
-          - Quentin Delfosse.
+          - lukas-muttenthaler
+          - quentin-delfosse
         estimatedFTEs: "4"
         fundedBy:
           - google-deepmind
@@ -1946,18 +1946,18 @@ sections:
           - "12"
         targetCase: (nearly) worst-case
         someNames:
-          - ARIA
-          - Lawzero
-          - Atlas Computing
-          - FLF
-          - Max Tegmark
-          - Steve Omohundro
-          - David "davidad" Dalrymple
-          - Joar Skalse
-          - Stuart Russell
-          - Ohad Kammar
-          - Alessandro Abate
-          - Fabio Zanassi
+          - aria
+          - lawzero
+          - atlas-computing
+          - flf
+          - max-tegmark
+          - steve-omohundro
+          - david-dalrymple
+          - joar-skalse
+          - stuart-russell
+          - ohad-kammar
+          - alessandro-abate
+          - fabio-zanassi
         estimatedFTEs: "*(SR2024: 10-50)*"
         fundedBy:
           - manifund
@@ -2002,7 +2002,7 @@ sections:
           - "5"
         targetCase: pessimistic
         someNames:
-          - Yoshua Bengio
+          - yoshua-bengio
         estimatedFTEs: ""
         critiques:
           - "[Raymond Douglas’ comment](https://www.lesswrong.com/posts/p5gBcoQeBsvsMShvT/superintelligent-agents-pose-catastrophic-risks-can?commentId=tJXqhg3XZsqnyaZs2)"
@@ -2049,7 +2049,7 @@ sections:
         theoryOfChange: Fairly direct alignment via changing training to reflect actual human reward. Get actual data about (reward, training data) → (human values) to help with theorising this map in AIs; "understand human social instincts, and then maybe adapt some aspects of those for AGIs, presumably in conjunction with other non-biological ingredients".
         targetCase: worst-case
         someNames:
-          - Stephen Byrnes
+          - stephen-byrnes
         estimatedFTEs: "1"
         fundedBy:
           - astera-institute
@@ -2077,8 +2077,8 @@ sections:
           - "8"
         targetCase: optimistic
         someNames:
-          - Joshua Engels
-          - Nora Belrose*
+          - joshua-engels
+          - nora-belrose
           - "* David D. Baek."
         estimatedFTEs: "*(SR2024: 10-50)*"
         critiques:
@@ -2121,8 +2121,8 @@ sections:
         targetCase: pessimistic
         someNames:
           - "*(SR2024: Roman Engeler"
-          - Akbir Khan
-          - Ethan Perez)*
+          - akbir-khan
+          - ethan-perez
         estimatedFTEs: "*(SR2024: 1-10)*"
         fundedBy:
           - long-term-future-fund
@@ -2155,9 +2155,9 @@ sections:
           - "7"
         targetCase: worst-case
         someNames:
-          - Rohin Shah
-          - Jonah Brown-Cohen
-          - Georgios Piliouras
+          - rohin-shah
+          - jonah-brown-cohen
+          - georgios-piliouras
         estimatedFTEs: "?"
         fundedBy:
           - google-deepmind
@@ -2237,8 +2237,8 @@ sections:
           - "4"
         targetCase: worst-case
         someNames:
-          - Abram Demski
-          - Alex Altair
+          - abram-demski
+          - alex-altair
         estimatedFTEs: ""
         broadApproaches:
           - cognitive
@@ -2274,7 +2274,7 @@ sections:
           - "4"
         targetCase: worst-case
         someNames:
-          - Abram Demski
+          - abram-demski
         estimatedFTEs: 5?
         broadApproaches:
           - cognitive
@@ -2289,11 +2289,11 @@ sections:
         seeAlso: "[Agent foundations](#agent-foundations-[cat:agent_foundations])"
         targetCase: pessimistic
         someNames:
-          - Alex Altair
-          - Alfred Harwood
-          - Daniel C
-          - Dalcy K
-          - José Pedro Faustino
+          - alex-altair
+          - alfred-harwood
+          - daniel-c
+          - dalcy-k
+          - jos-pedro-faustino
         estimatedFTEs: "2"
         fundedBy:
           - long-term-future-fund
@@ -2319,14 +2319,14 @@ sections:
         seeAlso: "[Live theory](https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3), [MoSSAIC](https://openreview.net/forum?id=n7WYSJ35FU), Topos, [Agent foundations](#agent-foundations-[cat:agent_foundations])**,**"
         targetCase: pessimistic
         someNames:
-          - Sahil K
-          - Matt Farr
-          - Aditya Arpitha Prasad
-          - Chris Pang
-          - Aditya Adiga
-          - Jayson Amati
-          - Steve Petersen
-          - Topos
+          - sahil-k
+          - matt-farr
+          - aditya-arpitha-prasad
+          - chris-pang
+          - aditya-adiga
+          - jayson-amati
+          - steve-petersen
+          - topos
           - TJ
         estimatedFTEs: "2"
         broadApproaches:
@@ -2348,8 +2348,8 @@ sections:
           - "4"
         targetCase: pessimistic
         someNames:
-          - Jan Kulveit
-          - Will Petillo
+          - jan-kulveit
+          - will-petillo
         estimatedFTEs: 1.5?
         broadApproaches:
           - cognitive
@@ -2376,14 +2376,14 @@ sections:
           - "7"
         targetCase: pessimistic
         someNames:
-          - AISI
-          - Jacob Pfau
-          - Benjamin Hilton
-          - Geoffrey Irving
-          - Simon Marshall
-          - Will Kirby
-          - Martin Soto
-          - David Africa
+          - aisi
+          - jacob-pfau
+          - benjamin-hilton
+          - geoffrey-irving
+          - simon-marshall
+          - will-kirby
+          - martin-soto
+          - david-africa
         estimatedFTEs: 5 - 10
         critiques:
           - "[UK AISI's Alignment Team: Research Agenda](https://lesswrong.com/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda)"
@@ -2414,10 +2414,10 @@ sections:
         targetCase: "*worst-case*"
         someNames:
           - "*Jacob Hilton"
-          - Mark Xu
-          - Eric Neyman
-          - Victor Lecomte
-          - George Robinson*
+          - mark-xu
+          - eric-neyman
+          - victor-lecomte
+          - george-robinson
         estimatedFTEs: "*(SR2024: 1-10)*"
         critiques:
           - "[Matolcsi](https://www.lesswrong.com/s/uYMw689vDFmgPEHrS)"
@@ -2467,8 +2467,8 @@ sections:
           - "5"
         targetCase: worst-case
         someNames:
-          - Ram Potham
-          - Michael K. Cohen*
+          - ram-potham
+          - michael-k-cohen
           - "* Max Harms/Raelifin*"
           - "* John Wentworth*"
           - "* David Lorell*"
@@ -2511,7 +2511,7 @@ sections:
         targetCase: pessimistic
         someNames:
           - "*Jan Kulveit"
-          - Jeremy Gillen*
+          - jeremy-gillen
         estimatedFTEs: 1-5?
         broadApproaches:
           - engineering
@@ -2545,10 +2545,10 @@ sections:
           - "9"
         targetCase: "SR2024: worst-case"
         someNames:
-          - John Wentworth
-          - Paul Colognese
-          - David Lorrell
-          - Sam Eisenstat
+          - john-wentworth
+          - paul-colognese
+          - david-lorrell
+          - sam-eisenstat
         estimatedFTEs: "*(SR2024: 1-10)*"
         fundedBy:
           - ea-funds
@@ -2596,8 +2596,8 @@ sections:
           - "9"
         targetCase: worst-case
         someNames:
-          - Vanessa Kosoy
-          - Diffractor
+          - vanessa-kosoy
+          - diffractor
         estimatedFTEs: "34"
         critiques:
           - "[Matolcsi](https://www.lesswrong.com/posts/StkjjQyKwg7hZjcGB/a-mostly-critical-review-of-infra-bayesianism)"
@@ -2677,13 +2677,13 @@ sections:
           - "13"
         targetCase: Mixed
         someNames:
-          - Meaning Alignment Institute
-          - Tan Zhi-Xuan
-          - Matija Franklin
-          - Ryan Lowe
-          - Joe Edelman
-          - Oliver Klingefjord
-          - Full Stack Alignment
+          - meaning-alignment-institute
+          - tan-zhi-xuan
+          - matija-franklin
+          - ryan-lowe
+          - joe-edelman
+          - oliver-klingefjord
+          - full-stack-alignment
         estimatedFTEs: "5"
         fundedBy:
           - aria
@@ -2717,11 +2717,11 @@ sections:
           - "13"
         targetCase: Mixed
         someNames:
-          - Gillian Hadfield
-          - Tan Zhi-Xuan
-          - Sydney Levine
-          - Matija Franklin
-          - Joshua B. Tenenbaum
+          - gillian-hadfield
+          - tan-zhi-xuan
+          - sydney-levine
+          - matija-franklin
+          - joshua-b-tenenbaum
         estimatedFTEs: 5 - 10
         fundedBy:
           - google-deepmind
@@ -2758,11 +2758,11 @@ sections:
           - "8"
         targetCase: Mixed
         someNames:
-          - Lewis Hammond
-          - Emery Cooper
-          - Allan Chan
-          - Caspar Oesterheld
-          - Vincent Conitzer
+          - lewis-hammond
+          - emery-cooper
+          - allan-chan
+          - caspar-oesterheld
+          - vincent-conitzer
         estimatedFTEs: "10"
         fundedBy:
           - google-deepmind
@@ -2807,12 +2807,12 @@ sections:
           - "8"
         targetCase: Mixed
         someNames:
-          - Lewis Hammond
-          - Emery Cooper
-          - Allan Chan
-          - Caspar Oesterheld
-          - Vincent Conitzer
-          - Gillian Hadfield
+          - lewis-hammond
+          - emery-cooper
+          - allan-chan
+          - caspar-oesterheld
+          - vincent-conitzer
+          - gillian-hadfield
         estimatedFTEs: 10 - 15
         fundedBy:
           - open-philanthropy
@@ -2849,13 +2849,13 @@ sections:
           - "13"
         targetCase: Optimistic
         someNames:
-          - Joel Z. Leibo
-          - Divya Siddarth
-          - Séb Krier
-          - Luke Thorburn
-          - Seth Lazar
-          - AI Objectives Institute
-          - The Collective Intelligence Project
+          - joel-z-leibo
+          - divya-siddarth
+          - sb-krier
+          - luke-thorburn
+          - seth-lazar
+          - ai-objectives-institute
+          - the-collective-intelligence-project
         estimatedFTEs: 5 - 15
         fundedBy:
           - future-of-life-institute
@@ -2893,11 +2893,11 @@ sections:
           - "13"
         targetCase: Mixed
         someNames:
-          - Richard Ngo
-          - Emmett Shear
-          - Softmax
-          - Full Stack Alignment
-          - AI Objectives Institute
+          - richard-ngo
+          - emmett-shear
+          - softmax
+          - full-stack-alignment
+          - ai-objectives-institute
         estimatedFTEs: 5 -10
         fundedBy:
           - future-of-life-institute

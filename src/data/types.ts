@@ -51,6 +51,15 @@ export interface FundersData {
   funders: Funder[];
 }
 
+export interface Researcher {
+  id: string;
+  name: string;
+}
+
+export interface ResearchersData {
+  researchers: Researcher[];
+}
+
 export interface TargetCasesData {
   cases: TargetCase[];
 }
