@@ -53,6 +53,7 @@ export function sectionsToNodes(sections: Section[]): AgendaNode[] {
         fundedBy: agenda.fundedBy || [],
         lesswrongTags: agenda.lesswrongTags || [],
         researchers: agenda.someNames || [],
+        keywords: agenda.keywords || [],
         paperCount: agenda.papers?.length || 0,
       });
     }
@@ -75,6 +76,7 @@ export function calculateAgendaSimilarity(
   const funderSimilarity = jaccardSimilarity(a.fundedBy, b.fundedBy);
   const tagSimilarity = jaccardSimilarity(a.lesswrongTags, b.lesswrongTags);
   const researcherSimilarity = jaccardSimilarity(a.researchers, b.researchers);
+  const keywordSimilarity = jaccardSimilarity(a.keywords, b.keywords);
 
   const similarity =
     weights.broadApproaches * approachSimilarity +
@@ -82,7 +84,8 @@ export function calculateAgendaSimilarity(
     weights.targetCase * (targetCaseMatch ? 1 : 0) +
     weights.fundedBy * funderSimilarity +
     weights.lesswrongTags * tagSimilarity +
-    weights.researchers * researcherSimilarity;
+    weights.researchers * researcherSimilarity +
+    weights.keywords * keywordSimilarity;
 
   return {
     source: a.id,
@@ -94,6 +97,7 @@ export function calculateAgendaSimilarity(
     funderSimilarity,
     tagSimilarity,
     researcherSimilarity,
+    keywordSimilarity,
   };
 }
 

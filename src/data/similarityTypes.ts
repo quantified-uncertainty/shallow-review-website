@@ -13,6 +13,7 @@ export interface AgendaNode {
   fundedBy: string[];
   lesswrongTags: string[];
   researchers: string[];
+  keywords: string[];
   paperCount: number;
 }
 
@@ -27,6 +28,7 @@ export interface SimilarityEdge {
   funderSimilarity: number;
   tagSimilarity: number;
   researcherSimilarity: number;
+  keywordSimilarity: number;
 }
 
 export interface SimilarityGraphData {
@@ -36,12 +38,13 @@ export interface SimilarityGraphData {
 
 // Weights for different similarity components
 export const DEFAULT_WEIGHTS = {
-  broadApproaches: 0.25,
-  orthodoxProblems: 0.25,
-  targetCase: 0.1,
+  broadApproaches: 0.15,
+  orthodoxProblems: 0.2,
+  targetCase: 0.05,
   fundedBy: 0.1,
-  lesswrongTags: 0.1,
-  researchers: 0.2,
+  lesswrongTags: 0.05,
+  researchers: 0.15,
+  keywords: 0.3,
 };
 
 export type SimilarityWeights = typeof DEFAULT_WEIGHTS;

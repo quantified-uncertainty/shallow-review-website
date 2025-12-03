@@ -124,7 +124,8 @@ export default function SimilarityGraph({
         weights.targetCase * (edge.targetCaseMatch ? 1 : 0) +
         weights.fundedBy * edge.funderSimilarity +
         weights.lesswrongTags * edge.tagSimilarity +
-        weights.researchers * edge.researcherSimilarity;
+        weights.researchers * edge.researcherSimilarity +
+        weights.keywords * (edge.keywordSimilarity || 0);
       return { ...edge, similarity };
     });
 
@@ -182,12 +183,21 @@ export default function SimilarityGraph({
     };
   }, [data, threshold, maxEdgesPerNode, weights]);
 
-  // Center graph on mount
+  // Flag to track if we've done initial zoom
+  const hasZoomedRef = useRef(false);
+
+  // Set initial zoom on mount
   useEffect(() => {
     if (graphRef.current) {
-      setTimeout(() => {
-        graphRef.current?.zoomToFit(400, 50);
-      }, 1000);
+      graphRef.current.zoom(0.7);
+    }
+  }, []);
+
+  // Zoom to fit when simulation stops
+  const handleEngineStop = useCallback(() => {
+    if (graphRef.current && !hasZoomedRef.current) {
+      hasZoomedRef.current = true;
+      graphRef.current.zoomToFit(400, 50);
     }
   }, []);
 
@@ -382,6 +392,13 @@ export default function SimilarityGraph({
                   setWeights({ ...weights, researchers: v })
                 }
               />
+              <WeightSlider
+                label="Keywords"
+                value={weights.keywords}
+                onChange={(v) =>
+                  setWeights({ ...weights, keywords: v })
+                }
+              />
             </div>
             <button
               onClick={() => setWeights(DEFAULT_WEIGHTS)}
@@ -429,6 +446,11 @@ export default function SimilarityGraph({
               Approaches: {displayNode.broadApproaches.join(", ")}
             </p>
           )}
+          {displayNode.keywords && displayNode.keywords.length > 0 && (
+            <p className="text-xs text-gray-500">
+              Keywords: {displayNode.keywords.slice(0, 5).join(", ")}{displayNode.keywords.length > 5 ? "..." : ""}
+            </p>
+          )}
           {selectedNode && (
             <button
               onClick={() => setSelectedNode(null)}
@@ -455,8 +477,13 @@ export default function SimilarityGraph({
           linkWidth={showEdges ? getLinkWidth : () => 0}
           onNodeClick={handleNodeClick}
           onNodeHover={handleNodeHover}
+          onEngineStop={handleEngineStop}
           cooldownTicks={100}
           warmupTicks={50}
+          d3AlphaDecay={0.05}
+          d3VelocityDecay={0.3}
+          minZoom={0.3}
+          maxZoom={10}
           enableNodeDrag={true}
           enableZoomInteraction={true}
           enablePanInteraction={true}
