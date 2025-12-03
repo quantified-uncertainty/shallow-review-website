@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { APP_TITLE } from "@/constants/app";
+import { Route, AlertTriangle, Waypoints, Landmark } from "lucide-react";
 
 export default function Header() {
   return (
@@ -16,16 +17,20 @@ export default function Header() {
             <Link href="/methodology" className="text-gray-300 hover:text-white">
               Methodology
             </Link>
-            <Link href="/" className="text-gray-300 hover:text-white">
+            <Link href="/" className="text-gray-300 hover:text-white inline-flex items-center gap-1.5">
+              <Route className="w-4 h-4" />
               Agendas
             </Link>
-            <Link href="/orthodox-problems" className="text-gray-300 hover:text-white">
+            <Link href="/orthodox-problems" className="text-gray-300 hover:text-white inline-flex items-center gap-1.5">
+              <AlertTriangle className="w-4 h-4" />
               Problems
             </Link>
-            <Link href="/broad-approaches" className="text-gray-300 hover:text-white">
+            <Link href="/broad-approaches" className="text-gray-300 hover:text-white inline-flex items-center gap-1.5">
+              <Waypoints className="w-4 h-4" />
               Approaches
             </Link>
-            <Link href="/funders" className="text-gray-300 hover:text-white">
+            <Link href="/funders" className="text-gray-300 hover:text-white inline-flex items-center gap-1.5">
+              <Landmark className="w-4 h-4" />
               Funders
             </Link>
           </nav>
