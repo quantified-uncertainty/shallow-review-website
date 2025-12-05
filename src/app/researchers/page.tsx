@@ -26,7 +26,7 @@ export default function ResearchersPage() {
   }
 
   for (const section of reviewData.sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       if (agenda.someNames?.length) {
         for (const researcherId of agenda.someNames) {
           if (researcherToAgendas[researcherId]) {
@@ -70,7 +70,7 @@ export default function ResearchersPage() {
         </p>
 
         <p className="text-sm text-gray-500 mb-6">
-          {activeResearchers.length} researchers across {reviewData.sections.reduce((acc, s) => acc + s.agendas.length, 0)} agendas
+          {activeResearchers.length} researchers across {reviewData.sections.reduce((acc, s) => acc + (s.agendas?.length || 0), 0)} agendas
         </p>
 
         <div className="space-y-6">

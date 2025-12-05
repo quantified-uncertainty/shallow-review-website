@@ -39,7 +39,7 @@ export function sectionsToNodes(sections: Section[]): AgendaNode[] {
   const nodes: AgendaNode[] = [];
 
   for (const section of sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       nodes.push({
         id: agenda.id,
         name: agenda.name,

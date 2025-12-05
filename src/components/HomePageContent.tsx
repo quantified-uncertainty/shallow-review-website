@@ -2,22 +2,26 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Section, FlattenedAgenda } from "@/lib/types";
+import { Section, FlattenedAgenda, FlattenedLab } from "@/lib/types";
 import AgendaTable from "./AgendaTable";
 import Header from "./Header";
-import { APP_TITLE, APP_DESCRIPTION, APP_AUTHORS } from "@/constants/app";
+import { APP_TITLE, APP_DESCRIPTION } from "@/constants/app";
 
 interface HomePageContentProps {
   sections: Section[];
   flattenedAgendas: FlattenedAgenda[];
+  flattenedLabs: FlattenedLab[];
   totalAgendas: number;
+  totalLabs: number;
   totalPapers: number;
 }
 
 export default function HomePageContent({
   sections,
   flattenedAgendas,
+  flattenedLabs,
   totalAgendas,
+  totalLabs,
   totalPapers,
 }: HomePageContentProps) {
   const [viewMode, setViewMode] = useState<"list" | "table">("list");
@@ -35,6 +39,7 @@ export default function HomePageContent({
           <p className="text-gray-600 mt-4 text-lg">{APP_DESCRIPTION}</p>
           <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500">
             <span>{sections.length} sections</span>
+            <span>{totalLabs} labs</span>
             <span>{totalAgendas} research agendas</span>
             <span>{totalPapers} papers</span>
           </div>
@@ -85,7 +90,23 @@ export default function HomePageContent({
                 </Link>
 
                 <div className="mt-4 grid gap-2">
-                  {section.agendas.map((agenda) => (
+                  {/* Render labs if present */}
+                  {section.labs?.map((lab) => (
+                    <Link
+                      key={lab.id}
+                      href={`/labs/${lab.id}`}
+                      className="flex justify-between items-center py-2 px-3 -mx-3 rounded hover:bg-gray-50 transition-colors"
+                    >
+                      <span className="text-gray-700 hover:text-blue-600">
+                        {lab.name}
+                      </span>
+                      <span className="text-sm text-gray-400">
+                        {lab.papers?.length || 0} papers
+                      </span>
+                    </Link>
+                  ))}
+                  {/* Render agendas if present */}
+                  {section.agendas?.map((agenda) => (
                     <Link
                       key={agenda.id}
                       href={`/${section.id}/${agenda.id}`}

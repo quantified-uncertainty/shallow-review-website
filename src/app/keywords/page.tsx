@@ -29,7 +29,7 @@ export default function KeywordsPage() {
   }
 
   for (const section of reviewData.sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       if (agenda.keywords?.length) {
         for (const keywordId of agenda.keywords) {
           if (keywordToAgendas[keywordId]) {

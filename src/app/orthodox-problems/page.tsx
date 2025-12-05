@@ -27,7 +27,7 @@ export default function OrthodoxProblemsPage() {
   }
 
   for (const section of reviewData.sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       if (agenda.orthodoxProblems?.length) {
         for (const problemId of agenda.orthodoxProblems) {
           if (problemToAgendas[problemId]) {

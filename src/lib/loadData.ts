@@ -17,6 +17,8 @@ import {
   Keyword,
   LesswrongTagsData,
   LesswrongTag,
+  LabsData,
+  Lab,
 } from "./types";
 
 /**
@@ -40,6 +42,41 @@ export function loadReviewData(): ReviewData {
       `Failed to load review data: ${error instanceof Error ? error.message : "Unknown error"}`
     );
   }
+}
+
+/**
+ * Loads the labs data from labs.yaml
+ * @throws Error if the YAML file is missing or malformed
+ */
+export function loadLabs(): LabsData {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/labs.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as LabsData;
+
+    if (!data?.labs || !Array.isArray(data.labs)) {
+      throw new Error("Invalid LabsData structure: missing labs array");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Failed to load labs:", error);
+    throw new Error(
+      `Failed to load labs: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
+}
+
+/**
+ * Retrieves Labs by their IDs
+ * @param labs - Array of all available labs
+ * @param ids - Array of lab IDs to retrieve
+ * @returns Array of matching labs, excluding not-found items
+ */
+export function getLabsByIds(labs: Lab[], ids: string[]): Lab[] {
+  return ids
+    .map((id) => labs.find((l) => l.id === id))
+    .filter((l): l is Lab => l !== undefined);
 }
 
 /**

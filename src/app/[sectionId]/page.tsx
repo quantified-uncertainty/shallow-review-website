@@ -1,8 +1,9 @@
-import { loadReviewData } from "@/lib/loadData";
+import { loadReviewData, loadLabs } from "@/lib/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
-import { ChevronRight, Route } from "lucide-react";
+import { ChevronRight, Route, Building2 } from "lucide-react";
+import { Section } from "@/lib/types";
 
 interface PageProps {
   params: Promise<{ sectionId: string }>;
@@ -10,14 +11,27 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const data = loadReviewData();
-  return data.sections.map((section) => ({
-    sectionId: section.id,
-  }));
+  // Include both agenda sections and the virtual labs section
+  return [
+    { sectionId: "labs" },
+    ...data.sections.map((section) => ({
+      sectionId: section.id,
+    })),
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { sectionId } = await params;
   const decodedSectionId = decodeURIComponent(sectionId);
+
+  // Handle labs section specially
+  if (decodedSectionId === "labs") {
+    return {
+      title: "Labs (giant companies) | Shallow Review 2025",
+      description: "Major AI labs and their safety efforts",
+    };
+  }
+
   const data = loadReviewData();
   const section = data.sections.find((s) => s.id === decodedSectionId);
 
@@ -32,8 +46,22 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function SectionPage({ params }: PageProps) {
   const { sectionId } = await params;
   const decodedSectionId = decodeURIComponent(sectionId);
-  const data = loadReviewData();
-  const section = data.sections.find((s) => s.id === decodedSectionId);
+
+  let section: Section | undefined;
+
+  // Handle labs section specially
+  if (decodedSectionId === "labs") {
+    const { labs } = loadLabs();
+    section = {
+      id: "labs",
+      name: "Labs (giant companies)",
+      description: "Major AI labs and their safety efforts",
+      labs: labs,
+    };
+  } else {
+    const data = loadReviewData();
+    section = data.sections.find((s) => s.id === decodedSectionId);
+  }
 
   if (!section) {
     notFound();
@@ -58,7 +86,26 @@ export default async function SectionPage({ params }: PageProps) {
           <p className="text-gray-600 text-lg mb-8">{section.description}</p>
         )}
         <div className="grid gap-4">
-          {section.agendas.map((agenda) => (
+          {/* Render labs if present */}
+          {section.labs?.map((lab) => (
+            <Link
+              key={lab.id}
+              href={`/labs/${lab.id}`}
+              className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all"
+            >
+              <h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <Building2 className="w-5 h-5 text-blue-600" />
+                {lab.name}
+              </h2>
+              <div className="mt-3 flex gap-4 text-sm text-gray-500">
+                {lab.papers && lab.papers.length > 0 && (
+                  <span>{lab.papers.length} papers</span>
+                )}
+              </div>
+            </Link>
+          ))}
+          {/* Render agendas if present */}
+          {section.agendas?.map((agenda) => (
             <Link
               key={agenda.id}
               href={`/${sectionId}/${agenda.id}`}

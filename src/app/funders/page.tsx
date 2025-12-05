@@ -26,7 +26,7 @@ export default function FundersPage() {
   }
 
   for (const section of reviewData.sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       if (agenda.fundedBy?.length) {
         for (const funderId of agenda.fundedBy) {
           if (funderToAgendas[funderId]) {

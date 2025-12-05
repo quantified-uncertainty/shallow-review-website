@@ -27,7 +27,7 @@ export default function TargetCasesPage() {
   }
 
   for (const section of reviewData.sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       if (agenda.targetCase) {
         const normalizedId = normalizeTargetCaseId(agenda.targetCase);
         if (normalizedId && caseToAgendas[normalizedId]) {

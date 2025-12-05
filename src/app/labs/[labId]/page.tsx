@@ -1,11 +1,5 @@
 import {
-  loadReviewData,
-  loadOrthodoxProblems,
-  getOrthodoxProblemsByIds,
-  loadBroadApproaches,
-  getBroadApproachesByIds,
-  loadTargetCases,
-  getTargetCaseByValue,
+  loadLabs,
   loadFunders,
   getFundersByIds,
   loadResearchers,
@@ -18,130 +12,94 @@ import {
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
-import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
+import { FUNDER_COLORS } from "@/constants/colors";
 import Markdown from "@/components/Markdown";
 import {
   ExternalLink,
   BookOpen,
   ChevronRight,
   ChevronLeft,
-  Lightbulb,
-  Tag,
   Users,
   FileText,
+  Building2,
 } from "lucide-react";
-import ApproachBadge from "@/components/ApproachBadge";
 import TableOfContents, { TOCItem } from "@/components/TableOfContents";
 import Section from "@/components/Section";
 import Header from "@/components/Header";
 
 interface PageProps {
-  params: Promise<{ sectionId: string; agendaId: string }>;
+  params: Promise<{ labId: string }>;
 }
 
 export async function generateStaticParams() {
-  const data = loadReviewData();
-  const params: { sectionId: string; agendaId: string }[] = [];
-
-  data.sections.forEach((section) => {
-    (section.agendas || []).forEach((agenda) => {
-      params.push({
-        sectionId: section.id,
-        agendaId: agenda.id,
-      });
-    });
-  });
-
-  return params;
+  const { labs } = loadLabs();
+  return labs.map((lab) => ({
+    labId: lab.id,
+  }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { sectionId, agendaId } = await params;
-  const decodedSectionId = decodeURIComponent(sectionId);
-  const decodedAgendaId = decodeURIComponent(agendaId);
-  const data = loadReviewData();
-  const section = data.sections.find((s) => s.id === decodedSectionId);
-  const agenda = section?.agendas?.find((a) => a.id === decodedAgendaId);
+  const { labId } = await params;
+  const decodedLabId = decodeURIComponent(labId);
+  const { labs } = loadLabs();
+  const lab = labs.find((l) => l.id === decodedLabId);
 
-  if (!agenda) return { title: "Not Found" };
+  if (!lab) return { title: "Not Found" };
 
   return {
-    title: `${agenda.name} | Shallow Review 2025`,
-    description: agenda.summary,
+    title: `${lab.name} | Shallow Review 2025`,
+    description: `AI safety efforts at ${lab.name}`,
   };
 }
 
-export default async function AgendaPage({ params }: PageProps) {
-  const { sectionId, agendaId } = await params;
-  const decodedSectionId = decodeURIComponent(sectionId);
-  const decodedAgendaId = decodeURIComponent(agendaId);
-  const data = loadReviewData();
-  const { problems: allProblems } = loadOrthodoxProblems();
-  const { approaches: allApproaches } = loadBroadApproaches();
-  const { cases: allCases } = loadTargetCases();
+export default async function LabPage({ params }: PageProps) {
+  const { labId } = await params;
+  const decodedLabId = decodeURIComponent(labId);
+  const { labs } = loadLabs();
   const { funders: allFunders } = loadFunders();
   const { researchers: allResearchers } = loadResearchers();
   const { keywords: allKeywords } = loadKeywords();
   const { tags } = loadLesswrongTags();
   const tagsLookup = createTagsLookup(tags);
-  const section = data.sections.find((s) => s.id === decodedSectionId);
-  const agenda = section?.agendas?.find((a) => a.id === decodedAgendaId);
 
-  if (!section || !agenda) {
+  const lab = labs.find((l) => l.id === decodedLabId);
+
+  if (!lab) {
     notFound();
   }
 
-  const orthodoxProblems = agenda.orthodoxProblems
-    ? getOrthodoxProblemsByIds(allProblems, agenda.orthodoxProblems)
+  const funders = lab.fundedBy
+    ? getFundersByIds(allFunders, lab.fundedBy)
     : [];
 
-  const broadApproaches = agenda.broadApproaches
-    ? getBroadApproachesByIds(allApproaches, agenda.broadApproaches)
+  const researchers = lab.someNames
+    ? getResearchersByIds(allResearchers, lab.someNames)
     : [];
 
-  const targetCase = agenda.targetCase
-    ? getTargetCaseByValue(allCases, agenda.targetCase)
-    : undefined;
-
-  const funders = agenda.fundedBy
-    ? getFundersByIds(allFunders, agenda.fundedBy)
+  const keywords = lab.keywords
+    ? getKeywordsByIds(allKeywords, lab.keywords)
     : [];
 
-  const researchers = agenda.someNames
-    ? getResearchersByIds(allResearchers, agenda.someNames)
-    : [];
-
-  const keywords = agenda.keywords
-    ? getKeywordsByIds(allKeywords, agenda.keywords)
-    : [];
-
-  // Build flat list of all agendas for prev/next navigation
-  const allAgendas: { sectionId: string; agendaId: string; name: string }[] = [];
-  for (const s of data.sections) {
-    for (const a of s.agendas || []) {
-      allAgendas.push({ sectionId: s.id, agendaId: a.id, name: a.name });
-    }
-  }
-  const currentIndex = allAgendas.findIndex(
-    (a) => a.sectionId === decodedSectionId && a.agendaId === decodedAgendaId
-  );
-  const prevAgenda = currentIndex > 0 ? allAgendas[currentIndex - 1] : null;
-  const nextAgenda = currentIndex < allAgendas.length - 1 ? allAgendas[currentIndex + 1] : null;
+  // Build navigation for prev/next labs
+  const currentIndex = labs.findIndex((l) => l.id === decodedLabId);
+  const prevLab = currentIndex > 0 ? labs[currentIndex - 1] : null;
+  const nextLab = currentIndex < labs.length - 1 ? labs[currentIndex + 1] : null;
 
   // Computed flags
-  const hasResources = agenda.resources || agenda.wikipedia || (agenda.lesswrongTags && agenda.lesswrongTags.length > 0);
-  const hasClassification = orthodoxProblems.length > 0 || targetCase || broadApproaches.length > 0 || keywords.length > 0;
-  const hasPeopleFunding = (agenda.someNames && agenda.someNames.length > 0) || funders.length > 0 || agenda.estimatedFTEs;
-  const hasCritiques = agenda.critiques && agenda.critiques.length > 0;
+  const hasResources = lab.resources || lab.wikipedia || (lab.lesswrongTags && lab.lesswrongTags.length > 0);
+  const hasLabInfo = lab.teams || lab.publicAlignmentAgenda || lab.publicPlan || lab.structure || lab.framework || lab.hostOrgStructure;
+  const hasPeopleFunding = (lab.someNames && lab.someNames.length > 0) || funders.length > 0;
+  const hasCritiques = lab.critiques && lab.critiques.length > 0;
+  const hasKeywords = keywords.length > 0;
 
   // Build TOC items based on available content
   const tocItems: TOCItem[] = [];
 
-  if (agenda.theoryOfChange) {
-    tocItems.push({ id: "theory-of-change", label: "Theory of Change" });
+  if (hasLabInfo) {
+    tocItems.push({ id: "lab-info", label: "Lab Information" });
   }
-  if (hasClassification) {
-    tocItems.push({ id: "classification", label: "Classification" });
+  if (hasKeywords) {
+    tocItems.push({ id: "keywords", label: "Keywords" });
   }
   if (hasPeopleFunding) {
     tocItems.push({ id: "people-funding", label: "People & Funding" });
@@ -149,8 +107,8 @@ export default async function AgendaPage({ params }: PageProps) {
   if (hasResources || hasCritiques) {
     tocItems.push({ id: "online-info", label: "Online Info" });
   }
-  if (agenda.papers && agenda.papers.length > 0) {
-    tocItems.push({ id: "papers", label: "Papers & Outputs", count: agenda.papers.length });
+  if (lab.papers && lab.papers.length > 0) {
+    tocItems.push({ id: "papers", label: "Papers & Outputs", count: lab.papers.length });
   }
 
   return (
@@ -174,18 +132,18 @@ export default async function AgendaPage({ params }: PageProps) {
                   Home
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <Link href={`/${sectionId}`} className="hover:text-blue-600">
-                  {section.name}
+                <Link href="/labs" className="hover:text-blue-600">
+                  Labs
                 </Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-semibold">{agenda.name}</span>
+                <span className="text-gray-900 font-semibold">{lab.name}</span>
               </div>
               <div className="flex items-center gap-1">
-                {prevAgenda ? (
+                {prevLab ? (
                   <Link
-                    href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
+                    href={`/labs/${prevLab.id}`}
                     className="p-1 rounded hover:bg-gray-200 transition-colors"
-                    title={prevAgenda.name}
+                    title={prevLab.name}
                   >
                     <ChevronLeft className="w-5 h-5" />
                   </Link>
@@ -194,11 +152,11 @@ export default async function AgendaPage({ params }: PageProps) {
                     <ChevronLeft className="w-5 h-5" />
                   </span>
                 )}
-                {nextAgenda ? (
+                {nextLab ? (
                   <Link
-                    href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
+                    href={`/labs/${nextLab.id}`}
                     className="p-1 rounded hover:bg-gray-200 transition-colors"
-                    title={nextAgenda.name}
+                    title={nextLab.name}
                   >
                     <ChevronRight className="w-5 h-5" />
                   </Link>
@@ -211,129 +169,82 @@ export default async function AgendaPage({ params }: PageProps) {
             </nav>
 
             {/* Title */}
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              {agenda.name.includes('(') ? (
-                <>
-                  {agenda.name.split('(')[0].trim()}
-                  <span className="text-gray-400 font-normal"> ({agenda.name.split('(').slice(1).join('(')}</span>
-                </>
-              ) : (
-                agenda.name
-              )}
+            <h1 className="text-4xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <Building2 className="w-10 h-10 text-blue-600" />
+              {lab.name}
             </h1>
 
-            {/* Summary - always visible, not in TOC */}
-            {agenda.summary && (
-              <div className="mb-10">
-                <Markdown className="text-lg text-gray-600 leading-relaxed">
-                  {agenda.summary}
-                </Markdown>
-              </div>
-            )}
-
             <div className="space-y-10">
-              {/* Theory of Change */}
-              {agenda.theoryOfChange && (
-                <Section id="theory-of-change" title="Theory of Change" icon={Lightbulb}>
-                  <Markdown className="text-gray-700">{agenda.theoryOfChange}</Markdown>
-
-                  {/* See Also inline within Theory of Change card */}
-                  {agenda.seeAlso && (
-                    <div className="mt-6 pt-4 border-t border-gray-100">
-                      <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                        See Also
-                      </h3>
-                      <Markdown className="text-gray-700">{agenda.seeAlso}</Markdown>
-                    </div>
-                  )}
+              {/* Lab Information */}
+              {hasLabInfo && (
+                <Section id="lab-info" title="Lab Information" icon={Building2} card>
+                  <div className="space-y-6">
+                    {lab.teams && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          Teams
+                        </h3>
+                        <Markdown className="text-gray-700">{lab.teams}</Markdown>
+                      </div>
+                    )}
+                    {lab.publicAlignmentAgenda && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          Public Alignment Agenda
+                        </h3>
+                        <Markdown className="text-gray-700">{lab.publicAlignmentAgenda}</Markdown>
+                      </div>
+                    )}
+                    {lab.publicPlan && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          Public Plan
+                        </h3>
+                        <Markdown className="text-gray-700">{lab.publicPlan}</Markdown>
+                      </div>
+                    )}
+                    {lab.structure && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          Structure
+                        </h3>
+                        <Markdown className="text-gray-700">{lab.structure}</Markdown>
+                      </div>
+                    )}
+                    {lab.framework && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          Framework
+                        </h3>
+                        <Markdown className="text-gray-700">{lab.framework}</Markdown>
+                      </div>
+                    )}
+                    {lab.hostOrgStructure && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                          Host Org Structure
+                        </h3>
+                        <Markdown className="text-gray-700">{lab.hostOrgStructure}</Markdown>
+                      </div>
+                    )}
+                  </div>
                 </Section>
               )}
 
-              {/* Classification */}
-              {hasClassification && (
-                <Section id="classification" title="Classification" icon={Tag} card>
-                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-                    {broadApproaches.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/broad-approaches" className="hover:text-blue-600">
-                            Broad Approach
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {broadApproaches.map((approach) => (
-                            <ApproachBadge
-                              key={approach.id}
-                              id={approach.id}
-                              name={approach.name}
-                              description={approach.description}
-                              size="md"
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {targetCase && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/target-cases" className="hover:text-blue-600">
-                            Target Case
-                          </Link>
-                        </h3>
-                        <Link
-                          href={`/target-cases#case-${targetCase.id}`}
-                          className={`inline-block text-sm px-2 py-1 rounded transition-colors ${TARGET_CASE_COLORS[targetCase.id] || "bg-gray-100 text-gray-700"}`}
-                          title={targetCase.description}
-                        >
-                          {targetCase.name}
-                        </Link>
-                      </div>
-                    )}
-
-                    {orthodoxProblems.length > 0 && (
-                      <div className="sm:col-span-2">
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/orthodox-problems" className="hover:text-blue-600">
-                            Orthodox Problems
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {orthodoxProblems.map((problem) => (
-                            <Link
-                              key={problem.id}
-                              href={`/orthodox-problems#problem-${problem.id}`}
-                              className="inline-block text-sm bg-amber-50 text-amber-800 px-2 py-1 rounded hover:bg-amber-100 transition-colors"
-                              title={problem.description}
-                            >
-                              {problem.id}. {problem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {keywords.length > 0 && (
-                      <div className="sm:col-span-4">
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/keywords" className="hover:text-blue-600">
-                            Keywords
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {keywords.map((keyword) => (
-                            <Link
-                              key={keyword.id}
-                              href={`/keywords#keyword-${keyword.id}`}
-                              className="inline-block text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded hover:bg-slate-200 transition-colors"
-                              title={keyword.description}
-                            >
-                              {keyword.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+              {/* Keywords */}
+              {hasKeywords && (
+                <Section id="keywords" title="Keywords" icon={BookOpen} card>
+                  <div className="flex flex-wrap gap-2">
+                    {keywords.map((keyword) => (
+                      <Link
+                        key={keyword.id}
+                        href={`/keywords#keyword-${keyword.id}`}
+                        className="inline-block text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded hover:bg-slate-200 transition-colors"
+                        title={keyword.description}
+                      >
+                        {keyword.name}
+                      </Link>
+                    ))}
                   </div>
                 </Section>
               )}
@@ -386,21 +297,12 @@ export default async function AgendaPage({ params }: PageProps) {
                         </div>
                       </div>
                     )}
-
-                    {agenda.estimatedFTEs && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          Estimated FTEs
-                        </h3>
-                        <p className="text-gray-700">{agenda.estimatedFTEs}</p>
-                      </div>
-                    )}
                   </div>
                 </Section>
               )}
 
               {/* Online Info (Resources + Critiques) */}
-              {(hasResources || (agenda.critiques && agenda.critiques.length > 0)) && (
+              {(hasResources || hasCritiques) && (
                 <Section id="online-info" title="Online Info" icon={BookOpen} card>
                   <div className="space-y-6">
                     {hasResources && (
@@ -409,9 +311,9 @@ export default async function AgendaPage({ params }: PageProps) {
                           Resources
                         </h3>
                         <div className="flex flex-wrap gap-x-4 gap-y-1">
-                          {agenda.wikipedia && (
+                          {lab.wikipedia && (
                             <a
-                              href={agenda.wikipedia}
+                              href={lab.wikipedia}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 hover:underline"
@@ -420,7 +322,7 @@ export default async function AgendaPage({ params }: PageProps) {
                               Wikipedia
                             </a>
                           )}
-                          {agenda.resources?.map((resource, i) => (
+                          {lab.resources?.map((resource, i) => (
                             <a
                               key={i}
                               href={resource.url}
@@ -432,7 +334,7 @@ export default async function AgendaPage({ params }: PageProps) {
                               {resource.title}
                             </a>
                           ))}
-                          {agenda.lesswrongTags?.map((slug) => {
+                          {lab.lesswrongTags?.map((slug) => {
                             const tagInfo = tagsLookup[slug];
                             const displayName = tagInfo?.name || slug;
                             const postCount = tagInfo?.postCount;
@@ -458,13 +360,13 @@ export default async function AgendaPage({ params }: PageProps) {
                       </div>
                     )}
 
-                    {agenda.critiques && agenda.critiques.length > 0 && (
+                    {lab.critiques && lab.critiques.length > 0 && (
                       <div>
                         <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
                           Critiques
                         </h3>
                         <div className="flex flex-wrap gap-x-4 gap-y-1">
-                          {agenda.critiques.map((critique, i) => (
+                          {lab.critiques.map((critique, i) => (
                             <span key={i} className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 [&_a]:hover:underline">
                               <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
                               <Markdown>{critique}</Markdown>
@@ -478,10 +380,10 @@ export default async function AgendaPage({ params }: PageProps) {
               )}
 
               {/* Papers & Outputs */}
-              {agenda.papers && agenda.papers.length > 0 && (
-                <Section id="papers" title={`Papers & Outputs (${agenda.papers.length})`} icon={FileText} card>
+              {lab.papers && lab.papers.length > 0 && (
+                <Section id="papers" title={`Papers & Outputs (${lab.papers.length})`} icon={FileText} card>
                   <ul className="space-y-2 divide-y divide-gray-100">
-                    {agenda.papers.map((paper, i) => (
+                    {lab.papers.map((paper, i) => (
                       <li key={i} className="pt-2 first:pt-0">
                         <PaperCard paper={paper} />
                       </li>

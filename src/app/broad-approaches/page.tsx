@@ -36,7 +36,7 @@ export default function BroadApproachesPage() {
   }
 
   for (const section of reviewData.sections) {
-    for (const agenda of section.agendas) {
+    for (const agenda of section.agendas || []) {
       if (agenda.broadApproaches?.length) {
         for (const approachId of agenda.broadApproaches) {
           if (approachToAgendas[approachId]) {

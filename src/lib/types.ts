@@ -108,11 +108,31 @@ export interface Agenda {
   papers: Paper[];
 }
 
+export interface Lab {
+  id: string;
+  name: string;
+  teams?: string;
+  publicAlignmentAgenda?: string;
+  publicPlan?: string;
+  structure?: string;
+  framework?: string;
+  hostOrgStructure?: string;
+  someNames?: string[];
+  critiques?: string[];
+  fundedBy?: string[];
+  lesswrongTags?: string[];
+  keywords?: string[];
+  resources?: AgendaResource[];
+  wikipedia?: string;
+  papers?: Paper[];
+}
+
 export interface Section {
   id: string;
   name: string;
   description?: string;
-  agendas: Agenda[];
+  agendas?: Agenda[];
+  labs?: Lab[];
 }
 
 export interface ReviewData {
@@ -127,6 +147,17 @@ export interface FlattenedAgenda extends Agenda {
   resolvedTargetCase: TargetCase | undefined;
   resolvedFunders: Funder[];
   resolvedKeywords: Keyword[];
+}
+
+export interface FlattenedLab extends Lab {
+  sectionId: string;
+  sectionName: string;
+  resolvedFunders: Funder[];
+  resolvedKeywords: Keyword[];
+}
+
+export interface LabsData {
+  labs: Lab[];
 }
 
 export interface LesswrongTag {
