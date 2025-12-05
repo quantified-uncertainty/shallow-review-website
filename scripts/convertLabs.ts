@@ -5,6 +5,7 @@ import yaml from "js-yaml";
 interface Lab {
   id: string;
   name: string;
+  description?: string;
   teams?: string;
   publicAlignmentAgenda?: string;
   publicPlan?: string;

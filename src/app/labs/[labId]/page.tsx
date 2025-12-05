@@ -87,7 +87,7 @@ export default async function LabPage({ params }: PageProps) {
 
   // Computed flags
   const hasResources = lab.resources || lab.wikipedia || (lab.lesswrongTags && lab.lesswrongTags.length > 0);
-  const hasLabInfo = lab.teams || lab.publicAlignmentAgenda || lab.publicPlan || lab.structure || lab.framework || lab.hostOrgStructure;
+  const hasLabInfo = lab.description || lab.teams || lab.publicAlignmentAgenda || lab.publicPlan || lab.structure || lab.framework || lab.hostOrgStructure;
   const hasPeopleFunding = (lab.someNames && lab.someNames.length > 0) || funders.length > 0;
   const hasCritiques = lab.critiques && lab.critiques.length > 0;
   const hasKeywords = keywords.length > 0;
@@ -98,14 +98,14 @@ export default async function LabPage({ params }: PageProps) {
   if (hasLabInfo) {
     tocItems.push({ id: "lab-info", label: "Lab Information" });
   }
-  if (hasKeywords) {
-    tocItems.push({ id: "keywords", label: "Keywords" });
-  }
   if (hasPeopleFunding) {
     tocItems.push({ id: "people-funding", label: "People & Funding" });
   }
   if (hasResources || hasCritiques) {
     tocItems.push({ id: "online-info", label: "Online Info" });
+  }
+  if (hasKeywords) {
+    tocItems.push({ id: "keywords", label: "Keywords" });
   }
   if (lab.papers && lab.papers.length > 0) {
     tocItems.push({ id: "papers", label: "Papers & Outputs", count: lab.papers.length });
@@ -179,6 +179,11 @@ export default async function LabPage({ params }: PageProps) {
               {hasLabInfo && (
                 <Section id="lab-info" title="Lab Information" icon={Building2} card>
                   <div className="space-y-6">
+                    {lab.description && (
+                      <div>
+                        <Markdown className="text-gray-700 prose prose-sm max-w-none">{lab.description}</Markdown>
+                      </div>
+                    )}
                     {lab.teams && (
                       <div>
                         <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
@@ -227,24 +232,6 @@ export default async function LabPage({ params }: PageProps) {
                         <Markdown className="text-gray-700">{lab.hostOrgStructure}</Markdown>
                       </div>
                     )}
-                  </div>
-                </Section>
-              )}
-
-              {/* Keywords */}
-              {hasKeywords && (
-                <Section id="keywords" title="Keywords" icon={BookOpen} card>
-                  <div className="flex flex-wrap gap-2">
-                    {keywords.map((keyword) => (
-                      <Link
-                        key={keyword.id}
-                        href={`/keywords#keyword-${keyword.id}`}
-                        className="inline-block text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded hover:bg-slate-200 transition-colors"
-                        title={keyword.description}
-                      >
-                        {keyword.name}
-                      </Link>
-                    ))}
                   </div>
                 </Section>
               )}
@@ -375,6 +362,24 @@ export default async function LabPage({ params }: PageProps) {
                         </div>
                       </div>
                     )}
+                  </div>
+                </Section>
+              )}
+
+              {/* Keywords */}
+              {hasKeywords && (
+                <Section id="keywords" title="Keywords" icon={BookOpen} card>
+                  <div className="flex flex-wrap gap-2">
+                    {keywords.map((keyword) => (
+                      <Link
+                        key={keyword.id}
+                        href={`/keywords#keyword-${keyword.id}`}
+                        className="inline-block text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded hover:bg-slate-200 transition-colors"
+                        title={keyword.description}
+                      >
+                        {keyword.name}
+                      </Link>
+                    ))}
                   </div>
                 </Section>
               )}
