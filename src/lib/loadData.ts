@@ -15,6 +15,8 @@ import {
   Researcher,
   KeywordsData,
   Keyword,
+  LesswrongTagsData,
+  LesswrongTag,
 } from "./types";
 
 /**
@@ -23,7 +25,7 @@ import {
  */
 export function loadReviewData(): ReviewData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/papers.yaml");
+    const filePath = path.join(process.cwd(), "src/data/agendas.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as ReviewData;
 
@@ -282,4 +284,39 @@ export function getKeywordsByIds(keywords: Keyword[], ids: string[]): Keyword[] 
   return ids
     .map((id) => keywords.find((k) => k.id === id))
     .filter((k): k is Keyword => k !== undefined);
+}
+
+/**
+ * Loads the LessWrong tags lookup data
+ * @throws Error if the YAML file is missing or malformed
+ */
+export function loadLesswrongTags(): LesswrongTagsData {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/lesswrongTags.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as LesswrongTagsData;
+
+    if (!data?.tags || !Array.isArray(data.tags)) {
+      throw new Error("Invalid LesswrongTagsData structure: missing tags array");
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Failed to load LessWrong tags:", error);
+    throw new Error(
+      `Failed to load LessWrong tags: ${error instanceof Error ? error.message : "Unknown error"}`
+    );
+  }
+}
+
+/**
+ * Creates a lookup map from slug to tag info
+ * @param tags - Array of LessWrong tags
+ * @returns Record mapping slug to { name, postCount }
+ */
+export function createTagsLookup(tags: LesswrongTag[]): Record<string, { name: string; postCount: number }> {
+  return tags.reduce((acc, tag) => {
+    acc[tag.slug] = { name: tag.name, postCount: tag.postCount };
+    return acc;
+  }, {} as Record<string, { name: string; postCount: number }>);
 }

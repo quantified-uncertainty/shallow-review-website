@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Section, FlattenedAgenda } from "@/data/types";
+import { Section, FlattenedAgenda } from "@/lib/types";
 import AgendaTable from "./AgendaTable";
 import Header from "./Header";
 import { APP_TITLE, APP_DESCRIPTION, APP_AUTHORS } from "@/constants/app";

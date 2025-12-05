@@ -1,10 +1,10 @@
-import { loadReviewData, loadFunders } from "@/data/loadData";
+import { loadReviewData, loadFunders } from "@/lib/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
-import { FUNDER_COLORS } from "@/constants/colors";
 import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
 import { ExternalLink, BookOpen, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
+import AgendaLink from "@/components/AgendaLink";
 
 export const metadata: Metadata = {
   title: `Funders | ${APP_SHORT_TITLE}`,
@@ -117,13 +117,12 @@ export default function FundersPage() {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {agendas.map(({ agenda, section }) => (
-                        <Link
+                        <AgendaLink
                           key={`${section.id}-${agenda.id}`}
-                          href={`/${section.id}/${agenda.id}`}
-                          className={`inline-block text-sm px-3 py-1 rounded-full transition-colors ${FUNDER_COLORS}`}
-                        >
-                          {agenda.name}
-                        </Link>
+                          sectionId={section.id}
+                          agendaId={agenda.id}
+                          name={agenda.name}
+                        />
                       ))}
                     </div>
                   </div>

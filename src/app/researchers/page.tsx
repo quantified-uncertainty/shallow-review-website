@@ -1,9 +1,10 @@
-import { loadReviewData, loadResearchers } from "@/data/loadData";
+import { loadReviewData, loadResearchers } from "@/lib/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_SHORT_TITLE } from "@/constants/app";
 import { ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
+import AgendaLink from "@/components/AgendaLink";
 
 export const metadata: Metadata = {
   title: `Researchers | ${APP_SHORT_TITLE}`,
@@ -94,13 +95,12 @@ export default function ResearchersPage() {
                   <div className="mt-3">
                     <div className="flex flex-wrap gap-2">
                       {agendas.map(({ agenda, section }) => (
-                        <Link
+                        <AgendaLink
                           key={`${section.id}-${agenda.id}`}
-                          href={`/${section.id}/${agenda.id}`}
-                          className="inline-block text-sm px-3 py-1 rounded-full bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
-                        >
-                          {agenda.name}
-                        </Link>
+                          sectionId={section.id}
+                          agendaId={agenda.id}
+                          name={agenda.name}
+                        />
                       ))}
                     </div>
                   </div>

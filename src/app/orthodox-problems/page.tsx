@@ -1,9 +1,10 @@
-import { loadReviewData, loadOrthodoxProblems } from "@/data/loadData";
+import { loadReviewData, loadOrthodoxProblems } from "@/lib/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
 import Header from "@/components/Header";
 import { ChevronRight } from "lucide-react";
+import AgendaLink from "@/components/AgendaLink";
 
 export const metadata: Metadata = {
   title: `Orthodox Problems | ${APP_SHORT_TITLE}`,
@@ -123,13 +124,12 @@ export default function OrthodoxProblemsPage() {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {agendas.map(({ agenda, section }) => (
-                        <Link
+                        <AgendaLink
                           key={`${section.id}-${agenda.id}`}
-                          href={`/${section.id}/${agenda.id}`}
-                          className="inline-block text-sm bg-blue-50 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-100 transition-colors"
-                        >
-                          {agenda.name}
-                        </Link>
+                          sectionId={section.id}
+                          agendaId={agenda.id}
+                          name={agenda.name}
+                        />
                       ))}
                     </div>
                   </div>

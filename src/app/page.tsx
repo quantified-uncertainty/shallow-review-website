@@ -10,8 +10,8 @@ import {
   getTargetCaseByValue,
   getFundersByIds,
   getKeywordsByIds,
-} from "@/data/loadData";
-import { FlattenedAgenda } from "@/data/types";
+} from "@/lib/loadData";
+import { FlattenedAgenda } from "@/lib/types";
 import HomePageContent from "@/components/HomePageContent";
 
 export default function Home() {

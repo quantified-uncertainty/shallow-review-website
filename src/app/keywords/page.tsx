@@ -1,12 +1,10 @@
-import { loadReviewData, loadKeywords } from "@/data/loadData";
+import { loadReviewData, loadKeywords, loadLesswrongTags, createTagsLookup } from "@/lib/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_SHORT_TITLE } from "@/constants/app";
 import Header from "@/components/Header";
 import { ChevronRight, ExternalLink } from "lucide-react";
-import lesswrongTagsLookup from "@/data/lesswrongTagsLookup.json";
-
-const tagsLookup = lesswrongTagsLookup as Record<string, { name: string; postCount: number }>;
+import AgendaLink from "@/components/AgendaLink";
 
 export const metadata: Metadata = {
   title: `Keywords | ${APP_SHORT_TITLE}`,
@@ -17,6 +15,8 @@ export const metadata: Metadata = {
 export default function KeywordsPage() {
   const reviewData = loadReviewData();
   const { keywords, categories } = loadKeywords();
+  const { tags } = loadLesswrongTags();
+  const tagsLookup = createTagsLookup(tags);
 
   // Build a map of keyword ID -> agendas that reference it
   const keywordToAgendas: Record<
@@ -161,13 +161,12 @@ export default function KeywordsPage() {
                           <div className="mt-3">
                             <div className="flex flex-wrap gap-2">
                               {agendas.map(({ agenda, section }) => (
-                                <Link
+                                <AgendaLink
                                   key={`${section.id}-${agenda.id}`}
-                                  href={`/${section.id}/${agenda.id}`}
-                                  className="inline-block text-sm bg-blue-50 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-100 transition-colors"
-                                >
-                                  {agenda.name}
-                                </Link>
+                                  sectionId={section.id}
+                                  agendaId={agenda.id}
+                                  name={agenda.name}
+                                />
                               ))}
                             </div>
                           </div>

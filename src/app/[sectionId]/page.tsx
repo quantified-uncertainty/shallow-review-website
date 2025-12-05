@@ -1,8 +1,8 @@
-import { loadReviewData } from "@/data/loadData";
+import { loadReviewData } from "@/lib/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Header from "@/components/Header";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Route } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ sectionId: string }>;
@@ -64,7 +64,8 @@ export default async function SectionPage({ params }: PageProps) {
               href={`/${sectionId}/${agenda.id}`}
               className="block p-6 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all"
             >
-              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <Route className="w-5 h-5 text-blue-600" />
                 {agenda.name}
               </h2>
               {agenda.summary && (

@@ -7,7 +7,7 @@ import {
   SimilarityGraphData,
   DEFAULT_WEIGHTS,
   SimilarityWeights,
-} from "@/data/similarityTypes";
+} from "@/lib/similarityTypes";
 
 // Dynamically import to avoid SSR issues
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {

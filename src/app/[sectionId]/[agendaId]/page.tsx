@@ -12,17 +12,19 @@ import {
   getResearchersByIds,
   loadKeywords,
   getKeywordsByIds,
-} from "@/data/loadData";
+  loadLesswrongTags,
+  createTagsLookup,
+} from "@/lib/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
 import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 import Markdown from "@/components/Markdown";
-import lesswrongTagsLookup from "@/data/lesswrongTagsLookup.json";
 import {
   ExternalLink,
   BookOpen,
   ChevronRight,
+  ChevronLeft,
   Lightbulb,
   Tag,
   Users,
@@ -32,8 +34,6 @@ import ApproachBadge from "@/components/ApproachBadge";
 import TableOfContents, { TOCItem } from "@/components/TableOfContents";
 import Section from "@/components/Section";
 import Header from "@/components/Header";
-
-const tagsLookup = lesswrongTagsLookup as Record<string, { name: string; postCount: number }>;
 
 interface PageProps {
   params: Promise<{ sectionId: string; agendaId: string }>;
@@ -82,6 +82,8 @@ export default async function AgendaPage({ params }: PageProps) {
   const { funders: allFunders } = loadFunders();
   const { researchers: allResearchers } = loadResearchers();
   const { keywords: allKeywords } = loadKeywords();
+  const { tags } = loadLesswrongTags();
+  const tagsLookup = createTagsLookup(tags);
   const section = data.sections.find((s) => s.id === decodedSectionId);
   const agenda = section?.agendas.find((a) => a.id === decodedAgendaId);
 
@@ -112,6 +114,19 @@ export default async function AgendaPage({ params }: PageProps) {
   const keywords = agenda.keywords
     ? getKeywordsByIds(allKeywords, agenda.keywords)
     : [];
+
+  // Build flat list of all agendas for prev/next navigation
+  const allAgendas: { sectionId: string; agendaId: string; name: string }[] = [];
+  for (const s of data.sections) {
+    for (const a of s.agendas) {
+      allAgendas.push({ sectionId: s.id, agendaId: a.id, name: a.name });
+    }
+  }
+  const currentIndex = allAgendas.findIndex(
+    (a) => a.sectionId === decodedSectionId && a.agendaId === decodedAgendaId
+  );
+  const prevAgenda = currentIndex > 0 ? allAgendas[currentIndex - 1] : null;
+  const nextAgenda = currentIndex < allAgendas.length - 1 ? allAgendas[currentIndex + 1] : null;
 
   // Computed flags
   const hasResources = agenda.resources || agenda.wikipedia || (agenda.lesswrongTags && agenda.lesswrongTags.length > 0);
@@ -153,16 +168,46 @@ export default async function AgendaPage({ params }: PageProps) {
           {/* Main Content */}
           <main className="min-w-0">
             {/* Breadcrumbs */}
-            <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-              <Link href="/" className="hover:text-blue-600">
-                Home
-              </Link>
-              <ChevronRight className="w-4 h-4" />
-              <Link href={`/${sectionId}`} className="hover:text-blue-600">
-                {section.name}
-              </Link>
-              <ChevronRight className="w-4 h-4" />
-              <span className="text-gray-900 font-semibold">{agenda.name}</span>
+            <nav className="flex items-center justify-between text-sm text-gray-500 mb-4">
+              <div className="flex items-center gap-2">
+                <Link href="/" className="hover:text-blue-600">
+                  Home
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <Link href={`/${sectionId}`} className="hover:text-blue-600">
+                  {section.name}
+                </Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-gray-900 font-semibold">{agenda.name}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                {prevAgenda ? (
+                  <Link
+                    href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
+                    className="p-1 rounded hover:bg-gray-200 transition-colors"
+                    title={prevAgenda.name}
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </Link>
+                ) : (
+                  <span className="p-1 text-gray-300 cursor-not-allowed">
+                    <ChevronLeft className="w-5 h-5" />
+                  </span>
+                )}
+                {nextAgenda ? (
+                  <Link
+                    href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
+                    className="p-1 rounded hover:bg-gray-200 transition-colors"
+                    title={nextAgenda.name}
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </Link>
+                ) : (
+                  <span className="p-1 text-gray-300 cursor-not-allowed">
+                    <ChevronRight className="w-5 h-5" />
+                  </span>
+                )}
+              </div>
             </nav>
 
             {/* Title */}

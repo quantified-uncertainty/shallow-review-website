@@ -1,4 +1,4 @@
-import { Paper } from "@/data/types";
+import { Paper } from "@/lib/types";
 
 interface PaperCardProps {
   paper: Paper;

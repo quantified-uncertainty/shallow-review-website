@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import SimilarityGraph from "@/components/SimilarityGraph";
-import { SimilarityGraphData } from "@/data/similarityTypes";
+import { SimilarityGraphData } from "@/lib/similarityTypes";
 
 interface Props {
   data: SimilarityGraphData;

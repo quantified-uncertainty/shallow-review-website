@@ -381,7 +381,7 @@ sections:
           - "1"
           - "4"
           - "10"
-        targetCase: pessimistic.
+        targetCase: pessimistic
         someNames:
           - rowan-wang
           - avery-griffin
@@ -557,7 +557,7 @@ sections:
         orthodoxProblems:
           - "7"
           - "12"
-        targetCase: optimistic.
+        targetCase: optimistic
         someNames:
           - mrinank-sharma
           - meg-tong
@@ -636,7 +636,7 @@ sections:
           - "7"
           - "8"
           - "12"
-        targetCase: average case.
+        targetCase: average case
         someNames:
           - bowen-baker
           - joost-huizinga
@@ -650,7 +650,7 @@ sections:
           - mikita-balesni
           - xinpeng-wang
           - miles-turpin
-        estimatedFTEs: 10-100.
+        estimatedFTEs: 10-100
         fundedBy:
           - openai
           - anthropic
@@ -728,7 +728,7 @@ sections:
         orthodoxProblems:
           - "4"
           - "7"
-        targetCase: pessimistic.
+        targetCase: pessimistic
         someNames:
           - truthful-ai
           - jan-betley
@@ -870,7 +870,7 @@ sections:
         seeAlso: Iterative alignment, other Model Psychology topics.
         orthodoxProblems:
           - "1"
-        targetCase: optimistic.
+        targetCase: optimistic
         someNames:
           - amanda-askell
           - joe-carlsmith
@@ -986,7 +986,7 @@ sections:
         seeAlso: "[Values in the Wild: Discovering and Analyzing Values in Real-World Language Model Interactions](https://arxiv.org/abs/2504.15236)**,** [Persona Vectors: Monitoring and Controlling Character Traits in Language Models](https://arxiv.org/abs/2507.21509)."
         orthodoxProblems:
           - "1"
-        targetCase: pessimistic.
+        targetCase: pessimistic
         someNames:
           - mantas-mazeika
           - xuwang-yin
@@ -1040,7 +1040,7 @@ sections:
           - sachin-goyal
           - mycal-tucker
           - dylan-sam
-        estimatedFTEs: 10-50.
+        estimatedFTEs: 10-50
         critiques:
           - "[When Bad Data Leads to Good Models](https://arxiv.org/pdf/2505.04741)"
           - "[Medical large language models are vulnerable to data-poisoning attacks](https://www.nature.com/articles/s41591-024-03445-1)"
@@ -1099,7 +1099,7 @@ sections:
         orthodoxProblems:
           - "8"
           - "14"
-        targetCase: pessimistic.
+        targetCase: pessimistic
         someNames:
           - alexandra-souly
           - javier-rando
@@ -1107,7 +1107,7 @@ sections:
           - hanna-foerster
           - ilia-shumailov
           - yiren-zhao
-        estimatedFTEs: 5-20.
+        estimatedFTEs: 5-20
         critiques:
           - "[A small number of samples can poison LLMs of any size](https://arxiv.org/abs/2510.04567)"
           - "[Reasoning Introduces New Poisoning Attacks Yet Makes Them More Complicated](https://arxiv.org/abs/2509.03405)"
@@ -1154,7 +1154,7 @@ sections:
           - "1"
           - "4"
           - "7"
-        targetCase: optimistic.
+        targetCase: optimistic
         someNames:
           - mianqiu-huang
           - xiaoran-liu
@@ -1164,7 +1164,7 @@ sections:
           - jiaxin-wen
           - vishakh-padmakumar
           - benjamin-newman
-        estimatedFTEs: 50-150.
+        estimatedFTEs: 50-150
         critiques:
           - "[Synthetic Data in AI: Challenges, Applications, and Ethical Implications](https://arxiv.org/abs/2401.01629)"
         fundedBy:
@@ -1201,13 +1201,13 @@ sections:
         orthodoxProblems:
           - "1"
           - "7"
-        targetCase: average case.
+        targetCase: average case
         someNames:
           - maarten-buyl
           - kelsey-kraus
           - margaret-kroll
           - danqing-shi
-        estimatedFTEs: 20-50.
+        estimatedFTEs: 20-50
         critiques:
           - "[A Statistical Case Against Empirical Human-AI Alignment](https://arxiv.org/abs/2502.14581)"
         fundedBy:
@@ -1283,7 +1283,7 @@ sections:
           - "1"
           - "4"
           - "7"
-        targetCase: pessimistic.
+        targetCase: pessimistic
         someNames:
           - joar-skalse
           - karim-abdel-sadek
@@ -1294,7 +1294,7 @@ sections:
           - alessandro-abate
           - steven-byrnes
           - michael-cohen
-        estimatedFTEs: 20-70.
+        estimatedFTEs: 20-70
         critiques:
           - "[\"The Era of Experience\" has an unsolved technical alignment problem](https://www.lesswrong.com/posts/747f6b8e/the-era-of-experience-has-an-unsolved-technical-alignment-problem)"
           - "[The Invisible Leash: Why RLVR May or May Not Escape Its Origin](https://arxiv.org/abs/2507.09988)"
@@ -1371,7 +1371,7 @@ sections:
         seeAlso: Pretraining data filtering, unlearning, data poisoning defense.
         orthodoxProblems:
           - "14"
-        targetCase: Average case.
+        targetCase: Average case
         someNames:
           - kyle-obrien
           - stephen-casper
@@ -1381,7 +1381,7 @@ sections:
           - mantas-mazeika
           - stella-biderman
           - yarin-gal
-        estimatedFTEs: 10-100.
+        estimatedFTEs: 10-100
         fundedBy:
           - uk-aisi
           - eleutherai
@@ -1413,7 +1413,7 @@ sections:
         seeAlso: automated alignment research, iterative alignment, Beijing Key Laboratory of Safe AI and Superalignment, Aligned AI.
         orthodoxProblems:
           - "14"
-        targetCase: optimistic.
+        targetCase: optimistic
         someNames:
           - ae-studio
           - gunnar-zarncke
@@ -1517,7 +1517,7 @@ sections:
         orthodoxProblems:
           - "4"
           - "7"
-        targetCase: worst case.
+        targetCase: worst case
         someNames:
           - lucius-bushnaq
           - dan-braun
@@ -1528,7 +1528,7 @@ sections:
           - david-bau
           - yonatan-belinkov
           - stefan-heimersheim
-        estimatedFTEs: 100-200.
+        estimatedFTEs: 100-200
         critiques:
           - "[Interpretability Will Not Reliably Find Deceptive AI](https://www.alignmentforum.org/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai)"
           - "[A Problem to Solve Before Building a Deception Detector](https://www.lesswrong.com/posts/YXNeA3RyRrrRWS37A/a-problem-to-solve-before-building-a-deception-detector)"
@@ -1592,7 +1592,7 @@ sections:
           - brian-christian
           - ling-hu
           - nicholas-goldowsky-dill
-        estimatedFTEs: 50-100.
+        estimatedFTEs: 50-100
         critiques:
           - "[Exploring the generalization of LLM truth directions on conversational formats](https://arxiv.org/html/2505.09807v1)"
           - "[Understanding (Un)Reliability of Steering Vectors in Language Models](https://arxiv.org/abs/2505.22637)"
@@ -1762,7 +1762,7 @@ sections:
           - abhinav-menon
           - kenny-peng
           - tim-lawson
-        estimatedFTEs: 50-100.
+        estimatedFTEs: 50-100
         critiques:
           - "[Sparse Autoencoders Can Interpret Randomly Initialized Transformers](https://arxiv.org/abs/2501.17727)"
           - "[The Sparse Autoencoders bubble has popped, but they are still promising](https://agarriga.substack.com/p/the-sparse-autoencoders-bubble-has)"
@@ -1854,7 +1854,7 @@ sections:
         orthodoxProblems:
           - "1"
           - "4"
-        targetCase: Average case.
+        targetCase: Average case
         someNames:
           - philipp-alexander-kreer
           - wilson-wu
@@ -1866,7 +1866,7 @@ sections:
           - jiaqi-ma
           - junwei-deng
           - yijun-pan
-        estimatedFTEs: 30-60.
+        estimatedFTEs: 30-60
         broadApproaches:
           - behavioral
       - id: other-interpretability
@@ -1923,7 +1923,7 @@ sections:
         orthodoxProblems:
           - "4"
           - "7"
-        targetCase: Mixed.
+        targetCase: Mixed
         someNames:
           - lee-sharkey
           - dario-amodei
@@ -1935,7 +1935,7 @@ sections:
           - dmitry-vaintrob
           - sam-marks
           - jacob-pfau
-        estimatedFTEs: 30-60.
+        estimatedFTEs: 30-60
         broadApproaches:
           - engineering
           - cognitive
@@ -2000,7 +2000,7 @@ sections:
           - helena-casademunt
           - jacob-dunefsky
           - thomas-marshall
-        estimatedFTEs: 50-200.
+        estimatedFTEs: 50-200
         fundedBy:
           - open-philanthropy
           - anthropic
@@ -2062,7 +2062,7 @@ sections:
           - martin-wattenberg
           - blake-richards
           - mateusz-piotrowski
-        estimatedFTEs: 10-50.
+        estimatedFTEs: 10-50
         critiques:
           - "[Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52)"
         broadApproaches:
@@ -2609,7 +2609,7 @@ sections:
         someNames:
           - jan-kulveit
           - will-petillo
-        estimatedFTEs: 1.5?
+        estimatedFTEs: 15?
         broadApproaches:
           - cognitive
         resources:
@@ -2890,7 +2890,7 @@ sections:
         someNames:
           - vanessa-kosoy
           - diffractor
-        estimatedFTEs: "34"
+        estimatedFTEs: "3"
         critiques:
           - "[Matolcsi](https://www.lesswrong.com/posts/StkjjQyKwg7hZjcGB/a-mostly-critical-review-of-infra-bayesianism)"
         fundedBy:

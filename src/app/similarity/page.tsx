@@ -1,5 +1,5 @@
-import { loadReviewData } from "@/data/loadData";
-import { generateSimilarityGraph, getGraphStats } from "@/data/similarity";
+import { loadReviewData } from "@/lib/loadData";
+import { generateSimilarityGraph, getGraphStats } from "@/lib/similarity";
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_SHORT_TITLE } from "@/constants/app";

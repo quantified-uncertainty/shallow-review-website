@@ -1,10 +1,11 @@
-import { loadReviewData, loadBroadApproaches } from "@/data/loadData";
+import { loadReviewData, loadBroadApproaches } from "@/lib/loadData";
 import Link from "next/link";
 import { Metadata } from "next";
 import { APPROACH_COLORS } from "@/constants/colors";
 import { APP_TITLE, APP_AUTHORS, APP_SHORT_TITLE } from "@/constants/app";
 import { Wrench, Activity, Brain, Sigma, Waypoints, LucideIcon, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
+import AgendaLink from "@/components/AgendaLink";
 
 const APPROACH_ICONS: Record<string, LucideIcon> = {
   engineering: Wrench,
@@ -65,9 +66,20 @@ export default function BroadApproachesPage() {
         </nav>
 
         <h1 className="text-4xl font-bold text-gray-900 mb-2">Broad Approaches</h1>
-        <p className="text-gray-600 text-lg mb-8">
+        <p className="text-gray-600 text-lg mb-4">
           Research methodologies and paradigms used across AI alignment
           research agendas. Many agendas combine multiple approaches.
+        </p>
+        <p className="text-gray-500 text-sm mb-8">
+          Inspired by:{" "}
+          <a
+            href="https://www.lesswrong.com/posts/67fNBeHrjdrZZNDDK/defining-alignment-research#A_better_definition_of_alignment_research"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Defining Alignment Research
+          </a>
         </p>
         <div className="space-y-8">
           {approaches.map((approach) => {
@@ -99,13 +111,12 @@ export default function BroadApproachesPage() {
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {agendas.map(({ agenda, section }) => (
-                        <Link
+                        <AgendaLink
                           key={`${section.id}-${agenda.id}`}
-                          href={`/${section.id}/${agenda.id}`}
-                          className={`inline-block text-sm px-3 py-1 rounded-full transition-colors ${colorClass}`}
-                        >
-                          {agenda.name}
-                        </Link>
+                          sectionId={section.id}
+                          agendaId={agenda.id}
+                          name={agenda.name}
+                        />
                       ))}
                     </div>
                   </div>

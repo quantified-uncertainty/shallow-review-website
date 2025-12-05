@@ -2,9 +2,10 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { FlattenedAgenda } from "@/data/types";
+import { FlattenedAgenda } from "@/lib/types";
 import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 import ApproachBadge from "./ApproachBadge";
+import { Route } from "lucide-react";
 
 type SortField =
   | "name"
@@ -140,8 +141,9 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               <td className="px-3 py-3 whitespace-nowrap">
                 <Link
                   href={`/${agenda.sectionId}/${agenda.id}`}
-                  className="text-blue-600 hover:text-blue-800 font-medium"
+                  className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium"
                 >
+                  <Route className="w-3.5 h-3.5" />
                   {agenda.name}
                 </Link>
               </td>

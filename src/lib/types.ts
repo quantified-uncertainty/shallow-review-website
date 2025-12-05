@@ -128,3 +128,13 @@ export interface FlattenedAgenda extends Agenda {
   resolvedFunders: Funder[];
   resolvedKeywords: Keyword[];
 }
+
+export interface LesswrongTag {
+  slug: string;
+  name: string;
+  postCount: number;
+}
+
+export interface LesswrongTagsData {
+  tags: LesswrongTag[];
+}
