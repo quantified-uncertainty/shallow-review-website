@@ -14,6 +14,7 @@ import {
   BookOpen,
   Globe,
   Database,
+  Network,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -73,6 +74,15 @@ export default function HeaderNav() {
             >
               <Tags className="w-4 h-4" />
               Keywords
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link
+              href="/similarity"
+              className="flex items-center gap-2 cursor-pointer"
+            >
+              <Network className="w-4 h-4" />
+              Similarity Graph
             </Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
