@@ -181,7 +181,7 @@ export default async function LabPage({ params }: PageProps) {
                   <div className="space-y-6">
                     {lab.description && (
                       <div>
-                        <Markdown className="text-gray-700 prose prose-sm max-w-none">{lab.description}</Markdown>
+                        <Markdown className="text-gray-700" inline={false}>{lab.description}</Markdown>
                       </div>
                     )}
                     {lab.teams && (
