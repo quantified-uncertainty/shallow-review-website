@@ -10,7 +10,10 @@ import {
   Tags,
   Users,
   Crosshair,
-  Building2,
+  Info,
+  BookOpen,
+  Globe,
+  Database,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -22,12 +25,6 @@ import {
 export default function HeaderNav() {
   return (
     <nav className="flex items-center gap-6 text-sm">
-      <Link href="/about" className="text-gray-300 hover:text-white">
-        About
-      </Link>
-      <Link href="/methodology" className="text-gray-300 hover:text-white">
-        Methodology
-      </Link>
       <Link
         href="/"
         className="text-gray-300 hover:text-white inline-flex items-center gap-1.5"
@@ -104,6 +101,53 @@ export default function HeaderNav() {
               <Users className="w-4 h-4" />
               Researchers
             </Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <DropdownMenu>
+        <DropdownMenuTrigger className="text-gray-300 hover:text-white inline-flex items-center gap-1 focus:outline-none">
+          About
+          <ChevronDown className="w-4 h-4" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-48">
+          <DropdownMenuItem asChild>
+            <Link
+              href="/about"
+              className="flex items-center gap-2 cursor-pointer"
+            >
+              <Info className="w-4 h-4" />
+              About
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link
+              href="/methodology"
+              className="flex items-center gap-2 cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4" />
+              Methodology
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link
+              href="/website"
+              className="flex items-center gap-2 cursor-pointer"
+            >
+              <Globe className="w-4 h-4" />
+              Website
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <a
+              href="https://github.com/quantified-uncertainty/shallow-review-website/tree/main/src/data"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 cursor-pointer"
+            >
+              <Database className="w-4 h-4" />
+              Source Files
+            </a>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
