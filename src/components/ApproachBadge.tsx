@@ -28,7 +28,7 @@ export default function ApproachBadge({
   asLink = true,
 }: ApproachBadgeProps) {
   const Icon = APPROACH_ICONS[id];
-  const colorClass = APPROACH_COLORS[id] || "bg-gray-100 text-gray-700 hover:bg-gray-200";
+  const colorClass = APPROACH_COLORS[id] || "bg-slate-100 text-slate-700 hover:bg-slate-200";
 
   const sizeClasses = size === "sm"
     ? "text-xs px-2 py-0.5"

@@ -1,7 +1,6 @@
 import { loadReviewData, loadLabs } from "@/lib/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Header from "@/components/Header";
 import { ChevronRight, Route, Building2 } from "lucide-react";
 import { Section } from "@/lib/types";
 
@@ -69,8 +68,6 @@ export default async function SectionPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">

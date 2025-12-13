@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { Section, FlattenedAgenda, FlattenedLab } from "@/lib/types";
 import AgendaTable from "./AgendaTable";
-import Header from "./Header";
 import { APP_TITLE, APP_DESCRIPTION } from "@/constants/app";
 
 interface HomePageContentProps {
@@ -24,12 +24,29 @@ export default function HomePageContent({
   totalLabs,
   totalPapers,
 }: HomePageContentProps) {
-  const [viewMode, setViewMode] = useState<"list" | "table">("list");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const initialView = searchParams.get("view") === "table" ? "table" : "list";
+  const [viewMode, setViewMode] = useState<"list" | "table">(initialView);
+
+  useEffect(() => {
+    setViewMode(searchParams.get("view") === "table" ? "table" : "list");
+  }, [searchParams]);
+
+  const handleViewChange = (mode: "list" | "table") => {
+    setViewMode(mode);
+    const params = new URLSearchParams(searchParams.toString());
+    if (mode === "table") {
+      params.set("view", "table");
+    } else {
+      params.delete("view");
+    }
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-
       {/* Hero Section */}
       <div className="bg-white border-b border-gray-200">
         <div
@@ -46,7 +63,7 @@ export default function HomePageContent({
           <div className="mt-4 flex items-center">
             <div className="flex gap-1 bg-gray-100 rounded-lg p-1">
               <button
-                onClick={() => setViewMode("list")}
+                onClick={() => handleViewChange("list")}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
                   viewMode === "list"
                     ? "bg-white text-gray-900 shadow-sm"
@@ -56,7 +73,7 @@ export default function HomePageContent({
                 List
               </button>
               <button
-                onClick={() => setViewMode("table")}
+                onClick={() => handleViewChange("table")}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
                   viewMode === "table"
                     ? "bg-white text-gray-900 shadow-sm"

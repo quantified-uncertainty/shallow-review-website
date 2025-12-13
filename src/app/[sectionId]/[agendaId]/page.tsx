@@ -33,7 +33,6 @@ import {
 import ApproachBadge from "@/components/ApproachBadge";
 import TableOfContents, { TOCItem } from "@/components/TableOfContents";
 import Section from "@/components/Section";
-import Header from "@/components/Header";
 
 interface PageProps {
   params: Promise<{ sectionId: string; agendaId: string }>;
@@ -155,7 +154,6 @@ export default async function AgendaPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="lg:grid lg:grid-cols-[220px_1fr] lg:gap-12">
           {/* Sticky TOC Sidebar */}

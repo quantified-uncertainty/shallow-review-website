@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { FlattenedAgenda } from "@/lib/types";
-import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
+import { TARGET_CASE_COLORS, FUNDER_COLORS, PROBLEM_COLORS } from "@/constants/colors";
 import ApproachBadge from "./ApproachBadge";
 import { Route } from "lucide-react";
 
@@ -22,6 +22,7 @@ type SortDirection = "asc" | "desc";
 
 interface AgendaTableProps {
   agendas: FlattenedAgenda[];
+  initialSortField?: SortField;
 }
 
 function truncate(text: string, maxLength: number): string {
@@ -29,8 +30,8 @@ function truncate(text: string, maxLength: number): string {
   return text.slice(0, maxLength).trim() + "...";
 }
 
-export default function AgendaTable({ agendas }: AgendaTableProps) {
-  const [sortField, setSortField] = useState<SortField>("name");
+export default function AgendaTable({ agendas, initialSortField = "name", className = "" }: AgendaTableProps & { className?: string }) {
+  const [sortField, setSortField] = useState<SortField>(initialSortField);
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
   const handleSort = (field: SortField) => {
@@ -111,9 +112,9 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
   );
 
   return (
-    <div className="overflow-x-auto">
+    <div className={`overflow-auto relative ${className}`}>
       <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50 sticky top-0">
+        <thead className="bg-slate-50 sticky top-0 z-10 shadow-sm">
           <tr>
             <SortHeader field="name">Name</SortHeader>
             <SortHeader field="section">Section</SortHeader>
@@ -135,10 +136,10 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
           {sortedAgendas.map((agenda) => (
             <tr
               key={`${agenda.sectionId}-${agenda.id}`}
-              className="hover:bg-gray-50"
+              className="hover:bg-slate-50"
             >
               {/* Name */}
-              <td className="px-3 py-3 whitespace-nowrap">
+              <td className="px-3 py-3 whitespace-nowrap font-serif">
                 <Link
                   href={`/${agenda.sectionId}/${agenda.id}`}
                   className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium"
@@ -160,7 +161,7 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
 
               {/* Summary */}
               <td
-                className="px-3 py-3 text-sm text-gray-600 max-w-xs"
+                className="px-3 py-3 text-sm text-slate-600 max-w-xs font-serif"
                 title={agenda.summary || ""}
               >
                 {agenda.summary ? truncate(agenda.summary, 100) : "—"}
@@ -222,7 +223,7 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
                       <Link
                         key={problem.id}
                         href={`/orthodox-problems#problem-${problem.id}`}
-                        className="inline-block text-xs bg-amber-50 text-amber-800 px-2 py-0.5 rounded hover:bg-amber-100"
+                        className={`inline-block text-xs px-2 py-0.5 rounded ${PROBLEM_COLORS}`}
                         title={problem.description}
                       >
                         {problem.id}
