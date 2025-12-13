@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function MethodologyPage() {
   const sources = [
-    'All Arxiv papers with "AI alignment" and "AI safety" in the abstract or title',
-    'All Arxiv papers with "steerability" in the abstract or title',
+    'All arXiv papers with "AI alignment", "AI safety", or "steerability" in the abstract or title',
+    "All papers of ~120 AI safety researchers",
     "All Alignment Forum posts",
     'All LessWrong posts under "AI"',
     "Gasteiger's links",
@@ -20,6 +20,7 @@ export default function MethodologyPage() {
     "Lenz's links",
     "Zvi's links",
     "Ad hoc Twitter for a year",
+    "Several conference pages and workshops",
   ];
 
   const otherReviews = [
@@ -96,44 +97,110 @@ export default function MethodologyPage() {
               For Critiques
             </h3>
             <p className="text-gray-700">
-              We used LessWrong backlinks, Google Scholar cited-by, and Ahrefs.
+              We used LW backlinks, Google Scholar cited-by, manual search, collected links, and{" "}
+              <a
+                href="https://ahrefs.com/backlink-checker/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ahrefs
+              </a>
+              . Technical critiques are somewhat rare, though, and even then our coverage here is
+              likely severely lacking. We generally do not include social network critiques
+              (mostly due to scope).
             </p>
           </section>
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Processing</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
+              <li>Collecting links throughout the year and at project start. Skimming papers, staring at long lists.</li>
               <li>
-                Started with last year&apos;s list and moved any agendas without public
-                outputs this year to the bottom / the Graveyard.
+                We drafted a taxonomy of research agendas. Based on last year&apos;s{" "}
+                <a
+                  href="https://www.lesswrong.com/posts/fAW6RXLKTLHC3WXkS/shallow-review-of-technical-ai-safety-2024"
+                  className="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  list
+                </a>
+                , our expertise and the initial paper collection, though we changed the structure
+                to accommodate shifts in the domain: the top-level split is now
+                &quot;black-box&quot; vs &quot;white-box&quot; instead of &quot;control&quot; vs
+                &quot;understanding&quot;.
               </li>
               <li>
-                Deleted papers that struck us as obviously low-quality (slop review papers,
-                etc).
+                At around 500 links and growing, we decided to implement simple pipelines for
+                crawling, scraping and LLM metadata extraction, pre-filtering and
+                pre-classification into agendas, as well as other tasks – including final
+                formatting later. The use of LLMs was limited to one simple task at a time, and
+                the results were closely watched and reviewed. Code and data{" "}
+                <a
+                  href="https://github.com/gavento/shallow-review"
+                  className="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
+                .
               </li>
               <li>
-                Tried getting the AI to update the taxonomy bottom-up, but it wasn&apos;t
-                very good.
+                We tried getting the AI to update our taxonomy bottom-up to fit the body of
+                papers, but the results weren&apos;t very good. Though we are looking at some
+                advanced options (specialized embedding or feature extraction and clustering or
+                t-SNE etc.)
               </li>
-              <li>Many, many manual touchpoints still.</li>
               <li>
-                Of the 1200 links in the raw scrape, about 700 made it in.
+                The work on the ~70 agendas was distributed among the team. We ended up making
+                many local changes to the taxonomy, esp. splitting up and merging agendas. In
+                this sense, the taxonomy is specific to this year, and will need to be
+                continuously adapted in the coming years.
+              </li>
+              <li>
+                We started moved any agendas without public outputs this year to the bottom, and
+                the inactive ones to the Graveyard. For most of them, we checked with people from
+                the agendas for outputs or work we may have missed.
+              </li>
+              <li>
+                We asked 10 of our friends in AI safety to review the ~80 page beast of a post.
+                After editing, last-minute additions and formatting, we reached to over 60 experts
+                in technical AI safety asking for a quick review of their domains. The coverage is
+                not perfect; all mistakes are our own.
+              </li>
+              <li>
+                Of the 2000+ links to papers, organizations and posts in the raw scrape, about 700
+                made it in.
               </li>
             </ul>
 
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
               <p className="text-amber-800 text-sm">
-                <strong>Note on AI scrapers:</strong> AI scrapers miss lots of things. We did
-                a proper pass with a software scraper and then an LLM pass to cluster the
-                links, but this also had systematic omissions. We ended up doing a full
-                manual pass. I&apos;m not aware of any proper studies of &quot;LLM
-                laziness&quot; but it&apos;s known amongst power users of copilots.
+                <strong>Note on AI scrapers:</strong> AI scrapes miss lots of things. We did a
+                proper pass with a software scraper of over 3000 links collected from the above
+                and LLM crawl of some of the pages, and then an LLM pass to pre-filter the links
+                for relevance and pre-assign the links to agendas and areas, but this also had
+                systematic omissions. We ended up doing a full manual pass over a conservatively
+                LLM-pre-filtered links and re-classifying the links and papers. We are not aware
+                of any proper studies of &quot;LLM laziness&quot; but it&apos;s{" "}
+                <a
+                  href="https://joshuaberkowitz.us/blog/papers-7/llmigrate-turns-lazy-llms-into-reliable-c-to-rust-translators-846"
+                  className="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  known
+                </a>{" "}
+                amongst power users of copilots.
               </p>
             </div>
 
             <p className="text-gray-700 mt-6">
-              The field is growing at around 20% a year. There will come a time that this
-              list isn&apos;t sensible to do manually, at this granularity anyway.
+              The field is growing at around 20% a year. There will come a time that this list
+              isn&apos;t sensible to do manually even with conservative help of LLMs, at this
+              granularity anyway. We may have better alternatives for this by that time, though.
             </p>
           </section>
 
@@ -212,19 +279,62 @@ export default function MethodologyPage() {
           </section>
 
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Limitations</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Scope & Limitations</h2>
+            <p className="text-gray-700 mb-4">
+              <strong>Time period:</strong> 30th November 2024 – 30th November 2025 (with a few exceptions).
+            </p>
+            <p className="text-gray-700 mb-4">
+              We&apos;re focussing on &quot;technical AGI safety&quot;. We thus ignore a lot of work
+              relevant to the overall risk: misuse, policy, strategy,{" "}
+              <a
+                href="https://sentinel-team.org/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                OSINT
+              </a>
+              ,{" "}
+              <a
+                href="http://airesilience.net/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                resilience
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.forethought.org/research/project-ideas-for-making-transformative-ai-go-well-other-than-by-working-on-alignment"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                indirect risk
+              </a>
+              , AI rights, general capabilities evals, and things closer to &quot;technical
+              policy&quot; and like products (like standards, legislation, SL4 datacentres, and
+              automated cybersecurity). We also mostly focus on papers and blogposts (rather than
+              say, underground gdoc samizdat or Discords).
+            </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>We only use public information.</li>
               <li>
-                We mostly capture legible work on legible problems (things you can write a
-                paper on already).
+                We only use public information, so we are off by some additional unknown factor.
               </li>
               <li>
-                We don&apos;t collate public funding figures.
+                We try to include things which are early-stage and illegible – but in general we
+                fail and mostly capture legible work on{" "}
+                <a
+                  href="https://www.lesswrong.com/posts/PMc65HgRFvBimEpmJ/legible-vs-illegible-ai-safety-problems"
+                  className="text-blue-600 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  legible problems
+                </a>{" "}
+                (i.e. things you can write a paper on already).
               </li>
-              <li>
-                Evals is so massive that we put it into its own separate post.
-              </li>
+              <li>We don&apos;t collate public funding figures.</li>
             </ul>
           </section>
 

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 import ArbLogo from "./ArbLogo";
+import { getSectionColors } from "@/constants/colors";
 
 interface SectionInfo {
   id: string;
@@ -94,16 +95,20 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
         {sections.length > 0 && (
           <div className="pt-4 border-t border-slate-100 w-full">
              <div className="space-y-2 flex flex-col items-center text-slate-600">
-                {sections.map(s => (
-                   <Link 
-                     key={s.id} 
-                     href={`/${s.id}`} 
-                     className="hover:text-blue-600 hover:underline" 
-                     onClick={onNavigate}
-                   >
-                     {s.name}
-                   </Link>
-                ))}
+                {sections.map(s => {
+                  const colors = getSectionColors(s.id);
+                  return (
+                    <Link 
+                      key={s.id} 
+                      href={`/${s.id}`} 
+                      className={`${colors.navHover} hover:underline font-medium transition-colors flex items-center gap-2`}
+                      onClick={onNavigate}
+                    >
+                      <span className={`inline-block w-2 h-2 rounded-full ${colors.dot}`}></span>
+                      {s.name}
+                    </Link>
+                  );
+                })}
              </div>
           </div>
         )}

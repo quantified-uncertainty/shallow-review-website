@@ -15,14 +15,14 @@ interface SidebarProps {
 
 export default function Sidebar({ sections }: SidebarProps) {
   return (
-    <aside className="fixed inset-y-0 left-0 w-96 bg-slate-50 border-r border-slate-200 overflow-y-auto hidden md:flex md:flex-col z-20 font-sans">
+    <aside className="fixed inset-y-0 left-0 w-80 xl:w-96 2xl:left-8 bg-gradient-to-r from-slate-50 via-slate-50 to-transparent border-r border-slate-200 overflow-y-auto hidden md:flex md:flex-col z-20 font-sans">
       <div className="p-8 pb-4 text-center">
         <Link href="/" className="block group">
-          <h1 className="text-xl font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition-colors font-serif">
+          <h1 className="text-2xl font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition-colors font-serif">
             {APP_TITLE}
           </h1>
         </Link>
-        <p className="text-sm text-slate-500 mt-4 leading-relaxed font-serif italic">
+        <p className="text-base text-slate-500 mt-4 leading-relaxed font-serif italic">
           {APP_DESCRIPTION}
         </p>
       </div>

@@ -49,7 +49,7 @@ export default function TablePage() {
   );
 
   return (
-    <div className="h-[calc(100vh-4rem)] md:h-screen w-full flex flex-col bg-slate-50">
+    <div className="h-[calc(100vh-4rem)] md:h-screen w-full flex flex-col bg-slate-50 p-6">
       <AgendaTable 
         agendas={flattenedAgendas} 
         initialSortField="section" 

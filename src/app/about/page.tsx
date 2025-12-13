@@ -30,22 +30,107 @@ export default function AboutPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">What is This?</h2>
             <p className="text-gray-700 mb-4">
-              This is a comprehensive taxonomy of technical AI safety research, organizing
-              research agendas into a tree structure. People and work can appear in multiple
-              nodes, so it&apos;s not a strict partition.
+              This is the third annual review of what&apos;s going on in technical AI safety.
+              It&apos;s shallow in the sense that 1) we are not specialists in almost any of it
+              and that 2) we only spent about an hour on each entry. Still, among other things,
+              we processed every arXiv paper on alignment, all Alignment Forum posts, as well as
+              a year&apos;s worth of Twitter.
             </p>
             <p className="text-gray-700 mb-4">
-              The level of analysis for each node is the &quot;research agenda&quot; — an
-              abstraction spanning multiple papers and organisations in a messy many-to-many
-              relationship. What makes something an agenda? Similar methods, similar aims, or
+              It is substantially a list of lists structuring around 800 links. The point is to
+              produce stylised facts, forests out of trees; to help you look up what&apos;s
+              happening, or that thing you vaguely remember reading about; to help new
+              researchers orient, know some of their options and the standing critiques; and to
+              help you find who to talk to for actual information. We also track things which
+              didn&apos;t pan out.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Here, &quot;AI safety&quot; means technical work intended to prevent{" "}
+              <em>future</em> cognitive systems from having large unintended negative effects on
+              the world. So it&apos;s capability restraint, instruction-following, value
+              alignment, control, and risk awareness work.
+            </p>
+            <p className="text-gray-700 mb-4">
+              We ignore a lot of relevant work (including most of capability restraint): things
+              like misuse, policy, strategy,{" "}
+              <a
+                href="https://sentinel-team.org/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                OSINT
+              </a>
+              ,{" "}
+              <a
+                href="http://airesilience.net/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                resilience
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.forethought.org/research/project-ideas-for-making-transformative-ai-go-well-other-than-by-working-on-alignment"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                indirect risk
+              </a>
+              , AI rights, general capabilities evals, and things closer to &quot;technical
+              policy&quot; and products (like standards, legislation, SL4 datacentres, and
+              automated cybersecurity). We focus on papers and blogposts (rather than say, gdoc
+              samizdat or tweets or Githubs or Discords). We only use public information, so we
+              are off by some additional unknown factor.
+            </p>
+            <p className="text-gray-700 mb-4">
+              We try to include things which are early-stage and illegible – but in general we
+              fail and mostly capture legible work on{" "}
+              <a
+                href="https://www.lesswrong.com/posts/PMc65HgRFvBimEpmJ/legible-vs-illegible-ai-safety-problems"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                legible problems
+              </a>{" "}
+              (i.e. things you can write a paper on already).
+            </p>
+            <p className="text-gray-700 mb-4">
+              An{" "}
+              <a
+                href="https://arbresearch.com/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Arb Research
+              </a>{" "}
+              project. Work funded by Coefficient Giving.
+            </p>
+          </section>
+
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Structure</h2>
+            <p className="text-gray-700 mb-4">
+              We have again settled for a tree data structure for this post – but people and
+              work can appear in multiple nodes so it&apos;s not a dumb partition. Richer
+              representation structures may be in the works.
+            </p>
+            <p className="text-gray-700 mb-4">
+              The level of analysis for each node in the tree is the &quot;research agenda&quot;,
+              an abstraction spanning multiple papers and organisations in a messy many-to-many
+              relation. What makes something an agenda? Similar methods, similar aims, or
               something sociological about leaders and collaborators. Agendas vary greatly in
-              their degree of coherent agency, from the very coherent Anthropic Circuits work
-              to the enormous, leaderless and unselfconscious &quot;iterative alignment&quot;.
+              their degree of coherent agency, from the very coherent Anthropic Circuits work to
+              the enormous, leaderless and unselfconscious &quot;iterative alignment&quot;.
             </p>
             <p className="text-gray-700">
-              For an org-first view, see{" "}
+              For an org-first view see{" "}
               <a
-                href="https://aisafety.com"
+                href="https://aisafety.com/map#cards"
                 className="text-blue-600 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -155,24 +240,53 @@ export default function AboutPage() {
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes This Year</h2>
-            <p className="text-gray-700 mb-4">
-              A few major changes to the taxonomy: the top-level split is now
-              &quot;black-box&quot; vs &quot;white-box&quot; instead of &quot;control&quot; vs
-              &quot;understanding&quot;.
-            </p>
-            <p className="text-gray-700 mb-4">
-              This review has over 700 links compared to ~300 in 2024 and ~200 in 2023. We
-              looked harder and the field has grown. The field is growing at around 20% a year.
-            </p>
+            <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4">
+              <li>
+                A few major changes to the taxonomy: the top-level split is now
+                &quot;black-box&quot; vs &quot;white-box&quot; instead of &quot;control&quot; vs
+                &quot;understanding&quot;. (We did try out an automated clustering but it
+                wasn&apos;t very good.)
+              </li>
+              <li>
+                The agendas are in general less charisma-based and more about solution type.
+              </li>
+              <li>
+                We did a systematic Arxiv scrape on the word &quot;alignment&quot; (and filtered
+                out the sequence indexing papers that fell into this pipeline).
+                &quot;Steerability&quot; is one competing term used by academics.
+              </li>
+              <li>
+                We scraped over 3000 links (arXiv, LessWrong, several alignment publication
+                lists, blogs and conferences), conservatively filtering and pre-categorizing them
+                with a LLM pipeline. All curated later, many more added manually.
+              </li>
+              <li>
+                This review has ~800 links compared to ~300 in 2024 and ~200 in 2023. We looked
+                harder and the field has grown.
+              </li>
+              <li>We don&apos;t collate public funding figures.</li>
+              <li>
+                New sections: &quot;Labs&quot;, &quot;Multi-agent First&quot;, &quot;Better
+                data&quot;, &quot;Model specs&quot;, &quot;character training&quot; and
+                &quot;representation geometry&quot;. &quot;Evals&quot; is so massive it gets a
+                top-level section.
+              </li>
+            </ul>
             <p className="text-gray-700">
-              New sections include: &quot;Labs&quot;, &quot;Multi-agent First&quot;,
-              &quot;Better data&quot;, &quot;Model specs&quot;, &quot;Character training&quot;,
-              and &quot;Representation geometry&quot;.
+              The field is growing at around 20% a year. There will come a time that this list
+              isn&apos;t sensible to do manually even with conservative help of LLMs, at this
+              granularity anyway. We may have better alternatives for this by that time, though.
             </p>
           </section>
 
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Acknowledgments</h2>
+            <p className="text-gray-700 mb-4">
+              We asked 10 of our friends in AI safety to review the ~80 page beast of a post.
+              After editing, last-minute additions and formatting, we reached to over 60 experts
+              in technical AI safety asking for a quick review of their domains. The coverage is
+              not perfect; all mistakes are our own.
+            </p>
             <p className="text-gray-700">
               Thanks to Seb Krier, Yuxi Liu, Ben Todd, Ege Erdil, Tan Zhi-Xuan, Mateusz
               Bagiński, Vojta Kovařík, David Hyland, plex, Shoshannah Tekofsky, Fin Moorhouse,

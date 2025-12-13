@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className="antialiased bg-slate-50 text-slate-800 font-serif">
         <Sidebar sections={sectionLinks} />
         <MobileHeader sections={sectionLinks} />
-        <div className="md:pl-96 min-h-screen">
+        <div className="md:pl-80 xl:md:pl-96 2xl:pl-[28rem] min-h-screen">
           {children}
         </div>
       </body>

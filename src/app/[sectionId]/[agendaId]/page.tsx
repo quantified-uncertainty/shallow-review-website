@@ -37,7 +37,7 @@ import {
   Crosshair
 } from "lucide-react";
 import ApproachBadge from "@/components/ApproachBadge";
-import { TARGET_CASE_COLORS, PROBLEM_COLORS } from "@/constants/colors";
+import { TARGET_CASE_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
 
 // Helper component for rows with hanging icons and wrapping text
 function AttributeRow({
@@ -45,21 +45,23 @@ function AttributeRow({
   label,
   children,
   className = "",
+  iconColor,
 }: {
   icon?: LucideIcon;
   label: string;
   children: React.ReactNode;
   className?: string;
+  iconColor?: string;
 }) {
   return (
     <div className={`relative pl-0 ${className}`}>
       {Icon && (
-        <div className="absolute -left-10 top-1.5 text-gray-400 flex items-start justify-center w-6">
+        <div className={`absolute -left-10 top-1.5 ${iconColor || 'text-gray-400'} flex items-start justify-center w-6`}>
           <Icon className="w-5 h-5" />
         </div>
       )}
       <div className="text-gray-900 leading-relaxed font-serif text-lg">
-        <span className="font-serif italic text-gray-500 mr-2">{label}</span>
+        <span className="font-serif italic text-gray-500 mr-2 font-medium">{label}</span>
         {children}
       </div>
     </div>
@@ -159,24 +161,29 @@ export default async function AgendaPage({ params }: PageProps) {
   const hasClassification = orthodoxProblems.length > 0 || targetCase || broadApproaches.length > 0;
   const hasPeopleFunding = (agenda.someNames && agenda.someNames.length > 0) || funders.length > 0 || agenda.estimatedFTEs;
 
+  const sectionColors = getSectionColors(decodedSectionId);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8 pl-12 lg:pl-16">
         {/* Breadcrumbs */}
         <nav className="text-sm text-gray-500 mb-8 font-sans">
-          <Link href={`/${sectionId}`} className="hover:text-blue-600">
+          <Link href={`/${sectionId}`} className={`${sectionColors.hover} transition-colors`}>
             {section.name}
           </Link>
           <span className="mx-2">&gt;</span>
         </nav>
 
+        {/* Colored accent bar */}
+        <div className={`w-16 h-1.5 ${sectionColors.accent} rounded-full mb-6`}></div>
+
         {/* Title and Navigation */}
-        <div className="flex justify-between items-start mb-2">
-          <h1 className="text-4xl font-bold text-gray-900 font-serif max-w-[80%]">
+        <div className="flex justify-between items-start mb-4">
+          <h1 className="text-5xl font-bold text-gray-900 font-serif max-w-[80%] leading-tight tracking-tight">
             {agenda.name.includes('(') ? (
               <>
                 {agenda.name.split('(')[0].trim()}
-                <span className="text-gray-400 font-normal"> ({agenda.name.split('(').slice(1).join('(')}</span>
+                <span className="text-gray-400 font-normal text-4xl"> ({agenda.name.split('(').slice(1).join('(')}</span>
               </>
             ) : (
               agenda.name
@@ -186,26 +193,26 @@ export default async function AgendaPage({ params }: PageProps) {
              {prevAgenda ? (
               <Link
                 href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
-                className="text-gray-400 hover:text-gray-600 transition-colors font-mono"
+                className="text-gray-400 hover:text-gray-600 transition-colors font-mono text-lg"
                 title={prevAgenda.name}
               >
                 &lt;
               </Link>
             ) : (
-              <span className="text-gray-300 cursor-not-allowed font-mono">
+              <span className="text-gray-300 cursor-not-allowed font-mono text-lg">
                 &lt;
               </span>
             )}
             {nextAgenda ? (
               <Link
                 href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
-                className="text-gray-400 hover:text-gray-600 transition-colors font-mono"
+                className="text-gray-400 hover:text-gray-600 transition-colors font-mono text-lg"
                 title={nextAgenda.name}
               >
                 &gt;
               </Link>
             ) : (
-              <span className="text-gray-300 cursor-not-allowed font-mono">
+              <span className="text-gray-300 cursor-not-allowed font-mono text-lg">
                 &gt;
               </span>
             )}
@@ -214,8 +221,8 @@ export default async function AgendaPage({ params }: PageProps) {
 
         {/* Summary */}
         {agenda.summary && (
-          <div className="mb-8">
-            <Markdown className="text-lg text-gray-600 leading-relaxed font-serif italic">
+          <div className="mb-10">
+            <Markdown className="text-xl text-gray-600 leading-relaxed font-serif italic">
               {agenda.summary}
             </Markdown>
           </div>

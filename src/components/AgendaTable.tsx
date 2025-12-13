@@ -99,7 +99,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
     className?: string;
   }) => (
     <th
-      className={`px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none ${className}`}
+      className={`px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none ${className}`}
       onClick={() => handleSort(field)}
     >
       <div className="flex items-center gap-1">
@@ -112,24 +112,24 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
   );
 
   return (
-    <div className={`overflow-auto relative ${className}`}>
+    <div className={`overflow-auto relative ${className} rounded-lg shadow-sm border border-gray-200 bg-white`}>
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-slate-50 sticky top-0 z-10 shadow-sm">
           <tr>
             <SortHeader field="name">Name</SortHeader>
             <SortHeader field="section">Section</SortHeader>
-            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-80">
               Summary
             </th>
-            <SortHeader field="papers" className="text-right">
+            <SortHeader field="papers" className="text-right w-20">
               Papers
             </SortHeader>
-            <SortHeader field="ftes">FTEs</SortHeader>
-            <SortHeader field="targetCase">Target Case</SortHeader>
-            <SortHeader field="approaches">Approaches</SortHeader>
-            <SortHeader field="problems">Problems</SortHeader>
-            <SortHeader field="fundedBy">Funded By</SortHeader>
-            <SortHeader field="names">Names</SortHeader>
+            <SortHeader field="ftes" className="w-24">FTEs</SortHeader>
+            <SortHeader field="targetCase" className="w-32">Target Case</SortHeader>
+            <SortHeader field="approaches" className="w-40">Approaches</SortHeader>
+            <SortHeader field="problems" className="w-32">Problems</SortHeader>
+            <SortHeader field="fundedBy" className="w-40">Funded By</SortHeader>
+            <SortHeader field="names" className="w-56">Names</SortHeader>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
@@ -139,7 +139,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               className="hover:bg-slate-50"
             >
               {/* Name */}
-              <td className="px-3 py-3 whitespace-nowrap font-serif">
+              <td className="px-4 py-4 whitespace-nowrap font-serif">
                 <Link
                   href={`/${agenda.sectionId}/${agenda.id}`}
                   className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium"
@@ -150,7 +150,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Section */}
-              <td className="px-3 py-3 whitespace-nowrap">
+              <td className="px-4 py-4 whitespace-nowrap">
                 <Link
                   href={`/${agenda.sectionId}`}
                   className="text-gray-600 hover:text-blue-600"
@@ -161,24 +161,24 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
 
               {/* Summary */}
               <td
-                className="px-3 py-3 text-sm text-slate-600 max-w-xs font-serif"
+                className="px-4 py-4 text-sm text-slate-600 font-serif"
                 title={agenda.summary || ""}
               >
-                {agenda.summary ? truncate(agenda.summary, 100) : "—"}
+                {agenda.summary ? truncate(agenda.summary, 120) : "—"}
               </td>
 
               {/* Papers */}
-              <td className="px-3 py-3 whitespace-nowrap text-right text-sm text-gray-600">
+              <td className="px-4 py-4 whitespace-nowrap text-right text-sm text-gray-600">
                 {agenda.papers?.length || 0}
               </td>
 
               {/* FTEs */}
-              <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-600">
+              <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-600">
                 {agenda.estimatedFTEs || "—"}
               </td>
 
               {/* Target Case */}
-              <td className="px-3 py-3 whitespace-nowrap">
+              <td className="px-4 py-4 whitespace-nowrap">
                 {agenda.resolvedTargetCase ? (
                   <Link
                     href={`/target-cases#case-${agenda.resolvedTargetCase.id}`}
@@ -197,7 +197,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Broad Approaches */}
-              <td className="px-3 py-3">
+              <td className="px-4 py-4">
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedApproaches.length > 0 ? (
                     agenda.resolvedApproaches.map((approach) => (
@@ -216,7 +216,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Orthodox Problems */}
-              <td className="px-3 py-3">
+              <td className="px-4 py-4">
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedProblems.length > 0 ? (
                     agenda.resolvedProblems.map((problem) => (
@@ -236,7 +236,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Funded By */}
-              <td className="px-3 py-3">
+              <td className="px-4 py-4">
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedFunders.length > 0 ? (
                     agenda.resolvedFunders.map((funder) => (
@@ -256,9 +256,9 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Some Names */}
-              <td className="px-3 py-3 text-sm text-gray-600 max-w-xs">
+              <td className="px-4 py-4 text-sm text-gray-600">
                 {agenda.someNames && agenda.someNames.length > 0
-                  ? truncate(agenda.someNames.join(", "), 50)
+                  ? truncate(agenda.someNames.join(", "), 60)
                   : "—"}
               </td>
             </tr>
