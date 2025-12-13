@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-
 export default function SunburstPage() {
   return (
     <div className="min-h-screen bg-gray-50">
