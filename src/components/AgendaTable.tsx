@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { FlattenedAgenda } from "@/lib/types";
-import { TARGET_CASE_COLORS, FUNDER_COLORS, PROBLEM_COLORS } from "@/constants/colors";
+import { TARGET_CASE_COLORS, FUNDER_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
 import ApproachBadge from "./ApproachBadge";
 import { Route } from "lucide-react";
 
@@ -52,7 +52,11 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
           comparison = a.name.localeCompare(b.name);
           break;
         case "section":
+          // Primary sort by section, secondary sort by agenda name
           comparison = a.sectionName.localeCompare(b.sectionName);
+          if (comparison === 0) {
+            comparison = a.name.localeCompare(b.name);
+          }
           break;
         case "papers":
           comparison = (a.papers?.length || 0) - (b.papers?.length || 0);
@@ -150,10 +154,10 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Section */}
-              <td className="px-4 py-4 whitespace-nowrap">
+              <td className="py-4 whitespace-nowrap">
                 <Link
                   href={`/${agenda.sectionId}`}
-                  className="text-gray-600 hover:text-blue-600"
+                  className={`block pl-4 pr-4 border-l-4 ${getSectionColors(agenda.sectionId).borderLeft} font-bold ${getSectionColors(agenda.sectionId).text} ${getSectionColors(agenda.sectionId).hover}`}
                 >
                   {agenda.sectionName}
                 </Link>

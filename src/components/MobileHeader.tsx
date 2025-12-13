@@ -71,7 +71,7 @@ export default function MobileHeader({ sections }: MobileHeaderProps) {
         <div className="flex items-center justify-between px-4 h-16">
           <Link 
             href="/" 
-            className="font-bold text-lg text-gray-900 truncate pr-4"
+            className="font-bold text-lg text-gray-900 truncate pr-4 font-serif"
             onClick={() => setIsOpen(false)}
           >
             {APP_TITLE}
@@ -79,7 +79,7 @@ export default function MobileHeader({ sections }: MobileHeaderProps) {
           
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-gray-600 hover:bg-gray-100 rounded-md focus:outline-none"
+            className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg focus:outline-none transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -89,8 +89,8 @@ export default function MobileHeader({ sections }: MobileHeaderProps) {
         {/* Dropdown Menu Content */}
         {isOpen && (
           <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
-            <div className="p-4">
-              <p className="text-sm text-slate-500 mb-4 px-3">
+            <div className="px-4 py-6">
+              <p className="text-sm text-slate-600 mb-6 px-2 font-serif italic leading-relaxed">
                 {APP_DESCRIPTION}
               </p>
               <NavContent sections={sections} onNavigate={() => setIsOpen(false)} />
