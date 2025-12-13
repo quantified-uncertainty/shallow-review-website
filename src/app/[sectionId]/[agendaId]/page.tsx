@@ -10,15 +10,12 @@ import {
   getFundersByIds,
   loadResearchers,
   getResearchersByIds,
-  loadKeywords,
-  getKeywordsByIds,
   loadLesswrongTags,
   createTagsLookup,
 } from "@/lib/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PaperCard from "@/components/PaperCard";
-import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
 import Markdown from "@/components/Markdown";
 import {
   ExternalLink,
@@ -26,13 +23,48 @@ import {
   ChevronRight,
   ChevronLeft,
   Lightbulb,
-  Tag,
-  Users,
   FileText,
+  AlertTriangle,
+  Target,
+  Settings,
+  ArrowRight,
+  Users,
+  DollarSign,
+  BarChart,
+  MessageSquare,
+  Minus,
+  LucideIcon,
+  Crosshair
 } from "lucide-react";
 import ApproachBadge from "@/components/ApproachBadge";
-import TableOfContents, { TOCItem } from "@/components/TableOfContents";
-import Section from "@/components/Section";
+import { TARGET_CASE_COLORS, PROBLEM_COLORS } from "@/constants/colors";
+
+// Helper component for rows with hanging icons and wrapping text
+function AttributeRow({
+  icon: Icon,
+  label,
+  children,
+  className = "",
+}: {
+  icon?: LucideIcon;
+  label: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`relative pl-0 ${className}`}>
+      {Icon && (
+        <div className="absolute -left-10 top-1.5 text-gray-400 flex items-start justify-center w-6">
+          <Icon className="w-5 h-5" />
+        </div>
+      )}
+      <div className="text-gray-900 leading-relaxed font-serif text-lg">
+        <span className="font-serif italic text-gray-500 mr-2">{label}</span>
+        {children}
+      </div>
+    </div>
+  );
+}
 
 interface PageProps {
   params: Promise<{ sectionId: string; agendaId: string }>;
@@ -80,7 +112,6 @@ export default async function AgendaPage({ params }: PageProps) {
   const { cases: allCases } = loadTargetCases();
   const { funders: allFunders } = loadFunders();
   const { researchers: allResearchers } = loadResearchers();
-  const { keywords: allKeywords } = loadKeywords();
   const { tags } = loadLesswrongTags();
   const tagsLookup = createTagsLookup(tags);
   const section = data.sections.find((s) => s.id === decodedSectionId);
@@ -110,10 +141,6 @@ export default async function AgendaPage({ params }: PageProps) {
     ? getResearchersByIds(allResearchers, agenda.someNames)
     : [];
 
-  const keywords = agenda.keywords
-    ? getKeywordsByIds(allKeywords, agenda.keywords)
-    : [];
-
   // Build flat list of all agendas for prev/next navigation
   const allAgendas: { sectionId: string; agendaId: string; name: string }[] = [];
   for (const s of data.sections) {
@@ -129,366 +156,247 @@ export default async function AgendaPage({ params }: PageProps) {
 
   // Computed flags
   const hasResources = agenda.resources || agenda.wikipedia || (agenda.lesswrongTags && agenda.lesswrongTags.length > 0);
-  const hasClassification = orthodoxProblems.length > 0 || targetCase || broadApproaches.length > 0 || keywords.length > 0;
+  const hasClassification = orthodoxProblems.length > 0 || targetCase || broadApproaches.length > 0;
   const hasPeopleFunding = (agenda.someNames && agenda.someNames.length > 0) || funders.length > 0 || agenda.estimatedFTEs;
-  const hasCritiques = agenda.critiques && agenda.critiques.length > 0;
-
-  // Build TOC items based on available content
-  const tocItems: TOCItem[] = [];
-
-  if (agenda.theoryOfChange) {
-    tocItems.push({ id: "theory-of-change", label: "Theory of Change" });
-  }
-  if (hasClassification) {
-    tocItems.push({ id: "classification", label: "Classification" });
-  }
-  if (hasPeopleFunding) {
-    tocItems.push({ id: "people-funding", label: "People & Funding" });
-  }
-  if (hasResources || hasCritiques) {
-    tocItems.push({ id: "online-info", label: "Online Info" });
-  }
-  if (agenda.papers && agenda.papers.length > 0) {
-    tocItems.push({ id: "papers", label: "Papers & Outputs", count: agenda.papers.length });
-  }
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="lg:grid lg:grid-cols-[220px_1fr] lg:gap-12">
-          {/* Sticky TOC Sidebar */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-8">
-              <TableOfContents items={tocItems} />
-            </div>
-          </aside>
+      <div className="max-w-4xl mx-auto px-4 py-8 pl-12 lg:pl-16">
+        {/* Breadcrumbs */}
+        <nav className="text-sm text-gray-500 mb-8 font-sans">
+          <Link href={`/${sectionId}`} className="hover:text-blue-600">
+            {section.name}
+          </Link>
+          <span className="mx-2">&gt;</span>
+        </nav>
 
-          {/* Main Content */}
-          <main className="min-w-0">
-            {/* Breadcrumbs */}
-            <nav className="flex items-center justify-between text-sm text-gray-500 mb-4">
-              <div className="flex items-center gap-2">
-                <Link href="/" className="hover:text-blue-600">
-                  Home
-                </Link>
-                <ChevronRight className="w-4 h-4" />
-                <Link href={`/${sectionId}`} className="hover:text-blue-600">
-                  {section.name}
-                </Link>
-                <ChevronRight className="w-4 h-4" />
-                <span className="text-gray-900 font-semibold">{agenda.name}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                {prevAgenda ? (
-                  <Link
-                    href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
-                    className="p-1 rounded hover:bg-gray-200 transition-colors"
-                    title={prevAgenda.name}
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </Link>
-                ) : (
-                  <span className="p-1 text-gray-300 cursor-not-allowed">
-                    <ChevronLeft className="w-5 h-5" />
-                  </span>
-                )}
-                {nextAgenda ? (
-                  <Link
-                    href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
-                    className="p-1 rounded hover:bg-gray-200 transition-colors"
-                    title={nextAgenda.name}
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </Link>
-                ) : (
-                  <span className="p-1 text-gray-300 cursor-not-allowed">
-                    <ChevronRight className="w-5 h-5" />
-                  </span>
-                )}
-              </div>
-            </nav>
-
-            {/* Title */}
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              {agenda.name.includes('(') ? (
-                <>
-                  {agenda.name.split('(')[0].trim()}
-                  <span className="text-gray-400 font-normal"> ({agenda.name.split('(').slice(1).join('(')}</span>
-                </>
-              ) : (
-                agenda.name
-              )}
-            </h1>
-
-            {/* Summary - always visible, not in TOC */}
-            {agenda.summary && (
-              <div className="mb-10">
-                <Markdown className="text-lg text-gray-600 leading-relaxed">
-                  {agenda.summary}
-                </Markdown>
-              </div>
+        {/* Title and Navigation */}
+        <div className="flex justify-between items-start mb-2">
+          <h1 className="text-4xl font-bold text-gray-900 font-serif max-w-[80%]">
+            {agenda.name.includes('(') ? (
+              <>
+                {agenda.name.split('(')[0].trim()}
+                <span className="text-gray-400 font-normal"> ({agenda.name.split('(').slice(1).join('(')}</span>
+              </>
+            ) : (
+              agenda.name
             )}
+          </h1>
+          <div className="flex items-center gap-2 pt-2">
+             {prevAgenda ? (
+              <Link
+                href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
+                className="text-gray-400 hover:text-gray-600 transition-colors font-mono"
+                title={prevAgenda.name}
+              >
+                &lt;
+              </Link>
+            ) : (
+              <span className="text-gray-300 cursor-not-allowed font-mono">
+                &lt;
+              </span>
+            )}
+            {nextAgenda ? (
+              <Link
+                href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
+                className="text-gray-400 hover:text-gray-600 transition-colors font-mono"
+                title={nextAgenda.name}
+              >
+                &gt;
+              </Link>
+            ) : (
+              <span className="text-gray-300 cursor-not-allowed font-mono">
+                &gt;
+              </span>
+            )}
+          </div>
+        </div>
 
-            <div className="space-y-10">
-              {/* Theory of Change */}
-              {agenda.theoryOfChange && (
-                <Section id="theory-of-change" title="Theory of Change" icon={Lightbulb}>
-                  <Markdown className="text-gray-700">{agenda.theoryOfChange}</Markdown>
+        {/* Summary */}
+        {agenda.summary && (
+          <div className="mb-8">
+            <Markdown className="text-lg text-gray-600 leading-relaxed font-serif italic">
+              {agenda.summary}
+            </Markdown>
+          </div>
+        )}
 
-                  {/* See Also inline within Theory of Change card */}
-                  {agenda.seeAlso && (
-                    <div className="mt-6 pt-4 border-t border-gray-100">
-                      <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                        See Also
-                      </h3>
-                      <Markdown className="text-gray-700">{agenda.seeAlso}</Markdown>
+        <div className="space-y-6">
+          {/* Theory of Change */}
+          {agenda.theoryOfChange && (
+            <AttributeRow icon={Lightbulb} label="Theory of Change:">
+              <Markdown inline>{agenda.theoryOfChange}</Markdown>
+            </AttributeRow>
+          )}
+
+          {/* General Approach */}
+          {broadApproaches.length > 0 && (
+            <AttributeRow icon={Settings} label="General Approach:">
+               <span className="inline-flex flex-wrap gap-2 items-center align-middle">
+                  {broadApproaches.map((approach) => (
+                    <ApproachBadge
+                      key={approach.id}
+                      id={approach.id}
+                      name={approach.name}
+                      description={approach.description}
+                      size="lg"
+                    />
+                  ))}
+               </span>
+            </AttributeRow>
+          )}
+
+          {/* Target Case */}
+          {targetCase && (
+            <AttributeRow icon={Target} label="Target Case:">
+              <Link 
+                href={`/target-cases#case-${targetCase.id}`}
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-base font-medium border border-opacity-50 transition-colors ${TARGET_CASE_COLORS[targetCase.id] || "bg-gray-100 text-gray-700 border-gray-200"}`}
+              >
+                <Crosshair className="w-4 h-4" />
+                {targetCase.name}
+              </Link>
+            </AttributeRow>
+          )}
+
+          {/* Orthodox Problems */}
+          {orthodoxProblems.length > 0 && (
+            <AttributeRow icon={AlertTriangle} label="Orthodox Problems:">
+              <div className="inline-flex flex-wrap gap-2 items-center align-middle">
+                 {orthodoxProblems.map((problem) => (
+                    <Link
+                      key={problem.id}
+                      href={`/orthodox-problems#problem-${problem.id}`}
+                      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-base font-medium border border-opacity-50 transition-colors ${PROBLEM_COLORS}`}
+                      title={problem.description}
+                    >
+                      <AlertTriangle className="w-4 h-4" />
+                      <span className="opacity-75 text-sm">{problem.id}.</span>
+                      {problem.name}
+                    </Link>
+                 ))}
+              </div>
+            </AttributeRow>
+          )}
+
+           {/* See Also */}
+           {agenda.seeAlso && (
+            <AttributeRow icon={ArrowRight} label="See Also:">
+              <div className="inline">
+                 <Markdown inline>{agenda.seeAlso}</Markdown>
+              </div>
+            </AttributeRow>
+          )}
+
+          {/* Key People */}
+          {researchers.length > 0 && (
+            <AttributeRow icon={Users} label="Key People:">
+              <span className="text-gray-900">
+                {researchers.map((researcher, i) => (
+                  <span key={researcher.id}>
+                    {researcher.name}
+                    {i < researchers.length - 1 && ", "}
+                  </span>
+                ))}
+              </span>
+            </AttributeRow>
+          )}
+
+          {/* Funded By */}
+          {funders.length > 0 && (
+            <AttributeRow icon={DollarSign} label="Funded By:">
+               <span className="text-gray-900">
+                  {funders.map((funder, i) => (
+                    <span key={funder.id}>
+                      {funder.name}
+                      {i < funders.length - 1 && ", "}
+                    </span>
+                  ))}
+               </span>
+            </AttributeRow>
+          )}
+          
+          {/* Estimated FTEs */}
+          {agenda.estimatedFTEs && (
+            <AttributeRow icon={BarChart} label="Estimated FTEs:">
+              {agenda.estimatedFTEs}
+            </AttributeRow>
+          )}
+          
+          {/* Critiques */}
+          {agenda.critiques && agenda.critiques.length > 0 && (
+            <AttributeRow icon={MessageSquare} label="Critiques:">
+               <div className="inline">
+                  {agenda.critiques.map((critique, i) => (
+                    <div key={i} className={i === 0 ? "inline" : "block mt-1"}>
+                      <Markdown inline>{critique}</Markdown>
                     </div>
-                  )}
-                </Section>
-              )}
+                  ))}
+               </div>
+            </AttributeRow>
+          )}
 
-              {/* Classification */}
-              {hasClassification && (
-                <Section id="classification" title="Classification" icon={Tag} card>
-                  <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-                    {broadApproaches.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/broad-approaches" className="hover:text-blue-600">
-                            Broad Approach
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {broadApproaches.map((approach) => (
-                            <ApproachBadge
-                              key={approach.id}
-                              id={approach.id}
-                              name={approach.name}
-                              description={approach.description}
-                              size="md"
-                            />
-                          ))}
-                        </div>
-                      </div>
+          {/* Resources / Links (Misc) */}
+          {hasResources && (
+             <AttributeRow icon={BookOpen} label="Resources:">
+                <div className="inline">
+                    {agenda.wikipedia && (
+                      <a
+                        href={agenda.wikipedia}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors mr-6"
+                      >
+                        Wikipedia
+                      </a>
                     )}
-
-                    {targetCase && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/target-cases" className="hover:text-blue-600">
-                            Target Case
-                          </Link>
-                        </h3>
-                        <Link
-                          href={`/target-cases#case-${targetCase.id}`}
-                          className={`inline-block text-sm px-2 py-1 rounded transition-colors ${TARGET_CASE_COLORS[targetCase.id] || "bg-gray-100 text-gray-700"}`}
-                          title={targetCase.description}
-                        >
-                          {targetCase.name}
-                        </Link>
-                      </div>
-                    )}
-
-                    {orthodoxProblems.length > 0 && (
-                      <div className="sm:col-span-2">
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/orthodox-problems" className="hover:text-blue-600">
-                            Orthodox Problems
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {orthodoxProblems.map((problem) => (
-                            <Link
-                              key={problem.id}
-                              href={`/orthodox-problems#problem-${problem.id}`}
-                              className="inline-block text-sm bg-amber-50 text-amber-800 px-2 py-1 rounded hover:bg-amber-100 transition-colors"
-                              title={problem.description}
-                            >
-                              {problem.id}. {problem.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {keywords.length > 0 && (
-                      <div className="sm:col-span-4">
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/keywords" className="hover:text-blue-600">
-                            Keywords
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {keywords.map((keyword) => (
-                            <Link
-                              key={keyword.id}
-                              href={`/keywords#keyword-${keyword.id}`}
-                              className="inline-block text-sm bg-slate-100 text-slate-700 px-2 py-1 rounded hover:bg-slate-200 transition-colors"
-                              title={keyword.description}
-                            >
-                              {keyword.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Section>
-              )}
-
-              {/* People & Funding */}
-              {hasPeopleFunding && (
-                <Section id="people-funding" title="People & Funding" icon={Users} card>
-                  <div className="space-y-4">
-                    {funders.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/funders" className="hover:text-blue-600">
-                            Funded By
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {funders.map((funder) => (
-                            <Link
-                              key={funder.id}
-                              href={`/funders#funder-${funder.id}`}
-                              className={`inline-block text-sm px-2 py-1 rounded transition-colors ${FUNDER_COLORS}`}
-                              title={funder.description}
-                            >
-                              {funder.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {researchers.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          <Link href="/researchers" className="hover:text-blue-600">
-                            Some Names
-                          </Link>
-                        </h3>
-                        <div className="flex flex-wrap gap-x-1 gap-y-1">
-                          {researchers.map((researcher, i) => (
-                            <span key={researcher.id}>
-                              <Link
-                                href={`/researchers#researcher-${researcher.id}`}
-                                className="text-gray-700 hover:text-blue-600 hover:underline"
-                              >
-                                {researcher.name}
-                              </Link>
-                              {i < researchers.length - 1 && <span className="text-gray-400">,</span>}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {agenda.estimatedFTEs && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          Estimated FTEs
-                        </h3>
-                        <p className="text-gray-700">{agenda.estimatedFTEs}</p>
-                      </div>
-                    )}
-                  </div>
-                </Section>
-              )}
-
-              {/* Online Info (Resources + Critiques) */}
-              {(hasResources || (agenda.critiques && agenda.critiques.length > 0)) && (
-                <Section id="online-info" title="Online Info" icon={BookOpen} card>
-                  <div className="space-y-6">
-                    {hasResources && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          Resources
-                        </h3>
-                        <div className="flex flex-wrap gap-x-4 gap-y-1">
-                          {agenda.wikipedia && (
-                            <a
-                              href={agenda.wikipedia}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                            >
-                              <BookOpen className="w-3.5 h-3.5" />
-                              Wikipedia
-                            </a>
-                          )}
-                          {agenda.resources?.map((resource, i) => (
-                            <a
-                              key={i}
-                              href={resource.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                            >
-                              <ExternalLink className="w-3.5 h-3.5" />
-                              {resource.title}
-                            </a>
-                          ))}
-                          {agenda.lesswrongTags?.map((slug) => {
-                            const tagInfo = tagsLookup[slug];
-                            const displayName = tagInfo?.name || slug;
-                            const postCount = tagInfo?.postCount;
-                            return (
-                              <a
-                                key={slug}
-                                href={`https://www.lesswrong.com/tag/${slug}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 hover:underline"
-                              >
-                                <ExternalLink className="w-3.5 h-3.5" />
-                                LessWrong: {displayName}
-                                {postCount !== undefined && (
-                                  <span className="text-xs text-blue-400">
-                                    ({postCount} posts)
-                                  </span>
-                                )}
-                              </a>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    )}
-
-                    {agenda.critiques && agenda.critiques.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-                          Critiques
-                        </h3>
-                        <div className="flex flex-wrap gap-x-4 gap-y-1">
-                          {agenda.critiques.map((critique, i) => (
-                            <span key={i} className="inline-flex items-center gap-1.5 text-sm text-blue-600 hover:text-blue-800 [&_a]:hover:underline">
-                              <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
-                              <Markdown>{critique}</Markdown>
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Section>
-              )}
-
-              {/* Papers & Outputs */}
-              {agenda.papers && agenda.papers.length > 0 && (
-                <Section id="papers" title={`Papers & Outputs (${agenda.papers.length})`} icon={FileText} card>
-                  <ul className="space-y-2 divide-y divide-gray-100">
-                    {agenda.papers.map((paper, i) => (
-                      <li key={i} className="pt-2 first:pt-0">
-                        <PaperCard paper={paper} />
-                      </li>
+                    {agenda.resources?.map((resource, i) => (
+                      <a
+                        key={i}
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors mr-6"
+                      >
+                        {resource.title}
+                      </a>
                     ))}
-                  </ul>
-                </Section>
-              )}
-            </div>
-          </main>
+                    {agenda.lesswrongTags?.map((slug) => {
+                      const tagInfo = tagsLookup[slug];
+                      const displayName = tagInfo?.name || slug;
+                      return (
+                        <a
+                          key={slug}
+                          href={`https://www.lesswrong.com/tag/${slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors mr-6"
+                        >
+                          LessWrong: {displayName}
+                        </a>
+                      );
+                    })}
+                  </div>
+             </AttributeRow>
+          )}
+
+          {/* Outputs */}
+          {agenda.papers && agenda.papers.length > 0 && (
+             <div className="pt-4 border-t border-gray-100">
+                <AttributeRow icon={FileText} label="Outputs:">
+                  <div className="mt-2 space-y-3">
+                    {agenda.papers.map((paper, i) => (
+                       <div key={i}>
+                          <Link href={paper.url || "#"} target="_blank" className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors font-medium">
+                            {paper.title}
+                          </Link>
+                          {paper.authors && <span className="text-gray-500 ml-2">— {paper.authors}</span>}
+                       </div>
+                    ))}
+                  </div>
+                </AttributeRow>
+             </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,0 +1,4 @@
+feat: move breadcrumbs above title and remove home link
+
+This change moves the breadcrumbs navigation to appear before the main title on the agenda page. It also removes the "Home" link from the breadcrumb trail, showing only the section name. This provides a cleaner and more direct navigation path for users.
+

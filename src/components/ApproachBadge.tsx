@@ -16,7 +16,7 @@ interface ApproachBadgeProps {
   id: string;
   name: string;
   description?: string;
-  size?: "sm" | "md";
+  size?: "sm" | "md" | "lg";
   asLink?: boolean;
 }
 
@@ -30,11 +30,24 @@ export default function ApproachBadge({
   const Icon = APPROACH_ICONS[id];
   const colorClass = APPROACH_COLORS[id] || "bg-slate-100 text-slate-700 hover:bg-slate-200";
 
-  const sizeClasses = size === "sm"
-    ? "text-xs px-2 py-0.5"
-    : "text-sm px-2 py-1";
+  let sizeClasses = "";
+  let iconSize = "";
 
-  const iconSize = size === "sm" ? "w-3 h-3" : "w-3.5 h-3.5";
+  switch (size) {
+    case "lg":
+      sizeClasses = "text-base px-3 py-1";
+      iconSize = "w-4 h-4";
+      break;
+    case "md":
+      sizeClasses = "text-sm px-2 py-1";
+      iconSize = "w-3.5 h-3.5";
+      break;
+    case "sm":
+    default:
+      sizeClasses = "text-xs px-2 py-0.5";
+      iconSize = "w-3 h-3";
+      break;
+  }
 
   const content = (
     <>
@@ -43,7 +56,7 @@ export default function ApproachBadge({
     </>
   );
 
-  const className = `inline-flex items-center gap-1 rounded transition-colors ${sizeClasses} ${colorClass}`;
+  const className = `inline-flex items-center gap-1.5 rounded-full transition-colors font-medium border ${sizeClasses} ${colorClass.replace("border ", "border-opacity-50 ")}`;
 
   if (asLink) {
     return (

@@ -21,9 +21,9 @@ export const TARGET_CASE_COLORS: Record<string, string> = {
 };
 
 /**
- * Default color scheme for funder badges
+ * Default color scheme for funder badges - now just text styling
  */
-export const FUNDER_COLORS = "bg-sky-50 text-sky-700 border border-sky-200";
+export const FUNDER_COLORS = "text-sky-700 hover:text-sky-900 hover:underline";
 
 /**
  * Default color scheme for problem badges
