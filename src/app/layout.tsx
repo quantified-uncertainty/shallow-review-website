@@ -4,6 +4,7 @@ import "./globals.css";
 import { APP_TITLE, APP_DESCRIPTION } from "@/constants/app";
 import Sidebar from "@/components/Sidebar";
 import MobileHeader from "@/components/MobileHeader";
+import { loadReviewData } from "@/lib/loadData";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -27,11 +28,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = loadReviewData();
+  const sectionLinks = data.sections.map((s) => ({ id: s.id, name: s.name }));
+
   return (
     <html lang="en" className={`${crimsonPro.variable} ${inter.variable}`}>
       <body className="antialiased bg-slate-50 text-slate-800 font-serif">
-        <Sidebar />
-        <MobileHeader />
+        <Sidebar sections={sectionLinks} />
+        <MobileHeader sections={sectionLinks} />
         <div className="md:pl-96 min-h-screen">
           {children}
         </div>

@@ -7,7 +7,16 @@ import { APP_TITLE, APP_DESCRIPTION } from "@/constants/app";
 import NavContent from "./NavContent";
 import { cn } from "@/lib/utils";
 
-export default function MobileHeader() {
+interface SectionInfo {
+  id: string;
+  name: string;
+}
+
+interface MobileHeaderProps {
+  sections?: SectionInfo[];
+}
+
+export default function MobileHeader({ sections }: MobileHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -81,10 +90,10 @@ export default function MobileHeader() {
         {isOpen && (
           <div className="absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-xl max-h-[calc(100vh-4rem)] overflow-y-auto">
             <div className="p-4">
-              <p className="text-sm text-gray-500 mb-4 px-3">
+              <p className="text-sm text-slate-500 mb-4 px-3">
                 {APP_DESCRIPTION}
               </p>
-              <NavContent onNavigate={() => setIsOpen(false)} />
+              <NavContent sections={sections} onNavigate={() => setIsOpen(false)} />
             </div>
           </div>
         )}
