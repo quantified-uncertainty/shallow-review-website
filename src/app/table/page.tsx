@@ -48,12 +48,16 @@ export default function TablePage() {
     }))
   );
 
+  // Extract section order from data (preserves YAML file order)
+  const sectionOrder = data.sections.map((s) => s.id);
+
   return (
     <div className="h-[calc(100vh-4rem)] md:h-screen w-full flex flex-col bg-slate-50 p-6">
-      <AgendaTable 
-        agendas={flattenedAgendas} 
-        initialSortField="section" 
-        className="flex-1" 
+      <AgendaTable
+        agendas={flattenedAgendas}
+        initialSortField="section"
+        sectionOrder={sectionOrder}
+        className="flex-1"
       />
     </div>
   );

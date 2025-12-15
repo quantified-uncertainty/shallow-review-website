@@ -288,6 +288,11 @@ function convertToFlatFormat(inputData, adjustments = {}) {
         agenda.critiques = critiques;
       }
 
+      // Funded by - keep as plain text string
+      if (attrs.funded_by && attrs.funded_by !== 'null') {
+        agenda.fundedByText = attrs.funded_by;
+      }
+
       // Papers array (may be empty)
       agenda.papers = papers;
 

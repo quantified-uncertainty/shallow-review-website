@@ -30,6 +30,7 @@ export interface AgendaData {
   estimatedFTEs?: string;
   critiques?: string[];
   fundedBy?: string[];
+  fundedByText?: string; // Plain text funding info from pipeline
   lesswrongTags?: string[];
   keywords?: string[];
   resources?: AgendaResource[];
@@ -134,6 +135,7 @@ export interface Agenda {
   estimatedFTEs?: string;
   critiques?: string[];
   fundedBy?: string[];
+  fundedByText?: string; // Plain text funding info from pipeline
   lesswrongTags?: string[];
   keywords?: string[];
   resources?: AgendaResource[];
@@ -181,6 +183,7 @@ export interface FlattenedAgenda extends Agenda {
   resolvedTargetCase: TargetCase | undefined;
   resolvedFunders: Funder[];
   resolvedKeywords: Keyword[];
+  fundedByText?: string; // Plain text funding info
 }
 
 export interface FlattenedLab extends Lab {

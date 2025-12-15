@@ -135,6 +135,7 @@ function buildHierarchy(
       estimatedFTEs: agendaData.estimatedFTEs,
       critiques: agendaData.critiques,
       fundedBy: agendaData.fundedBy,
+      fundedByText: agendaData.fundedByText,
       keywords: agendaData.keywords,
       resources: agendaData.resources,
       wikipedia: agendaData.wikipedia,

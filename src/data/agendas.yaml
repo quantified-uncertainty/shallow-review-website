@@ -38,6 +38,10 @@
       on labs in general. It's [difficult](https://conversationswithtyler.com/episodes/sam-altman-2/) to model OpenAI as
       a single agent: *"ALTMAN: I very rarely get to have anybody work on anything. One thing about researchers is
       they're going to work on what they're going to work on, and that's that."*
+  fundedByText: >-
+    Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA,
+    SoftBank, G42, AMD, Dragoneer, Coatue, Thrive, Altimeter, MGX, Blackstone, TPG, T. Rowe Price, Andreessen Horowitz,
+    D1 Capital Partners, Fidelity Investments, Founders Fund, Sequoia…
   papers:
     - title: Alignment Research Blog
       url: https://alignment.openai.com/
@@ -158,6 +162,10 @@
       [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\).),
       [underelicitation](https://www.lesswrong.com/posts/AK6AihHGjirdoiJg6/ai-companies-eval-reports-mostly-don-t-support-their-claims),
       [On Google's Safety Plan](https://lesswrong.com/posts/hvEikwtsbf6zaXG2s/on-google-s-safety-plan)
+  fundedByText: >-
+    Google. Explicit Deepmind spending as a whole was
+    [£1.3B](https://s3.eu-west-2.amazonaws.com/document-api-images-live.ch.gov.uk/docs/WT_VNJe9leRjfcU0-OtRjWqF7WiqueStclXgHPbdG4U/application-pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAWRGBDBV3ETBK6MEZ%2F20251107%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251107T165323Z&X-Amz-Expires=60&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCWV1LXdlc3QtMiJHMEUCIBO%2FN0Q9tFWQR%2FLthFYa8oNsFTPSnysg4ONrTUQ%2FyyG1AiEAkPoujFneu%2Bmo73eOnOGNV0tBYKpjLeiP7yATK0BxE7oqigQIvf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAFGgw0NDkyMjkwMzI4MjIiDAUWi2tKimijl1eBRireA4WSlhKuVaQDvGJ2Mhhn6yANCCUO3zN8OlpSoMI2QFoeu6i%2BPxwG7TrcECWjXvY2m5d8vAbJZj%2BTfCgRBvOqlWdcvynzDenryX3a%2F0oh1M1LCvKFgZxSZxV1Pb0l6uDpcBww%2BeRUgnTyClEsdjxo0fACkgiFoJkRbXQr3jnzmghu%2B%2B9kDtWERtaeGA5Dmjfr6i0EibJHo0BwsaleiFdKCuWMnNVpgEO4u%2F85kMy%2ByX7vM1Kfj53OvRKF9cyULlQnwb0q7Rs%2FjRespSsIF%2BAiQbUDck3iT%2BkG0wdrnnLEdm1nIHpoBQO65a8GwLvYsNIS7LckCyuG275y1h1%2B%2BUozd4PyyJjLhqmWn71LcsHuPbjSlAfU9E%2BkE73%2FNuuaE4hRICKlqLl4V9IXPiysd1IfazKQwS3lXmXrFiXvASKvLH8VDuBBz%2Bwj0SG50Rhfwpmrl2lmJ4RFVd6Se9S20eZQjnV183HKkCsvyx09YizNCuJqxEeJmQ%2BAJZVyFjDWKLrpC8F9Yzo3Sf4hYtvQRXqrANoB3n4J%2BUUvrUEDSQqOeQOki1xpE37FBu8Ozs%2FKo%2FrYgESZDsXra0gLcJ7zJb3rJs75kxEyqYDiHuBQ8IKbobY%2BC%2FMHC5MOHqfW%2Bu%2Bl%2FUownLq3yAY6pQG1n3iz%2B09NSvDWENlBA5hC3lLvGiD5f1DTjYA9v1GKjA3feHOZ3Iegs1Egz9G%2FTST6riAYyauyj0At6oEUiUnTQn%2BJxtM%2BH%2FuVzzq45lboS5WE7pDOKA6jDVgzgjy6Mlm%2FY3dy28KxiOrV4EsefEtYTd8Nr6XIvJ0PGVEHhMsWo%2Bsn3IzkuKEqQsFsIiQHCb9oREBNnmY%2FDa2iO0fJijogUtrkxMs%3D&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22companies_house_document.pdf%22&X-Amz-Signature=da8a32ce365dd9ee8f6824636e1e893e1a87a58b64c65013631c1e2014bf7e3e),
+    but this doesn't count e.g. Gemini compute.
   papers:
     - title: A Pragmatic Vision for Interpretability
       url: https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability%20
@@ -291,6 +299,10 @@
       [defense](https://techcrunch.com/2024/11/07/anthropic-teams-up-with-palantir-and-aws-to-sell-its-ai-to-defense-customers/),
       [Existing Safety Frameworks Imply Unreasonable
       Confidence](https://lesswrong.com/posts/7ExkgcDudwhag73vw/existing-safety-frameworks-imply-unreasonable-confidence)
+  fundedByText: >-
+    Amazon, Google, ICONIQ, Fidelity, Lightspeed, Altimeter, Baillie Gifford, BlackRock, Blackstone, Coatue, D1 Capital
+    Partners, General Atlantic, General Catalyst, GIC, Goldman Sachs, Insight Partners, Jane Street, Ontario Teachers'
+    Pension Plan, Qatar Investment Authority, TPG, T. Rowe Price, WCM, XN
   papers:
     - title: Natural emergent misalignment from reward hacking
       url: >-
@@ -449,6 +461,7 @@
       [insecurity](https://nitter.net/elonmusk/status/1961904269545648624),
       [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\).)
       on labs in general
+  fundedByText: A16Z, Blackrock, Fidelity, Kingdom, Lightspeed, MGX, Morgan Stanley, Sequoia…
   papers: []
 - id: meta
   name: Meta
@@ -481,6 +494,7 @@
       [Stein](https://ailabwatch.org/companies/meta)-[Perlman](https://ailabwatch.org/companies/meta),
       [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\).)
       on labs in general
+  fundedByText: Meta
   papers:
     - title: "The Alignment Waltz: Jointly Training Agents to Collaborate for Safety"
       url: https://arxiv.org/pdf/2510.08240
@@ -620,6 +634,7 @@
       [Bellot](https://arxiv.org/abs/2506.02923), [STACK](https://arxiv.org/abs/2506.24068),
       [Dung](https://arxiv.org/abs/2510.11235), [Gaikwad](https://arxiv.org/abs/2509.05381),
       [Hubinger](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
+  fundedByText: most of the industry
   papers:
     - title: Towards Cognitively-Faithful Decision-Making Models to Improve AI Alignment
       url: https://arxiv.org/abs/2509.04445
@@ -667,6 +682,7 @@
       [Bellot](https://arxiv.org/abs/2506.02923), [STACK](https://arxiv.org/abs/2506.24068),
       [Dung](https://arxiv.org/abs/2510.11235), [Gölz](https://arxiv.org/abs/2505.23749),
       [Gaikwad](https://arxiv.org/abs/2509.05381), [Hubinger](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
+  fundedByText: most of the industry
   papers:
     - title: "RLHS: Mitigating Misalignment in RLHF with Hindsight Simulation"
       url: https://arxiv.org/abs/2501.08617
@@ -790,6 +806,7 @@
       [Gölz](https://arxiv.org/abs/2505.23749), [Gaikwad](https://arxiv.org/abs/2509.05381),
       [Hubinger](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL),
       [SAIF](https://saif.org/research/bare-minimum-mitigations-for-autonomous-ai-development/)
+  fundedByText: most of the industry
   papers:
     - title: Training AI to do alignment research we don't already know how to do
       url: https://lesswrong.com/posts/5gmALpCetyjkSPEDr/training-ai-to-do-alignment-research-we-don-t-already-know
@@ -891,6 +908,7 @@
       [Bellot](https://arxiv.org/abs/2506.02923), [Alfour](https://cognition.cafe/p/ai-alignment-based-on-intentions),
       [Gölz](https://arxiv.org/abs/2505.23749), [Gaikwad](https://arxiv.org/abs/2509.05381),
       [Hubinger](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
+  fundedByText: most of the industry
   papers:
     - title: "Inoculation Prompting: Eliciting traits from LLMs during training can suppress them at test-time"
       url: https://arxiv.org/abs/2510.04340
@@ -1055,6 +1073,9 @@
   estimatedFTEs: 10-50
   critiques:
     - "[Existing Large Language Model Unlearning Evaluations Are Inconclusive](https://arxiv.org/abs/2506.00688)"
+  fundedByText: >-
+    Coefficient Giving, MacArthur Foundation, UK AI Safety Institute (AISI), Canadian AI Safety Institute (CAISI),
+    industry labs (e.g., Microsoft Research, Google)
   papers:
     - title: Modifying LLM Beliefs with Synthetic Document Finetuning
       url: https://alignment.anthropic.com/2025/modifying-beliefs-via-sdf
@@ -1353,6 +1374,7 @@
   estimatedFTEs: 100+
   critiques:
     - "[Obfuscated Activations Bypass LLM Latent-Space Defenses](https://arxiv.org/abs/2412.09565)."
+  fundedByText: most of the big labs
   papers:
     - title: "Constitutional Classifiers: Defending against Universal Jailbreaks across Thousands of Hours of Red Teaming"
       url: https://arxiv.org/abs/2501.18837
@@ -1438,6 +1460,7 @@
       Reasoning In The Wild Is Not Always Faithful](https://arxiv.org/abs/2503.08679); [Beyond Semantics: The
       Unreasonable Effectiveness of Reasonless Intermediate Tokens](https://arxiv.org/abs/2505.13775); [Reasoning Models
       Sometimes Output Illegible Chains of Thought](https://arxiv.org/abs/2510.27338)
+  fundedByText: OpenAI, Anthropic, Google DeepMind
   papers:
     - title: "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety"
       url: https://arxiv.org/abs/2507.11473
@@ -1577,6 +1600,7 @@
     - >-
       [Emergent Misalignment as Prompt Sensitivity](https://arxiv.org/html/2507.06253v1), [Go home GPT-4o, you're
       drunk](https://www.lesswrong.com/posts/RoWabfQxabWBiXwxP/go-home-gpt-4o-you-re-drunk-emergent-misalignment-as-lowered)
+  fundedByText: Coefficient Giving, >$1 million
   papers:
     - title: "Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs"
       url: https://arxiv.org/abs/2502.17424
@@ -1708,6 +1732,7 @@
     - monika-jotautaite
     - saloni-dash
   estimatedFTEs: 5-20
+  fundedByText: Coefficient Giving (via Truthful AI and Interpretability grants)
   papers:
     - title: "Subliminal Learning: Language models transmit behavioral traits via hidden signals in data"
       url: https://arxiv.org/abs/2507.14805
@@ -1805,6 +1830,7 @@
       motivations (esp. Sections
       4.3-4.5)](https://joecarlsmith.com/2025/08/18/giving-ais-safe-motivations#4-5-step-4-good-instructions), [On
       Deliberative Alignment](https://thezvi.substack.com/p/on-deliberative-alignment)
+  fundedByText: major funders include Anthropic and OpenAI (internally)
   papers:
     - title: OpenAI Model Spec
       url: https://model-spec.openai.com/
@@ -1900,6 +1926,7 @@
     - evan-hubinger
   critiques:
     - "[Nostalgebraist](https://nostalgebraist.tumblr.com/post/785766737747574784/the-void)"
+  fundedByText: Anthropic, Coefficient Giving
   papers:
     - title: "Open Character Training: Shaping the Persona of AI Assistants through Constitutional AI"
       url: https://arxiv.org/pdf/2511.01689%20
@@ -2007,6 +2034,7 @@
     - >-
       [Randomness, Not Representation: The Unreliability of Evaluating Cultural Alignment in
       LLMs](https://dl.acm.org/doi/full/10.1145/3715275.3732147)
+  fundedByText: Coefficient Giving. $289,000 SFF funding for CAIS.
   papers:
     - title: "Utility Engineering: Analyzing and Controlling Emergent Value Systems in AIs"
       url: https://arxiv.org/abs/2502.08640
@@ -2125,6 +2153,7 @@
     - >-
       [When Bad Data Leads to Good Models](https://arxiv.org/pdf/2505.04741), [Medical large language models are
       vulnerable to data-poisoning attacks](https://www.nature.com/articles/s41591-024-03445-1)
+  fundedByText: Anthropic, various academics
   papers:
     - title: Enhancing Model Safety through Pretraining Data Filtering
       url: https://alignment.anthropic.com/2025/pretraining-data-filtering/
@@ -2171,6 +2200,7 @@
     - alex-turner
     - hyperstition-aihttpswwwhyperstitionaicom
   estimatedFTEs: 1-10
+  fundedByText: Unclear, niche
   papers:
     - title: Self-Fulfilling Misalignment Data Might Be Poisoning Our AI Models
       url: https://turntrout.com/self-fulfilling-misalignment
@@ -2221,6 +2251,7 @@
     - >-
       [A small number of samples can poison LLMs of any size](https://arxiv.org/abs/2510.04567), [Reasoning Introduces
       New Poisoning Attacks Yet Makes Them More Complicated](https://arxiv.org/abs/2509.03405)
+  fundedByText: Google DeepMind, Anthropic, University of Cambridge, Vector Institute
   papers:
     - title: A small number of samples can poison LLMs of any size
       url: https://example-blog.com/a-small-number-of-samples-can-poison-llms
@@ -2318,6 +2349,7 @@
   estimatedFTEs: 20-50
   critiques:
     - "[**A Statistical Case Against Empirical Human-AI Alignment**](https://arxiv.org/abs/2502.14581)"
+  fundedByText: Anthropic, Google DeepMind, OpenAI, Meta AI, various academic groups
   papers:
     - title: Challenges and Future Directions of Data-Centric AI Alignment
       url: https://arxiv.org/html/2410.01957v2
@@ -2366,6 +2398,7 @@
   broadApproaches:
     - cognitive
   estimatedFTEs: 10-50
+  fundedByText: Google DeepMind
   papers:
     - title: "MONA: Myopic Optimization with Non-myopic Approval Can Mitigate Multi-step Reward Hacking"
       url: https://arxiv.org/abs/2501.13011
@@ -2425,6 +2458,7 @@
       ["The Era of Experience" has an unsolved technical alignment
       problem](https://www.lesswrong.com/posts/747f6b8e/the-era-of-experience-has-an-unsolved-technical-alignment-problem),
       [The Invisible Leash: Why RLVR May or May Not Escape Its Origin](https://arxiv.org/abs/2507.14843)
+  fundedByText: Google DeepMind, University of Oxford, CMU, Coefficient Giving
   papers:
     - title: "The Perils of Optimizing Learned Reward Functions: Low Training Error Does Not Guarantee Low Regret"
       url: https://arxiv.org/abs/2406.15753
@@ -2510,6 +2544,9 @@
       [nice
       summary](https://www.lesswrong.com/posts/i5kijcjFJD6bn7dwq/evaluating-the-historical-value-misspecification-argument)
       of historical problem statements
+  fundedByText: >-
+    Future of Life Institute, Coefficient Giving, Survival and Flourishing Fund, Cooperative AI Foundation, Polaris
+    Ventures
   papers:
     - title: Training LLM Agents to Empower Humans
       url: https://arxiv.org/pdf/2510.13709
@@ -2569,6 +2606,7 @@
     - stella-biderman
     - yarin-gal
   estimatedFTEs: 10-100
+  fundedByText: UK AI Safety Institute (AISI), EleutherAI, Coefficient Giving
   papers:
     - title: Tamper-Resistant Safeguards for Open-Weight LLMs
       url: https://arxiv.org/abs/2408.00761
@@ -2624,6 +2662,7 @@
     - >-
       [The 'Alignment Bonus' is a Dangerous Mirage](https://www.alignmentforum.org/posts/example-critique-neg-tax), [Why
       'Win-Win' Alignment is a Distraction](https://example.com/win-win-critique)
+  fundedByText: AE Studio
   papers:
     - title: Towards Safe and Honest AI Agents with Neural Self-Other Overlap
       url: https://arxiv.org/abs/2412.16325
@@ -2922,6 +2961,7 @@
       [Exploring the generalization of LLM truth directions on conversational
       formats](https://arxiv.org/html/2505.09807v1), [Understanding (Un)Reliability of Steering Vectors in Language
       Models](https://arxiv.org/abs/2505.22637)
+  fundedByText: Coefficient Giving, Anthropic, various academic groups
   papers:
     - title: Toward universal steering and monitoring of AI models
       url: https://arxiv.org/abs/2502.03708
@@ -3037,6 +3077,7 @@
       [Is This Lie Detector Really Just a Lie Detector? An Investigation of LLM Probe
       Specificity](https://www.lesswrong.com/posts/5dkhdRMypeuyoXfmb/is-this-lie-detector-really-just-a-lie-detector-an),[Herrmann](https://www.lesswrong.com/posts/bCQbSFrnnAk7CJNpM/still-no-lie-detector-for-llms),
       [Smith and Chughtai](https://arxiv.org/abs/2511.22662)
+  fundedByText: Anthropic, Deepmind, UK AISI, Coefficient Giving
   papers:
     - title: "Caught in the Act: a mechanistic approach to detecting deception"
       url: https://arxiv.org/abs/2508.19505
@@ -3130,6 +3171,7 @@
     - trenton-bricken
     - jack-lindsey
   estimatedFTEs: 10-30
+  fundedByText: various academic groups, Anthropic, Google DeepMind
   papers:
     - title: Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences
       url: https://arxiv.org/abs/2510.13900
@@ -3218,6 +3260,7 @@
       [Sparse Autoencoders Trained on the Same Data Learn Different Features](https://arxiv.org/pdf/2501.16615), [Why
       Not Just Train For
       Interpretability?](https://www.lesswrong.com/posts/2HbgHwdygH6yeHKKq/why-not-just-train-for-interpretability)
+  fundedByText: everyone, roughly. Frontier labs, LTFF, Coefficient Giving, etc.
   papers:
     - title: Unknown - PDF content not accessible
       url: https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf
@@ -3530,6 +3573,7 @@
       Interpretability](https://www.google.com/search?q=https://open.substack.com/pub/aifrontiersmedia/p/the-misguided-quest-for-mechanistic),
       [Interpretability Will Not Reliably Find Deceptive
       AI](https://www.lesswrong.com/posts/PwnadG4BFjaER3MGf/interpretability-will-not-reliably-find-deceptive-ai).
+  fundedByText: Various academic groups, Google DeepMind, Goodfire
   papers:
     - title: Combining Causal Models for More Accurate Abstractions of Neural Networks
       url: https://arxiv.org/abs/2503.11429
@@ -3580,6 +3624,7 @@
     - junwei-deng
     - yijun-pan
   estimatedFTEs: 30-60
+  fundedByText: Various academic groups
   papers:
     - title: Bayesian Influence Functions for Hessian-Free Data Attribution
       url: https://arxiv.org/abs/2509.26544
@@ -3864,6 +3909,7 @@
   estimatedFTEs: 50-200
   critiques:
     - "[Understanding (Un)Reliability of Steering Vectors in Language Models](https://arxiv.org/abs/2505.22637)"
+  fundedByText: Coefficient Giving, Anthropic
   papers:
     - title: "Persona Vectors: Monitoring and Controlling Character Traits in Language Models"
       url: https://arxiv.org/abs/2507.21509
@@ -3990,6 +4036,7 @@
     - >-
       [Vaintrob](https://www.lesswrong.com/posts/M2bs6xCbmc79nwr8j/dmitry-vaintrob-s-shortform#A8Ziwhts35dgqbz52), [Joar
       Skalse (2023)](https://www.alignmentforum.org/posts/ALJYj4PpkqyseL7kZ/my-criticism-of-singular-learning-theory)
+  fundedByText: Manifund, Survival and Flourishing Fund, EA Funds
   papers:
     - title: A Review of Developmental Interpretability in Large Language Models
       url: https://arxiv.org/abs/2508.15841
@@ -4100,6 +4147,7 @@
     - blake-richards
     - mateusz-piotrowski
   estimatedFTEs: 10-50
+  fundedByText: Various academic groups
   papers:
     - title: Shared Global and Local Geometry of Language Model Embeddings
       url: https://arxiv.org/abs/2503.21073
@@ -4200,6 +4248,7 @@
     - lukas-muttenthaler
     - quentin-delfosse
   estimatedFTEs: "4"
+  fundedByText: Google DeepMind, various academic groups
   papers:
     - title: Aligning machine and human visual representations across abstraction levels
       url: https://www.nature.com/articles/s41586-025-09631-6
@@ -4262,6 +4311,7 @@
     - >-
       Zvi, Gleave, Dickson,
       [Greenblatt](https://www.lesswrong.com/posts/jRf4WENQnhssCb6mJ/davidad-s-bold-plan-for-alignment-an-in-depth-explanation?commentId=MJCvHk5ARMnWDjQDg)
+  fundedByText: Manifund, UK government, Coefficient Giving, Survival and Flourishing Fund, Mila / CIFAR
   papers:
     - title: "SafePlanBench: evaluating a Guaranteed Safe AI Approach for LLM-based Agents"
       url: https://manifund.org/projects/safeplanbench-evaluating-a-guaranteed-safe-ai-approach-for-llm-based-agents
@@ -4319,6 +4369,7 @@
       [Karnofsky-Soares
       discussion](https://www.lesswrong.com/posts/iy2o4nQj9DnQD7Yhj/discussion-with-nate-soares-on-a-key-alignment-difficulty).
       Perhaps also [Predict-O-Matic](https://www.lesswrong.com/posts/SwcyMEgLyd4C3Dern/the-parable-of-predict-o-matic).
+  fundedByText: ARIA, Future of Life Institute, Jaan Tallinn, Schmidt Sciences
   papers:
     - title: "Superintelligent Agents Pose Catastrophic Risks: Can Scientist AI Offer a Safer Path?"
       url: https://arxiv.org/abs/2502.15657
@@ -4356,6 +4407,7 @@
     - >-
       [Tsvi
       BT](https://www.lesswrong.com/posts/unCG3rhyMJpGJpoLd/koan-divining-alien-datastructures-from-ram-activations#BtHCubjKWDFafkmYH)
+  fundedByText: Astera Institute
   papers:
     - title: "Foom and Doom 1: Brain in a Box in a Basement"
       url: https://www.lesswrong.com/posts/yew6zFWAKG4AGs3Wk/foom-and-doom-1-brain-in-a-box-in-a-basement
@@ -4409,6 +4461,7 @@
       [Can we safely automate alignment
       research?](https://joecarlsmith.substack.com/p/can-we-safely-automate-alignment), [Super(ficial)-alignment: Strong
       Models May Deceive Weak Models in Weak-to-Strong Generalization](https://arxiv.org/abs/2406.11431)
+  fundedByText: lab funders, Eleuther funders
   papers:
     - title: Debate Helps Weak-to-Strong Generalization
       url: https://arxiv.org/abs/2501.13124
@@ -4459,6 +4512,7 @@
     - >-
       [Automation collapse](https://www.lesswrong.com/posts/2Gy9tfjmKwkYbF9BY/automation-collapse), [Great Models Think
       Alike and this Undermines AI Oversight](https://arxiv.org/abs/2502.04313)
+  fundedByText: Long-Term Future Fund, lab funders
   papers:
     - title: Bare Minimum Mitigations for Autonomous AI Development
       url: https://saif.org/research/bare-minimum-mitigations-for-autonomous-ai-development/
@@ -4524,6 +4578,7 @@
     - sarah-schwettmann
     - robert-friel
   estimatedFTEs: 15-30
+  fundedByText: Schmidt Sciences, Halcyon Futures, John Schulman, Wojciech Zaremba
   papers:
     - title: Automatically Jailbreaking Frontier Language Models with Investigator Agents
       url: https://transluce.org/jailbreaking-frontier-models
@@ -4567,6 +4622,7 @@
     - >-
       [The limits of AI safety via debate
       (2022)](https://www.lesswrong.com/posts/kguLeJTt6LnGuYX4E/the-limits-of-ai-safety-via-debate)
+  fundedByText: Google, others
   papers:
     - title: AI Debate Aids Assessment of Controversial Claims
       url: https://arxiv.org/abs/2506.02175
@@ -4621,6 +4677,7 @@
     - jacob-steinhardt
     - jacob-andreas
   estimatedFTEs: 2-20
+  fundedByText: Schmidt Sciences, Halcyon Futures, John Schulman, Wojciech Zaremba
   papers:
     - title: Training Language Models to Explain Their Own Computations
       url: https://arxiv.org/abs/2511.08579
@@ -4756,6 +4813,7 @@
     - dalcy-k
     - jos-pedro-faustino
   estimatedFTEs: 1-5
+  fundedByText: LTFF, [Patreon](https://www.patreon.com/Dovetailresearch/about)
   papers:
     - title: Report & retrospective on the Dovetail fellowship
       url: https://www.lesswrong.com/posts/ApfjBbqzSu4aZoLSe/report-and-retrospective-on-the-dovetail-fellowship
@@ -4842,6 +4900,7 @@
     - jan-kulveit
     - will-petillo
   estimatedFTEs: 1-5
+  fundedByText: Alignment of Complex Systems
   papers:
     - title: A Three-Layer Model of LLM Psychology
       url: https://www.alignmentforum.org/posts/zuXo9imNKYspu9HGv/a-three-layer-model-of-llm-psychology%20
@@ -4884,6 +4943,7 @@
     - >-
       Self-critique in [UK AISI's Alignment Team: Research
       Agenda](https://lesswrong.com/posts/tbnw7LbNApvxNLAg8/uk-aisi-s-alignment-team-research-agenda)
+  fundedByText: AISI
   papers:
     - title: An alignment safety case sketch based on debate
       url: https://lesswrong.com/posts/iELyAqizJkizBQbfr/an-alignment-safety-case-sketch-based-on-debate
@@ -5214,6 +5274,7 @@
   estimatedFTEs: "3"
   critiques:
     - "[Matolcsi](https://www.lesswrong.com/posts/StkjjQyKwg7hZjcGB/a-mostly-critical-review-of-infra-bayesianism)"
+  fundedByText: Survival and Flourishing Fund, ARIA, UK AISI, Coefficient Giving
   papers:
     - title: "New paper: Infra-Bayesian Decision Estimation Theory"
       url: https://www.lesswrong.com/posts/LgLez8aeK24PbyyQJ/new-paper-infra-bayesian-decision-estimation-theory
@@ -5269,6 +5330,7 @@
     - joe-edelman
     - oliver-klingefjord
   estimatedFTEs: "5"
+  fundedByText: ARIA, OpenAI, Survival and Flourishing Fund
   papers:
     - title: Beyond Preferences in AI Alignment
       url: https://arxiv.org/abs/2408.16984
@@ -5333,6 +5395,7 @@
     - matija-franklin
     - joshua-b-tenenbaum
   estimatedFTEs: 5 - 10
+  fundedByText: Deepmind, Macroscopic Ventures
   papers:
     - title: "Law-Following AI: designing AI agents to obey human laws"
       url: https://law-ai.org/law-following-ai/%20
@@ -5395,6 +5458,7 @@
     - vincent-conitzer
     - vojta-kovarik
   estimatedFTEs: "10"
+  fundedByText: Deepmind, Macroscopic Ventures
   papers:
     - title: Multi-Agent Risks from Advanced AI
       url: https://arxiv.org/abs/2502.14143
@@ -5474,6 +5538,7 @@
     - vincent-conitzer
     - gillian-hadfield
   estimatedFTEs: 10 - 15
+  fundedByText: Coefficient Giving, Deepmind
   papers:
     - title: Infrastructure for AI Agents
       url: https://arxiv.org/abs/2501.10114
@@ -5562,6 +5627,7 @@
     - ai-objectives-institute
     - the-collective-intelligence-project
   estimatedFTEs: 5 - 15
+  fundedByText: Future of Life Institute, Survival and Flourishing Fund, Deepmind
   papers:
     - title: "Cultivating Pluralism In Algorithmic Monoculture: The Community Alignment Dataset"
       url: https://arxiv.org/abs/2507.09650
@@ -5635,6 +5701,7 @@
     - tj
     - andrew-critch
   estimatedFTEs: 5-10
+  fundedByText: Future of Life Institute, Emmet Shear
   papers:
     - title: Towards a scale-free theory of intelligent agency
       url: https://www.alignmentforum.org/posts/5tYTKX4pNpiG4vzYg/towards-a-scale-free-theory-of-intelligent-agency
@@ -5697,6 +5764,7 @@
       [Is the Definition of AGI a
       Percentage?](https://aievaluation.substack.com/p/is-the-definition-of-agi-a-percentage), [The "Length" of
       "Horizons"](https://www.lesswrong.com/posts/PzLSuaT6WGLQGJJJD/the-length-of-horizons)
+  fundedByText: Leverhulme Trust, Open Philanthropy, Long-Term Future Fund
   papers:
     - title: "GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks"
       url: https://arxiv.org/abs/2510.04374
@@ -5764,6 +5832,7 @@
       Sandbagging: Language Models can Strategically Underperform on Evaluations](https://arxiv.org/abs/2406.07358),
       [The Leaderboard Illusion](https://arxiv.org/abs/2504.20879), [Do Large Language Model Benchmarks Test
       Reliability?](https://arxiv.org/abs/2502.03461)
+  fundedByText: basically everyone. Google, Microsoft, Open Philanthropy, LTFF, Governments etc
   papers:
     - title: Forecasting Rare Language Model Behaviors
       url: https://arxiv.org/abs/2502.16797
@@ -6028,6 +6097,7 @@
       [Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer
       Productivity.](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) [The "Length" of
       "Horizons"](https://www.lesswrong.com/posts/PzLSuaT6WGLQGJJJD/the-length-of-horizons)
+  fundedByText: The Audacious Project, Open Philanthropy
   papers:
     - title: Measuring AI Ability to Complete Long Tasks
       url: https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
@@ -6133,6 +6203,9 @@
   estimatedFTEs: 10-50
   critiques:
     - "[The Reality of AI and Biorisk](https://arxiv.org/abs/2412.01946)"
+  fundedByText: >-
+    Open Philanthropy, UK AI Safety Institute (AISI), frontier labs, Scale AI, various academic institutions (Peking
+    University, Yale, etc.), Meta
   papers:
     - title: "Virology Capabilities Test (VCT): A Multimodal Virology Q&A Benchmark"
       url: https://arxiv.org/abs/2504.16137
@@ -6205,6 +6278,9 @@
       [Lessons from a Chimp: AI "Scheming" and the Quest for Ape Language](https://arxiv.org/abs/2507.03409), [It's hard
       to make scheming evals look realistic for
       LLMs](https://www.lesswrong.com/posts/TBk2dbWkg2F7dB3jb/it-s-hard-to-make-scheming-evals-look-realistic-for-llms)
+  fundedByText: >-
+    frontier labs (Google DeepMind, Anthropic), Open Philanthropy, The Audacious Project, UK AI Safety Institute (AISI),
+    AI Safety Support, Apollo Research, METR
   papers:
     - title: "Tell me about yourself: LLMs are aware of their learned behaviors"
       url: https://arxiv.org/abs/2501.11120
@@ -6293,6 +6369,7 @@
     - >-
       Chain-of-Thought Is Already Unfaithful (So Steganography is Irrelevant): [Reasoning Models Don't Always Say What
       They Think.](https://assets.anthropic.com/m/71876fabef0f0ed4/original/reasoning_models_paper.pdf)
+  fundedByText: Anthropic (and its general funders, e.g., Google, Amazon)
   papers:
     - title: LLMs can hide text in other text of the same length
       url: https://arxiv.org/abs/2510.20075
@@ -6353,6 +6430,9 @@
       A central criticism is that the evaluation scenarios are "artificial and contrived". [the
       void](https://nostalgebraist.tumblr.com/post/785766737747574784/the-void) and [Lessons from a
       Chimp](https://arxiv.org/abs/2507.03409) argue this research is "overattributing human traits" to models.
+  fundedByText: >-
+    Lab funders (Anthropic, OpenAI), academic institutions (e.g., Harvard, CMU, Barcelona Institute of Science and
+    Technology), NSFC, ML Alignment Theory & Scholars (MATS) Program, FAR AI
   papers:
     - title: "Liars' Bench: Evaluating Lie Detectors for Language Models"
       url: https://arxiv.org/abs/2511.16035
@@ -6466,6 +6546,7 @@
       Chimp](https://arxiv.org/abs/2507.03409)", is that this research "overattribut\[es\] human traits" to models. It
       argues that what's being measured isn't genuine sandbagging but models "playing-along-with-drama behaviour" in
       response to "artificial and contrived" evals.
+  fundedByText: Anthropic (and its funders, e.g., Google, Amazon), UK Government (funding the AI Security Institute)
   papers:
     - title: Strategic Dishonesty Can Undermine AI Safety Evaluations of Frontier LLMs
       url: https://arxiv.org/abs/2509.18058
@@ -6557,6 +6638,7 @@
   estimatedFTEs: 10-20
   critiques:
     - "[AI Sandbagging](https://arxiv.org/abs/2406.07358)"
+  fundedByText: UK Government (via UK AI Safety Institute)
   papers:
     - title: "Dive into the Agent Matrix: A Realistic Evaluation of Self-Replication Risk in LLM Agents"
       url: https://arxiv.org/abs/2509.25302
@@ -6607,6 +6689,7 @@
       [Claude Sonnet 3.7 (often) knows when it's in alignment
       evaluations](https://www.alignmentforum.org/posts/E3daBewppAiECN3Ao/claude-sonnet-3-7-often-knows-when-it-s-in-alignment),
       [Red Teaming AI Red Teaming.](https://arxiv.org/html/2507.05538v1)
+  fundedByText: Frontier labs (Anthropic, OpenAI, Google), government (UK AISI), Open Philanthropy, LTFF, academic grants.
   papers:
     - title: Building and evaluating alignment auditing agents
       url: https://alignment.anthropic.com/2025/automated-auditing/
@@ -7004,6 +7087,12 @@
     - >-
       [The Unreliability of Evaluating Cultural Alignment in LLMs](https://arxiv.org/abs/2503.08688), [The Leaderboard
       Illusion](https://arxiv.org/abs/2504.20879)
+  fundedByText: >-
+    Lab funders (OpenAI), Open Philanthropy (which funds CAIS, the organization for the MASK benchmark), academic
+    institutions.
+
+    N/A (as a discrete amount). This work is part of the "tens of millions" budgets for broader evaluation and
+    red-teaming efforts at labs and independent organizations.
   papers:
     - title: Shutdown Resistance in Large Language Models
       url: https://arxiv.org/abs/2509.14260
