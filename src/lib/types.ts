@@ -2,6 +2,9 @@ export interface Paper {
   title: string;
   url: string;
   authors?: string;
+  year?: number;
+  venue?: string;
+  kind?: string;
 }
 
 export interface OrthodoxProblem {

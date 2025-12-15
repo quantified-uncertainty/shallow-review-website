@@ -22,7 +22,25 @@ import {
 } from "./types";
 
 /**
+ * Loads the agenda LessWrong tags mapping from a separate file
+ * This allows agendas.yaml to be regenerated from the pipeline without losing curated tags
+ * @returns Record mapping agenda ID to array of LessWrong tag slugs
+ */
+function loadAgendaLesswrongTags(): Record<string, string[]> {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/agendaLesswrongTags.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as Record<string, string[]>;
+    return data || {};
+  } catch (error) {
+    console.warn("Could not load agenda LessWrong tags, continuing without them:", error);
+    return {};
+  }
+}
+
+/**
  * Loads the main review data containing sections and agendas
+ * Also merges in lesswrongTags from the separate agendaLesswrongTags.yaml file
  * @throws Error if the YAML file is missing or malformed
  */
 export function loadReviewData(): ReviewData {
@@ -33,6 +51,16 @@ export function loadReviewData(): ReviewData {
 
     if (!data?.sections || !Array.isArray(data.sections)) {
       throw new Error("Invalid ReviewData structure: missing sections array");
+    }
+
+    // Load and merge lesswrongTags from separate file
+    const agendaTags = loadAgendaLesswrongTags();
+    for (const section of data.sections) {
+      for (const agenda of section.agendas || []) {
+        if (agendaTags[agenda.id]) {
+          agenda.lesswrongTags = agendaTags[agenda.id];
+        }
+      }
     }
 
     return data;
