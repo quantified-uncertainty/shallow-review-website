@@ -1,0 +1,48 @@
+# GENERATED FILE - Do not edit manually
+# Source: src/data/pipelineData.yaml
+# Regenerate with: npm run convert-pipeline
+#
+# This file is regenerated from the shallow-review pipeline output.
+# Manual edits will be overwritten.
+
+- id: big_labs
+  name: Labs (giant companies)
+- id: black_box
+  name: Black-box safety (understand and control current model behaviour)
+- id: model_psychology
+  name: Model psychology
+  parent: black_box
+- id: better_data
+  name: Better data
+  parent: black_box
+- id: goal_robustness
+  name: Goal robustness
+  parent: black_box
+- id: whitebox
+  name: White-box safety (understand and control current model internals)
+- id: interpretability
+  name: Interpretability
+  description: >-
+    This section isn't very conceptually clean. See the [Open Problems](https://arxiv.org/abs/2501.16496) paper for a
+    strong frame which is nonetheless not very useful for our descriptive purposes.
+  parent: whitebox
+- id: safety_by_construction
+  name: Safety by construction
+  description: Approaches which minimise the use of singleton deep learning models.
+- id: ai_solve_alignment
+  name: Make AI solve it
+- id: theory
+  name: Theory
+  description: >-
+    Develop a principled scientific understanding that will help us reliably understand and control current and future
+    AI systems.
+- id: corrigibility
+  name: Corrigibility
+  parent: theory
+- id: ontology_identification
+  name: Ontology Identification
+  parent: theory
+- id: multi_agent_first
+  name: Multi-agent first
+- id: evals
+  name: Evals

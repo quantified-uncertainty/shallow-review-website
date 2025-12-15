@@ -1,54 +1,68 @@
 #!/usr/bin/env node
 
 /**
- * Convert parsed YAML from gavento/shallow-review pipeline to website format.
+ * Convert pipeline YAML from gavento/shallow-review into flat data files.
  *
  * This script transforms the output of the shallow-review parsing pipeline
- * (https://github.com/gavento/shallow-review) into the format expected by
- * the shallow-review-website.
+ * (https://github.com/gavento/shallow-review) into flat YAML files for the
+ * shallow-review-website.
  *
- * The pipeline parses a markdown document into a flat list of items
- * (sections and agendas with their papers/outputs). This script restructures
- * that flat list into a nested hierarchy suitable for the website.
+ * Input:  src/data/pipelineData.yaml  (copy from pipeline output)
+ * Output: src/data/sections.yaml      (flat list of sections)
+ *         src/data/agendas.yaml       (flat list of agendas with parent refs)
  *
- * Input format (from draft_types.py ProcessedDocument):
- * - source_file: path to the original markdown file
- * - items: array of DocumentItem objects with:
- *   - id: unique identifier (e.g., "sec:black_box" or "a:unlearning")
- *   - name: display name
- *   - header_level: markdown header level (1-6)
- *   - parent_id: ID of parent item (null for top-level)
- *   - content: markdown content/description
- *   - item_type: "section" or "agenda"
- *   - agenda_attributes (for agendas only):
- *     - outputs: array of Paper objects with link_url, title, authors, etc.
- *     - some_names, orthodox_problems, target_case_id, broad_approach_id, etc.
- *
- * Output format (for website src/data/agendas.yaml):
- * - sections: array of Section objects with:
- *   - id, name, description
- *   - agendas: array of Agenda objects with:
- *     - id, name, summary, theoryOfChange, papers[], etc.
+ * The hierarchy is built at runtime by loadData.ts when the website loads.
  *
  * Usage:
- *   node scripts/convert-shallow-review-pipeline.js <input.yaml> [output.yaml]
- *
- * Example:
- *   node scripts/convert-shallow-review-pipeline.js \
- *     ~/Downloads/draft-md-parsed.yaml \
- *     src/data/agendas.yaml
+ *   npm run convert-pipeline
+ *   # or directly:
+ *   node scripts/convert-shallow-review-pipeline.js
  */
 
 const fs = require('fs');
 const yaml = require('js-yaml');
 const path = require('path');
 
-// Helper to convert snake_case to camelCase
-function toCamelCase(str) {
-  return str.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+const DATA_DIR = path.join(__dirname, '..', 'src', 'data');
+const INPUT_FILE = path.join(DATA_DIR, 'pipelineData.yaml');
+const ADJUSTMENTS_FILE = path.join(DATA_DIR, 'pipelineAdjustments.yaml');
+const SECTIONS_FILE = path.join(DATA_DIR, 'sections.yaml');
+const AGENDAS_FILE = path.join(DATA_DIR, 'agendas.yaml');
+
+/**
+ * Load adjustments from pipelineAdjustments.yaml
+ * These override item_type and parent_id during conversion
+ */
+function loadAdjustments() {
+  if (!fs.existsSync(ADJUSTMENTS_FILE)) {
+    return {};
+  }
+  try {
+    const content = fs.readFileSync(ADJUSTMENTS_FILE, 'utf8');
+    const data = yaml.load(content);
+    return data?.adjustments || {};
+  } catch (error) {
+    console.warn(`Warning: Could not load adjustments file: ${error.message}`);
+    return {};
+  }
 }
 
-// Convert a name to a slug ID (e.g., "Black-box safety" -> "black-box-safety")
+// File header for generated files
+const GENERATED_HEADER = `# GENERATED FILE - Do not edit manually
+# Source: src/data/pipelineData.yaml
+# Regenerate with: npm run convert-pipeline
+#
+# This file is regenerated from the shallow-review pipeline output.
+# Manual edits will be overwritten.
+
+`;
+
+// Clean the ID (remove prefixes like "sec:" or "a:")
+function cleanId(id) {
+  return id.replace(/^(sec:|a:)/, '').replace(/:$/, '');
+}
+
+// Convert a name to a slug ID
 function toSlugId(name) {
   return name
     .toLowerCase()
@@ -58,14 +72,8 @@ function toSlugId(name) {
     .trim();
 }
 
-// Clean the ID (remove prefixes like "sec:" or "a:")
-function cleanId(id) {
-  return id.replace(/^(sec:|a:)/, '').replace(/:$/, '');
-}
-
 // Convert output item to Paper format
 function convertOutputToPaper(output) {
-  // Skip items without a link URL (these are just notes/comments)
   if (!output.link_url) {
     return null;
   }
@@ -75,12 +83,9 @@ function convertOutputToPaper(output) {
     url: output.link_url,
   };
 
-  // Add authors if present (join array to string)
   if (output.authors && output.authors.length > 0) {
     paper.authors = output.authors.join(', ');
   }
-
-  // Optionally add more metadata
   if (output.published_year) {
     paper.year = output.published_year;
   }
@@ -94,39 +99,7 @@ function convertOutputToPaper(output) {
   return paper;
 }
 
-// Convert see_also array to string
-function convertSeeAlso(seeAlso) {
-  if (!seeAlso || seeAlso.length === 0) return undefined;
-  return seeAlso.join(', ');
-}
-
-// Convert critiques to array format
-function convertCritiques(critiques) {
-  if (!critiques) return undefined;
-  if (Array.isArray(critiques)) return critiques;
-  // If it's a string, return as single-item array
-  return [critiques];
-}
-
-// Convert funded_by to array of IDs
-function convertFundedBy(fundedBy) {
-  if (!fundedBy) return undefined;
-  if (Array.isArray(fundedBy)) {
-    // Already an array - convert to IDs
-    return fundedBy.map(f => toSlugId(f));
-  }
-  // If it's a string, it might be a comma-separated list or markdown links
-  // For now, just return as a note
-  return undefined; // Will need manual curation
-}
-
-// Convert names array to researcher IDs
-function convertNames(names) {
-  if (!names || names.length === 0) return undefined;
-  return names.map(name => toSlugId(name));
-}
-
-// Map of orthodox problem names to IDs (from orthodoxProblems.yaml)
+// Map of orthodox problem names to IDs
 const ORTHODOX_PROBLEM_MAP = {
   'value_fragile': '1',
   'corrigibility_unnatural': '2',
@@ -150,14 +123,11 @@ function convertOrthodoxProblems(problems) {
   const result = [];
   for (const p of problems) {
     const pStr = p.toString();
-    // Check if it's already a numeric ID
     if (/^\d+$/.test(pStr)) {
       result.push(pStr);
     } else if (ORTHODOX_PROBLEM_MAP[pStr]) {
-      // Map named problem to ID
       result.push(ORTHODOX_PROBLEM_MAP[pStr]);
     }
-    // Skip "Other: ..." entries
   }
   return result.length > 0 ? result : undefined;
 }
@@ -165,7 +135,6 @@ function convertOrthodoxProblems(problems) {
 // Convert target_case_id to website format
 function convertTargetCase(targetCaseId) {
   if (!targetCaseId) return undefined;
-  // Map common values (input format -> website format)
   const mapping = {
     'average_case': 'average-case',
     'worst_case': 'worst-case',
@@ -182,11 +151,10 @@ function convertTargetCase(targetCaseId) {
 // Convert broad_approach_id to array
 function convertBroadApproaches(broadApproachId) {
   if (!broadApproachId) return undefined;
-  // Map input values to website IDs (from broadApproaches.yaml)
   const mapping = {
     'engineering': 'engineering',
     'behavioral': 'behavioral',
-    'behaviorist_science': 'behavioral',  // Pipeline uses this variant
+    'behaviorist_science': 'behavioral',
     'cognitivist_science': 'cognitive',
     'cognitive': 'cognitive',
     'maths_philosophy': 'maths-philosophy',
@@ -197,182 +165,212 @@ function convertBroadApproaches(broadApproachId) {
   return [mapped];
 }
 
-// Main conversion function
-function convertToWebsiteFormat(inputData) {
+// Convert see_also array to string
+function convertSeeAlso(seeAlso) {
+  if (!seeAlso || seeAlso.length === 0) return undefined;
+  return seeAlso.join(', ');
+}
+
+// Convert names to slugs
+function convertNames(names) {
+  if (!names || names.length === 0) return undefined;
+  return names.map(name => toSlugId(name));
+}
+
+// Convert critiques to array
+function convertCritiques(critiques) {
+  if (!critiques) return undefined;
+  if (Array.isArray(critiques)) return critiques;
+  return [critiques];
+}
+
+/**
+ * Main conversion function - outputs two flat files
+ * @param inputData - The parsed pipeline YAML data
+ * @param adjustments - Overrides for item_type and parent
+ */
+function convertToFlatFormat(inputData, adjustments = {}) {
   const items = inputData.items;
-
-  // Build a map of items by ID for parent lookups
-  const itemsById = new Map();
-  items.forEach(item => {
-    itemsById.set(item.id, item);
-  });
-
-  // Find all top-level sections (parent_id is null and item_type is section)
-  const topLevelSections = items.filter(
-    item => item.item_type === 'section' && item.parent_id === null
-  );
-
-  // Find all sub-sections (sections with a parent)
-  const subSections = items.filter(
-    item => item.item_type === 'section' && item.parent_id !== null
-  );
-
-  // Find all agendas
-  const agendas = items.filter(item => item.item_type === 'agenda');
-
-  // Build section hierarchy
   const sections = [];
+  const agendas = [];
 
-  // Process each top-level section
-  for (const topSection of topLevelSections) {
-    const section = {
-      id: cleanId(topSection.id),
-      name: topSection.name,
-      description: topSection.content || undefined,
-      agendas: [],
-    };
+  // Process all items
+  for (const item of items) {
+    const cleanedId = cleanId(item.id);
+    let parentId = item.parent_id ? cleanId(item.parent_id) : null;
 
-    // Find agendas that belong directly to this section
-    const directAgendas = agendas.filter(a => a.parent_id === topSection.id);
+    // Check for adjustments
+    const adjustment = adjustments[cleanedId];
+    let itemType = item.item_type;
 
-    // Find sub-sections of this top-level section
-    const childSubSections = subSections.filter(s => s.parent_id === topSection.id);
-
-    // For each sub-section, find its agendas and add them
-    // We'll flatten the hierarchy: sub-section agendas go into the parent section
-    for (const subSection of childSubSections) {
-      const subAgendas = agendas.filter(a => a.parent_id === subSection.id);
-      directAgendas.push(...subAgendas);
-
-      // Also check for deeper nesting (sub-sub-sections)
-      const deeperSections = subSections.filter(s => s.parent_id === subSection.id);
-      for (const deeperSection of deeperSections) {
-        const deeperAgendas = agendas.filter(a => a.parent_id === deeperSection.id);
-        directAgendas.push(...deeperAgendas);
+    if (adjustment) {
+      if (adjustment.item_type) {
+        itemType = adjustment.item_type;
+      }
+      if (adjustment.parent !== undefined) {
+        parentId = adjustment.parent;
       }
     }
 
-    // Convert each agenda to website format
-    for (const agenda of directAgendas) {
-      const attrs = agenda.agenda_attributes || {};
+    if (itemType === 'section') {
+      const section = {
+        id: cleanedId,
+        name: item.name,
+      };
+
+      if (item.content) {
+        section.description = item.content;
+      }
+      if (parentId) {
+        section.parent = parentId;
+      }
+
+      sections.push(section);
+
+    } else if (itemType === 'agenda') {
+      const attrs = item.agenda_attributes || {};
 
       // Convert outputs to papers
       const papers = (attrs.outputs || [])
         .map(convertOutputToPaper)
         .filter(p => p !== null);
 
-      const convertedAgenda = {
-        id: cleanId(agenda.id),
-        name: agenda.name,
+      const agenda = {
+        id: cleanedId,
+        name: item.name,
+        parent: parentId,
       };
 
       // Add optional fields only if they exist
+      // Note: If a section was converted to agenda via adjustments,
+      // use item.content as the summary (sections don't have agenda_attributes)
       if (attrs.one_sentence_summary) {
-        convertedAgenda.summary = attrs.one_sentence_summary;
+        agenda.summary = attrs.one_sentence_summary;
+      } else if (item.content && item.item_type === 'section') {
+        // Section converted to agenda - use content as description
+        agenda.summary = item.content;
       }
       if (attrs.theory_of_change) {
-        convertedAgenda.theoryOfChange = attrs.theory_of_change;
+        agenda.theoryOfChange = attrs.theory_of_change;
       }
 
       const seeAlso = convertSeeAlso(attrs.see_also);
       if (seeAlso) {
-        convertedAgenda.seeAlso = seeAlso;
+        agenda.seeAlso = seeAlso;
       }
 
       const orthodoxProblems = convertOrthodoxProblems(attrs.orthodox_problems);
       if (orthodoxProblems && orthodoxProblems.length > 0) {
-        convertedAgenda.orthodoxProblems = orthodoxProblems;
+        agenda.orthodoxProblems = orthodoxProblems;
       }
 
       const targetCase = convertTargetCase(attrs.target_case_id);
       if (targetCase) {
-        convertedAgenda.targetCase = targetCase;
+        agenda.targetCase = targetCase;
       }
 
       const broadApproaches = convertBroadApproaches(attrs.broad_approach_id);
       if (broadApproaches) {
-        convertedAgenda.broadApproaches = broadApproaches;
+        agenda.broadApproaches = broadApproaches;
       }
 
       const someNames = convertNames(attrs.some_names);
       if (someNames && someNames.length > 0) {
-        convertedAgenda.someNames = someNames;
+        agenda.someNames = someNames;
       }
 
       if (attrs.estimated_ftes) {
-        convertedAgenda.estimatedFTEs = attrs.estimated_ftes;
+        agenda.estimatedFTEs = attrs.estimated_ftes;
       }
 
       const critiques = convertCritiques(attrs.critiques);
       if (critiques && critiques.length > 0) {
-        convertedAgenda.critiques = critiques;
+        agenda.critiques = critiques;
       }
 
-      // Papers are required, but might be empty
-      convertedAgenda.papers = papers;
+      // Papers array (may be empty)
+      agenda.papers = papers;
 
-      section.agendas.push(convertedAgenda);
-    }
-
-    // Only add sections that have agendas
-    if (section.agendas.length > 0) {
-      sections.push(section);
+      agendas.push(agenda);
     }
   }
 
-  return { sections };
+  return { sections, agendas };
 }
 
 // Main execution
 async function main() {
-  const inputPath = process.argv[2];
-  const outputPath = process.argv[3] || 'converted-agendas.yaml';
-
-  if (!inputPath) {
-    console.error('Usage: node convert-parsed-yaml.js <input.yaml> [output.yaml]');
-    console.error('');
-    console.error('Example:');
-    console.error('  node convert-parsed-yaml.js ~/Downloads/draft-md-20251208-to-parse-parsed.yaml src/data/agendas.yaml');
-    process.exit(1);
-  }
-
   try {
-    console.log(`Reading input from: ${inputPath}`);
-    const inputContent = fs.readFileSync(inputPath, 'utf8');
+    // Check if input file exists
+    if (!fs.existsSync(INPUT_FILE)) {
+      console.error(`Error: Input file not found: ${INPUT_FILE}`);
+      console.error('');
+      console.error('To use this script:');
+      console.error('1. Copy the pipeline output to src/data/pipelineData.yaml');
+      console.error('2. Run: npm run convert-pipeline');
+      process.exit(1);
+    }
+
+    console.log(`Reading input from: ${INPUT_FILE}`);
+    const inputContent = fs.readFileSync(INPUT_FILE, 'utf8');
     const inputData = yaml.load(inputContent);
 
     console.log(`Found ${inputData.items.length} items`);
-
     const sectionCount = inputData.items.filter(i => i.item_type === 'section').length;
     const agendaCount = inputData.items.filter(i => i.item_type === 'agenda').length;
-    console.log(`  - ${sectionCount} sections`);
-    console.log(`  - ${agendaCount} agendas`);
+    console.log(`  - ${sectionCount} sections (in pipeline)`);
+    console.log(`  - ${agendaCount} agendas (in pipeline)`);
 
-    console.log('Converting to website format...');
-    const outputData = convertToWebsiteFormat(inputData);
-
-    console.log(`Converted to ${outputData.sections.length} top-level sections`);
-    let totalAgendas = 0;
-    let totalPapers = 0;
-    for (const section of outputData.sections) {
-      totalAgendas += section.agendas.length;
-      for (const agenda of section.agendas) {
-        totalPapers += agenda.papers.length;
+    // Load adjustments
+    const adjustments = loadAdjustments();
+    const adjustmentCount = Object.keys(adjustments).length;
+    if (adjustmentCount > 0) {
+      console.log(`Applying ${adjustmentCount} adjustments from pipelineAdjustments.yaml`);
+      for (const [id, adj] of Object.entries(adjustments)) {
+        const changes = [];
+        if (adj.item_type) changes.push(`type→${adj.item_type}`);
+        if (adj.parent !== undefined) changes.push(`parent→${adj.parent}`);
+        console.log(`  - ${id}: ${changes.join(', ')}`);
       }
     }
-    console.log(`  - ${totalAgendas} agendas total`);
+
+    console.log('Converting to flat format...');
+    const { sections, agendas } = convertToFlatFormat(inputData, adjustments);
+
+    // Count total papers
+    let totalPapers = 0;
+    for (const agenda of agendas) {
+      totalPapers += agenda.papers.length;
+    }
     console.log(`  - ${totalPapers} papers total`);
 
-    console.log(`Writing output to: ${outputPath}`);
-    const outputContent = yaml.dump(outputData, {
+    // Write sections.yaml
+    console.log(`Writing: ${SECTIONS_FILE}`);
+    const sectionsContent = GENERATED_HEADER + yaml.dump(sections, {
       lineWidth: 120,
       noRefs: true,
       quotingType: '"',
       forceQuotes: false,
     });
-    fs.writeFileSync(outputPath, outputContent, 'utf8');
+    fs.writeFileSync(SECTIONS_FILE, sectionsContent, 'utf8');
 
-    console.log('Done!');
+    // Write agendas.yaml
+    console.log(`Writing: ${AGENDAS_FILE}`);
+    const agendasContent = GENERATED_HEADER + yaml.dump(agendas, {
+      lineWidth: 120,
+      noRefs: true,
+      quotingType: '"',
+      forceQuotes: false,
+    });
+    fs.writeFileSync(AGENDAS_FILE, agendasContent, 'utf8');
+
+    console.log('');
+    console.log('Done! Generated files:');
+    console.log(`  - ${sections.length} sections in sections.yaml`);
+    console.log(`  - ${agendas.length} agendas in agendas.yaml`);
+    console.log('');
+    console.log('Run "npm run build" to verify the conversion worked correctly.');
+
   } catch (error) {
     console.error('Error:', error.message);
     process.exit(1);
