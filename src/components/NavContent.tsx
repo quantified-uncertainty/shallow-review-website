@@ -29,6 +29,10 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
         {/* Main Views */}
         <div className="space-y-3">
           <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700">
+            <Link href="/overview" className="hover:text-blue-600 font-semibold text-base transition-colors" onClick={onNavigate}>
+              overview
+            </Link>
+            <span className="text-slate-300 font-bold">·</span>
             <Link href="/table" className="hover:text-blue-600 font-semibold text-base transition-colors" onClick={onNavigate}>
               table
             </Link>
@@ -96,27 +100,34 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
           </Link>
         </div>
 
-        {/* Categories (Sections) - Colorful Buttons */}
+        {/* Categories (Sections) - Dot Navigation */}
         {sections.length > 0 && (
-          <div className="pt-6 border-t-2 border-slate-200 w-full">
-             <div className="space-y-2.5 flex flex-col px-0">
+          <div className="pt-6 border-t-2 border-slate-200 w-full flex justify-center">
+             <div className="space-y-0.5 flex flex-col">
                 {sections.map(s => {
                   const colors = getSectionColors(s.id);
                   const isActive = currentSection?.id === s.id;
+
                   return (
                     <Link
                       key={s.id}
                       href={`/${s.id}`}
                       className={cn(
-                        `w-full ${colors.bg} text-white px-5 py-3.5 rounded-xl font-bold text-sm transition-all hover:shadow-lg hover:scale-[1.02] hover:opacity-100 active:scale-100 flex items-center justify-between group`,
-                        !isActive && "opacity-60"
+                        "flex items-center gap-3 px-3 py-2 rounded-lg transition-all group",
+                        isActive
+                          ? `${colors.bgLight} ${colors.text} font-semibold`
+                          : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
                       )}
                       onClick={onNavigate}
                     >
-                      <span className="text-left leading-tight">{getNameWithoutParentheses(s.name)}</span>
-                      <svg className="w-4 h-4 opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <span className={cn(
+                        "w-2.5 h-2.5 rounded-full flex-shrink-0 transition-transform",
+                        colors.dot,
+                        isActive && "scale-125"
+                      )} />
+                      <span className="text-sm">
+                        {getNameWithoutParentheses(s.name)}
+                      </span>
                     </Link>
                   );
                 })}
