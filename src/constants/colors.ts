@@ -272,6 +272,7 @@ export function getSectionColors(sectionId: string) {
       hover: "hover:text-slate-600",
       groupHover: "group-hover:text-slate-600",
       bgLight: "bg-slate-100",
+      bgNav: "bg-slate-200",
       accent: "bg-slate-600",
       gradient: "from-slate-50 to-transparent",
       dot: "bg-slate-600",

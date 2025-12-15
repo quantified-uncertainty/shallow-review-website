@@ -150,7 +150,7 @@ export default function NavContent({
                     href={`/${s.id}`}
                     className={cn(
                       "flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all group",
-                      colors.bgLight,
+                      colors.bgNav,
                       isActive ? "ring-2 ring-offset-1 ring-slate-300" : "hover:ring-1 hover:ring-slate-200"
                     )}
                     onClick={onNavigate}
