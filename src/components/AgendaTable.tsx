@@ -6,6 +6,7 @@ import { FlattenedAgenda } from "@/lib/types";
 import { TARGET_CASE_COLORS, FUNDER_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
 import ApproachBadge from "./ApproachBadge";
 import { Route } from "lucide-react";
+import { getNameWithoutParentheses } from "@/lib/utils";
 
 type SortField =
   | "name"
@@ -23,6 +24,7 @@ type SortDirection = "asc" | "desc";
 interface AgendaTableProps {
   agendas: FlattenedAgenda[];
   initialSortField?: SortField;
+  sectionOrder?: string[];
 }
 
 function truncate(text: string, maxLength: number): string {
@@ -30,7 +32,7 @@ function truncate(text: string, maxLength: number): string {
   return text.slice(0, maxLength).trim() + "...";
 }
 
-export default function AgendaTable({ agendas, initialSortField = "name", className = "" }: AgendaTableProps & { className?: string }) {
+export default function AgendaTable({ agendas, initialSortField = "name", sectionOrder = [], className = "" }: AgendaTableProps & { className?: string }) {
   const [sortField, setSortField] = useState<SortField>(initialSortField);
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
@@ -52,8 +54,14 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
           comparison = a.name.localeCompare(b.name);
           break;
         case "section":
-          // Primary sort by section, secondary sort by agenda name
-          comparison = a.sectionName.localeCompare(b.sectionName);
+          // Primary sort by section order (from data), secondary sort by agenda name
+          if (sectionOrder.length > 0) {
+            const aIndex = sectionOrder.indexOf(a.sectionId);
+            const bIndex = sectionOrder.indexOf(b.sectionId);
+            comparison = aIndex - bIndex;
+          } else {
+            comparison = a.sectionName.localeCompare(b.sectionName);
+          }
           if (comparison === 0) {
             comparison = a.name.localeCompare(b.name);
           }
@@ -122,7 +130,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
           <tr>
             <SortHeader field="name">Name</SortHeader>
             <SortHeader field="section">Section</SortHeader>
-            <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-80">
+            <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[400px]">
               Summary
             </th>
             <SortHeader field="papers" className="text-right w-20">
@@ -133,7 +141,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
             <SortHeader field="approaches" className="w-40">Approaches</SortHeader>
             <SortHeader field="problems" className="w-32">Problems</SortHeader>
             <SortHeader field="fundedBy" className="w-40">Funded By</SortHeader>
-            <SortHeader field="names" className="w-56">Names</SortHeader>
+            <SortHeader field="names" className="min-w-[280px]">Names</SortHeader>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
@@ -143,23 +151,23 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               className="hover:bg-slate-50"
             >
               {/* Name */}
-              <td className="px-4 py-4 whitespace-nowrap font-serif">
+              <td className="px-4 py-4 font-serif min-w-[200px] max-w-[280px]">
                 <Link
                   href={`/${agenda.sectionId}/${agenda.id}`}
-                  className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium"
+                  className={`inline-flex items-start gap-1.5 text-sm font-bold ${getSectionColors(agenda.sectionId).heading} hover:underline`}
                 >
-                  <Route className="w-3.5 h-3.5" />
-                  {agenda.name}
+                  <Route className="w-3 h-3 flex-shrink-0 mt-0.5" />
+                  <span>{agenda.name}</span>
                 </Link>
               </td>
 
               {/* Section */}
-              <td className="py-4 whitespace-nowrap">
+              <td className="px-4 py-4 whitespace-nowrap">
                 <Link
                   href={`/${agenda.sectionId}`}
-                  className={`block pl-4 pr-4 border-l-4 ${getSectionColors(agenda.sectionId).borderLeft} font-bold ${getSectionColors(agenda.sectionId).text} ${getSectionColors(agenda.sectionId).hover}`}
+                  className={`text-xs font-medium ${getSectionColors(agenda.sectionId).text} ${getSectionColors(agenda.sectionId).hover}`}
                 >
-                  {agenda.sectionName}
+                  {getNameWithoutParentheses(agenda.sectionName)}
                 </Link>
               </td>
 
@@ -168,7 +176,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
                 className="px-4 py-4 text-sm text-slate-600 font-serif"
                 title={agenda.summary || ""}
               >
-                {agenda.summary ? truncate(agenda.summary, 120) : "—"}
+                {agenda.summary ? truncate(agenda.summary, 200) : "—"}
               </td>
 
               {/* Papers */}
@@ -240,29 +248,20 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
               </td>
 
               {/* Funded By */}
-              <td className="px-4 py-4">
-                <div className="flex flex-wrap gap-1">
-                  {agenda.resolvedFunders.length > 0 ? (
-                    agenda.resolvedFunders.map((funder) => (
-                      <Link
-                        key={funder.id}
-                        href={`/funders#funder-${funder.id}`}
-                        className={`inline-block text-xs px-2 py-0.5 rounded ${FUNDER_COLORS}`}
-                        title={funder.description}
-                      >
-                        {funder.name}
-                      </Link>
-                    ))
-                  ) : (
-                    <span className="text-gray-400">—</span>
-                  )}
-                </div>
+              <td className="px-4 py-4 text-sm text-gray-600 max-w-[200px]">
+                {agenda.fundedByText ? (
+                  <span title={agenda.fundedByText}>
+                    {truncate(agenda.fundedByText, 60)}
+                  </span>
+                ) : (
+                  <span className="text-gray-400">—</span>
+                )}
               </td>
 
               {/* Some Names */}
               <td className="px-4 py-4 text-sm text-gray-600">
                 {agenda.someNames && agenda.someNames.length > 0
-                  ? truncate(agenda.someNames.join(", "), 60)
+                  ? truncate(agenda.someNames.join(", "), 100)
                   : "—"}
               </td>
             </tr>

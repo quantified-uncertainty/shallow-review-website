@@ -1,0 +1,28 @@
+# Pipeline Adjustments
+# Overrides for items that are incorrectly classified in the pipeline
+# These adjustments are applied during conversion (npm run convert-pipeline)
+#
+# Use this file to:
+# - Change item_type: section → agenda (or vice versa)
+# - Reassign parent relationships
+#
+# Format:
+#   item_id:
+#     item_type: agenda|section  (optional)
+#     parent: new_parent_id      (optional)
+
+adjustments:
+  # "Others" under Labs should be an agenda, not a section
+  labs_others:
+    item_type: agenda
+    parent: big_labs
+
+  # Synthetic data for alignment should be an agenda under better_data
+  synthetic_alignment_data:
+    item_type: agenda
+    parent: better_data
+
+  # Iterative alignment should be an agenda under black_box
+  iterative_alignment:
+    item_type: agenda
+    parent: black_box

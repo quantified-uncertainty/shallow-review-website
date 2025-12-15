@@ -7,6 +7,37 @@ export interface Paper {
   kind?: string;
 }
 
+// Flat section data (as stored in YAML files)
+export interface SectionData {
+  id: string;
+  name: string;
+  description?: string;
+  parent?: string; // parent section ID (for sub-sections)
+}
+
+// Flat agenda data (as stored in YAML files)
+export interface AgendaData {
+  id: string;
+  name: string;
+  parent: string; // parent section or agenda ID
+  summary?: string;
+  theoryOfChange?: string;
+  seeAlso?: string;
+  orthodoxProblems?: string[];
+  targetCase?: string;
+  broadApproaches?: string[];
+  someNames?: string[];
+  estimatedFTEs?: string;
+  critiques?: string[];
+  fundedBy?: string[];
+  fundedByText?: string; // Plain text funding info from pipeline
+  lesswrongTags?: string[];
+  keywords?: string[];
+  resources?: AgendaResource[];
+  wikipedia?: string;
+  papers: Paper[];
+}
+
 export interface OrthodoxProblem {
   id: string;
   name: string;
@@ -104,6 +135,7 @@ export interface Agenda {
   estimatedFTEs?: string;
   critiques?: string[];
   fundedBy?: string[];
+  fundedByText?: string; // Plain text funding info from pipeline
   lesswrongTags?: string[];
   keywords?: string[];
   resources?: AgendaResource[];
@@ -151,6 +183,7 @@ export interface FlattenedAgenda extends Agenda {
   resolvedTargetCase: TargetCase | undefined;
   resolvedFunders: Funder[];
   resolvedKeywords: Keyword[];
+  fundedByText?: string; // Plain text funding info
 }
 
 export interface FlattenedLab extends Lab {

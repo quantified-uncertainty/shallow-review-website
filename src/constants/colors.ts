@@ -2,96 +2,243 @@
  * Color schemes for agenda sections - main categories
  * Using complete class strings for Tailwind purging
  */
-export const SECTION_COLORS: Record<string, {
-  text: string;
-  bg: string;
-  border: string;
-  borderLeft: string;
-  hover: string;
-  groupHover: string;
-  bgLight: string;
-  accent: string;
-  gradient: string;
-  dot: string;
-  navHover: string;
-}> = {
-  "black-box-safety": {
-    text: "text-sky-600",
-    bg: "bg-sky-600",
-    border: "border-sky-200",
-    borderLeft: "border-l-sky-600",
-    hover: "hover:text-sky-600",
-    groupHover: "group-hover:text-sky-600",
-    bgLight: "bg-sky-50",
-    accent: "bg-sky-600",
-    gradient: "from-sky-50 to-transparent",
-    dot: "bg-sky-600",
-    navHover: "hover:text-sky-600",
+export const SECTION_COLORS: Record<
+  string,
+  {
+    text: string;
+    heading: string;
+    bg: string;
+    border: string;
+    borderLeft: string;
+    hover: string;
+    groupHover: string;
+    bgLight: string;
+    accent: string;
+    gradient: string;
+    dot: string;
+    navHover: string;
+  }
+> = {
+  // Labs - warm brown (stone)
+  big_labs: {
+    text: "text-stone-600",
+    heading: "text-yellow-950",
+    bg: "bg-yellow-700",
+    border: "border-stone-200",
+    borderLeft: "border-l-stone-600",
+    hover: "hover:text-yellow-950",
+    groupHover: "group-hover:text-yellow-800",
+    bgLight: "bg-stone-100",
+    accent: "bg-yellow-800",
+    gradient: "from-stone-50 to-transparent",
+    dot: "bg-yellow-800",
+    navHover: "hover:text-yellow-950",
   },
-  "white-box-safety": {
-    text: "text-emerald-600",
-    bg: "bg-emerald-600",
-    border: "border-emerald-200",
-    borderLeft: "border-l-emerald-600",
-    hover: "hover:text-emerald-600",
-    groupHover: "group-hover:text-emerald-600",
-    bgLight: "bg-emerald-50",
-    accent: "bg-emerald-600",
-    gradient: "from-emerald-50 to-transparent",
-    dot: "bg-emerald-600",
-    navHover: "hover:text-emerald-600",
+  labs: {
+    text: "text-stone-600",
+    heading: "text-stone-900",
+    bg: "bg-stone-600",
+    border: "border-stone-200",
+    borderLeft: "border-l-stone-600",
+    hover: "hover:text-stone-600",
+    groupHover: "group-hover:text-stone-600",
+    bgLight: "bg-stone-100",
+    accent: "bg-stone-600",
+    gradient: "from-stone-50 to-transparent",
+    dot: "bg-stone-600",
+    navHover: "hover:text-stone-600",
   },
-  "safety-by-construction": {
+  // Black-box safety - darker slate/charcoal
+  black_box: {
+    text: "text-slate-700",
+    heading: "text-slate-900",
+    bg: "bg-slate-700",
+    border: "border-slate-200",
+    borderLeft: "border-l-slate-700",
+    hover: "hover:text-slate-700",
+    groupHover: "group-hover:text-slate-700",
+    bgLight: "bg-slate-100",
+    accent: "bg-slate-700",
+    gradient: "from-slate-50 to-transparent",
+    dot: "bg-slate-700",
+    navHover: "hover:text-slate-700",
+  },
+  // Black-box child sections inherit the same color
+  model_psychology: {
+    text: "text-slate-700",
+    heading: "text-slate-900",
+    bg: "bg-slate-700",
+    border: "border-slate-200",
+    borderLeft: "border-l-slate-700",
+    hover: "hover:text-slate-700",
+    groupHover: "group-hover:text-slate-700",
+    bgLight: "bg-slate-100",
+    accent: "bg-slate-700",
+    gradient: "from-slate-50 to-transparent",
+    dot: "bg-slate-700",
+    navHover: "hover:text-slate-700",
+  },
+  better_data: {
+    text: "text-slate-700",
+    heading: "text-slate-900",
+    bg: "bg-slate-700",
+    border: "border-slate-200",
+    borderLeft: "border-l-slate-700",
+    hover: "hover:text-slate-700",
+    groupHover: "group-hover:text-slate-700",
+    bgLight: "bg-slate-100",
+    accent: "bg-slate-700",
+    gradient: "from-slate-50 to-transparent",
+    dot: "bg-slate-700",
+    navHover: "hover:text-slate-700",
+  },
+  goal_robustness: {
+    text: "text-slate-700",
+    heading: "text-slate-900",
+    bg: "bg-slate-700",
+    border: "border-slate-200",
+    borderLeft: "border-l-slate-700",
+    hover: "hover:text-slate-700",
+    groupHover: "group-hover:text-slate-700",
+    bgLight: "bg-slate-100",
+    accent: "bg-slate-700",
+    gradient: "from-slate-50 to-transparent",
+    dot: "bg-slate-700",
+    navHover: "hover:text-slate-700",
+  },
+  // White-box safety - light gray/zinc
+  whitebox: {
+    text: "text-zinc-400",
+    heading: "text-zinc-700",
+    bg: "bg-zinc-400",
+    border: "border-zinc-200",
+    borderLeft: "border-l-zinc-400",
+    hover: "hover:text-zinc-400",
+    groupHover: "group-hover:text-zinc-400",
+    bgLight: "bg-zinc-100",
+    accent: "bg-zinc-400",
+    gradient: "from-zinc-50 to-transparent",
+    dot: "bg-zinc-400",
+    navHover: "hover:text-zinc-400",
+  },
+  // White-box child sections inherit the same color
+  interpretability: {
+    text: "text-zinc-400",
+    heading: "text-zinc-700",
+    bg: "bg-zinc-400",
+    border: "border-zinc-200",
+    borderLeft: "border-l-zinc-400",
+    hover: "hover:text-zinc-400",
+    groupHover: "group-hover:text-zinc-400",
+    bgLight: "bg-zinc-100",
+    accent: "bg-zinc-400",
+    gradient: "from-zinc-50 to-transparent",
+    dot: "bg-zinc-400",
+    navHover: "hover:text-zinc-400",
+  },
+  // Safety by construction - amber/orange
+  safety_by_construction: {
     text: "text-amber-600",
+    heading: "text-amber-900",
     bg: "bg-amber-600",
     border: "border-amber-200",
     borderLeft: "border-l-amber-600",
     hover: "hover:text-amber-600",
     groupHover: "group-hover:text-amber-600",
-    bgLight: "bg-amber-50",
+    bgLight: "bg-amber-50/30",
     accent: "bg-amber-600",
     gradient: "from-amber-50 to-transparent",
     dot: "bg-amber-600",
     navHover: "hover:text-amber-600",
   },
-  "make-ai-solve-it": {
+  // Make AI solve it - rose/red
+  ai_solve_alignment: {
     text: "text-rose-600",
+    heading: "text-rose-900",
     bg: "bg-rose-600",
     border: "border-rose-200",
     borderLeft: "border-l-rose-600",
     hover: "hover:text-rose-600",
     groupHover: "group-hover:text-rose-600",
-    bgLight: "bg-rose-50",
+    bgLight: "bg-rose-50/30",
     accent: "bg-rose-600",
     gradient: "from-rose-50 to-transparent",
     dot: "bg-rose-600",
     navHover: "hover:text-rose-600",
   },
-  "theory": {
+  // Theory - indigo/blue-purple
+  theory: {
     text: "text-indigo-600",
+    heading: "text-indigo-900",
     bg: "bg-indigo-600",
     border: "border-indigo-200",
     borderLeft: "border-l-indigo-600",
     hover: "hover:text-indigo-600",
     groupHover: "group-hover:text-indigo-600",
-    bgLight: "bg-indigo-50",
+    bgLight: "bg-indigo-50/30",
     accent: "bg-indigo-600",
     gradient: "from-indigo-50 to-transparent",
     dot: "bg-indigo-600",
     navHover: "hover:text-indigo-600",
   },
-  "multi-agent-first": {
+  // Theory child sections inherit the same color
+  corrigibility: {
+    text: "text-indigo-600",
+    heading: "text-indigo-900",
+    bg: "bg-indigo-600",
+    border: "border-indigo-200",
+    borderLeft: "border-l-indigo-600",
+    hover: "hover:text-indigo-600",
+    groupHover: "group-hover:text-indigo-600",
+    bgLight: "bg-indigo-50/30",
+    accent: "bg-indigo-600",
+    gradient: "from-indigo-50 to-transparent",
+    dot: "bg-indigo-600",
+    navHover: "hover:text-indigo-600",
+  },
+  ontology_identification: {
+    text: "text-indigo-600",
+    heading: "text-indigo-900",
+    bg: "bg-indigo-600",
+    border: "border-indigo-200",
+    borderLeft: "border-l-indigo-600",
+    hover: "hover:text-indigo-600",
+    groupHover: "group-hover:text-indigo-600",
+    bgLight: "bg-indigo-50/30",
+    accent: "bg-indigo-600",
+    gradient: "from-indigo-50 to-transparent",
+    dot: "bg-indigo-600",
+    navHover: "hover:text-indigo-600",
+  },
+  // Multi-agent first - violet/purple
+  multi_agent_first: {
     text: "text-violet-600",
+    heading: "text-violet-900",
     bg: "bg-violet-600",
     border: "border-violet-200",
     borderLeft: "border-l-violet-600",
     hover: "hover:text-violet-600",
     groupHover: "group-hover:text-violet-600",
-    bgLight: "bg-violet-50",
+    bgLight: "bg-violet-50/30",
     accent: "bg-violet-600",
     gradient: "from-violet-50 to-transparent",
     dot: "bg-violet-600",
     navHover: "hover:text-violet-600",
+  },
+  // Evals - teal/cyan
+  evals: {
+    text: "text-teal-600",
+    heading: "text-teal-900",
+    bg: "bg-teal-600",
+    border: "border-teal-200",
+    borderLeft: "border-l-teal-600",
+    hover: "hover:text-teal-600",
+    groupHover: "group-hover:text-teal-600",
+    bgLight: "bg-teal-50/30",
+    accent: "bg-teal-600",
+    gradient: "from-teal-50 to-transparent",
+    dot: "bg-teal-600",
+    navHover: "hover:text-teal-600",
   },
 };
 
@@ -99,19 +246,22 @@ export const SECTION_COLORS: Record<string, {
  * Get section color classes
  */
 export function getSectionColors(sectionId: string) {
-  return SECTION_COLORS[sectionId] || {
-    text: "text-slate-600",
-    bg: "bg-slate-600",
-    border: "border-slate-200",
-    borderLeft: "border-l-slate-600",
-    hover: "hover:text-slate-600",
-    groupHover: "group-hover:text-slate-600",
-    bgLight: "bg-slate-50",
-    accent: "bg-slate-600",
-    gradient: "from-slate-50 to-transparent",
-    dot: "bg-slate-600",
-    navHover: "hover:text-slate-600",
-  };
+  return (
+    SECTION_COLORS[sectionId] || {
+      text: "text-slate-600",
+      heading: "text-slate-900",
+      bg: "bg-slate-600",
+      border: "border-slate-200",
+      borderLeft: "border-l-slate-600",
+      hover: "hover:text-slate-600",
+      groupHover: "group-hover:text-slate-600",
+      bgLight: "bg-slate-100",
+      accent: "bg-slate-600",
+      gradient: "from-slate-50 to-transparent",
+      dot: "bg-slate-600",
+      navHover: "hover:text-slate-600",
+    }
+  );
 }
 
 /**
@@ -144,4 +294,5 @@ export const FUNDER_COLORS = "text-sky-700 hover:text-sky-900 hover:underline";
 /**
  * Default color scheme for problem badges
  */
-export const PROBLEM_COLORS = "bg-indigo-50 text-indigo-700 border border-indigo-200";
+export const PROBLEM_COLORS =
+  "bg-indigo-50 text-indigo-700 border border-indigo-200";

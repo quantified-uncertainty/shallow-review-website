@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import ApproachBadge from "@/components/ApproachBadge";
 import { TARGET_CASE_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
+import { getNameWithoutParentheses } from "@/lib/utils";
 
 // Helper component for rows with hanging icons and wrapping text
 function AttributeRow({
@@ -163,66 +164,84 @@ export default async function AgendaPage({ params }: PageProps) {
 
   const sectionColors = getSectionColors(decodedSectionId);
 
+  // Find current agenda index within this section
+  const sectionAgendas = section.agendas || [];
+  const currentAgendaIndex = sectionAgendas.findIndex((a) => a.id === decodedAgendaId);
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 py-8 pl-12 lg:pl-16">
-        {/* Breadcrumbs */}
-        <nav className="text-sm text-gray-500 mb-8 font-sans">
-          <Link href={`/${sectionId}`} className={`${sectionColors.hover} transition-colors`}>
-            {section.name}
-          </Link>
-          <span className="mx-2">&gt;</span>
-        </nav>
-
-        {/* Colored accent bar */}
-        <div className={`w-16 h-1.5 ${sectionColors.accent} rounded-full mb-6`}></div>
-
-        {/* Title and Navigation */}
-        <div className="flex justify-between items-start mb-4">
-          <h1 className="text-5xl font-bold text-gray-900 font-serif max-w-[80%] leading-tight tracking-tight">
-            {agenda.name.includes('(') ? (
-              <>
-                {agenda.name.split('(')[0].trim()}
-                <span className="text-gray-400 font-normal text-4xl"> ({agenda.name.split('(').slice(1).join('(')}</span>
-              </>
-            ) : (
-              agenda.name
-            )}
-          </h1>
-          <div className="flex items-center gap-2 pt-2">
-             {prevAgenda ? (
+    <div className={`min-h-screen ${sectionColors.bgLight} md:pl-8`}>
+      <div className="max-w-4xl px-4 py-8 pl-12 lg:pl-16">
+        {/* Breadcrumbs, Progress indicator, and Navigation */}
+        <nav className="flex items-center justify-between mb-8 font-sans">
+          <div className="flex items-center gap-4">
+            <div className="text-sm">
+              <Link href={`/${sectionId}`} className={`${sectionColors.text} ${sectionColors.hover} transition-colors font-medium`}>
+                {getNameWithoutParentheses(section.name)}
+              </Link>
+              <span className={`mx-2 ${sectionColors.text} opacity-50`}>&gt;</span>
+            </div>
+            {/* Progress indicator - one bar per agenda in section */}
+            <div className="flex gap-1">
+              {sectionAgendas.map((a, i) => (
+                <Link
+                  key={a.id}
+                  href={`/${sectionId}/${a.id}`}
+                  className={`h-1.5 w-3 rounded-full transition-all ${
+                    i === currentAgendaIndex
+                      ? sectionColors.accent
+                      : `${sectionColors.accent} opacity-20 hover:opacity-40`
+                  }`}
+                  title={a.name}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center gap-1">
+            {prevAgenda ? (
               <Link
                 href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
-                className="text-gray-400 hover:text-gray-600 transition-colors font-mono text-lg"
+                className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                 title={prevAgenda.name}
               >
-                &lt;
+                <ChevronLeft className="w-5 h-5" />
               </Link>
             ) : (
-              <span className="text-gray-300 cursor-not-allowed font-mono text-lg">
-                &lt;
+              <span className="p-2 text-gray-200 cursor-not-allowed">
+                <ChevronLeft className="w-5 h-5" />
               </span>
             )}
             {nextAgenda ? (
               <Link
                 href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
-                className="text-gray-400 hover:text-gray-600 transition-colors font-mono text-lg"
+                className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                 title={nextAgenda.name}
               >
-                &gt;
+                <ChevronRight className="w-5 h-5" />
               </Link>
             ) : (
-              <span className="text-gray-300 cursor-not-allowed font-mono text-lg">
-                &gt;
+              <span className="p-2 text-gray-200 cursor-not-allowed">
+                <ChevronRight className="w-5 h-5" />
               </span>
             )}
           </div>
-        </div>
+        </nav>
+
+        {/* Title */}
+        <h1 className={`text-5xl font-bold font-serif leading-tight tracking-tight mb-4 ${sectionColors.heading}`}>
+          {agenda.name.includes('(') ? (
+            <>
+              {agenda.name.split('(')[0].trim()}
+              <span className="text-gray-400 font-normal text-4xl"> ({agenda.name.split('(').slice(1).join('(')}</span>
+            </>
+          ) : (
+            agenda.name
+          )}
+        </h1>
 
         {/* Summary */}
         {agenda.summary && (
           <div className="mb-10">
-            <Markdown className="text-xl text-gray-600 leading-relaxed font-serif italic">
+            <Markdown className="text-xl text-gray-700 leading-relaxed font-serif italic">
               {agenda.summary}
             </Markdown>
           </div>

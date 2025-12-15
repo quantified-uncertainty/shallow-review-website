@@ -3,6 +3,10 @@ import path from "path";
 import yaml from "js-yaml";
 import {
   ReviewData,
+  Section,
+  Agenda,
+  SectionData,
+  AgendaData,
   OrthodoxProblemsData,
   OrthodoxProblem,
   BroadApproachesData,
@@ -39,31 +43,159 @@ function loadAgendaLesswrongTags(): Record<string, string[]> {
 }
 
 /**
- * Loads the main review data containing sections and agendas
- * Also merges in lesswrongTags from the separate agendaLesswrongTags.yaml file
- * @throws Error if the YAML file is missing or malformed
+ * Loads flat sections from sections.yaml
  */
-export function loadReviewData(): ReviewData {
-  try {
-    const filePath = path.join(process.cwd(), "src/data/agendas.yaml");
-    const fileContents = fs.readFileSync(filePath, "utf8");
-    const data = yaml.load(fileContents) as ReviewData;
+function loadSections(): SectionData[] {
+  const filePath = path.join(process.cwd(), "src/data/sections.yaml");
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  const data = yaml.load(fileContents) as SectionData[];
+  return data || [];
+}
 
-    if (!data?.sections || !Array.isArray(data.sections)) {
-      throw new Error("Invalid ReviewData structure: missing sections array");
+/**
+ * Loads flat agendas from agendas.yaml
+ */
+function loadAgendas(): AgendaData[] {
+  const filePath = path.join(process.cwd(), "src/data/agendas.yaml");
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  const data = yaml.load(fileContents) as AgendaData[];
+  return data || [];
+}
+
+/**
+ * Builds nested hierarchy from flat sections and agendas
+ * - Top-level sections (no parent) become the main sections
+ * - Agendas are nested under their parent section
+ * - Sub-sections' agendas are collected into the parent section
+ * - Agendas can have other agendas as parents (agenda trees are flattened into sections)
+ */
+function buildHierarchy(
+  sectionsData: SectionData[],
+  agendasData: AgendaData[],
+  agendaTags: Record<string, string[]>
+): Section[] {
+  // Build maps for quick lookup
+  const sectionsById = new Map<string, SectionData>();
+  for (const section of sectionsData) {
+    sectionsById.set(section.id, section);
+  }
+
+  const agendasById = new Map<string, AgendaData>();
+  for (const agenda of agendasData) {
+    agendasById.set(agenda.id, agenda);
+  }
+
+  // Find top-level sections (no parent)
+  const topLevelSections = sectionsData.filter(s => !s.parent);
+
+  // Collect all section IDs that belong to each top-level section (including nested)
+  function getAllDescendantSectionIds(sectionId: string): string[] {
+    const result: string[] = [sectionId];
+    const children = sectionsData.filter(s => s.parent === sectionId);
+    for (const child of children) {
+      result.push(...getAllDescendantSectionIds(child.id));
+    }
+    return result;
+  }
+
+  // Check if an agenda belongs to a section tree (following agenda-parent chains)
+  function agendaBelongsToSectionTree(agendaData: AgendaData, sectionIds: Set<string>): boolean {
+    let current: AgendaData | undefined = agendaData;
+    const visited = new Set<string>();
+
+    while (current && current.parent) {
+      // Prevent infinite loops
+      if (visited.has(current.id)) break;
+      visited.add(current.id);
+
+      // Check if parent is a section in our tree
+      if (sectionIds.has(current.parent)) {
+        return true;
+      }
+
+      // Check if parent is an agenda (follow the chain)
+      current = agendasById.get(current.parent);
     }
 
-    // Load and merge lesswrongTags from separate file
-    const agendaTags = loadAgendaLesswrongTags();
-    for (const section of data.sections) {
-      for (const agenda of section.agendas || []) {
-        if (agendaTags[agenda.id]) {
-          agenda.lesswrongTags = agendaTags[agenda.id];
-        }
+    return false;
+  }
+
+  // Convert AgendaData to Agenda
+  function convertAgenda(agendaData: AgendaData): Agenda {
+    const agenda: Agenda = {
+      id: agendaData.id,
+      name: agendaData.name,
+      summary: agendaData.summary,
+      theoryOfChange: agendaData.theoryOfChange,
+      seeAlso: agendaData.seeAlso,
+      orthodoxProblems: agendaData.orthodoxProblems,
+      targetCase: agendaData.targetCase,
+      broadApproaches: agendaData.broadApproaches,
+      someNames: agendaData.someNames,
+      estimatedFTEs: agendaData.estimatedFTEs,
+      critiques: agendaData.critiques,
+      fundedBy: agendaData.fundedBy,
+      fundedByText: agendaData.fundedByText,
+      keywords: agendaData.keywords,
+      resources: agendaData.resources,
+      wikipedia: agendaData.wikipedia,
+      papers: agendaData.papers,
+    };
+
+    // Merge lesswrongTags from separate file
+    if (agendaTags[agenda.id]) {
+      agenda.lesswrongTags = agendaTags[agenda.id];
+    }
+
+    return agenda;
+  }
+
+  // Build the nested structure
+  const sections: Section[] = [];
+
+  for (const topSection of topLevelSections) {
+    // Get all section IDs in this tree
+    const allSectionIds = getAllDescendantSectionIds(topSection.id);
+    const allSectionIdsSet = new Set(allSectionIds);
+
+    // Find all agendas that belong to this section tree
+    // (either directly or through agenda-parent chains)
+    const sectionAgendas: Agenda[] = [];
+    for (const agendaData of agendasData) {
+      if (agendaBelongsToSectionTree(agendaData, allSectionIdsSet)) {
+        sectionAgendas.push(convertAgenda(agendaData));
       }
     }
 
-    return data;
+    // Only add sections that have agendas
+    if (sectionAgendas.length > 0) {
+      sections.push({
+        id: topSection.id,
+        name: topSection.name,
+        description: topSection.description,
+        agendas: sectionAgendas,
+      });
+    }
+  }
+
+  return sections;
+}
+
+/**
+ * Loads the main review data containing sections and agendas
+ * Reads from flat files (sections.yaml and agendas.yaml) and builds hierarchy
+ * Also merges in lesswrongTags from the separate agendaLesswrongTags.yaml file
+ * @throws Error if the YAML files are missing or malformed
+ */
+export function loadReviewData(): ReviewData {
+  try {
+    const sectionsData = loadSections();
+    const agendasData = loadAgendas();
+    const agendaTags = loadAgendaLesswrongTags();
+
+    const sections = buildHierarchy(sectionsData, agendasData, agendaTags);
+
+    return { sections };
   } catch (error) {
     console.error("Failed to load review data:", error);
     throw new Error(

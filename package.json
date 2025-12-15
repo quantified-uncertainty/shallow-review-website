@@ -9,7 +9,8 @@
     "lint": "next lint",
     "parse:markdown": "node scripts/parse-markdown.js",
     "convert:problems": "npx ts-node scripts/convertOrthodoxProblems.ts",
-    "convert:approaches": "npx ts-node scripts/convertBroadApproaches.ts"
+    "convert:approaches": "npx ts-node scripts/convertBroadApproaches.ts",
+    "convert-pipeline": "node scripts/convert-shallow-review-pipeline.js"
   },
   "keywords": [],
   "author": "",
