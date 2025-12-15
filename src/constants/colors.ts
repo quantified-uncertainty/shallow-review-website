@@ -2,36 +2,39 @@
  * Color schemes for agenda sections - main categories
  * Using complete class strings for Tailwind purging
  */
-export const SECTION_COLORS: Record<string, {
-  text: string;
-  heading: string;
-  bg: string;
-  border: string;
-  borderLeft: string;
-  hover: string;
-  groupHover: string;
-  bgLight: string;
-  accent: string;
-  gradient: string;
-  dot: string;
-  navHover: string;
-}> = {
+export const SECTION_COLORS: Record<
+  string,
+  {
+    text: string;
+    heading: string;
+    bg: string;
+    border: string;
+    borderLeft: string;
+    hover: string;
+    groupHover: string;
+    bgLight: string;
+    accent: string;
+    gradient: string;
+    dot: string;
+    navHover: string;
+  }
+> = {
   // Labs - warm brown (stone)
-  "big_labs": {
+  big_labs: {
     text: "text-stone-600",
-    heading: "text-stone-900",
-    bg: "bg-stone-600",
+    heading: "text-yellow-950",
+    bg: "bg-yellow-700",
     border: "border-stone-200",
     borderLeft: "border-l-stone-600",
-    hover: "hover:text-stone-600",
-    groupHover: "group-hover:text-stone-600",
+    hover: "hover:text-yellow-950",
+    groupHover: "group-hover:text-yellow-800",
     bgLight: "bg-stone-100",
-    accent: "bg-stone-600",
+    accent: "bg-yellow-800",
     gradient: "from-stone-50 to-transparent",
-    dot: "bg-stone-600",
-    navHover: "hover:text-stone-600",
+    dot: "bg-yellow-800",
+    navHover: "hover:text-yellow-950",
   },
-  "labs": {
+  labs: {
     text: "text-stone-600",
     heading: "text-stone-900",
     bg: "bg-stone-600",
@@ -46,7 +49,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-stone-600",
   },
   // Black-box safety - darker slate/charcoal
-  "black_box": {
+  black_box: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -61,7 +64,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-slate-700",
   },
   // Black-box child sections inherit the same color
-  "model_psychology": {
+  model_psychology: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -75,7 +78,7 @@ export const SECTION_COLORS: Record<string, {
     dot: "bg-slate-700",
     navHover: "hover:text-slate-700",
   },
-  "better_data": {
+  better_data: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -89,7 +92,7 @@ export const SECTION_COLORS: Record<string, {
     dot: "bg-slate-700",
     navHover: "hover:text-slate-700",
   },
-  "goal_robustness": {
+  goal_robustness: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -104,7 +107,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-slate-700",
   },
   // White-box safety - light gray/zinc
-  "whitebox": {
+  whitebox: {
     text: "text-zinc-400",
     heading: "text-zinc-700",
     bg: "bg-zinc-400",
@@ -119,7 +122,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-zinc-400",
   },
   // White-box child sections inherit the same color
-  "interpretability": {
+  interpretability: {
     text: "text-zinc-400",
     heading: "text-zinc-700",
     bg: "bg-zinc-400",
@@ -134,7 +137,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-zinc-400",
   },
   // Safety by construction - amber/orange
-  "safety_by_construction": {
+  safety_by_construction: {
     text: "text-amber-600",
     heading: "text-amber-900",
     bg: "bg-amber-600",
@@ -149,7 +152,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-amber-600",
   },
   // Make AI solve it - rose/red
-  "ai_solve_alignment": {
+  ai_solve_alignment: {
     text: "text-rose-600",
     heading: "text-rose-900",
     bg: "bg-rose-600",
@@ -164,7 +167,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-rose-600",
   },
   // Theory - indigo/blue-purple
-  "theory": {
+  theory: {
     text: "text-indigo-600",
     heading: "text-indigo-900",
     bg: "bg-indigo-600",
@@ -179,7 +182,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-indigo-600",
   },
   // Theory child sections inherit the same color
-  "corrigibility": {
+  corrigibility: {
     text: "text-indigo-600",
     heading: "text-indigo-900",
     bg: "bg-indigo-600",
@@ -193,7 +196,7 @@ export const SECTION_COLORS: Record<string, {
     dot: "bg-indigo-600",
     navHover: "hover:text-indigo-600",
   },
-  "ontology_identification": {
+  ontology_identification: {
     text: "text-indigo-600",
     heading: "text-indigo-900",
     bg: "bg-indigo-600",
@@ -208,7 +211,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-indigo-600",
   },
   // Multi-agent first - violet/purple
-  "multi_agent_first": {
+  multi_agent_first: {
     text: "text-violet-600",
     heading: "text-violet-900",
     bg: "bg-violet-600",
@@ -223,7 +226,7 @@ export const SECTION_COLORS: Record<string, {
     navHover: "hover:text-violet-600",
   },
   // Evals - teal/cyan
-  "evals": {
+  evals: {
     text: "text-teal-600",
     heading: "text-teal-900",
     bg: "bg-teal-600",
@@ -243,20 +246,22 @@ export const SECTION_COLORS: Record<string, {
  * Get section color classes
  */
 export function getSectionColors(sectionId: string) {
-  return SECTION_COLORS[sectionId] || {
-    text: "text-slate-600",
-    heading: "text-slate-900",
-    bg: "bg-slate-600",
-    border: "border-slate-200",
-    borderLeft: "border-l-slate-600",
-    hover: "hover:text-slate-600",
-    groupHover: "group-hover:text-slate-600",
-    bgLight: "bg-slate-100",
-    accent: "bg-slate-600",
-    gradient: "from-slate-50 to-transparent",
-    dot: "bg-slate-600",
-    navHover: "hover:text-slate-600",
-  };
+  return (
+    SECTION_COLORS[sectionId] || {
+      text: "text-slate-600",
+      heading: "text-slate-900",
+      bg: "bg-slate-600",
+      border: "border-slate-200",
+      borderLeft: "border-l-slate-600",
+      hover: "hover:text-slate-600",
+      groupHover: "group-hover:text-slate-600",
+      bgLight: "bg-slate-100",
+      accent: "bg-slate-600",
+      gradient: "from-slate-50 to-transparent",
+      dot: "bg-slate-600",
+      navHover: "hover:text-slate-600",
+    }
+  );
 }
 
 /**
@@ -289,4 +294,5 @@ export const FUNDER_COLORS = "text-sky-700 hover:text-sky-900 hover:underline";
 /**
  * Default color scheme for problem badges
  */
-export const PROBLEM_COLORS = "bg-indigo-50 text-indigo-700 border border-indigo-200";
+export const PROBLEM_COLORS =
+  "bg-indigo-50 text-indigo-700 border border-indigo-200";
