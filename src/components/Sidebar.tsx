@@ -15,7 +15,7 @@ interface SidebarProps {
 
 export default function Sidebar({ sections }: SidebarProps) {
   return (
-    <aside className="fixed inset-y-0 left-0 w-80 xl:w-96 2xl:left-8 bg-gradient-to-r from-slate-50 via-slate-50 to-transparent border-r border-slate-200 overflow-y-auto hidden md:flex md:flex-col z-20 font-sans">
+    <aside className="sticky top-0 h-screen w-80 xl:w-96 shrink-0 bg-gradient-to-r from-slate-50 via-slate-50 to-transparent border-r border-slate-200 overflow-y-auto hidden md:flex md:flex-col z-20 font-sans">
       <div className="p-8 pb-4 text-center">
         <Link href="/" className="block group">
           <h1 className="text-2xl font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition-colors font-serif">

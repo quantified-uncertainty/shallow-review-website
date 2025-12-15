@@ -34,10 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${crimsonPro.variable} ${inter.variable}`}>
       <body className="antialiased bg-slate-50 text-slate-800 font-serif">
-        <Sidebar sections={sectionLinks} />
         <MobileHeader sections={sectionLinks} />
-        <div className="md:pl-80 xl:md:pl-96 2xl:pl-[28rem] min-h-screen">
-          {children}
+        <div className="flex min-h-screen">
+          <Sidebar sections={sectionLinks} />
+          <main className="flex-1">
+            {children}
+          </main>
         </div>
       </body>
     </html>

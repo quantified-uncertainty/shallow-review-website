@@ -71,22 +71,22 @@ export default async function SectionPage({ params }: PageProps) {
   const sectionColors = getSectionColors(decodedSectionId);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <main className="max-w-4xl mx-auto px-4 py-8 pl-12 lg:pl-16">
+    <div className={`min-h-screen ${sectionColors.bgLight} md:pl-8`}>
+      <main className="max-w-4xl px-4 py-8 pl-12 lg:pl-16">
         {/* Spacer to maintain alignment with agenda pages */}
         <div className="mb-8"></div>
 
         {/* Colored accent bar */}
         <div className={`w-16 h-1.5 ${sectionColors.accent} rounded-full mb-6`}></div>
 
-        <h1 className="text-5xl font-bold text-gray-900 mb-3 font-serif leading-tight tracking-tight">
+        <h1 className={`text-5xl font-bold mb-3 font-serif leading-tight tracking-tight ${sectionColors.heading}`}>
           {getNameWithoutParentheses(section.name)}
           {getParentheticalPart(section.name) && (
             <span className="text-gray-400 font-normal text-4xl"> {getParentheticalPart(section.name)}</span>
           )}
         </h1>
         {section.description && (
-          <p className="text-gray-600 text-xl mb-10 font-serif italic">{section.description}</p>
+          <p className="text-gray-700 text-xl mb-10 font-serif italic">{section.description}</p>
         )}
         <div className="grid gap-5 -ml-6 md:-ml-6">
           {/* Render labs if present */}

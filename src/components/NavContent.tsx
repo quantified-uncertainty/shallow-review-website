@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn, getNameWithoutParentheses } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 import ArbLogo from "./ArbLogo";
@@ -18,6 +19,10 @@ interface NavContentProps {
 }
 
 export default function NavContent({ onNavigate, className, sections = [] }: NavContentProps) {
+  const pathname = usePathname();
+  // Check if current path is within a section
+  const currentSection = sections.find(s => pathname?.startsWith(`/${s.id}`));
+
   return (
     <div className={cn("py-4 font-sans h-full flex flex-col", className)}>
       <div className="space-y-6 px-3 flex flex-col items-center text-center flex-1">
@@ -97,11 +102,15 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
              <div className="space-y-2.5 flex flex-col px-0">
                 {sections.map(s => {
                   const colors = getSectionColors(s.id);
+                  const isActive = currentSection?.id === s.id;
                   return (
                     <Link
                       key={s.id}
                       href={`/${s.id}`}
-                      className={`w-full ${colors.bg} text-white px-5 py-3.5 rounded-xl font-bold text-sm transition-all hover:shadow-lg hover:scale-[1.02] active:scale-100 flex items-center justify-between group`}
+                      className={cn(
+                        `w-full ${colors.bg} text-white px-5 py-3.5 rounded-xl font-bold text-sm transition-all hover:shadow-lg hover:scale-[1.02] hover:opacity-100 active:scale-100 flex items-center justify-between group`,
+                        !isActive && "opacity-60"
+                      )}
                       onClick={onNavigate}
                     >
                       <span className="text-left leading-tight">{getNameWithoutParentheses(s.name)}</span>
