@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { APP_SHORT_TITLE } from "@/constants/app";
 import { ChevronRight } from "lucide-react";
-import Header from "@/components/Header";
 import SimilarityGraphClient from "./SimilarityGraphClient";
 
 export const metadata: Metadata = {
@@ -23,8 +22,6 @@ export default function SimilarityPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-
       <main className="max-w-6xl mx-auto px-4 py-8">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">

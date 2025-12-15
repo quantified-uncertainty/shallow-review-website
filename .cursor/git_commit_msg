@@ -1,0 +1,7 @@
+feat: update sidebar navigation and agenda page layout
+
+- Update sidebar to include top-level categories and Arb Research logo
+- Restructure agenda page for cleaner layout and consistent styling
+- Move methods/data/about links to single line in sidebar
+- Add breadcrumbs above title on agenda page
+- Update text sizes and spacing for better readability

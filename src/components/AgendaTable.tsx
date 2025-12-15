@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { FlattenedAgenda } from "@/lib/types";
-import { TARGET_CASE_COLORS, FUNDER_COLORS } from "@/constants/colors";
+import { TARGET_CASE_COLORS, FUNDER_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
 import ApproachBadge from "./ApproachBadge";
 import { Route } from "lucide-react";
 
@@ -22,6 +22,7 @@ type SortDirection = "asc" | "desc";
 
 interface AgendaTableProps {
   agendas: FlattenedAgenda[];
+  initialSortField?: SortField;
 }
 
 function truncate(text: string, maxLength: number): string {
@@ -29,8 +30,8 @@ function truncate(text: string, maxLength: number): string {
   return text.slice(0, maxLength).trim() + "...";
 }
 
-export default function AgendaTable({ agendas }: AgendaTableProps) {
-  const [sortField, setSortField] = useState<SortField>("name");
+export default function AgendaTable({ agendas, initialSortField = "name", className = "" }: AgendaTableProps & { className?: string }) {
+  const [sortField, setSortField] = useState<SortField>(initialSortField);
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
   const handleSort = (field: SortField) => {
@@ -51,7 +52,11 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
           comparison = a.name.localeCompare(b.name);
           break;
         case "section":
+          // Primary sort by section, secondary sort by agenda name
           comparison = a.sectionName.localeCompare(b.sectionName);
+          if (comparison === 0) {
+            comparison = a.name.localeCompare(b.name);
+          }
           break;
         case "papers":
           comparison = (a.papers?.length || 0) - (b.papers?.length || 0);
@@ -98,7 +103,7 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
     className?: string;
   }) => (
     <th
-      className={`px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none ${className}`}
+      className={`px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 select-none ${className}`}
       onClick={() => handleSort(field)}
     >
       <div className="flex items-center gap-1">
@@ -111,34 +116,34 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
   );
 
   return (
-    <div className="overflow-x-auto">
+    <div className={`overflow-auto relative ${className} rounded-lg shadow-sm border border-gray-200 bg-white`}>
       <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50 sticky top-0">
+        <thead className="bg-slate-50 sticky top-0 z-10 shadow-sm">
           <tr>
             <SortHeader field="name">Name</SortHeader>
             <SortHeader field="section">Section</SortHeader>
-            <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-4 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-80">
               Summary
             </th>
-            <SortHeader field="papers" className="text-right">
+            <SortHeader field="papers" className="text-right w-20">
               Papers
             </SortHeader>
-            <SortHeader field="ftes">FTEs</SortHeader>
-            <SortHeader field="targetCase">Target Case</SortHeader>
-            <SortHeader field="approaches">Approaches</SortHeader>
-            <SortHeader field="problems">Problems</SortHeader>
-            <SortHeader field="fundedBy">Funded By</SortHeader>
-            <SortHeader field="names">Names</SortHeader>
+            <SortHeader field="ftes" className="w-24">FTEs</SortHeader>
+            <SortHeader field="targetCase" className="w-32">Target Case</SortHeader>
+            <SortHeader field="approaches" className="w-40">Approaches</SortHeader>
+            <SortHeader field="problems" className="w-32">Problems</SortHeader>
+            <SortHeader field="fundedBy" className="w-40">Funded By</SortHeader>
+            <SortHeader field="names" className="w-56">Names</SortHeader>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
           {sortedAgendas.map((agenda) => (
             <tr
               key={`${agenda.sectionId}-${agenda.id}`}
-              className="hover:bg-gray-50"
+              className="hover:bg-slate-50"
             >
               {/* Name */}
-              <td className="px-3 py-3 whitespace-nowrap">
+              <td className="px-4 py-4 whitespace-nowrap font-serif">
                 <Link
                   href={`/${agenda.sectionId}/${agenda.id}`}
                   className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium"
@@ -149,10 +154,10 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               </td>
 
               {/* Section */}
-              <td className="px-3 py-3 whitespace-nowrap">
+              <td className="py-4 whitespace-nowrap">
                 <Link
                   href={`/${agenda.sectionId}`}
-                  className="text-gray-600 hover:text-blue-600"
+                  className={`block pl-4 pr-4 border-l-4 ${getSectionColors(agenda.sectionId).borderLeft} font-bold ${getSectionColors(agenda.sectionId).text} ${getSectionColors(agenda.sectionId).hover}`}
                 >
                   {agenda.sectionName}
                 </Link>
@@ -160,24 +165,24 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
 
               {/* Summary */}
               <td
-                className="px-3 py-3 text-sm text-gray-600 max-w-xs"
+                className="px-4 py-4 text-sm text-slate-600 font-serif"
                 title={agenda.summary || ""}
               >
-                {agenda.summary ? truncate(agenda.summary, 100) : "—"}
+                {agenda.summary ? truncate(agenda.summary, 120) : "—"}
               </td>
 
               {/* Papers */}
-              <td className="px-3 py-3 whitespace-nowrap text-right text-sm text-gray-600">
+              <td className="px-4 py-4 whitespace-nowrap text-right text-sm text-gray-600">
                 {agenda.papers?.length || 0}
               </td>
 
               {/* FTEs */}
-              <td className="px-3 py-3 whitespace-nowrap text-sm text-gray-600">
+              <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-600">
                 {agenda.estimatedFTEs || "—"}
               </td>
 
               {/* Target Case */}
-              <td className="px-3 py-3 whitespace-nowrap">
+              <td className="px-4 py-4 whitespace-nowrap">
                 {agenda.resolvedTargetCase ? (
                   <Link
                     href={`/target-cases#case-${agenda.resolvedTargetCase.id}`}
@@ -196,7 +201,7 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               </td>
 
               {/* Broad Approaches */}
-              <td className="px-3 py-3">
+              <td className="px-4 py-4">
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedApproaches.length > 0 ? (
                     agenda.resolvedApproaches.map((approach) => (
@@ -215,14 +220,14 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               </td>
 
               {/* Orthodox Problems */}
-              <td className="px-3 py-3">
+              <td className="px-4 py-4">
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedProblems.length > 0 ? (
                     agenda.resolvedProblems.map((problem) => (
                       <Link
                         key={problem.id}
                         href={`/orthodox-problems#problem-${problem.id}`}
-                        className="inline-block text-xs bg-amber-50 text-amber-800 px-2 py-0.5 rounded hover:bg-amber-100"
+                        className={`inline-block text-xs px-2 py-0.5 rounded ${PROBLEM_COLORS}`}
                         title={problem.description}
                       >
                         {problem.id}
@@ -235,7 +240,7 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               </td>
 
               {/* Funded By */}
-              <td className="px-3 py-3">
+              <td className="px-4 py-4">
                 <div className="flex flex-wrap gap-1">
                   {agenda.resolvedFunders.length > 0 ? (
                     agenda.resolvedFunders.map((funder) => (
@@ -255,9 +260,9 @@ export default function AgendaTable({ agendas }: AgendaTableProps) {
               </td>
 
               {/* Some Names */}
-              <td className="px-3 py-3 text-sm text-gray-600 max-w-xs">
+              <td className="px-4 py-4 text-sm text-gray-600">
                 {agenda.someNames && agenda.someNames.length > 0
-                  ? truncate(agenda.someNames.join(", "), 50)
+                  ? truncate(agenda.someNames.join(", "), 60)
                   : "—"}
               </td>
             </tr>

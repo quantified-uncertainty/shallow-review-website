@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { APP_SHORT_TITLE, GITHUB_REPO_URL, GITHUB_DATA_URL } from "@/constants/app";
-import Header from "@/components/Header";
 import { ChevronRight, ExternalLink } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -27,8 +26,6 @@ export default function WebsitePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-
       <main className="max-w-4xl mx-auto px-4 py-8">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-4">
