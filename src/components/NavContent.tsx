@@ -138,7 +138,7 @@ export default function NavContent({
 
         {/* Categories (Sections) - Dot Navigation */}
         {sections.length > 0 && (
-          <div className="pt-6 border-t-2 border-slate-200 w-full">
+          <div className="pt-6 pb-8 border-t-2 border-slate-200 w-full">
             <div className="space-y-1.5 flex flex-col">
               {sections.map((s) => {
                 const colors = getSectionColors(s.id);
@@ -149,15 +149,15 @@ export default function NavContent({
                     key={s.id}
                     href={`/${s.id}`}
                     className={cn(
-                      "flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all group",
-                      colors.bgNav,
+                      "flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all group bg-white/80 hover:bg-white",
                       isActive ? "ring-2 ring-offset-1 ring-slate-300" : "hover:ring-1 hover:ring-slate-200"
                     )}
                     onClick={onNavigate}
                   >
                     <span
                       className={cn(
-                        "w-2 h-2 rounded-full flex-shrink-0",
+                        "rounded-full flex-shrink-0 transition-all",
+                        isActive ? "w-4 h-4" : "w-3 h-3",
                         colors.dot
                       )}
                     />
