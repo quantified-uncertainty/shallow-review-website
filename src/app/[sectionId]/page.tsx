@@ -145,7 +145,7 @@ export default async function SectionPage({ params }: PageProps) {
         {/* Colored accent bar */}
         <div className={`w-16 h-1.5 ${sectionColors.accent} rounded-full mb-6`}></div>
 
-        <h1 className={`text-5xl font-bold mb-3 font-serif leading-tight tracking-tight ${sectionColors.heading}`}>
+        <h1 className={`text-5xl font-bold mb-3 font-serif leading-tight tracking-tight ${sectionColors.text}`}>
           {getNameWithoutParentheses(section.name)}
           {getParentheticalPart(section.name) && (
             <span className="text-gray-400 font-normal text-4xl"> {getParentheticalPart(section.name)}</span>

@@ -12,6 +12,7 @@ import {
   getResearchersByIds,
   loadLesswrongTags,
   createTagsLookup,
+  loadStructureInfo,
 } from "@/lib/loadData";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -166,12 +167,46 @@ export default async function AgendaPage({ params }: PageProps) {
 
   // Find current agenda index within this section
   const sectionAgendas = section.agendas || [];
+  const subSections = section.subSections || [];
   const currentAgendaIndex = sectionAgendas.findIndex((a) => a.id === decodedAgendaId);
 
-  // Find parent agenda if this is a sub-agenda
-  const parentAgenda = agenda.parentAgendaId
-    ? sectionAgendas.find((a) => a.id === agenda.parentAgendaId)
-    : undefined;
+  // Load structure to find parent hierarchy
+  const { parentOverrides } = loadStructureInfo();
+
+  // Build breadcrumb hierarchy from structure
+  // Walk up the parent chain until we hit the section
+  const breadcrumbItems: { id: string; name: string; hasPage: boolean }[] = [];
+  let currentParentId = parentOverrides.get(decodedAgendaId);
+
+  while (currentParentId && currentParentId !== decodedSectionId) {
+    // Check if this parent is an agenda (has a page) or a sub-section (no page)
+    const parentAsAgenda = sectionAgendas.find((a) => a.id === currentParentId);
+    const parentAsSubSection = subSections.find((s) => s.id === currentParentId);
+
+    if (parentAsAgenda) {
+      breadcrumbItems.unshift({
+        id: parentAsAgenda.id,
+        name: parentAsAgenda.name,
+        hasPage: true,
+      });
+    } else if (parentAsSubSection) {
+      breadcrumbItems.unshift({
+        id: parentAsSubSection.id,
+        name: parentAsSubSection.name,
+        hasPage: false,
+      });
+    } else {
+      // It's defined in structure but not in data - use the ID as name
+      breadcrumbItems.unshift({
+        id: currentParentId,
+        name: currentParentId.replace(/_/g, ' '),
+        hasPage: false,
+      });
+    }
+
+    // Move up to the next parent
+    currentParentId = parentOverrides.get(currentParentId);
+  }
 
   return (
     <div className={`min-h-screen ${sectionColors.bgLight} md:pl-8`}>
@@ -179,18 +214,27 @@ export default async function AgendaPage({ params }: PageProps) {
         {/* Breadcrumbs, Progress indicator, and Navigation */}
         <nav className="flex items-center justify-between mb-8 font-sans">
           <div className="flex items-center gap-4">
-            <div className="text-sm flex items-center">
+            <div className="text-sm flex items-center flex-wrap">
               <Link href={`/${sectionId}`} className={`${sectionColors.text} ${sectionColors.hover} transition-colors font-medium`}>
                 {getNameWithoutParentheses(section.name)}
               </Link>
-              {parentAgenda && (
-                <>
+              {breadcrumbItems.map((item) => (
+                <span key={item.id} className="flex items-center">
                   <span className={`mx-2 ${sectionColors.text} opacity-50`}>/</span>
-                  <Link href={`/${sectionId}/${parentAgenda.id}`} className={`${sectionColors.text} ${sectionColors.hover} transition-colors font-medium`}>
-                    {getNameWithoutParentheses(parentAgenda.name)}
-                  </Link>
-                </>
-              )}
+                  {item.hasPage ? (
+                    <Link
+                      href={`/${sectionId}/${item.id}`}
+                      className={`${sectionColors.text} ${sectionColors.hover} transition-colors font-medium`}
+                    >
+                      {getNameWithoutParentheses(item.name)}
+                    </Link>
+                  ) : (
+                    <span className={`${sectionColors.text} opacity-70`}>
+                      {getNameWithoutParentheses(item.name)}
+                    </span>
+                  )}
+                </span>
+              ))}
               <span className={`mx-2 ${sectionColors.text} opacity-50`}>&gt;</span>
             </div>
           </div>

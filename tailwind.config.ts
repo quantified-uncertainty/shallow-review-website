@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         serif: ["var(--font-crimson)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-dm-sans)", "sans-serif"],
       },
     },
   },
