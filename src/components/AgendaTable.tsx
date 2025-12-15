@@ -6,6 +6,7 @@ import { FlattenedAgenda } from "@/lib/types";
 import { TARGET_CASE_COLORS, FUNDER_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
 import ApproachBadge from "./ApproachBadge";
 import { Route } from "lucide-react";
+import { getNameWithoutParentheses } from "@/lib/utils";
 
 type SortField =
   | "name"
@@ -159,7 +160,7 @@ export default function AgendaTable({ agendas, initialSortField = "name", classN
                   href={`/${agenda.sectionId}`}
                   className={`block pl-4 pr-4 border-l-4 ${getSectionColors(agenda.sectionId).borderLeft} font-bold ${getSectionColors(agenda.sectionId).text} ${getSectionColors(agenda.sectionId).hover}`}
                 >
-                  {agenda.sectionName}
+                  {getNameWithoutParentheses(agenda.sectionName)}
                 </Link>
               </td>
 

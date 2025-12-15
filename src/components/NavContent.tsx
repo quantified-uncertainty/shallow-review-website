@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { cn, getNameWithoutParentheses } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 import ArbLogo from "./ArbLogo";
 import { getSectionColors } from "@/constants/colors";
@@ -98,13 +98,13 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
                 {sections.map(s => {
                   const colors = getSectionColors(s.id);
                   return (
-                    <Link 
-                      key={s.id} 
-                      href={`/${s.id}`} 
+                    <Link
+                      key={s.id}
+                      href={`/${s.id}`}
                       className={`w-full ${colors.bg} text-white px-5 py-3.5 rounded-xl font-bold text-sm transition-all hover:shadow-lg hover:scale-[1.02] active:scale-100 flex items-center justify-between group`}
                       onClick={onNavigate}
                     >
-                      <span className="text-left leading-tight">{s.name}</span>
+                      <span className="text-left leading-tight">{getNameWithoutParentheses(s.name)}</span>
                       <svg className="w-4 h-4 opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                       </svg>

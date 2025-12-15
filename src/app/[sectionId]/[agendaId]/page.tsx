@@ -38,6 +38,7 @@ import {
 } from "lucide-react";
 import ApproachBadge from "@/components/ApproachBadge";
 import { TARGET_CASE_COLORS, PROBLEM_COLORS, getSectionColors } from "@/constants/colors";
+import { getNameWithoutParentheses } from "@/lib/utils";
 
 // Helper component for rows with hanging icons and wrapping text
 function AttributeRow({
@@ -169,7 +170,7 @@ export default async function AgendaPage({ params }: PageProps) {
         {/* Breadcrumbs */}
         <nav className="text-sm text-gray-500 mb-8 font-sans">
           <Link href={`/${sectionId}`} className={`${sectionColors.hover} transition-colors`}>
-            {section.name}
+            {getNameWithoutParentheses(section.name)}
           </Link>
           <span className="mx-2">&gt;</span>
         </nav>

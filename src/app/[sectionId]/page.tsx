@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, Route, Building2 } from "lucide-react";
 import { Section } from "@/lib/types";
 import { getSectionColors } from "@/constants/colors";
+import { getNameWithoutParentheses, getParentheticalPart } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{ sectionId: string }>;
@@ -78,7 +79,12 @@ export default async function SectionPage({ params }: PageProps) {
         {/* Colored accent bar */}
         <div className={`w-16 h-1.5 ${sectionColors.accent} rounded-full mb-6`}></div>
 
-        <h1 className="text-5xl font-bold text-gray-900 mb-3 font-serif leading-tight tracking-tight">{section.name}</h1>
+        <h1 className="text-5xl font-bold text-gray-900 mb-3 font-serif leading-tight tracking-tight">
+          {getNameWithoutParentheses(section.name)}
+          {getParentheticalPart(section.name) && (
+            <span className="text-gray-400 font-normal text-4xl"> {getParentheticalPart(section.name)}</span>
+          )}
+        </h1>
         {section.description && (
           <p className="text-gray-600 text-xl mb-10 font-serif italic">{section.description}</p>
         )}
