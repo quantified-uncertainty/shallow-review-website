@@ -1,11 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn, getNameWithoutParentheses } from "@/lib/utils";
-import { ExternalLink } from "lucide-react";
-import ArbLogo from "./ArbLogo";
-import { getSectionColors } from "@/constants/colors";
+import { ExternalLink } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+import { getSectionColors } from '@/constants/colors';
+import {
+  cn,
+  getNameWithoutParentheses,
+} from '@/lib/utils';
+
+import ArbLogo from './ArbLogo';
 
 interface SectionInfo {
   id: string;
@@ -18,10 +23,14 @@ interface NavContentProps {
   sections?: SectionInfo[];
 }
 
-export default function NavContent({ onNavigate, className, sections = [] }: NavContentProps) {
+export default function NavContent({
+  onNavigate,
+  className,
+  sections = [],
+}: NavContentProps) {
   const pathname = usePathname();
   // Check if current path is within a section
-  const currentSection = sections.find(s => pathname?.startsWith(`/${s.id}`));
+  const currentSection = sections.find((s) => pathname?.startsWith(`/${s.id}`));
 
   return (
     <div className={cn("py-4 font-sans h-full flex flex-col", className)}>
@@ -29,19 +38,27 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
         {/* Main Views */}
         <div className="space-y-3">
           <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700">
-            <Link href="/overview" className="hover:text-blue-600 font-semibold text-base transition-colors" onClick={onNavigate}>
+            <Link
+              href="/overview"
+              className="hover:text-blue-600 font-semibold text-base transition-colors"
+              onClick={onNavigate}
+            >
               overview
             </Link>
             <span className="text-slate-300 font-bold">·</span>
-            <Link href="/table" className="hover:text-blue-600 font-semibold text-base transition-colors" onClick={onNavigate}>
+            <Link
+              href="/table"
+              className="hover:text-blue-600 font-semibold text-base transition-colors"
+              onClick={onNavigate}
+            >
               table
             </Link>
             <span className="text-slate-300 font-bold">·</span>
-            <Link href="/sunburst" className="hover:text-blue-600 font-semibold text-base transition-colors" onClick={onNavigate}>
-              sunburst
-            </Link>
-            <span className="text-slate-300 font-bold">·</span>
-            <Link href="/similarity" className="hover:text-blue-600 font-semibold text-base transition-colors" onClick={onNavigate}>
+            <Link
+              href="/similarity"
+              className="hover:text-blue-600 font-semibold text-base transition-colors"
+              onClick={onNavigate}
+            >
               clusters
             </Link>
           </div>
@@ -51,15 +68,27 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
               classifications
             </span>
             <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700">
-              <Link href="/orthodox-problems" className="hover:text-blue-600 font-semibold text-sm transition-colors" onClick={onNavigate}>
+              <Link
+                href="/orthodox-problems"
+                className="hover:text-blue-600 font-semibold text-sm transition-colors"
+                onClick={onNavigate}
+              >
                 problems
               </Link>
               <span className="text-slate-300 font-bold">·</span>
-              <Link href="/target-cases" className="hover:text-blue-600 font-semibold text-sm transition-colors" onClick={onNavigate}>
+              <Link
+                href="/target-cases"
+                className="hover:text-blue-600 font-semibold text-sm transition-colors"
+                onClick={onNavigate}
+              >
                 target cases
               </Link>
               <span className="text-slate-300 font-bold">·</span>
-              <Link href="/broad-approaches" className="hover:text-blue-600 font-semibold text-sm transition-colors" onClick={onNavigate}>
+              <Link
+                href="/broad-approaches"
+                className="hover:text-blue-600 font-semibold text-sm transition-colors"
+                onClick={onNavigate}
+              >
                 approaches
               </Link>
             </div>
@@ -68,11 +97,14 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
 
         {/* External Links */}
         <div className="space-y-2 flex flex-col items-center text-sm">
-          <span className="flex items-center gap-1.5 text-slate-400 cursor-not-allowed font-medium" title="URL TBD">
+          <span
+            className="flex items-center gap-1.5 text-slate-400 cursor-not-allowed font-medium"
+            title="URL TBD"
+          >
             LessWrong post
             <ExternalLink className="w-3.5 h-3.5" />
           </span>
-          
+
           <a
             href="https://www.lesswrong.com/posts/Q9ewXs8pQSAX5vL7H/ai-in-2025-gestalt"
             target="_blank"
@@ -87,64 +119,68 @@ export default function NavContent({ onNavigate, className, sections = [] }: Nav
 
         {/* Internal Pages - Single Line */}
         <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700 text-sm">
-          <Link href="/methodology" className="hover:text-blue-600 font-semibold transition-colors" onClick={onNavigate}>
+          <Link
+            href="/methodology"
+            className="hover:text-blue-600 font-semibold transition-colors"
+            onClick={onNavigate}
+          >
             Methods
           </Link>
           <span className="text-slate-300 font-bold">·</span>
-          <Link href="/data" className="hover:text-blue-600 font-semibold transition-colors" onClick={onNavigate}>
-            Data
-          </Link>
-          <span className="text-slate-300 font-bold">·</span>
-          <Link href="/about" className="hover:text-blue-600 font-semibold transition-colors" onClick={onNavigate}>
+          <Link
+            href="/about"
+            className="hover:text-blue-600 font-semibold transition-colors"
+            onClick={onNavigate}
+          >
             About
           </Link>
         </div>
 
         {/* Categories (Sections) - Dot Navigation */}
         {sections.length > 0 && (
-          <div className="pt-6 border-t-2 border-slate-200 w-full flex justify-center">
-             <div className="space-y-0.5 flex flex-col">
-                {sections.map(s => {
-                  const colors = getSectionColors(s.id);
-                  const isActive = currentSection?.id === s.id;
+          <div className="pt-6 pb-8 border-t-2 border-slate-200 w-full">
+            <div className="space-y-1.5 flex flex-col">
+              {sections.map((s) => {
+                const colors = getSectionColors(s.id);
+                const isActive = currentSection?.id === s.id;
 
-                  return (
-                    <Link
-                      key={s.id}
-                      href={`/${s.id}`}
+                return (
+                  <Link
+                    key={s.id}
+                    href={`/${s.id}`}
+                    className={cn(
+                      "flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all group bg-white/80 hover:bg-white",
+                      isActive ? "ring-2 ring-offset-1 ring-slate-300" : "hover:ring-1 hover:ring-slate-200"
+                    )}
+                    onClick={onNavigate}
+                  >
+                    <span
                       className={cn(
-                        "flex items-center gap-3 px-3 py-2 rounded-lg transition-all group",
-                        isActive
-                          ? `${colors.bgLight} ${colors.text} font-semibold`
-                          : "text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                        "rounded-full flex-shrink-0 transition-all",
+                        isActive ? "w-4 h-4" : "w-3 h-3",
+                        colors.dot
                       )}
-                      onClick={onNavigate}
-                    >
-                      <span className={cn(
-                        "w-2.5 h-2.5 rounded-full flex-shrink-0 transition-transform",
-                        colors.dot,
-                        isActive && "scale-125"
-                      )} />
-                      <span className="text-sm">
-                        {getNameWithoutParentheses(s.name)}
-                      </span>
-                    </Link>
-                  );
-                })}
-             </div>
+                    />
+                    <span className="text-sm font-display font-bold text-slate-700">
+                      {getNameWithoutParentheses(s.name)}
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         )}
       </div>
-      
+
       {/* Arb Logo */}
       <div className="mt-auto pt-8 pb-4 flex justify-center border-t-2 border-slate-200">
-        <a 
-          href="https://arb.research" 
-          target="_blank" 
+        <a
+          href="https://arb.research"
+          target="_blank"
           rel="noopener noreferrer"
           className="mt-4 hover:opacity-70 transition-opacity"
         >
-           <ArbLogo />
+          <ArbLogo />
         </a>
       </div>
     </div>

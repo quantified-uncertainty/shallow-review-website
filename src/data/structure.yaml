@@ -1,0 +1,120 @@
+# Structure file for ordering and nesting
+# This defines the canonical order and hierarchy for display
+# IDs should match those in agendas.yaml and sections.yaml
+
+structure:
+  - id: big_labs
+    children:
+      - openai
+      - deepmind
+      - anthropic
+      - xai
+      - meta
+      - labs_others
+
+  - id: black_box
+    children:
+      - id: iterative_alignment
+        children:
+          - iterative_alignment_pretrain
+          - iterative_alignment_post_train
+          - make_ai_solve_it_black_box
+          - inoculation_prompting
+          - inference_time_in_context_learning
+          - inference_time_steering
+          - unlearning
+          - control
+          - anthropic_safeguards
+          - cot_monitoring
+      - id: model_psychology
+        children:
+          - surprising_generalization  # Emergent misalignment
+          - psych_other  # Model psychopathology
+          - specs_and_constitutions
+          - psych_personas  # Character training and persona steering
+          - model_values
+      - id: better_data
+        children:
+          - data_filtering
+          - hyperstition
+          - data_poisoning
+      - id: synthetic_alignment_data
+        children:
+          - alignment_data_quality
+      - id: goal_robustness
+        children:
+          - mild_optimization
+          - rl_safety
+          - assistance_games
+          - open_model_interventions
+          - black_box_neglected_approaches
+
+  - id: whitebox
+    children:
+      - interp_fundamental  # Reverse engineering
+      - interp_concept_based  # Concept-based interp: Monitoring concepts
+      - activation_engineering  # Concept-based interp: Activation engineering
+      - deception_detectors  # Lie and deception detectors
+      - model_diff  # Model diffing
+      - interp_sparse_coding  # Sparse Coding
+      - interp_causal_abstractions  # Causal Abstractions
+      - data_attribution
+      - interp_other  # Other interpretability
+      - learning_dev_interp  # Developmental interpretability
+      - representation_structure  # Representation structure and geometry
+      - human_biases  # Human inductive biases
+
+  - id: safety_by_construction
+    children:
+      - formal_verification  # Guaranteed Safe AI
+      - scientist_ai
+      - brainlike_agi
+
+  - id: ai_solve_alignment
+    children:
+      - weak_to_strong
+      - supervising_improvement
+      - transluce
+      - debate
+      - introspection_training
+
+  - id: theory
+    children:
+      - agent_foundations
+      - tiling_agents
+      - theory_dovetail
+      - live_theory
+      - simulators
+      - aisi_guarantees
+      - arc_theory_formal
+      - id: corrigibility
+        children:
+          - behavior_alignment_theory
+          - corrigibility_other
+      - id: ontology_identification
+        children:
+          - natural_abstractions
+          - learning_theoretic_agenda
+
+  - id: multi_agent_first
+    children:
+      - alignment_to_context
+      - contractualist_alignment
+      - aligning_multiple_game_theory
+      - aligning_multiple_tools
+      - aligned_to_who
+      - aligning_what
+
+  - id: evals
+    children:
+      - agi_metrics
+      - evals_capability
+      - evals_autonomy
+      - evals_wmd
+      - evals_situational_awareness
+      - evals_steganography
+      - ai_deception
+      - evals_sandbagging
+      - evals_self_replication
+      - various_redteams
+      - evals_other

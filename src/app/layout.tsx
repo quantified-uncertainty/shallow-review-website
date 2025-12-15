@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Crimson_Pro, Inter } from "next/font/google";
+import { Crimson_Pro, Inter, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { APP_TITLE, APP_DESCRIPTION } from "@/constants/app";
 import Sidebar from "@/components/Sidebar";
@@ -10,11 +10,18 @@ const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
   variable: "--font-crimson",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
   display: "swap",
 });
 
@@ -32,7 +39,7 @@ export default function RootLayout({
   const sectionLinks = data.sections.map((s) => ({ id: s.id, name: s.name }));
 
   return (
-    <html lang="en" className={`${crimsonPro.variable} ${inter.variable}`}>
+    <html lang="en" className={`${crimsonPro.variable} ${inter.variable} ${dmSans.variable}`}>
       <body className="antialiased bg-slate-50 text-slate-800 font-serif">
         <MobileHeader sections={sectionLinks} />
         <div className="flex min-h-screen">

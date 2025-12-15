@@ -125,6 +125,8 @@ export interface KeywordsData {
 export interface Agenda {
   id: string;
   name: string;
+  parentAgendaId?: string; // ID of parent agenda (if this is a sub-agenda)
+  parentSectionId?: string; // ID of parent sub-section (if under a sub-section)
   summary?: string;
   theoryOfChange?: string;
   seeAlso?: string;
@@ -163,12 +165,19 @@ export interface Lab {
   papers?: Paper[];
 }
 
+export interface SubSection {
+  id: string;
+  name: string;
+  description?: string;
+}
+
 export interface Section {
   id: string;
   name: string;
   description?: string;
   agendas?: Agenda[];
   labs?: Lab[];
+  subSections?: SubSection[];
 }
 
 export interface ReviewData {

@@ -25,6 +25,71 @@ import {
   Lab,
 } from "./types";
 
+// Structure item can be a string (just ID) or object with children
+interface StructureItem {
+  id: string;
+  children?: (string | StructureItem)[];
+}
+
+interface StructureData {
+  structure: StructureItem[];
+}
+
+/**
+ * Loads the structure file that defines ordering and nesting
+ */
+function loadStructure(): StructureData | null {
+  try {
+    const filePath = path.join(process.cwd(), "src/data/structure.yaml");
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const data = yaml.load(fileContents) as StructureData;
+    return data;
+  } catch (error) {
+    console.warn("Could not load structure file, using default ordering:", error);
+    return null;
+  }
+}
+
+/**
+ * Flattens structure into a map of parent -> ordered children
+ * Also returns parent overrides (child -> parent)
+ */
+function parseStructure(structure: StructureItem[]): {
+  orderMap: Map<string, string[]>;
+  parentOverrides: Map<string, string>;
+} {
+  const orderMap = new Map<string, string[]>();
+  const parentOverrides = new Map<string, string>();
+
+  function processItem(item: StructureItem, parentId: string | null) {
+    if (parentId) {
+      parentOverrides.set(item.id, parentId);
+    }
+
+    if (item.children && item.children.length > 0) {
+      const childIds: string[] = [];
+      for (const child of item.children) {
+        if (typeof child === 'string') {
+          childIds.push(child);
+          if (item.id) {
+            parentOverrides.set(child, item.id);
+          }
+        } else {
+          childIds.push(child.id);
+          processItem(child, item.id);
+        }
+      }
+      orderMap.set(item.id, childIds);
+    }
+  }
+
+  for (const item of structure) {
+    processItem(item, null);
+  }
+
+  return { orderMap, parentOverrides };
+}
+
 /**
  * Loads the agenda LessWrong tags mapping from a separate file
  * This allows agendas.yaml to be regenerated from the pipeline without losing curated tags
@@ -121,10 +186,24 @@ function buildHierarchy(
   }
 
   // Convert AgendaData to Agenda
-  function convertAgenda(agendaData: AgendaData): Agenda {
+  function convertAgenda(agendaData: AgendaData, topSectionId: string): Agenda {
+    // Check if parent is another agenda (not a section)
+    const parentAgendaId = agendaData.parent && agendasById.has(agendaData.parent)
+      ? agendaData.parent
+      : undefined;
+
+    // Check if parent is a sub-section (not the top-level section, and is a section)
+    const parentSectionId = agendaData.parent &&
+      sectionsById.has(agendaData.parent) &&
+      agendaData.parent !== topSectionId
+      ? agendaData.parent
+      : undefined;
+
     const agenda: Agenda = {
       id: agendaData.id,
       name: agendaData.name,
+      parentAgendaId,
+      parentSectionId,
       summary: agendaData.summary,
       theoryOfChange: agendaData.theoryOfChange,
       seeAlso: agendaData.seeAlso,
@@ -163,9 +242,14 @@ function buildHierarchy(
     const sectionAgendas: Agenda[] = [];
     for (const agendaData of agendasData) {
       if (agendaBelongsToSectionTree(agendaData, allSectionIdsSet)) {
-        sectionAgendas.push(convertAgenda(agendaData));
+        sectionAgendas.push(convertAgenda(agendaData, topSection.id));
       }
     }
+
+    // Get direct child sub-sections
+    const subSections = sectionsData
+      .filter(s => s.parent === topSection.id)
+      .map(s => ({ id: s.id, name: s.name, description: s.description }));
 
     // Only add sections that have agendas
     if (sectionAgendas.length > 0) {
@@ -174,11 +258,30 @@ function buildHierarchy(
         name: topSection.name,
         description: topSection.description,
         agendas: sectionAgendas,
+        subSections: subSections.length > 0 ? subSections : undefined,
       });
     }
   }
 
   return sections;
+}
+
+export interface StructureInfo {
+  // Map from parent ID to ordered list of child IDs
+  orderMap: Map<string, string[]>;
+  // Map from child ID to its parent ID (from structure file)
+  parentOverrides: Map<string, string>;
+}
+
+/**
+ * Loads and parses the structure file for ordering and nesting
+ */
+export function loadStructureInfo(): StructureInfo {
+  const structureData = loadStructure();
+  if (!structureData) {
+    return { orderMap: new Map(), parentOverrides: new Map() };
+  }
+  return parseStructure(structureData.structure);
 }
 
 /**

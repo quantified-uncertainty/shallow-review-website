@@ -1042,7 +1042,7 @@
       kind: paper_preprint
 - id: unlearning
   name: Capability removal, unlearning
-  parent: black_box
+  parent: iterative_alignment
   summary: >-
     Developing methods to selectively remove specific information, capabilities, or behaviors from a trained model
     without retraining it from scratch. This is a mixture of black-box and white-box approaches.
@@ -1176,7 +1176,7 @@
       kind: paper_preprint
 - id: control
   name: Control
-  parent: black_box
+  parent: iterative_alignment
   summary: >-
     Assuming early transformative AIs are misaligned and actively trying to subvert safety measures, can we still set up
     protocols to extract useful work from them?
@@ -1343,7 +1343,7 @@
       kind: lesswrong
 - id: anthropic_safeguards
   name: Safeguards (inference-time auxiliaries)
-  parent: black_box
+  parent: iterative_alignment
   summary: >-
     Layers of inference-time defenses, such as classifiers, monitors, and rapid-response protocols, to detect and block
     jailbreaks, prompt injections, and other harmful model behaviors.
@@ -1424,7 +1424,7 @@
       kind: paper_preprint
 - id: cot_monitoring
   name: Chain of thought monitoring
-  parent: black_box
+  parent: iterative_alignment
   summary: >-
     Supervise an AI's natural-language (output) "reasoning" to detect misalignment, scheming, or deception, rather than
     studying the actual internal states.
