@@ -7,7 +7,7 @@
 
 - id: OpenAI
   name: OpenAI
-  parent: Labs_giant_companies_
+  parent: Labs
   seeAlso: sec:Iterative_alignment, a:Safeguards_inference_time_auxiliaries_, a:Character_training_and_persona_steering
   someNames:
     - johannes-heidecke
@@ -124,8 +124,8 @@
       kind: error_detected
 - id: Google_Deepmind
   name: Google Deepmind
-  parent: Labs_giant_companies_
-  seeAlso: sec:White_box_safety_i_e_Interpretability_, Scalable Oversight
+  parent: Labs
+  seeAlso: sec:White_box_safety, Scalable Oversight
   someNames:
     - rohin-shah
     - allan-dafoe
@@ -271,8 +271,8 @@
       kind: paper_preprint
 - id: Anthropic
   name: Anthropic
-  parent: Labs_giant_companies_
-  seeAlso: sec:White_box_safety_i_e_Interpretability_, Scalable Oversight
+  parent: Labs
+  seeAlso: sec:White_box_safety, Scalable Oversight
   someNames:
     - chris-olah
     - evan-hubinger
@@ -451,7 +451,7 @@
       kind: error_detected
 - id: xAI
   name: xAI
-  parent: Labs_giant_companies_
+  parent: Labs
   someNames:
     - dan-hendrycks-advisor
     - juntang-zhuang
@@ -475,7 +475,7 @@
   papers: []
 - id: Meta
   name: Meta
-  parent: Labs_giant_companies_
+  parent: Labs
   seeAlso: a:Capability_removal_unlearning
   someNames:
     - shuchao-bi
@@ -544,11 +544,11 @@
       kind: error_detected
 - id: China
   name: China
-  parent: Labs_giant_companies_
+  parent: Labs
   papers: []
 - id: Others
   name: Others
-  parent: Labs_giant_companies_
+  parent: Labs
   papers: []
 - id: Iterative_alignment_at_pretrain_time
   name: Iterative alignment at pretrain-time
@@ -997,7 +997,7 @@
     Alternatively, intervene in pre-training, to prevent the model from learning it in the first place (even when data
     filtering is imperfect). You could imagine also unlearning propensities to power-seeking, deception, sycophancy, or
     spite.
-  seeAlso: a:Data_filtering, sec:White_box_safety_i_e_Interpretability_, a:Various_Redteams
+  seeAlso: a:Data_filtering, sec:White_box_safety, a:Various_Redteams
   orthodoxProblems:
     - "10"
   targetCase: pessimistic
@@ -1412,7 +1412,7 @@
     before it results in a harmful final output. This allows for more robust oversight than supervising outputs alone,
     but it relies on the CoT remaining faithful (i.e., accurately reflecting the model's reasoning) and not becoming
     obfuscated under optimization pressure.
-  seeAlso: sec:White_box_safety_i_e_Interpretability_, a:Steganography_evals
+  seeAlso: sec:White_box_safety, a:Steganography_evals
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -2754,7 +2754,7 @@
       kind: paper_preprint
 - id: Reverse_engineering
   name: Reverse engineering
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Decompose a model into its functional, interacting components (circuits), formally describe what computation those
     components perform, and validate their causal effects to reverse-engineer the model's internal algorithm.
@@ -3007,7 +3007,7 @@
       kind: paper_published
 - id: Extracting_latent_knowledge
   name: Extracting latent knowledge
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Identify and decoding the "true" beliefs or knowledge represented inside a model's activations, even when the
     model's output is deceptive or false.
@@ -3097,7 +3097,7 @@
       kind: paper_preprint
 - id: Lie_and_deception_detectors
   name: Lie and deception detectors
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Detect when a model is being deceptive or lying by building white- or black-box detectors. Some work below requires
     intent in their definition, while other work focuses only on whether the model states something it believes to be
@@ -3215,7 +3215,7 @@
       kind: blocked
 - id: Model_diffing
   name: Model diffing
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Understand what happens when a model is finetuned, what the "diff" between the finetuned and the original model
     consists in.
@@ -3294,7 +3294,7 @@
       kind: error_detected
 - id: Sparse_Coding
   name: Sparse Coding
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Decompose the polysemantic activations of the residual stream into a sparse linear combination of monosemantic
     "features" which correspond to interpretable concepts.
@@ -3610,7 +3610,7 @@
       kind: error_detected
 - id: Causal_Abstractions
   name: Causal Abstractions
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Verify that a neural network implements a specific high-level causal model (like a logical algorithm) by finding a
     mapping between high-level variables and low-level neural representations.
@@ -3663,7 +3663,7 @@
       kind: paper_preprint
 - id: Data_attribution
   name: Data attribution
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Quantifies the influence of individual training data points on a model's specific behavior or output, allowing
     researchers to trace model properties (like misalignment, bias, or factual errors) back to their source in the
@@ -3781,7 +3781,7 @@
       kind: paper_preprint
 - id: Pragmatic_interpretability
   name: Pragmatic interpretability
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Directly tackling concrete, safety-critical problems on the path to AGI by using lightweight interpretability tools
     (like steering and probing) and empirical feedback from proxy tasks, rather than pursuing complete mechanistic
@@ -3836,7 +3836,7 @@
       kind: paper_preprint
 - id: Other_interpretability
   name: Other interpretability
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: Interpretability that does not fall well into other categories.
   theoryOfChange: >-
     Explore alternative conceptual frameworks (e.g., agentic, propositional) and physics-inspired methods (e.g.,
@@ -3990,7 +3990,7 @@
       kind: paper_preprint
 - id: Learning_dynamics_and_developmental_interpretability
   name: Learning dynamics and developmental interpretability
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Builds tools for detecting, locating, and interpreting key structural shifts, phase transitions, and emergent
     phenomena (like grokking or deception) that occur during a model's training and in-context learning phases.
@@ -4105,7 +4105,7 @@
       kind: paper_preprint
 - id: Representation_structure_and_geometry
   name: Representation structure and geometry
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     What do the representations look like? Does any simple structure underlie the beliefs of all well-trained models?
     Can we get the semantics from this geometry?
@@ -4212,7 +4212,7 @@
       kind: paper_preprint
 - id: Human_inductive_biases
   name: Human inductive biases
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
   summary: >-
     Discover connections deep learning AI systems have with human brains and human learning processes. Develop an
     'alignment moonshot' based on a coherent theory of learning which applies to both humans and AI systems.
@@ -4676,7 +4676,7 @@
     Find techniques that do better than RLHF at supervising superior models → track whether these techniques fail as
     capabilities increase further → keep the stronger systems aligned by amplifying weak oversight and quantifying where
     it breaks.
-  seeAlso: sec:White_box_safety_i_e_Interpretability_, a:Supervising_AIs_improving_AIs
+  seeAlso: sec:White_box_safety, a:Supervising_AIs_improving_AIs
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -4803,7 +4803,7 @@
   theoryOfChange: >-
     Use AI to help improve interp and evals. Develop and release open tools to level up the whole field. Get invited to
     improve lab processes.
-  seeAlso: sec:White_box_safety_i_e_Interpretability_
+  seeAlso: sec:White_box_safety
   targetCase: pessimistic
   broadApproaches:
     - cognitive

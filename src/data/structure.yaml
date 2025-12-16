@@ -3,7 +3,7 @@
 # IDs should match those in agendas.yaml and sections.yaml
 
 structure:
-  - id: Labs_giant_companies_
+  - id: Labs
     children:
       - OpenAI
       - Google_Deepmind
@@ -13,7 +13,7 @@ structure:
       - China
       - Others
 
-  - id: Black_box_safety_understand_and_control_current_model_behaviour_
+  - id: Black_box_safety
     children:
       - id: Iterative_alignment
         children:
@@ -49,7 +49,7 @@ structure:
           - Harm_reduction_for_open_weights
           - The_Neglected_Approaches_Approach
 
-  - id: White_box_safety_i_e_Interpretability_
+  - id: White_box_safety
     children:
       - Reverse_engineering
       - Extracting_latent_knowledge

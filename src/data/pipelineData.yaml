@@ -1,6 +1,6 @@
 source_file: data/2025-12-16-draft-post-review/source.md
 items:
-- id: sec:Labs_giant_companies_
+- id: sec:Labs
   name: Labs (giant companies)
   header_level: 1
   parent_id: null
@@ -11,7 +11,7 @@ items:
 - id: a:OpenAI
   name: OpenAI
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -305,7 +305,7 @@ items:
 - id: a:Google_Deepmind
   name: Google Deepmind
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -313,7 +313,7 @@ items:
     one_sentence_summary: null
     theory_of_change: null
     see_also:
-    - sec:White_box_safety_i_e_Interpretability_
+    - sec:White_box_safety
     - Scalable Oversight
     orthodox_problems: []
     target_case_id: null
@@ -637,7 +637,7 @@ items:
 - id: a:Anthropic
   name: Anthropic
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -645,7 +645,7 @@ items:
     one_sentence_summary: null
     theory_of_change: null
     see_also:
-    - sec:White_box_safety_i_e_Interpretability_
+    - sec:White_box_safety
     - Scalable Oversight
     orthodox_problems: []
     target_case_id: null
@@ -1072,7 +1072,7 @@ items:
 - id: a:xAI
   name: xAI
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -1113,7 +1113,7 @@ items:
 - id: a:Meta
   name: Meta
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -1254,7 +1254,7 @@ items:
 - id: a:China
   name: China
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -1278,7 +1278,7 @@ items:
 - id: a:Others
   name: Others
   header_level: 3
-  parent_id: sec:Labs_giant_companies_
+  parent_id: sec:Labs
   content: null
   item_type: agenda
   agenda_attributes:
@@ -1299,7 +1299,7 @@ items:
     other_attributes: {}
   parsing_issues:
   - 'Content should be null, got: * Amazon''s [Nova Pro](https://arxiv.org/pdf/2506.1...'
-- id: sec:Black_box_safety_understand_and_control_current_model_behaviour_
+- id: Black_box_safety
   name: Black-box safety (understand and control current model behaviour)
   header_level: 1
   parent_id: null
@@ -1310,7 +1310,7 @@ items:
 - id: sec:Iterative_alignment
   name: Iterative alignment
   header_level: 2
-  parent_id: sec:Black_box_safety_understand_and_control_current_model_behaviour_
+  parent_id: Black_box_safety
   content: 'Nudging base models by optimising their output. Worked on by the post-training
     teams at most labs, estimating the FTEs at \>500 in some sense. Funded by most
     of the industry.
@@ -2321,7 +2321,7 @@ items:
       deception, sycophancy, or spite.
     see_also:
     - a:Data_filtering
-    - sec:White_box_safety_i_e_Interpretability_
+    - sec:White_box_safety
     - a:Various_Redteams
     orthodox_problems:
     - superintelligence_hack_software
@@ -3421,7 +3421,7 @@ items:
       (i.e., accurately reflecting the model's reasoning) and not becoming obfuscated
       under optimization pressure.
     see_also:
-    - sec:White_box_safety_i_e_Interpretability_
+    - sec:White_box_safety
     - a:Steganography_evals
     orthodox_problems:
     - superintelligence_fool_supervisors
@@ -3786,7 +3786,7 @@ items:
 - id: sec:Model_psychology
   name: Model psychology
   header_level: 2
-  parent_id: sec:Black_box_safety_understand_and_control_current_model_behaviour_
+  parent_id: Black_box_safety
   content: This section consists of a bottom-up set of things people happen to be
     doing, rather than a normative taxonomy.
   item_type: section
@@ -5083,7 +5083,7 @@ items:
 - id: sec:Better_data
   name: Better data
   header_level: 2
-  parent_id: sec:Black_box_safety_understand_and_control_current_model_behaviour_
+  parent_id: Black_box_safety
   content: ''
   item_type: section
   agenda_attributes: null
@@ -5699,7 +5699,7 @@ items:
 - id: sec:Goal_robustness
   name: Goal robustness
   header_level: 2
-  parent_id: sec:Black_box_safety_understand_and_control_current_model_behaviour_
+  parent_id: Black_box_safety
   content: ''
   item_type: section
   agenda_attributes: null
@@ -6414,7 +6414,7 @@ items:
       kind: paper_preprint
     other_attributes: {}
   parsing_issues: []
-- id: sec:White_box_safety_i_e_Interpretability_
+- id: sec:White_box_safety
   name: White-box safety (i.e. Interpretability)
   header_level: 1
   parent_id: null
@@ -6427,7 +6427,7 @@ items:
 - id: a:Reverse_engineering
   name: Reverse engineering
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -7030,7 +7030,7 @@ items:
 - id: a:Extracting_latent_knowledge
   name: Extracting latent knowledge
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -7223,7 +7223,7 @@ items:
 - id: a:Lie_and_deception_detectors
   name: Lie and deception detectors
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -7459,7 +7459,7 @@ items:
 - id: a:Model_diffing
   name: Model diffing
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -7636,7 +7636,7 @@ items:
 - id: a:Sparse_Coding
   name: Sparse Coding
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -8426,7 +8426,7 @@ items:
 - id: a:Causal_Abstractions
   name: Causal Abstractions
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -8511,7 +8511,7 @@ items:
 - id: a:Data_attribution
   name: Data attribution
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -8813,7 +8813,7 @@ items:
 - id: a:Pragmatic_interpretability
   name: Pragmatic interpretability
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -8942,7 +8942,7 @@ items:
 - id: a:Other_interpretability
   name: Other interpretability
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -9305,7 +9305,7 @@ items:
 - id: a:Learning_dynamics_and_developmental_interpretability
   name: Learning dynamics and developmental interpretability
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -9549,7 +9549,7 @@ items:
 - id: a:Representation_structure_and_geometry
   name: Representation structure and geometry
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -9794,7 +9794,7 @@ items:
 - id: a:Human_inductive_biases
   name: Human inductive biases
   header_level: 3
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: null
   item_type: agenda
   agenda_attributes:
@@ -9942,7 +9942,7 @@ items:
 - id: sec:Concept_based_interpretability
   name: Concept-based interpretability
   header_level: 2
-  parent_id: sec:White_box_safety_i_e_Interpretability_
+  parent_id: sec:White_box_safety
   content: ''
   item_type: section
   agenda_attributes: null
@@ -10829,7 +10829,7 @@ items:
       → keep the stronger systems aligned by amplifying weak oversight and quantifying
       where it breaks.
     see_also:
-    - sec:White_box_safety_i_e_Interpretability_
+    - sec:White_box_safety
     - a:Supervising_AIs_improving_AIs
     orthodox_problems:
     - superintelligence_hack_software
@@ -11079,7 +11079,7 @@ items:
     theory_of_change: Use AI to help improve interp and evals. Develop and release
       open tools to level up the whole field. Get invited to improve lab processes.
     see_also:
-    - sec:White_box_safety_i_e_Interpretability_
+    - sec:White_box_safety
     orthodox_problems:
     - superintelligence_fool_supervisors
     - superintelligence_hack_software

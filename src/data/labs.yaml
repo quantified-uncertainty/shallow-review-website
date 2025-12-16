@@ -1,6 +1,6 @@
 labs:
-  - id: openai-safety
-    name: OpenAI Safety
+  - id: OpenAI
+    name: OpenAI
     lesswrongTags:
       - openai
     keywords:

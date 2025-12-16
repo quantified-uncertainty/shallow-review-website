@@ -5,9 +5,9 @@
 # This file is regenerated from the shallow-review pipeline output.
 # Manual edits will be overwritten.
 
-- id: Labs_giant_companies_
+- id: Labs
   name: Labs (giant companies)
-- id: Black_box_safety_understand_and_control_current_model_behaviour_
+- id: Black_box_safety
   name: Black-box safety (understand and control current model behaviour)
 - id: Iterative_alignment
   name: Iterative alignment
@@ -37,18 +37,18 @@
     Optimize for Preferences?](https://arxiv.org/abs/2505.23749)*,* [Murphy’s Laws of AI Alignment: Why the Gap Always
     Wins](https://arxiv.org/abs/2509.05381), [Alignment remains a hard, unsolved
     problem](https://www.alignmentforum.org/posts/epjuxGnSPof3GnMSL)
-  parent: Black_box_safety_understand_and_control_current_model_behaviour_
+  parent: Black_box_safety
 - id: Model_psychology
   name: Model psychology
   description: This section consists of a bottom-up set of things people happen to be doing, rather than a normative taxonomy.
-  parent: Black_box_safety_understand_and_control_current_model_behaviour_
+  parent: Black_box_safety
 - id: Better_data
   name: Better data
-  parent: Black_box_safety_understand_and_control_current_model_behaviour_
+  parent: Black_box_safety
 - id: Goal_robustness
   name: Goal robustness
-  parent: Black_box_safety_understand_and_control_current_model_behaviour_
-- id: White_box_safety_i_e_Interpretability_
+  parent: Black_box_safety
+- id: White_box_safety
   name: White-box safety (i.e. Interpretability)
   description: >-
     This section isn't very conceptually clean. See the [Open Problems](https://arxiv.org/abs/2501.16496) paper or
@@ -56,7 +56,7 @@
     purposes.
 - id: Concept_based_interpretability
   name: Concept-based interpretability
-  parent: White_box_safety_i_e_Interpretability_
+  parent: White_box_safety
 - id: Safety_by_construction
   name: Safety by construction
   description: Approaches which try to get assurances about system outputs while still being scalable.
