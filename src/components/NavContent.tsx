@@ -33,11 +33,11 @@ export default function NavContent({
   const currentSection = sections.find((s) => pathname?.startsWith(`/${s.id}`));
 
   return (
-    <div className={cn("py-4 font-sans h-full flex flex-col", className)}>
+    <div className={cn("py-2 font-sans h-full flex flex-col", className)}>
       <div className="space-y-6 px-3 flex flex-col items-center text-center flex-1">
         {/* Main Views */}
         <div className="space-y-3">
-          <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700">
+          <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700 mb-6">
             <Link
               href="/overview"
               className="hover:text-blue-600 font-semibold text-base transition-colors"
@@ -97,13 +97,16 @@ export default function NavContent({
 
         {/* External Links */}
         <div className="space-y-2 flex flex-col items-center text-sm">
-          <span
-            className="flex items-center gap-1.5 text-slate-400 cursor-not-allowed font-medium"
-            title="URL TBD"
+          <a
+            href="https://www.lesswrong.com/posts/Wti4Wr7Cf5ma3FGWa/shallow-review-of-technical-ai-safety-2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-slate-700 hover:text-blue-600 font-semibold transition-colors"
+            onClick={onNavigate}
           >
             LessWrong post
             <ExternalLink className="w-3.5 h-3.5" />
-          </span>
+          </a>
 
           <a
             href="https://www.lesswrong.com/posts/Q9ewXs8pQSAX5vL7H/ai-in-2025-gestalt"
@@ -134,6 +137,16 @@ export default function NavContent({
           >
             About
           </Link>
+          <span className="text-slate-300 font-bold">·</span>
+          <a
+            href="/about"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-slate-700 hover:text-blue-600 font-semibold transition-colors"
+            onClick={onNavigate}
+          >
+            Code and data<ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
 
         {/* Categories (Sections) - Dot Navigation */}
