@@ -96,7 +96,7 @@ export default function NavContent({
         </div>
 
         {/* External Links */}
-        <div className="space-y-2 flex flex-col items-center text-sm">
+        {/* <div className="space-y-2 flex flex-col items-center text-sm">
           <a
             href="https://www.lesswrong.com/posts/Wti4Wr7Cf5ma3FGWa/shallow-review-of-technical-ai-safety-2025"
             target="_blank"
@@ -118,7 +118,7 @@ export default function NavContent({
             AI in 2025: gestalt
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
-        </div>
+        </div> */}
 
         {/* Internal Pages - Single Line */}
         <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 justify-center text-slate-700 text-sm">

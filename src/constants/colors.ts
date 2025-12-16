@@ -21,7 +21,7 @@ export const SECTION_COLORS: Record<
   }
 > = {
   // Labs - warm brown (stone)
-  big_labs: {
+  Labs: {
     text: "text-stone-600",
     heading: "text-yellow-950",
     bg: "bg-yellow-700",
@@ -36,7 +36,7 @@ export const SECTION_COLORS: Record<
     dot: "bg-yellow-800",
     navHover: "hover:text-yellow-950",
   },
-  labs: {
+  Labs_old: {
     text: "text-stone-600",
     heading: "text-stone-900",
     bg: "bg-stone-600",
@@ -52,7 +52,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-stone-600",
   },
   // Black-box safety - darker slate/charcoal
-  black_box: {
+  Black_box_safety: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -68,7 +68,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-slate-700",
   },
   // Black-box child sections inherit the same color
-  model_psychology: {
+  Model_psychology: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -83,7 +83,7 @@ export const SECTION_COLORS: Record<
     dot: "bg-slate-700",
     navHover: "hover:text-slate-700",
   },
-  better_data: {
+  Better_data: {
     text: "text-slate-700",
     heading: "text-slate-900",
     bg: "bg-slate-700",
@@ -114,7 +114,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-slate-700",
   },
   // White-box safety - light blue
-  whitebox: {
+  White_box_safety: {
     text: "text-sky-400",
     heading: "text-sky-600",
     bg: "bg-sky-400",
@@ -146,7 +146,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-sky-500",
   },
   // Safety by construction - amber/orange
-  safety_by_construction: {
+  Safety_by_construction: {
     text: "text-amber-600",
     heading: "text-amber-900",
     bg: "bg-amber-600",
@@ -162,7 +162,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-amber-600",
   },
   // Make AI solve it - rose/red
-  ai_solve_alignment: {
+  Make_AI_solve_it: {
     text: "text-rose-600",
     heading: "text-rose-900",
     bg: "bg-rose-600",
@@ -178,7 +178,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-rose-600",
   },
   // Theory - indigo/blue-purple
-  theory: {
+  Theory: {
     text: "text-indigo-600",
     heading: "text-indigo-900",
     bg: "bg-indigo-600",
@@ -225,7 +225,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-indigo-600",
   },
   // Multi-agent first - violet/purple
-  multi_agent_first: {
+  Multi_agent_first: {
     text: "text-violet-600",
     heading: "text-violet-900",
     bg: "bg-violet-600",
@@ -241,7 +241,7 @@ export const SECTION_COLORS: Record<
     navHover: "hover:text-violet-600",
   },
   // Evals - teal/cyan
-  evals: {
+  Evals: {
     text: "text-teal-600",
     heading: "text-teal-900",
     bg: "bg-teal-600",
