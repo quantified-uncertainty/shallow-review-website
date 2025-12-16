@@ -17,6 +17,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
+import SeeAlsoLinks from '@/components/SeeAlsoLinks';
 import { Agenda } from '@/lib/types';
 import { getNameWithoutParentheses } from '@/lib/utils';
 
@@ -340,7 +341,11 @@ export default function ExperimentClient({
                 <ArrowRight className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <span className="text-slate-500">See Also: </span>
-                  <span className="text-slate-700">{displayedAgenda.agenda.seeAlso}</span>
+                  <SeeAlsoLinks
+                    seeAlso={displayedAgenda.agenda.seeAlso}
+                    sections={sections}
+                    currentSectionId={displayedAgenda.sectionId}
+                  />
                 </div>
               </div>
             )}

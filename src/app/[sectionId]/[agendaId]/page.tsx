@@ -20,6 +20,7 @@ import { notFound } from 'next/navigation';
 
 import ApproachBadge from '@/components/ApproachBadge';
 import Markdown from '@/components/Markdown';
+import SeeAlsoLinks from '@/components/SeeAlsoLinks';
 import {
   getSectionColors,
   PROBLEM_COLORS,
@@ -402,7 +403,11 @@ export default async function AgendaPage({ params }: PageProps) {
           {agenda.seeAlso && (
             <AttributeRow icon={ArrowRight} label="See Also:">
               <div className="inline">
-                <Markdown inline>{agenda.seeAlso}</Markdown>
+                <SeeAlsoLinks
+                  seeAlso={agenda.seeAlso}
+                  sections={data.sections}
+                  currentSectionId={decodedSectionId}
+                />
               </div>
             </AttributeRow>
           )}
