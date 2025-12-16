@@ -3,10 +3,16 @@ import Link from 'next/link';
 import { Agenda } from '@/lib/types';
 
 // Minimal section shape needed for resolution
+interface SubSectionLike {
+  id: string;
+  name: string;
+}
+
 interface SectionLike {
   id: string;
   name: string;
   agendas?: Agenda[];
+  subSections?: SubSectionLike[];
 }
 
 interface SeeAlsoLinksProps {
@@ -35,10 +41,16 @@ function parseSeeAlso(seeAlso: string, sections: SectionLike[]): ParsedReference
 
   // Build lookup maps
   const sectionById = new Map<string, SectionLike>();
+  const subSectionById = new Map<string, { subSection: SubSectionLike; parentSectionId: string }>();
   const agendaById = new Map<string, { agenda: Agenda; sectionId: string }>();
 
   for (const section of sections) {
     sectionById.set(section.id, section);
+    // Index sub-sections
+    for (const subSection of section.subSections || []) {
+      subSectionById.set(subSection.id, { subSection, parentSectionId: section.id });
+    }
+    // Index agendas
     for (const agenda of section.agendas || []) {
       agendaById.set(agenda.id, { agenda, sectionId: section.id });
     }
@@ -48,7 +60,7 @@ function parseSeeAlso(seeAlso: string, sections: SectionLike[]): ParsedReference
   const parts = seeAlso.split(',').map(p => p.trim()).filter(Boolean);
 
   for (const part of parts) {
-    // Check for sec:xxx pattern - can be a section OR an agenda acting as a category
+    // Check for sec:xxx pattern - can be a section, sub-section, or an agenda acting as a category
     const secMatch = part.match(/^sec:(\S+)$/);
     if (secMatch) {
       const id = secMatch[1];
@@ -60,6 +72,17 @@ function parseSeeAlso(seeAlso: string, sections: SectionLike[]): ParsedReference
           id: id,
           text: section.name,
           url: `/${id}`,
+        });
+        continue;
+      }
+      // Check if it's a sub-section (links to parent section)
+      const subSectionInfo = subSectionById.get(id);
+      if (subSectionInfo) {
+        references.push({
+          type: 'section',
+          id: id,
+          text: subSectionInfo.subSection.name,
+          url: `/${subSectionInfo.parentSectionId}`,
         });
         continue;
       }
