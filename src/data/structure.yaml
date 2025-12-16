@@ -3,118 +3,121 @@
 # IDs should match those in agendas.yaml and sections.yaml
 
 structure:
-  - id: big_labs
+  - id: Labs_giant_companies_
     children:
-      - openai
-      - deepmind
-      - anthropic
-      - xai
-      - meta
-      - labs_others
+      - OpenAI
+      - Google_Deepmind
+      - Anthropic
+      - xAI
+      - Meta
+      - China
+      - Others
 
-  - id: black_box
+  - id: Black_box_safety_understand_and_control_current_model_behaviour_
     children:
-      - id: iterative_alignment
+      - id: Iterative_alignment
         children:
-          - iterative_alignment_pretrain
-          - iterative_alignment_post_train
-          - make_ai_solve_it_black_box
-          - inoculation_prompting
-          - inference_time_in_context_learning
-          - inference_time_steering
-          - unlearning
-          - control
-          - anthropic_safeguards
-          - cot_monitoring
-      - id: model_psychology
+          - Iterative_alignment_at_pretrain_time
+          - Iterative_alignment_at_post_train_time
+          - Black_box_make_AI_solve_it
+          - Inoculation_prompting
+          - Inference_time_In_context_learning
+          - Inference_time_Steering
+          - Capability_removal_unlearning
+          - Control
+          - Safeguards_inference_time_auxiliaries_
+          - Chain_of_thought_monitoring
+      - id: Model_psychology
         children:
-          - surprising_generalization  # Emergent misalignment
-          - psych_other  # Model psychopathology
-          - specs_and_constitutions
-          - psych_personas  # Character training and persona steering
-          - model_values
-      - id: better_data
+          - Model_values_model_preferences
+          - Character_training_and_persona_steering
+          - Emergent_misalignment
+          - Model_specs_and_constitutions
+          - Model_psychopathology
+      - id: Better_data
         children:
-          - data_filtering
-          - hyperstition
-          - data_poisoning
-      - id: synthetic_alignment_data
+          - Data_filtering
+          - Hyperstition_studies
+          - Data_poisoning_defense
+          - Synthetic_data_for_alignment
+          - Data_quality_for_alignment
+      - id: Goal_robustness
         children:
-          - alignment_data_quality
-      - id: goal_robustness
-        children:
-          - mild_optimization
-          - rl_safety
-          - assistance_games
-          - open_model_interventions
-          - black_box_neglected_approaches
+          - Mild_optimisation
+          - RL_safety
+          - Assistance_games_assistive_agents
+          - Harm_reduction_for_open_weights
+          - The_Neglected_Approaches_Approach
 
-  - id: whitebox
+  - id: White_box_safety_i_e_Interpretability_
     children:
-      - interp_fundamental  # Reverse engineering
-      - interp_concept_based  # Concept-based interp: Monitoring concepts
-      - activation_engineering  # Concept-based interp: Activation engineering
-      - deception_detectors  # Lie and deception detectors
-      - model_diff  # Model diffing
-      - interp_sparse_coding  # Sparse Coding
-      - interp_causal_abstractions  # Causal Abstractions
-      - data_attribution
-      - interp_other  # Other interpretability
-      - learning_dev_interp  # Developmental interpretability
-      - representation_structure  # Representation structure and geometry
-      - human_biases  # Human inductive biases
-
-  - id: safety_by_construction
-    children:
-      - formal_verification  # Guaranteed Safe AI
-      - scientist_ai
-      - brainlike_agi
-
-  - id: ai_solve_alignment
-    children:
-      - weak_to_strong
-      - supervising_improvement
-      - transluce
-      - debate
-      - introspection_training
-
-  - id: theory
-    children:
-      - agent_foundations
-      - tiling_agents
-      - theory_dovetail
-      - live_theory
-      - simulators
-      - aisi_guarantees
-      - arc_theory_formal
-      - id: corrigibility
+      - Reverse_engineering
+      - Extracting_latent_knowledge
+      - Lie_and_deception_detectors
+      - Model_diffing
+      - Sparse_Coding
+      - Causal_Abstractions
+      - Data_attribution
+      - Pragmatic_interpretability
+      - Other_interpretability
+      - Learning_dynamics_and_developmental_interpretability
+      - Representation_structure_and_geometry
+      - Human_inductive_biases
+      - id: Concept_based_interpretability
         children:
-          - behavior_alignment_theory
-          - corrigibility_other
-      - id: ontology_identification
+          - Monitoring_concepts
+          - Activation_engineering
+
+  - id: Safety_by_construction
+    children:
+      - Guaranteed_Safe_AI
+      - Scientist_AI
+      - Brainlike_AGI_Safety
+
+  - id: Make_AI_solve_it
+    children:
+      - Weak_to_strong_generalization
+      - Supervising_AIs_improving_AIs
+      - AI_explanations_of_AIs
+      - Debate
+      - LLM_introspection_training
+
+  - id: Theory
+    children:
+      - Agent_foundations
+      - Tiling_agents
+      - High_Actuation_Spaces
+      - Asymptotic_guarantees
+      - Heuristic_explanations
+      - id: Corrigibility
         children:
-          - natural_abstractions
-          - learning_theoretic_agenda
+          - Behavior_alignment_theory
+          - Other_corrigibility
+      - id: Ontology_Identification
+        children:
+          - Natural_abstractions
+          - The_Learning_Theoretic_Agenda
 
-  - id: multi_agent_first
+  - id: Multi_agent_first
     children:
-      - alignment_to_context
-      - contractualist_alignment
-      - aligning_multiple_game_theory
-      - aligning_multiple_tools
-      - aligned_to_who
-      - aligning_what
+      - Aligning_to_context
+      - Aligning_to_the_social_contract
+      - Theory_for_aligning_multiple_AIs
+      - Tools_for_aligning_multiple_AIs
+      - Aligned_to_who_
+      - Aligning_what_
 
-  - id: evals
+  - id: Evals
     children:
-      - agi_metrics
-      - evals_capability
-      - evals_autonomy
-      - evals_wmd
-      - evals_situational_awareness
-      - evals_steganography
-      - ai_deception
-      - evals_sandbagging
-      - evals_self_replication
-      - various_redteams
-      - evals_other
+      - AGI_metrics
+      - Capability_evals
+      - Autonomy_evals
+      - WMD_evals_Weapons_of_Mass_Destruction_
+      - Situational_awareness_and_self_awareness_evals
+      - Steganography_evals
+      - AI_deception_evals
+      - AI_scheming_evals
+      - Sandbagging_evals
+      - Self_replication_evals
+      - Various_Redteams
+      - Other_evals

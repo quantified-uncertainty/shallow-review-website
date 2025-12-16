@@ -11,10 +11,10 @@ approaches:
     name: Cognitive
     description: Approaches that model or analyze the internal reasoning, representations, and decision-making processes of AI systems. Includes interpretability and understanding how models "think."
 
-  - id: maths-philosophy
-    name: Maths/Philosophy
-    description: Theoretical and foundational approaches using mathematical formalization, logical analysis, and philosophical frameworks to understand and solve alignment problems.
+  # - id: maths-philosophy
+  #   name: Maths/Philosophy
+  #   description: Theoretical and foundational approaches using mathematical formalization, logical analysis, and philosophical frameworks to understand and solve alignment problems.
 
-  - id: theoretical
-    name: Theoretical
-    description: Abstract, theory-driven research that develops formal frameworks and proofs about AI safety properties, often without immediate implementation.
+  # - id: theoretical
+  #   name: Theoretical
+  #   description: Abstract, theory-driven research that develops formal frameworks and proofs about AI safety properties, often without immediate implementation.
