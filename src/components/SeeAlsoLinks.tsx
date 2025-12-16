@@ -75,14 +75,14 @@ function parseSeeAlso(seeAlso: string, sections: SectionLike[]): ParsedReference
         });
         continue;
       }
-      // Check if it's a sub-section (links to parent section)
+      // Check if it's a sub-section (links to anchor within parent section)
       const subSectionInfo = subSectionById.get(id);
       if (subSectionInfo) {
         references.push({
           type: 'section',
           id: id,
           text: subSectionInfo.subSection.name,
-          url: `/${subSectionInfo.parentSectionId}`,
+          url: `/${subSectionInfo.parentSectionId}#${id}`,
         });
         continue;
       }

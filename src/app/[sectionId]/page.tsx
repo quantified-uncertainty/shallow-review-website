@@ -187,7 +187,7 @@ export default async function SectionPage({ params }: PageProps) {
               if (children.length === 0) return null;
               return (
                 <div key={itemId} className="space-y-2">
-                  <div className="text-gray-400 font-medium">
+                  <div id={itemId} className="text-gray-400 font-medium scroll-mt-8">
                     {subSection.name}
                   </div>
                   <div className="pl-5 space-y-3 border-l-2 border-gray-200">
