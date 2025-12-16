@@ -2,7 +2,6 @@ import {
   AlertTriangle,
   ArrowRight,
   BarChart,
-  BookOpen,
   ChevronLeft,
   ChevronRight,
   Crosshair,
@@ -20,6 +19,7 @@ import { notFound } from 'next/navigation';
 
 import ApproachBadge from '@/components/ApproachBadge';
 import Markdown from '@/components/Markdown';
+import SeeAlsoLinks from '@/components/SeeAlsoLinks';
 import {
   getSectionColors,
   PROBLEM_COLORS,
@@ -398,11 +398,69 @@ export default async function AgendaPage({ params }: PageProps) {
             </AttributeRow>
           )}
 
-          {/* See Also */}
-          {agenda.seeAlso && (
+          {/* See Also (includes resources) */}
+          {(agenda.seeAlso || hasResources) && (
             <AttributeRow icon={ArrowRight} label="See Also:">
               <div className="inline">
-                <Markdown inline>{agenda.seeAlso}</Markdown>
+                {agenda.seeAlso && (
+                  <SeeAlsoLinks
+                    seeAlso={agenda.seeAlso}
+                    sections={data.sections}
+                    currentSectionId={decodedSectionId}
+                  />
+                )}
+                {agenda.seeAlso && hasResources && (
+                  <span className="text-gray-400">, </span>
+                )}
+                {agenda.wikipedia && (
+                  <>
+                    <a
+                      href={agenda.wikipedia}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      Wikipedia
+                    </a>
+                    {(agenda.resources?.length || agenda.lesswrongTags?.length) && (
+                      <span className="text-gray-400">, </span>
+                    )}
+                  </>
+                )}
+                {agenda.resources?.map((resource, i) => (
+                  <span key={i}>
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 hover:underline"
+                    >
+                      {resource.title}
+                    </a>
+                    {(i < (agenda.resources?.length || 0) - 1 || agenda.lesswrongTags?.length) && (
+                      <span className="text-gray-400">, </span>
+                    )}
+                  </span>
+                ))}
+                {agenda.lesswrongTags?.map((slug, i) => {
+                  const tagInfo = tagsLookup[slug];
+                  const displayName = tagInfo?.name || slug;
+                  return (
+                    <span key={slug}>
+                      <a
+                        href={`https://www.lesswrong.com/tag/${slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        LessWrong: {displayName}
+                      </a>
+                      {i < (agenda.lesswrongTags?.length || 0) - 1 && (
+                        <span className="text-gray-400">, </span>
+                      )}
+                    </span>
+                  );
+                })}
               </div>
             </AttributeRow>
           )}
@@ -451,50 +509,6 @@ export default async function AgendaPage({ params }: PageProps) {
                     <Markdown inline>{critique}</Markdown>
                   </div>
                 ))}
-              </div>
-            </AttributeRow>
-          )}
-
-          {/* Resources / Links (Misc) */}
-          {hasResources && (
-            <AttributeRow icon={BookOpen} label="Resources:">
-              <div className="inline">
-                {agenda.wikipedia && (
-                  <a
-                    href={agenda.wikipedia}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors mr-6"
-                  >
-                    Wikipedia
-                  </a>
-                )}
-                {agenda.resources?.map((resource, i) => (
-                  <a
-                    key={i}
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors mr-6"
-                  >
-                    {resource.title}
-                  </a>
-                ))}
-                {agenda.lesswrongTags?.map((slug) => {
-                  const tagInfo = tagsLookup[slug];
-                  const displayName = tagInfo?.name || slug;
-                  return (
-                    <a
-                      key={slug}
-                      href={`https://www.lesswrong.com/tag/${slug}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="border-b border-gray-300 hover:border-blue-600 hover:text-blue-800 transition-colors mr-6"
-                    >
-                      LessWrong: {displayName}
-                    </a>
-                  );
-                })}
               </div>
             </AttributeRow>
           )}
