@@ -139,7 +139,7 @@ export default function NavContent({
           </Link>
           <span className="text-slate-300 font-bold">·</span>
           <a
-            href="/about"
+            href="https://github.com/arb-consulting/shallow-review-2025"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-slate-700 hover:text-blue-600 font-semibold transition-colors"
