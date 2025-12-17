@@ -462,7 +462,7 @@ export default function SimilarityGraph({
 
       {/* Info panel for selected/hovered node */}
       {displayNode && (
-        <div className="absolute top-28 left-2 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
+        <div className="absolute top-14 left-2 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
           <h4 className="font-medium text-sm">{displayNode.name}</h4>
           <p className="text-xs text-gray-500 mt-1">
             Section: {displayNode.sectionName}
