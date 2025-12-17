@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import {
   AgendaNode,
   SimilarityGraphData,
@@ -118,6 +119,7 @@ export default function SimilarityGraph({
   width = 900,
   height = 600,
 }: SimilarityGraphProps) {
+  const router = useRouter();
   const graphRef = useRef<any>(null);
   const [threshold, setThreshold] = useState(0.15);
   const [maxEdgesPerNode, setMaxEdgesPerNode] = useState(5);
@@ -218,9 +220,15 @@ export default function SimilarityGraph({
     }
   }, []);
 
-  const handleNodeClick = useCallback((node: any) => {
-    setSelectedNode((prev) => (prev?.id === node.id ? null : node));
-  }, []);
+  const handleNodeClick = useCallback((node: any, event: MouseEvent) => {
+    const url = `/${node.sectionId}/${node.id}`;
+    // Middle click, ctrl+click, or cmd+click opens in new tab
+    if (event.button === 1 || event.ctrlKey || event.metaKey) {
+      window.open(url, '_blank');
+    } else {
+      router.push(url);
+    }
+  }, [router]);
 
   const handleNodeHover = useCallback((node: any) => {
     setHoveredNode(node || null);
@@ -454,7 +462,7 @@ export default function SimilarityGraph({
 
       {/* Info panel for selected/hovered node */}
       {displayNode && (
-        <div className="absolute top-2 left-2 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
+        <div className="absolute top-28 left-2 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
           <h4 className="font-medium text-sm">{displayNode.name}</h4>
           <p className="text-xs text-gray-500 mt-1">
             Section: {displayNode.sectionName}
