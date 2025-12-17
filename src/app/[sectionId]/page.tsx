@@ -144,7 +144,7 @@ export default async function SectionPage({ params }: PageProps) {
         <div className="mb-8"></div>
 
         {/* Colored accent bar */}
-        <div className={`w-16 h-1.5 ${sectionColors.heading.replace('text-', 'bg-')} rounded-full mb-6`}></div>
+        <div className={`w-16 h-1.5 ${sectionColors.accent} rounded-full mb-6`}></div>
 
         <h1 className={`text-5xl font-bold mb-3 font-serif leading-tight tracking-tight ${sectionColors.heading}`}>
           {getNameWithoutParentheses(section.name)}
