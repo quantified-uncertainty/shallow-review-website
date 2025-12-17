@@ -163,9 +163,12 @@ export default function AgendaTable({ agendas, initialSortField = "name", sectio
               <td className="px-4 py-4 whitespace-nowrap">
                 <Link
                   href={`/${agenda.sectionId}`}
-                  className={`text-xs font-medium ${getSectionColors(agenda.sectionId).text} ${getSectionColors(agenda.sectionId).hover}`}
+                  className="flex items-center gap-2 hover:opacity-70 transition-opacity"
                 >
-                  {getNameWithoutParentheses(agenda.sectionName)}
+                  <span className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${getSectionColors(agenda.sectionId).dot}`} />
+                  <span className="text-sm font-display font-bold text-slate-700">
+                    {getNameWithoutParentheses(agenda.sectionName)}
+                  </span>
                 </Link>
               </td>
 

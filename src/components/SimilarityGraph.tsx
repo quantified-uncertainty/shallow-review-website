@@ -19,16 +19,34 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
   ),
 });
 
-// Section color palette - RGB values (opacity applied dynamically based on paper count)
+// Section color palette - RGB values matching src/constants/colors.ts Tailwind classes
+// (opacity applied dynamically based on paper count)
 const SECTION_COLORS: Record<string, [number, number, number]> = {
-  "labs-giant-companies": [59, 130, 246], // blue
-  "black-box-safety": [16, 185, 129], // emerald
-  "white-box-safety": [139, 92, 246], // purple
-  "safety-by-construction": [245, 158, 11], // amber
-  "make-ai-solve-it": [236, 72, 153], // pink
-  "theory": [239, 68, 68], // red
-  "multi-agent-first": [6, 182, 212], // cyan
-  other: [107, 114, 128], // gray
+  // Labs: yellow-800 (#854d0e)
+  Labs: [133, 77, 14],
+  // Black_box_safety: slate-700 (#334155)
+  Black_box_safety: [51, 65, 85],
+  // Sub-sections of Black_box_safety inherit the same color
+  Iterative_alignment: [51, 65, 85],
+  Model_psychology: [51, 65, 85],
+  Better_data: [51, 65, 85],
+  Goal_robustness: [51, 65, 85],
+  // White_box_safety: sky-400 (#38bdf8)
+  White_box_safety: [56, 189, 248],
+  Concept_based_interpretability: [56, 189, 248],
+  // Safety_by_construction: amber-600 (#d97706)
+  Safety_by_construction: [217, 119, 6],
+  // Make_AI_solve_it: rose-600 (#e11d48)
+  Make_AI_solve_it: [225, 29, 72],
+  // Theory: indigo-600 (#4f46e5)
+  Theory: [79, 70, 229],
+  Corrigibility: [79, 70, 229],
+  Ontology_Identification: [79, 70, 229],
+  // Multi_agent_first: violet-600 (#7c3aed)
+  Multi_agent_first: [124, 58, 237],
+  // Evals: teal-600 (#0d9488)
+  Evals: [13, 148, 136],
+  other: [107, 114, 128], // gray fallback
 };
 
 // Approach colors - RGB values
@@ -241,14 +259,24 @@ export default function SimilarityGraph({
 
   const displayNode = selectedNode || hoveredNode;
 
+  // Main sections for legend (excludes sub-sections that inherit parent colors)
+  const MAIN_SECTIONS = [
+    "Labs",
+    "Black_box_safety",
+    "White_box_safety",
+    "Safety_by_construction",
+    "Make_AI_solve_it",
+    "Theory",
+    "Multi_agent_first",
+    "Evals",
+  ];
+
   // Get current legend based on color mode (convert RGB to rgba string)
   const currentLegend = useMemo(() => {
     const toRgba = (rgb: [number, number, number]) => `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.9)`;
     switch (colorMode) {
       case "section":
-        return Object.entries(SECTION_COLORS)
-          .filter(([key]) => key !== "other")
-          .map(([key, rgb]) => [key, toRgba(rgb)] as [string, string]);
+        return MAIN_SECTIONS.map((key) => [key, toRgba(SECTION_COLORS[key] || SECTION_COLORS.other)] as [string, string]);
       case "approach":
         return Object.entries(APPROACH_COLORS)
           .filter(([key]) => key !== "other")
@@ -421,7 +449,7 @@ export default function SimilarityGraph({
                 style={{ backgroundColor: color }}
               />
               <span className="capitalize text-[10px]">
-                {key.replace(/-/g, " ")}
+                {key.replace(/[-_]/g, " ")}
               </span>
             </div>
           ))}
