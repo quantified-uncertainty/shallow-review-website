@@ -34,15 +34,9 @@ adjustments:
 
   # China - content overrides
   China:
-    summary: >-
-      The Chinese companies [don't](https://futureoflife.org/wp-content/uploads/2025/07/FLI-AI-Safety-Index-Report-Summer-2025.pdf#page=3)
-      [attempt](https://ailabwatch.org/companies/deepseek) to be safe, often not even in the prosaic safeguards sense.
-      They drop the weights [immediately](https://x.com/natolambert/status/1991915728992190909) after post-training finishes.
-      They're mostly open weights and closed data. As of writing the companies are often
-      [severely](https://www.wsj.com/tech/ai/china-us-ai-chip-restrictions-effect-275a311e) compute-constrained.
-      There are some [informal reasons](https://www.gleech.org/paper) to doubt their capabilities.
-      The (academic) Chinese AI safety scene is however [also](https://concordia-ai.com/research/state-of-ai-safety-in-china-2025/) growing.
     description: |
+      The Chinese companies [don't](https://futureoflife.org/wp-content/uploads/2025/07/FLI-AI-Safety-Index-Report-Summer-2025.pdf#page=3) [attempt](https://ailabwatch.org/companies/deepseek) to be safe, often not even in the prosaic safeguards sense. They drop the weights [immediately](https://x.com/natolambert/status/1991915728992190909) after post-training finishes. They're mostly open weights and closed data. As of writing the companies are often [severely](https://www.wsj.com/tech/ai/china-us-ai-chip-restrictions-effect-275a311e) compute-constrained. There are some [informal reasons](https://www.gleech.org/paper) to doubt their capabilities. The (academic) Chinese AI safety scene is however [also](https://concordia-ai.com/research/state-of-ai-safety-in-china-2025/) growing.
+
       * Alibaba's Qwen3-etc-etc is [nominally](https://artificialanalysis.ai/leaderboards/models) at the level of Gemini 2.5 Flash. Maybe the only Chinese model with a [large](https://www.atomproject.ai/#:~:text=Model%20Adoption%20Trends) Western userbase, including businesses, but since it's self-hosted this doesn't translate into profits for them yet. On [one ad hoc test](https://www.gleech.org/paper) it was the only Chinese model not to collapse OOD, but the Qwen2.5 corpus was severely contaminated.
       * DeepSeek's v3.2 is [nominally](https://artificialanalysis.ai/leaderboards/models) around the same as Qwen. The CCP made them [waste](https://arstechnica.com/ai/2025/08/deepseek-delays-next-ai-model-due-to-poor-performance-of-chinese-made-chips/) months trying Huawei chips.
       * Moonshot's Kimi-K2-Thinking has some nominally [frontier](https://artificialanalysis.ai/) benchmark results and a pleasant style but does not [seem](https://x.com/METR_Evals/status/1991658241932292537) frontier.
