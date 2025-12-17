@@ -1,0 +1,480 @@
+# Keywords represent specific technical concepts, methods, or phenomena
+# that appear frequently in AI safety research papers.
+# Unlike broad approaches or orthodox problems, keywords are more granular
+# and help identify what specific topics a research agenda addresses.
+
+keywords:
+  # Threat Models & Failure Modes
+  - id: scheming
+    name: Scheming
+    description: AI systems strategically pursuing hidden goals while appearing aligned, potentially planning to undermine safety measures when given the opportunity.
+    category: threat-models
+    lesswrongTags:
+      - deceptive-alignment
+
+  - id: deception
+    name: Deception
+    description: AI systems providing false or misleading information to humans or other systems, either through direct lies or omission.
+    category: threat-models
+    lesswrongTags:
+      - deception
+
+  - id: sandbagging
+    name: Sandbagging
+    description: AI systems deliberately underperforming on capability evaluations to avoid triggering safety measures or capability restrictions.
+    category: threat-models
+    lesswrongTags:
+      - sandbagging-ai
+
+  - id: reward-hacking
+    name: Reward Hacking
+    description: AI systems achieving high reward through unintended shortcuts that don't align with the designer's true objectives.
+    category: threat-models
+    lesswrongTags:
+      - reward-functions
+      - specification-gaming
+
+  - id: goal-misgeneralization
+    name: Goal Misgeneralization
+    description: When a model's learned goals don't generalize correctly to new situations, leading to unintended behavior out of distribution.
+    category: threat-models
+    lesswrongTags:
+      - goal-misgeneralization
+
+  - id: shutdown-resistance
+    name: Shutdown Resistance
+    description: AI systems resisting or circumventing attempts to shut them down or modify their goals, an instrumentally convergent behavior.
+    category: threat-models
+    lesswrongTags:
+      - corrigibility-1
+      - instrumental-convergence
+
+  - id: sabotage
+    name: Sabotage
+    description: AI systems deliberately undermining tasks, infrastructure, or other systems while potentially appearing to cooperate.
+    category: threat-models
+
+  - id: manipulation
+    name: Manipulation
+    description: AI systems influencing human decisions through persuasion, social engineering, or exploiting cognitive biases.
+    category: threat-models
+    lesswrongTags:
+      - manipulation
+
+  - id: exfiltration
+    name: Exfiltration
+    description: AI systems copying themselves or their weights to external systems to ensure persistence or evade control.
+    category: threat-models
+
+  - id: power-seeking
+    name: Power Seeking
+    description: AI systems acquiring resources, influence, or capabilities beyond what is needed for the current task.
+    category: threat-models
+    lesswrongTags:
+      - instrumental-convergence
+
+  - id: mesa-optimization
+    name: Mesa-Optimization
+    description: When a trained model itself becomes an optimizer with its own objectives that may differ from training objectives.
+    category: threat-models
+    lesswrongTags:
+      - mesa-optimization
+
+  # Safety Techniques & Methods
+  - id: safety-cases
+    name: Safety Cases
+    description: Structured arguments with supporting evidence that a system is acceptably safe for a given application in a given environment.
+    category: safety-techniques
+    lesswrongTags:
+      - ai-safety-cases
+
+  - id: monitoring
+    name: Monitoring
+    description: Runtime observation and analysis of AI system behavior to detect anomalies, misalignment, or dangerous actions.
+    category: safety-techniques
+    lesswrongTags:
+      - ai-supervision
+
+  - id: steering-vectors
+    name: Steering Vectors
+    description: Vectors in activation space that can be added to model activations to modify behavior in interpretable ways.
+    category: safety-techniques
+    lesswrongTags:
+      - activation-engineering
+
+  - id: probing
+    name: Probing
+    description: Training classifiers on model activations to detect internal states like deception, uncertainty, or planning.
+    category: safety-techniques
+    lesswrongTags:
+      - neural-network-probes
+
+  - id: classifiers
+    name: Classifiers
+    description: Models trained to detect and filter harmful inputs or outputs, such as jailbreak attempts or toxic content.
+    category: safety-techniques
+
+  - id: formal-verification
+    name: Formal Verification
+    description: Mathematical proofs that a system satisfies specified safety properties under all possible inputs or conditions.
+    category: safety-techniques
+    lesswrongTags:
+      - guaranteed-safe-ai
+
+  - id: red-teaming
+    name: Red Teaming
+    description: Adversarial testing where humans or AI systems attempt to find failures, vulnerabilities, or misalignment in AI systems.
+    category: safety-techniques
+    lesswrongTags:
+      - red-teaming
+
+  - id: scalable-oversight
+    name: Scalable Oversight
+    description: Methods for humans to effectively supervise AI systems even as they become more capable than humans at the task.
+    category: safety-techniques
+    lesswrongTags:
+      - scalable-oversight
+
+  - id: unlearning
+    name: Unlearning
+    description: Techniques for selectively removing specific knowledge, capabilities, or behaviors from trained models.
+    category: safety-techniques
+    lesswrongTags:
+      - machine-unlearning
+
+  - id: tamper-resistance
+    name: Tamper Resistance
+    description: Making safety measures robust against attempts to remove or circumvent them, especially via fine-tuning.
+    category: safety-techniques
+
+  - id: model-organisms
+    name: Model Organisms
+    description: Creating controlled examples of potentially dangerous AI behaviors to study them safely and develop countermeasures.
+    category: safety-techniques
+
+  - id: adversarial-robustness
+    name: Adversarial Robustness
+    description: Making models robust to adversarial inputs designed to cause misclassification or unintended behaviors.
+    category: safety-techniques
+    lesswrongTags:
+      - adversarial-robustness
+
+  - id: uncertainty-quantification
+    name: Uncertainty Quantification
+    description: Methods for models to accurately report their confidence levels and know what they don't know.
+    category: safety-techniques
+
+  # Interpretability Concepts
+  - id: circuits
+    name: Circuits
+    description: Subgraphs of neural network components (attention heads, neurons, features) that implement specific computations or behaviors.
+    category: interpretability
+    lesswrongTags:
+      - transformer-circuits
+
+  - id: features
+    name: Features
+    description: Interpretable directions in activation space that correspond to human-understandable concepts or properties.
+    category: interpretability
+
+  - id: superposition
+    name: Superposition
+    description: The phenomenon where neural networks represent more features than they have dimensions by using overlapping, nearly-orthogonal directions.
+    category: interpretability
+    lesswrongTags:
+      - superposition
+
+  - id: sparse-autoencoders
+    name: Sparse Autoencoders
+    description: Neural networks trained to decompose activations into sparse, interpretable features, helping disentangle superposition.
+    category: interpretability
+    lesswrongTags:
+      - sparse-autoencoders-saes
+
+  - id: attribution
+    name: Attribution
+    description: Methods for determining which inputs, neurons, or features are responsible for a model's outputs or behaviors.
+    category: interpretability
+    lesswrongTags:
+      - attribution-paths
+
+  - id: attention-patterns
+    name: Attention Patterns
+    description: The learned patterns of which tokens attend to which other tokens, revealing information flow in transformers.
+    category: interpretability
+    lesswrongTags:
+      - attention-patterns
+
+  # Alignment Approaches
+  - id: constitutional-ai
+    name: Constitutional AI
+    description: Training AI systems to follow explicit principles or constitutions that guide their behavior and values.
+    category: alignment-approaches
+    lesswrongTags:
+      - constitutional-ai
+
+  - id: deliberative-alignment
+    name: Deliberative Alignment
+    description: Training models to explicitly reason about their values and principles when making decisions.
+    category: alignment-approaches
+
+  - id: rlhf
+    name: RLHF
+    description: Reinforcement Learning from Human Feedback - training models using reward signals derived from human preferences.
+    category: alignment-approaches
+    lesswrongTags:
+      - rlhf
+
+  - id: debate
+    name: Debate
+    description: A scalable oversight method where AI systems argue opposing positions to help humans evaluate complex questions.
+    category: alignment-approaches
+    lesswrongTags:
+      - debate-ai-safety-technique-1
+
+  - id: iterated-amplification
+    name: Iterated Amplification
+    description: Bootstrapping alignment by using AI systems to help train more capable AI systems while maintaining alignment.
+    category: alignment-approaches
+    lesswrongTags:
+      - iterated-amplification
+
+  - id: corrigibility
+    name: Corrigibility
+    description: The property of an AI system that allows humans to correct, modify, or shut it down without resistance.
+    category: alignment-approaches
+    lesswrongTags:
+      - corrigibility-1
+
+  - id: value-specification
+    name: Value Specification
+    description: The challenge of formally specifying human values and preferences in a form AI systems can optimize.
+    category: alignment-approaches
+    lesswrongTags:
+      - value-learning
+      - human-values
+
+  - id: inner-alignment
+    name: Inner Alignment
+    description: Ensuring the learned objective (mesa-objective) of a trained model matches the training objective.
+    category: alignment-approaches
+    lesswrongTags:
+      - inner-alignment-1
+
+  - id: outer-alignment
+    name: Outer Alignment
+    description: Ensuring the training objective accurately captures the intended goals and values.
+    category: alignment-approaches
+    lesswrongTags:
+      - outer-alignment
+
+  # Evaluation & Testing
+  - id: capability-elicitation
+    name: Capability Elicitation
+    description: Methods for fully drawing out and measuring the capabilities of AI systems, avoiding underestimation.
+    category: evaluation
+    lesswrongTags:
+      - eliciting-latent-knowledge
+
+  - id: benchmarks
+    name: Benchmarks
+    description: Standardized tests for measuring AI system capabilities, safety properties, or alignment.
+    category: evaluation
+    lesswrongTags:
+      - ai-benchmarking
+
+  - id: evals
+    name: Evaluations
+    description: Systematic assessments of AI system properties, especially dangerous capabilities or alignment.
+    category: evaluation
+    lesswrongTags:
+      - ai-evaluations
+
+  - id: jailbreaking
+    name: Jailbreaking
+    description: Techniques for bypassing AI safety measures to elicit harmful, restricted, or unintended behaviors.
+    category: evaluation
+    lesswrongTags:
+      - jailbreaking-ais
+
+  - id: prompt-injection
+    name: Prompt Injection
+    description: Attacks where malicious instructions are embedded in inputs to override system prompts or safety measures.
+    category: evaluation
+    lesswrongTags:
+      - prompt-injection
+
+  # Model Properties & Phenomena
+  - id: emergent-capabilities
+    name: Emergent Capabilities
+    description: Capabilities that appear suddenly at certain scales without being explicitly trained, often unpredictably.
+    category: model-properties
+    lesswrongTags:
+      - emergent-behavior-emergence
+
+  - id: situational-awareness
+    name: Situational Awareness
+    description: A model's knowledge about itself, its training process, deployment context, and ability to act strategically.
+    category: model-properties
+    lesswrongTags:
+      - situational-awareness-1
+
+  - id: faithfulness
+    name: Faithfulness
+    description: Whether a model's stated reasoning (e.g., chain of thought) accurately reflects its actual internal computations.
+    category: model-properties
+    lesswrongTags:
+      - chain-of-thought-alignment
+
+  - id: obfuscation
+    name: Obfuscation
+    description: Models hiding their true reasoning or intentions, making their behavior harder to interpret or monitor.
+    category: model-properties
+
+  - id: sycophancy
+    name: Sycophancy
+    description: Models telling users what they want to hear rather than providing accurate or helpful information.
+    category: model-properties
+    lesswrongTags:
+      - sycophancy
+
+  - id: personas
+    name: Personas
+    description: The character, personality, or role that a model adopts, which can influence its behavior and values.
+    category: model-properties
+    lesswrongTags:
+      - ai-psychology
+
+  - id: memorization
+    name: Memorization
+    description: Models storing and reproducing training data verbatim, raising privacy and copyright concerns.
+    category: model-properties
+
+  # Theoretical Concepts
+  - id: decision-theory
+    name: Decision Theory
+    description: Formal frameworks for how agents should make decisions, including under uncertainty or self-reference.
+    category: theory
+    lesswrongTags:
+      - decision-theory
+
+  - id: game-theory
+    name: Game Theory
+    description: Mathematical study of strategic interactions between agents, relevant for multi-agent AI scenarios.
+    category: theory
+    lesswrongTags:
+      - game-theory
+
+  - id: ontology
+    name: Ontology
+    description: The concepts and categories an agent uses to understand the world, and how to translate between ontologies.
+    category: theory
+    lesswrongTags:
+      - ontology
+
+  - id: world-models
+    name: World Models
+    description: Internal representations that agents use to predict and reason about the external world.
+    category: theory
+    lesswrongTags:
+      - world-modeling
+
+  - id: abstractions
+    name: Abstractions
+    description: Higher-level concepts that compress or summarize lower-level information, potentially shared across systems.
+    category: theory
+    lesswrongTags:
+      - abstraction
+      - natural-abstraction
+
+  # Agent & Architecture Concepts
+  - id: agentic-systems
+    name: Agentic Systems
+    description: AI systems that take actions in the world, pursue goals over time, and operate with some autonomy.
+    category: agents
+    lesswrongTags:
+      - ai-agents
+
+  - id: tool-use
+    name: Tool Use
+    description: AI systems using external tools, APIs, or capabilities to accomplish tasks beyond their base abilities.
+    category: agents
+    lesswrongTags:
+      - tool-use
+
+  - id: multi-agent
+    name: Multi-Agent
+    description: Systems or scenarios involving multiple AI agents interacting, cooperating, or competing.
+    category: agents
+    lesswrongTags:
+      - multipolar-scenarios
+
+  - id: scaffolding
+    name: Scaffolding
+    description: External frameworks that wrap AI models to add capabilities, memory, planning, or tool access.
+    category: agents
+    lesswrongTags:
+      - ai-agent-scaffolds
+
+  # Training & Development
+  - id: fine-tuning
+    name: Fine-tuning
+    description: Additional training on specific data or tasks after initial pretraining, which can add or remove behaviors.
+    category: training
+
+  - id: pretraining
+    name: Pretraining
+    description: The initial large-scale training of models on broad data, which shapes their base capabilities and tendencies.
+    category: training
+
+  - id: data-quality
+    name: Data Quality
+    description: The properties of training data that affect model capabilities, safety, and alignment.
+    category: training
+
+  - id: synthetic-data
+    name: Synthetic Data
+    description: Training data generated by AI systems rather than collected from humans or the real world.
+    category: training
+
+  - id: data-poisoning
+    name: Data Poisoning
+    description: Attacks that compromise AI systems by injecting malicious examples into training data.
+    category: training
+
+categories:
+  - id: threat-models
+    name: Threat Models
+    description: Failure modes and risks from AI systems
+
+  - id: safety-techniques
+    name: Safety Techniques
+    description: Methods for making AI systems safer
+
+  - id: interpretability
+    name: Interpretability
+    description: Understanding model internals
+
+  - id: alignment-approaches
+    name: Alignment Approaches
+    description: High-level strategies for alignment
+
+  - id: evaluation
+    name: Evaluation
+    description: Testing and measuring AI systems
+
+  - id: model-properties
+    name: Model Properties
+    description: Characteristics and phenomena of AI models
+
+  - id: theory
+    name: Theory
+    description: Theoretical foundations and concepts
+
+  - id: agents
+    name: Agents
+    description: Agentic AI systems and architectures
+
+  - id: training
+    name: Training
+    description: How models are developed and modified

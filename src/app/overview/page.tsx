@@ -141,13 +141,13 @@ export default function OverviewPage() {
                           const name =
                             subSection?.name || agenda?.name || itemId;
                           groupedItems.push(
-                            <div key={itemId} className="mb-6">
+                            <div key={itemId} className="mb-8">
                               <div
                                 className={`text-sm font-semibold text-slate-400 mb-1`}
                               >
                                 {getNameWithoutParentheses(name)}
                               </div>
-                              <div className={`flex flex-wrap gap-x-4`}>
+                              <div className={`flex flex-wrap gap-x-4 gap-y-3`}>
                                 {children.map((child) => (
                                   <AgendaLink
                                     key={child.id}
@@ -169,7 +169,7 @@ export default function OverviewPage() {
                         <>
                           {groupedItems}
                           {standaloneAgendas.length > 0 && (
-                            <div className="flex flex-wrap gap-x-4 gap-y-1">
+                            <div className="flex flex-wrap gap-x-4 gap-y-3">
                               {standaloneAgendas.map((agenda) => (
                                 <AgendaLink
                                   key={agenda.id}
@@ -185,7 +185,7 @@ export default function OverviewPage() {
                     })()
                   ) : (
                     // Flat list for sections without hierarchy
-                    <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    <div className="flex flex-wrap gap-x-4 gap-y-3">
                       {agendas.map((agenda) => (
                         <AgendaLink
                           key={agenda.id}

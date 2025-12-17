@@ -1,0 +1,78 @@
+# LessWrong tags for agendas
+# This file maps agenda IDs to their LessWrong tag slugs
+# Maintained separately from agendas.yaml for easier updates from the pipeline
+#
+# Note: Agenda IDs use underscores (e.g., cot_monitoring) to match the pipeline output
+
+unlearning:
+  - machine-unlearning
+control:
+  - ai-control
+cot_monitoring:
+  - chain-of-thought-alignment
+surprising_generalization:
+  - deceptive-alignment
+specs_and_constitutions:
+  - constitutional-ai
+psych_personas:
+  - sycophancy
+model_values:
+  - human-values
+hyperstition:
+  - hyperstitions
+rl_safety:
+  - reinforcement-learning
+assistance_games:
+  - center-for-human-compatible-ai-chai
+open_model_interventions:
+  - open-source-ai
+interp_fundamental:
+  - interpretability-ml-and-ai
+  - transformer-circuits
+interp_concept_based:
+  - ai-auditing
+model_diff:
+  - model-diffing
+interp_sparse_coding:
+  - sparse-autoencoders-saes
+interp_causal_abstractions:
+  - causal-scrubbing
+interp_other:
+  - interpretability-ml-and-ai
+activation_engineering:
+  - activation-engineering
+learning_dev_interp:
+  - singular-learning-theory
+aisi_guarantees:
+  - guaranteed-safe-ai
+supervising_improvement:
+  - ai-assisted-alignment
+  - scalable-oversight
+debate:
+  - debate-ai-safety-technique-1
+introspection_training:
+  - scalable-oversight
+agent_foundations:
+  - agent-foundations
+tiling_agents:
+  - tiling-agents
+simulators:
+  - simulator-theory
+arc_theory_formal:
+  - alignment-research-center-arc
+  - eliciting-latent-knowledge
+behavior_alignment_theory:
+  - shard-theory
+corrigibility_other:
+  - corrigibility-1
+natural_abstractions:
+  - natural-abstraction
+learning_theoretic_agenda:
+  - ontology
+aligning_multiple_game_theory:
+  - game-theory
+  - multipolar-scenarios
+aligning_multiple_tools:
+  - multipolar-scenarios
+aligned_to_who:
+  - human-values

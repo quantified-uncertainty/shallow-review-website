@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 import {
   AgendaNode,
   SimilarityGraphData,
@@ -19,36 +20,50 @@ const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), {
   ),
 });
 
-// Section color palette - RGB values (opacity applied dynamically based on paper count)
+// Section color palette - RGB values matching src/constants/colors.ts Tailwind classes
+// (opacity applied dynamically based on paper count)
 const SECTION_COLORS: Record<string, [number, number, number]> = {
-  "labs-giant-companies": [59, 130, 246], // blue
-  "black-box-safety": [16, 185, 129], // emerald
-  "white-box-safety": [139, 92, 246], // purple
-  "safety-by-construction": [245, 158, 11], // amber
-  "make-ai-solve-it": [236, 72, 153], // pink
-  "theory": [239, 68, 68], // red
-  "multi-agent-first": [6, 182, 212], // cyan
-  other: [107, 114, 128], // gray
+  // Labs: yellow-800 (#854d0e)
+  Labs: [133, 77, 14],
+  // Black_box_safety: slate-700 (#334155)
+  Black_box_safety: [51, 65, 85],
+  // Sub-sections of Black_box_safety inherit the same color
+  Iterative_alignment: [51, 65, 85],
+  Model_psychology: [51, 65, 85],
+  Better_data: [51, 65, 85],
+  Goal_robustness: [51, 65, 85],
+  // White_box_safety: sky-400 (#38bdf8)
+  White_box_safety: [56, 189, 248],
+  Concept_based_interpretability: [56, 189, 248],
+  // Safety_by_construction: amber-600 (#d97706)
+  Safety_by_construction: [217, 119, 6],
+  // Make_AI_solve_it: rose-600 (#e11d48)
+  Make_AI_solve_it: [225, 29, 72],
+  // Theory: indigo-600 (#4f46e5)
+  Theory: [79, 70, 229],
+  Corrigibility: [79, 70, 229],
+  Ontology_Identification: [79, 70, 229],
+  // Multi_agent_first: violet-600 (#7c3aed)
+  Multi_agent_first: [124, 58, 237],
+  // Evals: teal-600 (#0d9488)
+  Evals: [13, 148, 136],
+  other: [107, 114, 128], // gray fallback
 };
 
 // Approach colors - RGB values
 const APPROACH_COLORS: Record<string, [number, number, number]> = {
-  "engineering": [59, 130, 246], // blue
-  "behavioral": [16, 185, 129], // green
-  "cognitive": [139, 92, 246], // purple
-  "maths-philosophy": [245, 158, 11], // orange
-  "theoretical": [107, 114, 128], // gray
-  other: [107, 114, 128],
+  engineering: [59, 130, 246], // blue
+  behavioral: [16, 185, 129], // green
+  cognitive: [139, 92, 246], // purple
+  other: [107, 114, 128], // gray
 };
 
 // Target case colors - RGB values
 const TARGET_CASE_COLORS: Record<string, [number, number, number]> = {
-  "pessimistic": [239, 68, 68], // red
-  "optimistic": [16, 185, 129], // green
   "average-case": [59, 130, 246], // blue
+  pessimistic: [239, 68, 68], // red
   "worst-case": [139, 92, 246], // purple
-  "mixed": [107, 114, 128], // gray
-  other: [107, 114, 128],
+  other: [107, 114, 128], // gray
 };
 
 // Calculate opacity based on paper count (0.4 to 0.9)
@@ -104,6 +119,7 @@ export default function SimilarityGraph({
   width = 900,
   height = 600,
 }: SimilarityGraphProps) {
+  const router = useRouter();
   const graphRef = useRef<any>(null);
   const [threshold, setThreshold] = useState(0.15);
   const [maxEdgesPerNode, setMaxEdgesPerNode] = useState(5);
@@ -174,14 +190,17 @@ export default function SimilarityGraph({
     }
 
     return {
-      nodes: data.nodes.map((n) => ({ ...n })),
+      nodes: data.nodes.map((n) => ({
+        ...n,
+        color: getNodeColorByMode(n, colorMode)
+      })),
       links: selectedEdges.map((e) => ({
         source: e.source,
         target: e.target,
         similarity: e.similarity,
       })),
     };
-  }, [data, threshold, maxEdgesPerNode, weights]);
+  }, [data, threshold, maxEdgesPerNode, weights, colorMode]);
 
   // Flag to track if we've done initial zoom
   const hasZoomedRef = useRef(false);
@@ -201,19 +220,19 @@ export default function SimilarityGraph({
     }
   }, []);
 
-  const handleNodeClick = useCallback((node: any) => {
-    setSelectedNode((prev) => (prev?.id === node.id ? null : node));
-  }, []);
+  const handleNodeClick = useCallback((node: any, event: MouseEvent) => {
+    const url = `/${node.sectionId}/${node.id}`;
+    // Middle click, ctrl+click, or cmd+click opens in new tab
+    if (event.button === 1 || event.ctrlKey || event.metaKey) {
+      window.open(url, '_blank');
+    } else {
+      router.push(url);
+    }
+  }, [router]);
 
   const handleNodeHover = useCallback((node: any) => {
     setHoveredNode(node || null);
   }, []);
-
-  // Memoize color function to avoid graph resets
-  const nodeColorFn = useCallback(
-    (node: any) => getNodeColorByMode(node, colorMode),
-    [colorMode]
-  );
 
   const WeightSlider = ({
     label,
@@ -241,14 +260,24 @@ export default function SimilarityGraph({
 
   const displayNode = selectedNode || hoveredNode;
 
+  // Main sections for legend (excludes sub-sections that inherit parent colors)
+  const MAIN_SECTIONS = [
+    "Labs",
+    "Black_box_safety",
+    "White_box_safety",
+    "Safety_by_construction",
+    "Make_AI_solve_it",
+    "Theory",
+    "Multi_agent_first",
+    "Evals",
+  ];
+
   // Get current legend based on color mode (convert RGB to rgba string)
   const currentLegend = useMemo(() => {
     const toRgba = (rgb: [number, number, number]) => `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.9)`;
     switch (colorMode) {
       case "section":
-        return Object.entries(SECTION_COLORS)
-          .filter(([key]) => key !== "other")
-          .map(([key, rgb]) => [key, toRgba(rgb)] as [string, string]);
+        return MAIN_SECTIONS.map((key) => [key, toRgba(SECTION_COLORS[key] || SECTION_COLORS.other)] as [string, string]);
       case "approach":
         return Object.entries(APPROACH_COLORS)
           .filter(([key]) => key !== "other")
@@ -421,7 +450,7 @@ export default function SimilarityGraph({
                 style={{ backgroundColor: color }}
               />
               <span className="capitalize text-[10px]">
-                {key.replace(/-/g, " ")}
+                {key.replace(/[-_]/g, " ")}
               </span>
             </div>
           ))}
@@ -433,7 +462,7 @@ export default function SimilarityGraph({
 
       {/* Info panel for selected/hovered node */}
       {displayNode && (
-        <div className="absolute top-2 left-2 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
+        <div className="absolute top-14 left-2 z-10 bg-white p-3 rounded-lg shadow-lg max-w-xs">
           <h4 className="font-medium text-sm">{displayNode.name}</h4>
           <p className="text-xs text-gray-500 mt-1">
             Section: {displayNode.sectionName}
@@ -471,7 +500,7 @@ export default function SimilarityGraph({
           height={height}
           nodeId="id"
           nodeLabel="name"
-          nodeColor={nodeColorFn}
+          nodeColor="color"
           nodeVal={getNodeSize}
           linkColor={showEdges ? getLinkColor : () => "rgba(0,0,0,0)"}
           linkWidth={showEdges ? getLinkWidth : () => 0}

@@ -2,6 +2,8 @@ import {
   AlertTriangle,
   ArrowRight,
   BarChart,
+  BookOpen,
+  Building2,
   ChevronLeft,
   ChevronRight,
   Crosshair,
@@ -11,6 +13,7 @@ import {
   LucideIcon,
   MessageSquare,
   Settings,
+  Shield,
   Target,
   Users,
 } from 'lucide-react';
@@ -285,26 +288,26 @@ export default async function AgendaPage({ params }: PageProps) {
             {prevAgenda ? (
               <Link
                 href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
-                className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                className={`p-2 ${sectionColors.text} opacity-60 hover:opacity-100 hover:bg-gray-100 rounded-lg transition-all`}
                 title={prevAgenda.name}
               >
                 <ChevronLeft className="w-5 h-5" />
               </Link>
             ) : (
-              <span className="p-2 text-gray-200 cursor-not-allowed">
+              <span className={`p-2 ${sectionColors.text} opacity-20 cursor-not-allowed`}>
                 <ChevronLeft className="w-5 h-5" />
               </span>
             )}
             {nextAgenda ? (
               <Link
                 href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
-                className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                className={`p-2 ${sectionColors.text} opacity-60 hover:opacity-100 hover:bg-gray-100 rounded-lg transition-all`}
                 title={nextAgenda.name}
               >
                 <ChevronRight className="w-5 h-5" />
               </Link>
             ) : (
-              <span className="p-2 text-gray-200 cursor-not-allowed">
+              <span className={`p-2 ${sectionColors.text} opacity-20 cursor-not-allowed`}>
                 <ChevronRight className="w-5 h-5" />
               </span>
             )}
@@ -337,7 +340,38 @@ export default async function AgendaPage({ params }: PageProps) {
           </div>
         )}
 
+        {/* Description (longer content, e.g., for lab entries like "Others") */}
+        {agenda.description && (
+          <div className="mb-10 prose prose-gray max-w-none">
+            <Markdown inline={false}>
+              {agenda.description}
+            </Markdown>
+          </div>
+        )}
+
         <div className="space-y-6">
+          {/* Lab-specific fields */}
+          {agenda.structure && (
+            <AttributeRow icon={Building2} label="Structure:">
+              <Markdown inline>{agenda.structure}</Markdown>
+            </AttributeRow>
+          )}
+          {agenda.teams && (
+            <AttributeRow icon={Users} label="Safety teams:">
+              <Markdown inline={false}>{agenda.teams}</Markdown>
+            </AttributeRow>
+          )}
+          {agenda.publicAlignmentAgenda && (
+            <AttributeRow icon={BookOpen} label="Public alignment agenda:">
+              <Markdown inline>{agenda.publicAlignmentAgenda}</Markdown>
+            </AttributeRow>
+          )}
+          {agenda.framework && (
+            <AttributeRow icon={Shield} label="Framework:">
+              <Markdown inline>{agenda.framework}</Markdown>
+            </AttributeRow>
+          )}
+
           {/* Theory of Change */}
           {agenda.theoryOfChange && (
             <AttributeRow icon={Lightbulb} label="Theory of Change:">
@@ -467,7 +501,7 @@ export default async function AgendaPage({ params }: PageProps) {
 
           {/* Key People */}
           {researchers.length > 0 && (
-            <AttributeRow icon={Users} label="Key People:">
+            <AttributeRow icon={Users} label="Some names:">
               <span className="text-gray-900">
                 {researchers.map((researcher, i) => (
                   <span key={researcher.id}>

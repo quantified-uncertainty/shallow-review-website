@@ -65,31 +65,37 @@ export default function SimilarityPage() {
           </h2>
           <p className="text-gray-600 text-sm mb-4">
             Similarity between two agendas is computed as a weighted sum of
-            Jaccard similarities across their shared attributes:
+            Jaccard similarities across their shared attributes. By default, all
+            weights are equal (20% each):
           </p>
           <ul className="text-sm text-gray-600 space-y-1 list-disc list-inside">
             <li>
-              <strong>Broad Approaches</strong> (30%): Research methodology overlap
+              <strong>Approaches</strong>: Research methodology overlap
               (engineering, behavioral, cognitive, etc.)
             </li>
             <li>
-              <strong>Orthodox Problems</strong> (30%): Shared AI safety problems
-              being addressed
+              <strong>Problems</strong>: Shared AI safety problems being addressed
             </li>
             <li>
-              <strong>Target Case</strong> (15%): Whether agendas target the same
-              AI development scenario
+              <strong>Target Case</strong>: Whether agendas target the same AI
+              development scenario
             </li>
             <li>
-              <strong>Funders</strong> (15%): Shared funding sources
+              <strong>Funders</strong>: Shared funding sources
             </li>
             <li>
-              <strong>LessWrong Tags</strong> (10%): Community topic overlap
+              <strong>LW Tags</strong>: LessWrong community topic overlap
+            </li>
+            <li>
+              <strong>Researchers</strong>: Shared researchers working on the agenda
+            </li>
+            <li>
+              <strong>Keywords</strong>: Shared technical keywords
             </li>
           </ul>
           <p className="text-gray-500 text-xs mt-4">
             Use the controls panel to adjust these weights and the similarity
-            threshold for edge display.
+            threshold for edge display. Click on nodes to navigate to their agenda pages.
           </p>
         </div>
       </main>

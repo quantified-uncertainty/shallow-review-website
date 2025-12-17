@@ -1,0 +1,123 @@
+# Structure file for ordering and nesting
+# This defines the canonical order and hierarchy for display
+# IDs should match those in agendas.yaml and sections.yaml
+
+structure:
+  - id: Labs
+    children:
+      - OpenAI
+      - Google_Deepmind
+      - Anthropic
+      - xAI
+      - Meta
+      - China
+      - Others
+
+  - id: Black_box_safety
+    children:
+      - id: Iterative_alignment
+        children:
+          - Iterative_alignment_at_pretrain_time
+          - Iterative_alignment_at_post_train_time
+          - Black_box_make_AI_solve_it
+          - Inoculation_prompting
+          - Inference_time_In_context_learning
+          - Inference_time_Steering
+          - Capability_removal_unlearning
+          - Control
+          - Safeguards_inference_time_auxiliaries_
+          - Chain_of_thought_monitoring
+      - id: Model_psychology
+        children:
+          - Model_values_model_preferences
+          - Character_training_and_persona_steering
+          - Emergent_misalignment
+          - Model_specs_and_constitutions
+          - Model_psychopathology
+      - id: Better_data
+        children:
+          - Data_filtering
+          - Hyperstition_studies
+          - Data_poisoning_defense
+          - Synthetic_data_for_alignment
+          - Data_quality_for_alignment
+      - id: Goal_robustness
+        children:
+          - Mild_optimisation
+          - RL_safety
+          - Assistance_games_assistive_agents
+          - Harm_reduction_for_open_weights
+          - The_Neglected_Approaches_Approach
+
+  - id: White_box_safety
+    children:
+      - Reverse_engineering
+      - Extracting_latent_knowledge
+      - Lie_and_deception_detectors
+      - Model_diffing
+      - Sparse_Coding
+      - Causal_Abstractions
+      - Data_attribution
+      - Pragmatic_interpretability
+      - Other_interpretability
+      - Learning_dynamics_and_developmental_interpretability
+      - Representation_structure_and_geometry
+      - Human_inductive_biases
+      - id: Concept_based_interpretability
+        children:
+          - Monitoring_concepts
+          - Activation_engineering
+
+  - id: Safety_by_construction
+    children:
+      - Guaranteed_Safe_AI
+      - Scientist_AI
+      - Brainlike_AGI_Safety
+
+  - id: Make_AI_solve_it
+    children:
+      - Weak_to_strong_generalization
+      - Supervising_AIs_improving_AIs
+      - AI_explanations_of_AIs
+      - Debate
+      - LLM_introspection_training
+
+  - id: Theory
+    children:
+      - Agent_foundations
+      - Tiling_agents
+      - High_Actuation_Spaces
+      - Asymptotic_guarantees
+      - Heuristic_explanations
+      - id: Corrigibility
+        children:
+          - Behavior_alignment_theory
+          - Other_corrigibility
+      - id: Ontology_Identification
+        children:
+          - Natural_abstractions
+          - The_Learning_Theoretic_Agenda
+
+  - id: Multi_agent_first
+    children:
+      - Aligning_to_context
+      - Aligning_to_the_social_contract
+      - Theory_for_aligning_multiple_AIs
+      - Tools_for_aligning_multiple_AIs
+      - Aligned_to_who_
+      - Aligning_what_
+
+  - id: Evals
+    children:
+      - AGI_metrics
+      - Capability_evals
+      - Autonomy_evals
+      - WMD_evals_Weapons_of_Mass_Destruction_
+      - Situational_awareness_and_self_awareness_evals
+      - Steganography_evals
+      - AI_deception_evals
+      - AI_scheming_evals
+      - Sandbagging_evals
+      - Self_replication_evals
+      - Various_Redteams
+      - Other_evals

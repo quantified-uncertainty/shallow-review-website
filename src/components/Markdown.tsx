@@ -7,8 +7,9 @@ interface MarkdownProps {
 }
 
 export default function Markdown({ children, className = "", inline = true }: MarkdownProps) {
+  const Wrapper = inline ? 'span' : 'div';
   return (
-    <div className={className}>
+    <Wrapper className={className}>
       <ReactMarkdown
         components={{
           p: ({ children }) => inline ? <span>{children}</span> : <p className="mb-3 last:mb-0">{children}</p>,
@@ -29,6 +30,6 @@ export default function Markdown({ children, className = "", inline = true }: Ma
       >
         {children}
       </ReactMarkdown>
-    </div>
+    </Wrapper>
   );
 }
