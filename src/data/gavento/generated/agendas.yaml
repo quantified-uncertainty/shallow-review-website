@@ -572,7 +572,7 @@
       year: 2024
       venue: arXiv
       kind: paper_preprint
-    - title: Unable to access - URL signature expired
+    - title: Code World Model Preparedness Report
       url: >-
         https://scontent-lhr8-1.xx.fbcdn.net/v/t39.2365-6/557601942_1468972530985309_838842257265552803_n.pdf?_nc_cat=108&ccb=1-7&_nc_sid=3c67a6&_nc_ohc=_H33_VKF3ZUQ7kNvwFog8dd&_nc_oc=AdlNtqCDY4HafZ3-d5rb26AF5f2m0X46SGdKhVq3jLqwpNf_wEXhdQnH7_30ychiZWk&_nc_zt=14&_nc_ht=scontent-lhr8-1.xx&_nc_gid=QvW_ePiaF4E-PxOf30MWyg&oh=00_AfiZC5G4ODvWhiy0MuVH8PSlUFrW8RDQQ8tdr6Zec5k9aA&oe=691A6D09
       kind: error_detected
@@ -581,7 +581,7 @@
       year: 2024
       venue: Meta AI Blog
       kind: blog_post
-    - title: Co-improvement (PDF - content not accessible)
+    - title: AI & Human Co-Improvement
       url: https://github.com/facebookresearch/RAM/blob/main/projects/co-improvement.pdf
       year: 2025
       venue: GitHub Repository
@@ -2937,7 +2937,7 @@
         https://www.google.com/url?q=https://www.lesswrong.com/posts/FWkZYQceEzL84tNej/circuits-in-superposition-2-now-with-less-wrong-math&sa=D&source=docs&ust=1765550772146255&usg=AOvVaw334Tyidx2keGCA9vGwQ9a-
       venue: LessWrong
       kind: error_detected
-    - title: "Error: Content Unavailable (429: Too Many Requests)"
+    - title: Compressed Computation is (probably) not Computation in Superposition
       url: https://www.lesswrong.com/posts/ZxFchCFJFcgysYsT9/compressed-computation-is-probably-not-computation-in
       venue: LessWrong
       kind: error_detected
@@ -3371,7 +3371,7 @@
       year: 2024
       venue: LessWrong
       kind: lesswrong
-    - title: "Error: Content Not Found"
+    - title: "Cross-Architecture Model Diffing with Crosscoders: Unsupervised Discovery of Differences Between LLMs"
       url: https://openreview.net/forum?id=ZB84SvrZB8%20
       venue: OpenReview
       kind: error_detected
@@ -3408,7 +3408,7 @@
         Christopher Olah, Thomas Henighan
       venue: Transformer Circuits Thread
       kind: blog_post
-    - title: diffing-toolkit (GitHub 404 Error)
+    - title: "Diffing Toolkit: Model Comparison and Analysis Framework"
       url: https://github.com/science-of-finetuning/diffing-toolkit%20
       venue: GitHub
       kind: error_detected
@@ -5115,7 +5115,7 @@
       year: 2025
       venue: Universal Algorithmic Intelligence website
       kind: blog_post
-    - title: "Unable to access: 429 Too Many Requests"
+    - title: "Clarifying \"wisdom\": Foundational topics for aligned AIs to prioritize before irreversible decisions"
       url: https://www.lesswrong.com/posts/EyvJvYEFzDv5kGoiG/clarifying-wisdom-foundational-topics-for-aligned-ais-to
       venue: LessWrong
       kind: error_detected
@@ -5237,7 +5237,7 @@
       year: 2025
       venue: Groundless Website
       kind: personal_page
-    - title: "429: Too Many Requests"
+    - title: Live Theory
       url: https://www.lesswrong.com/s/aMz2JMvgXrLBkq4h3
       venue: LessWrong
       kind: error_detected
@@ -5247,7 +5247,7 @@
       authors: Sahil
       venue: Google Docs
       kind: error_detected
-    - title: Unknown - Content Unavailable (429 Error)
+    - title: What, if not agency?
       url: https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency
       venue: LessWrong
       kind: error_detected
@@ -5506,7 +5506,7 @@
       year: 2025
       venue: LessWrong/AI Alignment Forum
       kind: lesswrong
-    - title: "Error: Content Unavailable - Too Many Requests (429)"
+    - title: Why Corrigibility is Hard and Important (i.e. "Whence the high MIRI confidence in alignment difficulty?")
       url: https://www.lesswrong.com/posts/ksfjZJu3BFEfM6hHE/why-corrigibility-is-hard-and-important-i-e-whence-the-high
       venue: LessWrong
       kind: error_detected
@@ -5948,7 +5948,7 @@
       year: 2024
       venue: arXiv
       kind: paper_preprint
-    - title: "Error: No content available"
+    - title: Safe (Pareto) Improvements in Binary Constraint Structures
       url: https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?TARK2025:36
       venue: EPTCS (Electronic Proceedings in Theoretical Computer Science)
       kind: error_detected
@@ -6233,7 +6233,7 @@
       year: 2025
       venue: LessWrong
       kind: lesswrong
-    - title: Unknown - Content Unavailable (429 Error)
+    - title: What, if not agency?
       url: https://www.lesswrong.com/posts/tQ9vWm4b57HFqbaRj/what-if-not-agency
       venue: LessWrong
       kind: error_detected

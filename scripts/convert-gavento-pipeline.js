@@ -76,9 +76,19 @@ function toSlugId(name) {
 function isErrorTitle(title) {
   if (!title) return true;
   const errorPatterns = [
-    'Unknown - PDF content not accessible',
-    'Unable to extract - PDF content not accessible',
     'PDF content not accessible',
+    'content not accessible',
+    'Unable to access',
+    'Unable to extract',
+    '429 Too Many Requests',
+    'Too Many Requests',
+    'URL signature expired',
+    'Content Unavailable',
+    'Content Not Found',
+    'GitHub 404',
+    '404 Error',
+    'No content available',
+    'Error:',
   ];
   return errorPatterns.some(pattern => title.includes(pattern));
 }
