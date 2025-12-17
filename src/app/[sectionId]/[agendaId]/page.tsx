@@ -288,26 +288,26 @@ export default async function AgendaPage({ params }: PageProps) {
             {prevAgenda ? (
               <Link
                 href={`/${prevAgenda.sectionId}/${prevAgenda.agendaId}`}
-                className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                className={`p-2 ${sectionColors.text} opacity-60 hover:opacity-100 hover:bg-gray-100 rounded-lg transition-all`}
                 title={prevAgenda.name}
               >
                 <ChevronLeft className="w-5 h-5" />
               </Link>
             ) : (
-              <span className="p-2 text-gray-200 cursor-not-allowed">
+              <span className={`p-2 ${sectionColors.text} opacity-20 cursor-not-allowed`}>
                 <ChevronLeft className="w-5 h-5" />
               </span>
             )}
             {nextAgenda ? (
               <Link
                 href={`/${nextAgenda.sectionId}/${nextAgenda.agendaId}`}
-                className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                className={`p-2 ${sectionColors.text} opacity-60 hover:opacity-100 hover:bg-gray-100 rounded-lg transition-all`}
                 title={nextAgenda.name}
               >
                 <ChevronRight className="w-5 h-5" />
               </Link>
             ) : (
-              <span className="p-2 text-gray-200 cursor-not-allowed">
+              <span className={`p-2 ${sectionColors.text} opacity-20 cursor-not-allowed`}>
                 <ChevronRight className="w-5 h-5" />
               </span>
             )}
