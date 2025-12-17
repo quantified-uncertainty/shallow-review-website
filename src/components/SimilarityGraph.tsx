@@ -51,22 +51,18 @@ const SECTION_COLORS: Record<string, [number, number, number]> = {
 
 // Approach colors - RGB values
 const APPROACH_COLORS: Record<string, [number, number, number]> = {
-  "engineering": [59, 130, 246], // blue
-  "behavioral": [16, 185, 129], // green
-  "cognitive": [139, 92, 246], // purple
-  "maths-philosophy": [245, 158, 11], // orange
-  "theoretical": [107, 114, 128], // gray
-  other: [107, 114, 128],
+  engineering: [59, 130, 246], // blue
+  behavioral: [16, 185, 129], // green
+  cognitive: [139, 92, 246], // purple
+  other: [107, 114, 128], // gray
 };
 
 // Target case colors - RGB values
 const TARGET_CASE_COLORS: Record<string, [number, number, number]> = {
-  "pessimistic": [239, 68, 68], // red
-  "optimistic": [16, 185, 129], // green
   "average-case": [59, 130, 246], // blue
+  pessimistic: [239, 68, 68], // red
   "worst-case": [139, 92, 246], // purple
-  "mixed": [107, 114, 128], // gray
-  other: [107, 114, 128],
+  other: [107, 114, 128], // gray
 };
 
 // Calculate opacity based on paper count (0.4 to 0.9)
@@ -192,14 +188,17 @@ export default function SimilarityGraph({
     }
 
     return {
-      nodes: data.nodes.map((n) => ({ ...n })),
+      nodes: data.nodes.map((n) => ({
+        ...n,
+        color: getNodeColorByMode(n, colorMode)
+      })),
       links: selectedEdges.map((e) => ({
         source: e.source,
         target: e.target,
         similarity: e.similarity,
       })),
     };
-  }, [data, threshold, maxEdgesPerNode, weights]);
+  }, [data, threshold, maxEdgesPerNode, weights, colorMode]);
 
   // Flag to track if we've done initial zoom
   const hasZoomedRef = useRef(false);
@@ -226,12 +225,6 @@ export default function SimilarityGraph({
   const handleNodeHover = useCallback((node: any) => {
     setHoveredNode(node || null);
   }, []);
-
-  // Memoize color function to avoid graph resets
-  const nodeColorFn = useCallback(
-    (node: any) => getNodeColorByMode(node, colorMode),
-    [colorMode]
-  );
 
   const WeightSlider = ({
     label,
@@ -499,7 +492,7 @@ export default function SimilarityGraph({
           height={height}
           nodeId="id"
           nodeLabel="name"
-          nodeColor={nodeColorFn}
+          nodeColor="color"
           nodeVal={getNodeSize}
           linkColor={showEdges ? getLinkColor : () => "rgba(0,0,0,0)"}
           linkWidth={showEdges ? getLinkWidth : () => 0}
