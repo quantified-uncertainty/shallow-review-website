@@ -1,15 +1,20 @@
 # Pipeline Adjustments
 # Overrides for items that are incorrectly classified in the pipeline
-# These adjustments are applied during conversion (npm run convert-pipeline)
+# These adjustments are applied during conversion (npm run convert-gavento)
 #
 # Use this file to:
 # - Change item_type: section → agenda (or vice versa)
 # - Reassign parent relationships
+# - Override content (name, summary, description)
 #
 # Format:
 #   item_id:
 #     item_type: agenda|section  (optional)
 #     parent: new_parent_id      (optional)
+#     name: "New name"           (optional)
+#     summary: "Short summary"   (optional)
+#     description: |             (optional)
+#       Longer description...
 
 adjustments:
   # "Others" under Labs should be an agenda, not a section
@@ -26,3 +31,31 @@ adjustments:
   iterative_alignment:
     item_type: agenda
     parent: black_box
+
+  # China - content overrides
+  China:
+    summary: >-
+      The Chinese companies [don't](https://futureoflife.org/wp-content/uploads/2025/07/FLI-AI-Safety-Index-Report-Summer-2025.pdf#page=3)
+      [attempt](https://ailabwatch.org/companies/deepseek) to be safe, often not even in the prosaic safeguards sense.
+      They drop the weights [immediately](https://x.com/natolambert/status/1991915728992190909) after post-training finishes.
+      They're mostly open weights and closed data. As of writing the companies are often
+      [severely](https://www.wsj.com/tech/ai/china-us-ai-chip-restrictions-effect-275a311e) compute-constrained.
+      There are some [informal reasons](https://www.gleech.org/paper) to doubt their capabilities.
+      The (academic) Chinese AI safety scene is however [also](https://concordia-ai.com/research/state-of-ai-safety-in-china-2025/) growing.
+    description: |
+      * Alibaba's Qwen3-etc-etc is [nominally](https://artificialanalysis.ai/leaderboards/models) at the level of Gemini 2.5 Flash. Maybe the only Chinese model with a [large](https://www.atomproject.ai/#:~:text=Model%20Adoption%20Trends) Western userbase, including businesses, but since it's self-hosted this doesn't translate into profits for them yet. On [one ad hoc test](https://www.gleech.org/paper) it was the only Chinese model not to collapse OOD, but the Qwen2.5 corpus was severely contaminated.
+      * DeepSeek's v3.2 is [nominally](https://artificialanalysis.ai/leaderboards/models) around the same as Qwen. The CCP made them [waste](https://arstechnica.com/ai/2025/08/deepseek-delays-next-ai-model-due-to-poor-performance-of-chinese-made-chips/) months trying Huawei chips.
+      * Moonshot's Kimi-K2-Thinking has some nominally [frontier](https://artificialanalysis.ai/) benchmark results and a pleasant style but does not [seem](https://x.com/METR_Evals/status/1991658241932292537) frontier.
+      * Baidu's [ERNIE 5](https://x.com/Baidu_Inc/status/1988820837898829918) is again nominally very strong, a bit better than DeepSeek. This new one seems to not be open.
+      * Z's [GLM-4.6](https://z.ai/blog/glm-4.6) is around the same as Qwen. The product director was involved in the MIT Alignment group.
+      * MiniMax's M2 is nominally better than Qwen, [around the same](https://artificialanalysis.ai/leaderboards/models) as Grok 4 Fast on the usual superficial benchmarks. It does [fine](https://www.holisticai.com/blog/red-teaming-open-source-ai-models-china) on one very basic red-team test.
+      * ByteDance does impressive research in a lagging paradigm, [diffusion LMs](https://seed.bytedance.com/en/direction/llm).
+      * There are [others](https://www.interconnects.ai/i/171165224/honorable-mentions) but they're marginal for now.
+
+  # Others - content overrides
+  Others:
+    name: Other labs
+    description: |
+      * Amazon's [Nova Pro](https://arxiv.org/pdf/2506.12103v1) is around the level of Llama 3 90B, which in turn is around the level of the original GPT-4. So 2 years behind. But they have their own [chip](https://www.businessinsider.com/startups-amazon-ai-chips-less-competitive-nvidia-gpus-trainium-aws-2025-11).
+      * Microsoft are [now](https://www.dwarkesh.com/p/satya-nadella-2) mid-training on top of GPT-5. MAI-1-preview is [around](https://lmarena.ai/leaderboard/text) DeepSeek V3.0 level on Arena. They [continue](https://arxiv.org/abs/2506.22405v1) to focus on medical diagnosis. You can [request](https://forms.microsoft.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRyRliS0ly-JEvgSpwo3yWyhUQkdTQktBUkFaWERHR1JFRjgwMlZUUkQxTC4u&route=shorturl) access.
+      * Mistral have a reasoning model, [Magistral Medium](https://arxiv.org/pdf/2506.10910), and released the weights of a little 24B version. It's a bit worse than Deepseek R1, pass@1.

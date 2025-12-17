@@ -338,6 +338,19 @@ function convertToFlatFormat(inputData, adjustments = {}) {
       // Papers array (may be empty)
       agenda.papers = papers;
 
+      // Apply content overrides from adjustments (name, summary, description)
+      if (adjustment) {
+        if (adjustment.name) {
+          agenda.name = adjustment.name;
+        }
+        if (adjustment.summary) {
+          agenda.summary = adjustment.summary;
+        }
+        if (adjustment.description) {
+          agenda.description = adjustment.description;
+        }
+      }
+
       agendas.push(agenda);
     }
   }
