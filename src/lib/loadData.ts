@@ -205,6 +205,7 @@ function buildHierarchy(
       parentAgendaId,
       parentSectionId,
       summary: agendaData.summary,
+      description: agendaData.description,
       theoryOfChange: agendaData.theoryOfChange,
       seeAlso: agendaData.seeAlso,
       orthodoxProblems: agendaData.orthodoxProblems,
@@ -218,6 +219,11 @@ function buildHierarchy(
       keywords: agendaData.keywords,
       resources: agendaData.resources,
       wikipedia: agendaData.wikipedia,
+      // Lab-specific fields
+      structure: agendaData.structure,
+      teams: agendaData.teams,
+      publicAlignmentAgenda: agendaData.publicAlignmentAgenda,
+      framework: agendaData.framework,
       papers: agendaData.papers,
     };
 

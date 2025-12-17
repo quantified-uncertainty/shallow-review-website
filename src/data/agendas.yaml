@@ -42,6 +42,19 @@
     Microsoft, [AWS](https://www.aboutamazon.com/news/aws/aws-open-ai-workloads-compute-infrastructure), Oracle, NVIDIA,
     SoftBank, G42, AMD, Dragoneer, Coatue, Thrive, Altimeter, MGX, Blackstone, TPG, T. Rowe Price, Andreessen Horowitz,
     D1 Capital Partners, Fidelity Investments, Founders Fund, Sequoia…
+  structure: public benefit corp
+  teams: >-
+    Alignment, Safety Systems (Interpretability, Safety Oversight, Pretraining Safety, Robustness, Safety Research,
+    Trustworthy AI, new Misalignment Research team [coming](https://archive.is/eDB1D)), Preparedness, Model Policy,
+    Safety and Security Committee, Safety Advisory Group. The [Persona Features](https://www.arxiv.org/pdf/2506.19823)
+    paper had a distinct author list. No named successor to Superalignment.
+  publicAlignmentAgenda: >-
+    [None](https://openai.com/safety/how-we-think-about-safety-alignment/). Boaz Barak
+    [offers](https://www.lesswrong.com/posts/3jnziqCF3vA2NXAKp/six-thoughts-on-ai-safety) personal
+    [views](https://windowsontheory.org/2025/06/24/machines-of-faithful-obedience/).
+  framework: >-
+    [Preparedness
+    Framework](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf)
   papers:
     - title: Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation
       url: https://arxiv.org/abs/2503.11926
@@ -167,6 +180,14 @@
     Google. Explicit 2024 Deepmind spending as a whole was
     [£1.3B](https://s3.eu-west-2.amazonaws.com/document-api-images-live.ch.gov.uk/docs/WT_VNJe9leRjfcU0-OtRjWqF7WiqueStclXgHPbdG4U/application-pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAWRGBDBV3HTI6EAXB%2F20251212%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251212T104902Z&X-Amz-Expires=60&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDcaCWV1LXdlc3QtMiJGMEQCIH6GyZRz66qwZsWkZORhsAQyzQQoJ7j0F4jnnWsgT8i2AiBkQVTWkLiSt%2F89o2yMC5D9NGQ75b1RwC8MBr7dlvrJXyqBBAgAEAUaDDQ0OTIyOTAzMjgyMiIMDkbkT%2FH2vUMV3NxOKt4DfZ6bw%2BWE%2BPfifW4goryaR4bQ%2FeFEXDvW7MU%2BKlfUM8A2fNyEUpIq4f6PsRf0zntVIXmUOWnvyIcVB7EA31NcPn3O%2FHFga8gKZyDPnQnj7YM5Wrt%2FVvR2mj7dJcioOSATW6joYuAb2X0l6IVHXJnYcaxStVCaPauK98OWTTXwCQQwG9UYBWe5SGqOroOw%2FoYWx9GRGvDtQfQThGemJnDr%2FHkbM9YH%2BY860lrE4MEXQiPakkwgJZC%2B8kqsqxzAIyWegPjp3TvrNs7WJ4Fheq0BJo8B7uw0pYBB%2BE9WQEjgaO5dByd90cpnyHu%2F8HGSxwmuQQiUtrp0T3xpP1G%2B3bP%2FLUnhGTD6XWLW%2BtoywQ5ZJrizfwuLQuxFjZt2JwV50DslF47H4AltBRxQh6HHro%2BpiJJEv0rC5NKBS4XRaL8FWOFMD%2BxJctPoCxFJhour3SbcMET4148eVQL%2FenkSdPUz2FHNrO%2BnOTyZAG%2Bi9xiZR1MVOCYHTPHKFG9ReY4ck2mz4W94%2FI6iWuu%2BKWlrEr2hEWzo2RhwDJ09ASgoKNErYb2mJ4E0rMGQ7cv8d2bqF7f6ok1SbzJPClaCBN4qYBzX1rE2Uhdf4v2QueSi4c0i8oCWOGfsdp5FxpgrOlEIqzC9%2Fu7JBjqmAardqlTk%2BobAEzv0H0m2RO4m901C%2FsTzIKb2UlMRrUkTDH4MpCSg5eW3A86X2TnPfl66jC%2FV2P%2FIwY%2FkvsY7wNBgtYR92XE%2FMwyz1x3JD1qDnGWPybjso72aEPrMyekV2WV3U0%2BYh8zn83%2BneYZB9VaTu2QqSv7TZe3IWJyErbuZw%2BhmMlk5nhKZDNmo%2Fc12x%2B7jI0N6aKqUdp8BkGOqPrlUxn2mKcg%3D&X-Amz-SignedHeaders=host&response-content-disposition=inline%3Bfilename%3D%22companies_house_document.pdf%22&X-Amz-Signature=52be18d98d9589fa46d3686876b3107925b67ee083d05199e1428dfc14b9c457),
     but this doesn't count most spending e.g. Gemini compute.
+  structure: research laboratory subsidiary of a for-profit
+  teams: >-
+    amplified oversight, interpretability, ASAT eng (automated alignment research), Causal Incentives Working Group,
+    Frontier Safety Risk Assessment (evals, threat models, the framework), Mitigations (e.g. banning accounts, refusal
+    training, jailbreak robustness), Loss of Control (control, alignment evals). Structure
+    [here](https://gist.github.com/g-leech/30f2484d0318b5d9d489e5748fe46131).
+  publicAlignmentAgenda: "[An Approach to Technical AGI Safety and Security](https://arxiv.org/abs/2504.01849)"
+  framework: "[Frontier Safety Framework](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/)"
   papers:
     - title: A Pragmatic Vision for Interpretability
       url: https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability%20
@@ -312,6 +333,17 @@
     Amazon, Google, ICONIQ, Fidelity, Lightspeed, Altimeter, Baillie Gifford, BlackRock, Blackstone, Coatue, D1 Capital
     Partners, General Atlantic, General Catalyst, GIC, Goldman Sachs, Insight Partners, Jane Street, Ontario Teachers'
     Pension Plan, Qatar Investment Authority, TPG, T. Rowe Price, WCM, XN
+  structure: public-benefit corp
+  teams: >-
+    Scalable Alignment (Leike), Alignment Evals (Bowman), [Interpretability](https://transformer-circuits.pub/) (Olah),
+    Control (Perez), Model Psychiatry (Lindsey), Character (Askell), Alignment Stress-Testing (Hubinger), Alignment
+    Mitigations (Price?), Frontier Red Team (Graham), Safeguards (?), Societal Impacts (Ganguli), Trust and Safety
+    (Sanderford), Model Welfare (Fish)
+  publicAlignmentAgenda: >-
+    [directions](https://alignment.anthropic.com/2025/recommended-directions/),
+    [bumpers](https://alignment.anthropic.com/2025/bumpers/), [checklist](https://sleepinyourhat.github.io/checklist/),
+    an [old vague view](https://www.anthropic.com/news/core-views-on-ai-safety)
+  framework: "[RSP](https://www-cdn.anthropic.com/872c653b2d0501d6ab44cf87f43e1dc4853e4d37.pdf)"
   papers:
     - title: Evaluating honesty and lie detection techniques on a diverse suite of dishonest models
       url: https://alignment.anthropic.com/2025/honesty-elicitation/
@@ -472,6 +504,12 @@
       [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\).)
       on labs in general
   fundedByText: A16Z, Blackrock, Fidelity, Kingdom, Lightspeed, MGX, Morgan Stanley, Sequoia…
+  structure: >-
+    [for-profit](https://www.cnbc.com/amp/2025/08/25/elon-musk-xai-dropped-public-benefit-corp-status-while-fighting-openai.html)
+  teams: >-
+    [Applied Safety](https://job-boards.greenhouse.io/xai/jobs/4944324007), Model Evaluation. Nominally focussed on
+    misuse.
+  framework: "[Risk Management Framework](https://data.x.ai/2025-08-20-xai-risk-management-framework.pdf)"
   papers: []
 - id: Meta
   name: Meta
@@ -505,6 +543,12 @@
       [Carlsmith](https://joecarlsmith.com/2025/11/03/leaving-open-philanthropy-going-to-anthropic#:~:text=a%20few%20words%20about%20some%20more%20general%20concerns%20about%20AI%2Dsafety%2Dfocused%20people%20going%20to%20work%20at%20AI%20companies%20\(and/or%2C%20at%20Anthropic%20in%20particular\).)
       on labs in general
   fundedByText: Meta
+  structure: for-profit
+  teams: >-
+    Safety "integrated into" capabilities research, Meta Superintelligence Lab. But also FAIR Alignment, [Brain and
+    AI](https://www.metacareers.com/jobs/1319148726628205).
+  framework: >-
+    [FAF](https://ai.meta.com/static-resource/meta-frontier-ai-framework/?utm_source=newsroom&utm_medium=web&utm_content=Frontier_AI_Framework_PDF&utm_campaign=Our_Approach_to_Frontier_AI_blog)
   papers:
     - title: "The Alignment Waltz: Jointly Training Agents to Collaborate for Safety"
       url: https://arxiv.org/pdf/2510.08240
@@ -545,10 +589,12 @@
 - id: China
   name: China
   parent: Labs
+  description: The Chinese companies [don't](https://futureoflife...
   papers: []
 - id: Others
   name: Others
   parent: Labs
+  description: "* Amazon's [Nova Pro](https://arxiv.org/pdf/2506.1..."
   papers: []
 - id: Iterative_alignment_at_pretrain_time
   name: Iterative alignment at pretrain-time
@@ -999,6 +1045,8 @@
     spite.
   seeAlso: a:Data_filtering, sec:White_box_safety, a:Various_Redteams
   orthodoxProblems:
+    - "8"
+    - "12"
     - "10"
   targetCase: pessimistic
   someNames:
@@ -1330,6 +1378,9 @@
     unknown attacks, monitor for misuse, and prevent models from causing harm, even if the core model has
     vulnerabilities.
   seeAlso: a:Various_Redteams, sec:Iterative_alignment
+  orthodoxProblems:
+    - "7"
+    - "12"
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -1413,6 +1464,10 @@
     but it relies on the CoT remaining faithful (i.e., accurately reflecting the model's reasoning) and not becoming
     obfuscated under optimization pressure.
   seeAlso: sec:White_box_safety, a:Steganography_evals
+  orthodoxProblems:
+    - "7"
+    - "8"
+    - "12"
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -1810,6 +1865,7 @@
   seeAlso: auditing real models, a:Pragmatic_interpretability
   orthodoxProblems:
     - "4"
+    - "7"
   targetCase: pessimistic
   broadApproaches:
     - behavioral
@@ -2249,6 +2305,9 @@
     By identifying and filtering out malicious training examples, we can prevent attackers from creating hidden
     backdoors or triggers that would cause aligned models to behave dangerously.
   seeAlso: a:Data_filtering, a:Safeguards_inference_time_auxiliaries_, a:Various_Redteams, adversarial robustness
+  orthodoxProblems:
+    - "8"
+    - "11"
   targetCase: pessimistic
   broadApproaches:
     - engineering
@@ -2295,6 +2354,7 @@
     a:Weak_to_strong_generalization
   orthodoxProblems:
     - "4"
+    - "7"
     - "1"
   targetCase: average-case
   broadApproaches:
@@ -2376,6 +2436,7 @@
     a:Synthetic_data_for_alignment, scalable oversight, a:Assistance_games_assistive_agents,
     a:Model_values_model_preferences
   orthodoxProblems:
+    - "7"
     - "1"
   targetCase: average-case
   broadApproaches:
@@ -2486,6 +2547,7 @@
   orthodoxProblems:
     - "4"
     - "1"
+    - "7"
   targetCase: pessimistic
   broadApproaches:
     - engineering
@@ -2648,6 +2710,8 @@
     ensuring "deep ignorance" of dual-use information), the safeguards become far more difficult and expensive to
     remove.
   seeAlso: a:Data_filtering, a:Capability_removal_unlearning, a:Data_poisoning_defense
+  orthodoxProblems:
+    - "11"
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -2719,6 +2783,8 @@
   seeAlso: >-
     sec:Iterative_alignment, automated alignment research, Beijing Key Laboratory of Safe AI and Superalignment, Aligned
     AI
+  orthodoxProblems:
+    - "11"
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -2768,6 +2834,7 @@
     interp](https://www.alignmentforum.org/posts/Hy6PX43HGgmfiTaKu/an-ambitious-vision-for-interpretability)
   orthodoxProblems:
     - "4"
+    - "7"
   targetCase: worst-case
   broadApproaches:
     - cognitive
@@ -3016,6 +3083,8 @@
     this latent knowledge directly from the model's internals, we can supervise them reliably even when they attempt to
     deceive human evaluators or when the task is too difficult for humans to verify directly.
   seeAlso: a:AI_explanations_of_AIs, a:Heuristic_explanations, a:Lie_and_deception_detectors
+  orthodoxProblems:
+    - "7"
   targetCase: worst-case
   broadApproaches:
     - cognitive
@@ -3305,6 +3374,7 @@
   orthodoxProblems:
     - "1"
     - "4"
+    - "7"
   targetCase: average-case
   someNames:
     - leo-gao
@@ -3792,6 +3862,7 @@
     detecting hidden goals or emergent misalignment.
   seeAlso: a:Reverse_engineering, sec:Concept_based_interpretability
   orthodoxProblems:
+    - "7"
     - "4"
   broadApproaches:
     - cognitive
@@ -3843,6 +3914,7 @@
     renormalization). Or be "pragmatic".
   seeAlso: a:Reverse_engineering, sec:Concept_based_interpretability
   orthodoxProblems:
+    - "7"
     - "4"
   someNames:
     - lee-sharkey
@@ -4117,6 +4189,7 @@
     a:Causal_Abstractions
   orthodoxProblems:
     - "4"
+    - "7"
   broadApproaches:
     - cognitive
   someNames:
@@ -4281,6 +4354,7 @@
   orthodoxProblems:
     - "1"
     - "4"
+    - "12"
   targetCase: pessimistic
   broadApproaches:
     - cognitive
@@ -4519,6 +4593,9 @@
   orthodoxProblems:
     - "1"
     - "4"
+    - "7"
+    - "9"
+    - "12"
   targetCase: worst-case
   someNames:
     - aria
@@ -4582,6 +4659,7 @@
     systems.
   seeAlso: "[JEPA](https://arxiv.org/abs/2511.08544), [oracles](https://www.lesswrong.com/w/oracle-ai)"
   orthodoxProblems:
+    - "3"
     - "4"
     - "5"
   targetCase: pessimistic
@@ -4677,6 +4755,8 @@
     capabilities increase further → keep the stronger systems aligned by amplifying weak oversight and quantifying where
     it breaks.
   seeAlso: sec:White_box_safety, a:Supervising_AIs_improving_AIs
+  orthodoxProblems:
+    - "8"
   targetCase: average-case
   broadApproaches:
     - engineering
@@ -4729,6 +4809,9 @@
     Early models train ~only on human data while later models also train on early model outputs, which leads to early
     model problems cascading. Left unchecked this will likely cause problems, so supervision mechanisms are needed to
     help ensure the AI self-improvement remains legible.
+  orthodoxProblems:
+    - "7"
+    - "8"
   targetCase: pessimistic
   broadApproaches:
     - behavioral
@@ -4804,6 +4887,9 @@
     Use AI to help improve interp and evals. Develop and release open tools to level up the whole field. Get invited to
     improve lab processes.
   seeAlso: sec:White_box_safety
+  orthodoxProblems:
+    - "7"
+    - "8"
   targetCase: pessimistic
   broadApproaches:
     - cognitive
@@ -4851,6 +4937,7 @@
     sufficient for safe AGI.
   orthodoxProblems:
     - "1"
+    - "7"
   targetCase: worst-case
   someNames:
     - rohin-shah
@@ -4911,6 +4998,8 @@
   seeAlso: "[Transluce](#a:transluce), a:Anthropic"
   orthodoxProblems:
     - "4"
+    - "7"
+    - "8"
   broadApproaches:
     - cognitive
   someNames:
@@ -4948,6 +5037,7 @@
   seeAlso: a:Aligning_what_, a:Tiling_agents, [Dovetail](#a:theory_dovetail)
   orthodoxProblems:
     - "1"
+    - "2"
     - "4"
   targetCase: worst-case
   broadApproaches:
@@ -5030,6 +5120,7 @@
   seeAlso: a:Agent_foundations
   orthodoxProblems:
     - "1"
+    - "2"
     - "4"
   targetCase: worst-case
   broadApproaches:
@@ -5137,6 +5228,7 @@
   seeAlso: a:Debate, a:Guaranteed_Safe_AI, a:Control
   orthodoxProblems:
     - "4"
+    - "7"
   targetCase: pessimistic
   broadApproaches:
     - cognitive
@@ -5194,6 +5286,7 @@
   seeAlso: ARC Theory, ELK, mechanistic anomaly detection, [Acorn](https://acausal.org/), a:Guaranteed_Safe_AI
   orthodoxProblems:
     - "4"
+    - "8"
   targetCase: worst-case
   someNames:
     - jacob-hilton
@@ -5244,6 +5337,7 @@
     properties.
   seeAlso: a:Agent_foundations, a:Control
   orthodoxProblems:
+    - "2"
     - "5"
   targetCase: worst-case
   someNames:
@@ -5332,6 +5426,7 @@
     Goodharting thus reduces risks on the likely default path.
   seeAlso: a:Behavior_alignment_theory
   orthodoxProblems:
+    - "2"
     - "5"
   targetCase: pessimistic
   someNames:
@@ -5403,6 +5498,8 @@
     representation hypothesis, microscope AI
   orthodoxProblems:
     - "5"
+    - "7"
+    - "9"
   targetCase: worst-case
   broadApproaches:
     - cognitive
@@ -5496,6 +5593,7 @@
   orthodoxProblems:
     - "1"
     - "4"
+    - "9"
   targetCase: worst-case
   broadApproaches:
     - cognitive
@@ -5556,8 +5654,10 @@
   seeAlso: a:Aligning_what_, a:Aligned_to_who_
   orthodoxProblems:
     - "1"
+    - "2"
     - "4"
     - "5"
+    - "13"
   broadApproaches:
     - behavioral
   someNames:
@@ -5633,6 +5733,7 @@
     - "4"
     - "5"
     - "10"
+    - "13"
   broadApproaches:
     - cognitive
   someNames:
@@ -5710,6 +5811,8 @@
   seeAlso: a:Tools_for_aligning_multiple_AIs, a:Aligning_what_
   orthodoxProblems:
     - "4"
+    - "7"
+    - "8"
   broadApproaches:
     - cognitive
   someNames:
@@ -5823,6 +5926,8 @@
   seeAlso: a:Theory_for_aligning_multiple_AIs, a:Aligning_what_
   orthodoxProblems:
     - "4"
+    - "7"
+    - "8"
   someNames:
     - andrew-critch
     - lewis-hammond
@@ -5925,6 +6030,7 @@
   seeAlso: a:Aligning_what_, a:Aligning_to_context
   orthodoxProblems:
     - "1"
+    - "13"
   targetCase: average-case
   broadApproaches:
     - behavioral
@@ -6017,8 +6123,10 @@
   seeAlso: a:Theory_for_aligning_multiple_AIs, a:Aligning_to_context, a:Aligned_to_who_
   orthodoxProblems:
     - "1"
+    - "2"
     - "4"
     - "5"
+    - "13"
   someNames:
     - richard-ngo
     - emmett-shear
@@ -6637,6 +6745,9 @@
     capabilities (scheming/sandbagging). By measuring self- and situational-awareness, we can better assess this risk
     and build more robust evaluations.
   seeAlso: a:Sandbagging_evals, a:Various_Redteams, sec:Model_psychology
+  orthodoxProblems:
+    - "7"
+    - "8"
   targetCase: worst-case
   broadApproaches:
     - behavioral
@@ -6739,6 +6850,9 @@
     if models can use steganography, they could hide deceptive reasoning, bypassing safety monitoring and control
     measures. By evaluating this capability, we can assess the risk of a model fooling its supervisors.
   seeAlso: a:AI_deception_evals, a:Chain_of_thought_monitoring
+  orthodoxProblems:
+    - "12"
+    - "7"
   targetCase: worst-case
   broadApproaches:
     - behavioral
@@ -6795,6 +6909,9 @@
   seeAlso: >-
     a:Situational_awareness_and_self_awareness_evals, a:Steganography_evals, a:Sandbagging_evals,
     a:Chain_of_thought_monitoring
+  orthodoxProblems:
+    - "7"
+    - "8"
   targetCase: worst-case
   someNames:
     - cadenza
@@ -6909,6 +7026,8 @@
     is genuine, not faked, because capable models are capable of strategically concealing misaligned goals (scheming) to
     pass standard behavioural evaluations.
   seeAlso: a:AI_deception_evals, a:Situational_awareness_and_self_awareness_evals
+  orthodoxProblems:
+    - "7"
   targetCase: pessimistic
   someNames:
     - bronson-schoen
@@ -6982,6 +7101,9 @@
     evaluations for sandbagging, we can test whether our safety methods are being deceived and detect this behavior
     before a model is deployed.
   seeAlso: a:AI_deception_evals, a:Situational_awareness_and_self_awareness_evals, a:Various_Redteams
+  orthodoxProblems:
+    - "7"
+    - "8"
   targetCase: pessimistic
   broadApproaches:
     - behavioral
@@ -7072,6 +7194,7 @@
   seeAlso: a:Autonomy_evals, a:Situational_awareness_and_self_awareness_evals
   orthodoxProblems:
     - "5"
+    - "12"
   targetCase: worst-case
   broadApproaches:
     - behavioral
@@ -7124,6 +7247,7 @@
     development of more robust defenses.
   seeAlso: a:Other_evals
   orthodoxProblems:
+    - "12"
     - "4"
   targetCase: average-case
   broadApproaches:

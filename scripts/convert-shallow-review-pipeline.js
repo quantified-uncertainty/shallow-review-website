@@ -100,20 +100,21 @@ function convertOutputToPaper(output) {
 }
 
 // Map of orthodox problem names to IDs
+// These IDs correspond to orthodoxProblems.yaml
 const ORTHODOX_PROBLEM_MAP = {
-  'value_fragile': '1',
-  'corrigibility_unnatural': '2',
-  'pivotal_dangerous': '3',
-  'goals_misgeneralize': '4',
-  'instrumental_convergence': '5',
-  'plans_incomprehensible': '6',
-  'fool_supervisors': '7',
-  'hack_supervisors': '8',
-  'no_value_handshake': '9',
-  'humanlike_minds_not_safe': '10',
-  'race_dynamics': '11',
-  'exfiltration': '12',
-  'fair_pivotal': '13',
+  'value_fragile': '1',                         // Value is fragile and hard to specify
+  'corrigibility_anti_natural': '2',            // Corrigibility is anti-natural
+  'pivotal_dangerous_capabilities': '3',        // Pivotal processes require dangerous capabilities
+  'goals_misgeneralize': '4',                   // Goals misgeneralize out of distribution
+  'instrumental_convergence': '5',              // Instrumental convergence
+  'plans_incomprehensible': '6',                // Pivotal processes likely require incomprehensibly complex plans
+  'superintelligence_fool_supervisors': '7',    // Superintelligence can fool human supervisors
+  'superintelligence_hack_software': '8',       // Superintelligence can hack software supervisors
+  'humans_not_first_class': '9',                // Humans cannot be first-class parties to a superintelligent value handshake
+  'humanlike_minds_not_safe': '10',             // Humanlike minds/goals are not necessarily safe
+  'someone_else_deploys': '11',                 // Someone else will deploy unsafe superintelligence first
+  'boxed_agi_exfiltrate': '12',                 // A boxed AGI might exfiltrate itself
+  'fair_sane_pivotal': '13',                    // Fair, sane pivotal processes
 };
 
 // Convert orthodox_problems to array of problem IDs
@@ -184,6 +185,21 @@ function convertCritiques(critiques) {
   return [critiques];
 }
 
+// Extract content from parsing_issues if content was rejected
+// This handles cases where the upstream parser flagged content as an error
+// e.g., "Content should be null, got: * Amazon's [Nova Pro]..."
+function extractContentFromParsingIssues(parsingIssues) {
+  if (!parsingIssues || parsingIssues.length === 0) return undefined;
+
+  for (const issue of parsingIssues) {
+    const match = issue.match(/^Content should be null, got: (.+)$/s);
+    if (match) {
+      return match[1];
+    }
+  }
+  return undefined;
+}
+
 /**
  * Main conversion function - outputs two flat files
  * @param inputData - The parsed pipeline YAML data
@@ -250,6 +266,13 @@ function convertToFlatFormat(inputData, adjustments = {}) {
         // Section converted to agenda - use content as description
         agenda.summary = item.content;
       }
+
+      // Try to recover content from parsing_issues if it was rejected by the parser
+      // This handles entries like "Others" and "China" in Labs where content was flagged as an error
+      const recoveredContent = extractContentFromParsingIssues(item.parsing_issues);
+      if (recoveredContent && !agenda.summary) {
+        agenda.description = recoveredContent;
+      }
       if (attrs.theory_of_change) {
         agenda.theoryOfChange = attrs.theory_of_change;
       }
@@ -291,6 +314,25 @@ function convertToFlatFormat(inputData, adjustments = {}) {
       // Funded by - keep as plain text string
       if (attrs.funded_by && attrs.funded_by !== 'null') {
         agenda.fundedByText = attrs.funded_by;
+      }
+
+      // Extract other_attributes (primarily for labs: Structure, Safety teams, etc.)
+      const otherAttrs = attrs.other_attributes || {};
+      if (otherAttrs.Structure) {
+        agenda.structure = otherAttrs.Structure;
+      }
+      // Handle both "Safety teams" and "Teams" keys
+      const teamsValue = otherAttrs['Safety teams'] || otherAttrs.Teams;
+      if (teamsValue) {
+        agenda.teams = teamsValue;
+      }
+      if (otherAttrs['Public alignment agenda']) {
+        agenda.publicAlignmentAgenda = otherAttrs['Public alignment agenda'];
+      }
+      // Handle both "Framework" and "Risk management framework" keys
+      const frameworkValue = otherAttrs.Framework || otherAttrs['Risk management framework'];
+      if (frameworkValue) {
+        agenda.framework = frameworkValue;
       }
 
       // Papers array (may be empty)

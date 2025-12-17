@@ -2,6 +2,8 @@ import {
   AlertTriangle,
   ArrowRight,
   BarChart,
+  BookOpen,
+  Building2,
   ChevronLeft,
   ChevronRight,
   Crosshair,
@@ -11,6 +13,7 @@ import {
   LucideIcon,
   MessageSquare,
   Settings,
+  Shield,
   Target,
   Users,
 } from 'lucide-react';
@@ -337,7 +340,38 @@ export default async function AgendaPage({ params }: PageProps) {
           </div>
         )}
 
+        {/* Description (longer content, e.g., for lab entries like "Others") */}
+        {agenda.description && (
+          <div className="mb-10 prose prose-gray max-w-none">
+            <Markdown inline={false}>
+              {agenda.description}
+            </Markdown>
+          </div>
+        )}
+
         <div className="space-y-6">
+          {/* Lab-specific fields */}
+          {agenda.structure && (
+            <AttributeRow icon={Building2} label="Structure:">
+              <Markdown inline>{agenda.structure}</Markdown>
+            </AttributeRow>
+          )}
+          {agenda.teams && (
+            <AttributeRow icon={Users} label="Safety teams:">
+              <Markdown inline={false}>{agenda.teams}</Markdown>
+            </AttributeRow>
+          )}
+          {agenda.publicAlignmentAgenda && (
+            <AttributeRow icon={BookOpen} label="Public alignment agenda:">
+              <Markdown inline>{agenda.publicAlignmentAgenda}</Markdown>
+            </AttributeRow>
+          )}
+          {agenda.framework && (
+            <AttributeRow icon={Shield} label="Framework:">
+              <Markdown inline>{agenda.framework}</Markdown>
+            </AttributeRow>
+          )}
+
           {/* Theory of Change */}
           {agenda.theoryOfChange && (
             <AttributeRow icon={Lightbulb} label="Theory of Change:">
@@ -467,7 +501,7 @@ export default async function AgendaPage({ params }: PageProps) {
 
           {/* Key People */}
           {researchers.length > 0 && (
-            <AttributeRow icon={Users} label="Key People:">
+            <AttributeRow icon={Users} label="Some names:">
               <span className="text-gray-900">
                 {researchers.map((researcher, i) => (
                   <span key={researcher.id}>

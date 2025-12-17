@@ -21,6 +21,7 @@ export interface AgendaData {
   name: string;
   parent: string; // parent section or agenda ID
   summary?: string;
+  description?: string; // Longer description content (e.g., for labs like "Others")
   theoryOfChange?: string;
   seeAlso?: string;
   orthodoxProblems?: string[];
@@ -35,6 +36,11 @@ export interface AgendaData {
   keywords?: string[];
   resources?: AgendaResource[];
   wikipedia?: string;
+  // Lab-specific fields (from other_attributes in pipeline)
+  structure?: string; // e.g., "public benefit corp", "for-profit"
+  teams?: string; // Safety teams / organizational structure
+  publicAlignmentAgenda?: string; // Link to public alignment agenda
+  framework?: string; // Risk management framework
   papers: Paper[];
 }
 
@@ -128,6 +134,7 @@ export interface Agenda {
   parentAgendaId?: string; // ID of parent agenda (if this is a sub-agenda)
   parentSectionId?: string; // ID of parent sub-section (if under a sub-section)
   summary?: string;
+  description?: string; // Longer description content (e.g., for labs like "Others")
   theoryOfChange?: string;
   seeAlso?: string;
   orthodoxProblems?: string[];
@@ -142,6 +149,11 @@ export interface Agenda {
   keywords?: string[];
   resources?: AgendaResource[];
   wikipedia?: string;
+  // Lab-specific fields (from other_attributes in pipeline)
+  structure?: string; // e.g., "public benefit corp", "for-profit"
+  teams?: string; // Safety teams / organizational structure
+  publicAlignmentAgenda?: string; // Link to public alignment agenda
+  framework?: string; // Risk management framework
   papers: Paper[];
 }
 
