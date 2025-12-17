@@ -20,21 +20,21 @@ export const SECTION_COLORS: Record<
     navHover: string;
   }
 > = {
-  // Labs - warm brown (stone)
+  // Labs - warm brown (amber/stone)
   Labs: {
     text: "text-stone-600",
-    heading: "text-yellow-950",
-    bg: "bg-yellow-700",
+    heading: "text-amber-900",
+    bg: "bg-amber-700",
     border: "border-stone-200",
     borderLeft: "border-l-stone-600",
-    hover: "hover:text-yellow-950",
-    groupHover: "group-hover:text-yellow-800",
+    hover: "hover:text-amber-900",
+    groupHover: "group-hover:text-amber-800",
     bgLight: "bg-stone-100",
-    bgNav: "bg-yellow-100",
-    accent: "bg-yellow-800",
+    bgNav: "bg-amber-100",
+    accent: "bg-amber-800",
     gradient: "from-stone-50 to-transparent",
-    dot: "bg-yellow-800",
-    navHover: "hover:text-yellow-950",
+    dot: "bg-amber-800",
+    navHover: "hover:text-amber-900",
   },
   Labs_old: {
     text: "text-stone-600",

@@ -141,7 +141,7 @@ export default function OverviewPage() {
                           const name =
                             subSection?.name || agenda?.name || itemId;
                           groupedItems.push(
-                            <div key={itemId} className="mb-6">
+                            <div key={itemId} className="mb-8">
                               <div
                                 className={`text-sm font-semibold text-slate-400 mb-1`}
                               >
