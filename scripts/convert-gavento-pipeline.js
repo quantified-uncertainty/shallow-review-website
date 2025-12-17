@@ -72,14 +72,31 @@ function toSlugId(name) {
     .trim();
 }
 
+// Check if a title is an error placeholder from the pipeline
+function isErrorTitle(title) {
+  if (!title) return true;
+  const errorPatterns = [
+    'Unknown - PDF content not accessible',
+    'Unable to extract - PDF content not accessible',
+    'PDF content not accessible',
+  ];
+  return errorPatterns.some(pattern => title.includes(pattern));
+}
+
 // Convert output item to Paper format
 function convertOutputToPaper(output) {
   if (!output.link_url) {
     return null;
   }
 
+  // Prefer link_text if title is an error placeholder
+  let title = output.title;
+  if (isErrorTitle(title) && output.link_text) {
+    title = output.link_text;
+  }
+
   const paper = {
-    title: output.title || output.link_text || 'Untitled',
+    title: title || output.link_text || 'Untitled',
     url: output.link_url,
   };
 

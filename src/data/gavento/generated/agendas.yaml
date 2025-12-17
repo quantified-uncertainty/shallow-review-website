@@ -132,7 +132,7 @@
       year: 2025
       venue: OpenAI Alignment Blog
       kind: blog_post
-    - title: Unknown - PDF content not accessible
+    - title: Weight-sparse transformers have interpretable circuits
       url: https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf
       kind: error_detected
 - id: Google_Deepmind
@@ -3726,7 +3726,7 @@
       year: 2025
       venue: CVPR 2025 - Mechanistic Interpretability for Vision Workshop
       kind: paper_preprint
-    - title: Unknown - PDF content not accessible
+    - title: Weight-sparse transformers have interpretable circuits
       url: https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf
       kind: error_detected
 - id: Causal_Abstractions
@@ -5149,7 +5149,7 @@
       year: 2025
       venue: LessWrong
       kind: lesswrong
-    - title: Unable to extract - PDF content not accessible
+    - title: Good old fashioned decision theory
       url: https://openreview.net/pdf?id=Rf1CeGPA22
       venue: OpenReview
       kind: error_detected
@@ -5318,7 +5318,7 @@
       year: 2025
       venue: LessWrong
       kind: lesswrong
-    - title: Unable to extract - PDF content not accessible
+    - title: Can DPO Learn Diverse Human Values? A Theoretical Scaling Law
       url: https://openreview.net/pdf?id=XOIKLlSiDq
       venue: OpenReview
       kind: error_detected
@@ -5367,7 +5367,7 @@
       year: 2025
       venue: LessWrong
       kind: lesswrong
-    - title: Unknown - PDF content not accessible
+    - title: Deduction-Projection Estimators for Understanding Neural Networks
       url: https://gabrieldwu.com/assets/thesis.pdf
       kind: error_detected
     - title: Wide Neural Networks as a Baseline for the Computational No-Coincidence Conjecture
