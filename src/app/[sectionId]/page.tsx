@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Section } from "@/lib/types";
 import { getSectionColors } from "@/constants/colors";
 import { getNameWithoutParentheses, getParentheticalPart } from "@/lib/utils";
+import Markdown from "@/components/Markdown";
 
 interface PageProps {
   params: Promise<{ sectionId: string }>;
@@ -152,7 +153,9 @@ export default async function SectionPage({ params }: PageProps) {
           )}
         </h1>
         {section.description && (
-          <p className="text-gray-700 text-xl mb-10 font-serif italic">{section.description}</p>
+          <div className="text-gray-700 text-xl mb-10 font-serif italic prose prose-xl prose-gray max-w-none">
+            <Markdown inline={false}>{section.description}</Markdown>
+          </div>
         )}
         <div className="space-y-4">
           {/* Render labs if present */}
