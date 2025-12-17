@@ -40,7 +40,7 @@ interface StructureData {
  */
 function loadStructure(): StructureData | null {
   try {
-    const filePath = path.join(process.cwd(), "src/data/structure.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/structure.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as StructureData;
     return data;
@@ -97,7 +97,7 @@ function parseStructure(structure: StructureItem[]): {
  */
 function loadAgendaLesswrongTags(): Record<string, string[]> {
   try {
-    const filePath = path.join(process.cwd(), "src/data/agendaLesswrongTags.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/agendaLesswrongTags.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as Record<string, string[]>;
     return data || {};
@@ -111,7 +111,7 @@ function loadAgendaLesswrongTags(): Record<string, string[]> {
  * Loads flat sections from sections.yaml
  */
 function loadSections(): SectionData[] {
-  const filePath = path.join(process.cwd(), "src/data/sections.yaml");
+  const filePath = path.join(process.cwd(), "src/data/gavento/generated/sections.yaml");
   const fileContents = fs.readFileSync(filePath, "utf8");
   const data = yaml.load(fileContents) as SectionData[];
   return data || [];
@@ -121,7 +121,7 @@ function loadSections(): SectionData[] {
  * Loads flat agendas from agendas.yaml
  */
 function loadAgendas(): AgendaData[] {
-  const filePath = path.join(process.cwd(), "src/data/agendas.yaml");
+  const filePath = path.join(process.cwd(), "src/data/gavento/generated/agendas.yaml");
   const fileContents = fs.readFileSync(filePath, "utf8");
   const data = yaml.load(fileContents) as AgendaData[];
   return data || [];
@@ -319,7 +319,7 @@ export function loadReviewData(): ReviewData {
  */
 export function loadLabs(): LabsData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/labs.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/labs.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as LabsData;
 
@@ -356,7 +356,7 @@ export function loadOrthodoxProblems(): OrthodoxProblemsData {
   try {
     const filePath = path.join(
       process.cwd(),
-      "src/data/orthodoxProblems.yaml"
+      "src/data/reference/orthodoxProblems.yaml"
     );
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as OrthodoxProblemsData;
@@ -397,7 +397,7 @@ export function getOrthodoxProblemsByIds(
  */
 export function loadBroadApproaches(): BroadApproachesData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/broadApproaches.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/broadApproaches.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as BroadApproachesData;
 
@@ -437,7 +437,7 @@ export function getBroadApproachesByIds(
  */
 export function loadTargetCases(): TargetCasesData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/targetCases.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/targetCases.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as TargetCasesData;
 
@@ -493,7 +493,7 @@ export function getTargetCaseByValue(
  */
 export function loadFunders(): FundersData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/funders.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/funders.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as FundersData;
 
@@ -528,7 +528,7 @@ export function getFundersByIds(funders: Funder[], ids: string[]): Funder[] {
  */
 export function loadResearchers(): ResearchersData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/researchers.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/researchers.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as ResearchersData;
 
@@ -563,7 +563,7 @@ export function getResearchersByIds(researchers: Researcher[], ids: string[]): R
  */
 export function loadKeywords(): KeywordsData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/keywords.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/keywords.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as KeywordsData;
 
@@ -598,7 +598,7 @@ export function getKeywordsByIds(keywords: Keyword[], ids: string[]): Keyword[] 
  */
 export function loadLesswrongTags(): LesswrongTagsData {
   try {
-    const filePath = path.join(process.cwd(), "src/data/lesswrongTags.yaml");
+    const filePath = path.join(process.cwd(), "src/data/reference/lesswrongTags.yaml");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = yaml.load(fileContents) as LesswrongTagsData;
 

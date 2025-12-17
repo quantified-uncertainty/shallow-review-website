@@ -7,16 +7,16 @@
  * (https://github.com/gavento/shallow-review) into flat YAML files for the
  * shallow-review-website.
  *
- * Input:  src/data/pipelineData.yaml  (copy from pipeline output)
- * Output: src/data/sections.yaml      (flat list of sections)
- *         src/data/agendas.yaml       (flat list of agendas with parent refs)
+ * Input:  src/data/gavento/import/source.yaml  (copy from pipeline output)
+ * Output: src/data/gavento/generated/sections.yaml  (flat list of sections)
+ *         src/data/gavento/generated/agendas.yaml   (flat list of agendas with parent refs)
  *
  * The hierarchy is built at runtime by loadData.ts when the website loads.
  *
  * Usage:
- *   npm run convert-pipeline
+ *   npm run convert-gavento
  *   # or directly:
- *   node scripts/convert-shallow-review-pipeline.js
+ *   node scripts/convert-gavento-pipeline.js
  */
 
 const fs = require('fs');
@@ -24,10 +24,10 @@ const yaml = require('js-yaml');
 const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '..', 'src', 'data');
-const INPUT_FILE = path.join(DATA_DIR, 'pipelineData.yaml');
-const ADJUSTMENTS_FILE = path.join(DATA_DIR, 'pipelineAdjustments.yaml');
-const SECTIONS_FILE = path.join(DATA_DIR, 'sections.yaml');
-const AGENDAS_FILE = path.join(DATA_DIR, 'agendas.yaml');
+const INPUT_FILE = path.join(DATA_DIR, 'gavento/import/source.yaml');
+const ADJUSTMENTS_FILE = path.join(DATA_DIR, 'gavento/import/adjustments.yaml');
+const SECTIONS_FILE = path.join(DATA_DIR, 'gavento/generated/sections.yaml');
+const AGENDAS_FILE = path.join(DATA_DIR, 'gavento/generated/agendas.yaml');
 
 /**
  * Load adjustments from pipelineAdjustments.yaml
@@ -49,8 +49,8 @@ function loadAdjustments() {
 
 // File header for generated files
 const GENERATED_HEADER = `# GENERATED FILE - Do not edit manually
-# Source: src/data/pipelineData.yaml
-# Regenerate with: npm run convert-pipeline
+# Source: src/data/gavento/import/source.yaml
+# Regenerate with: npm run convert-gavento
 #
 # This file is regenerated from the shallow-review pipeline output.
 # Manual edits will be overwritten.
@@ -353,7 +353,7 @@ async function main() {
       console.error(`Error: Input file not found: ${INPUT_FILE}`);
       console.error('');
       console.error('To use this script:');
-      console.error('1. Copy the pipeline output to src/data/pipelineData.yaml');
+      console.error('1. Copy the pipeline output to src/data/gavento/import/source.yaml');
       console.error('2. Run: npm run convert-pipeline');
       process.exit(1);
     }

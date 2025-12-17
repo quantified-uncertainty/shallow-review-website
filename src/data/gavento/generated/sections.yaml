@@ -1,6 +1,6 @@
 # GENERATED FILE - Do not edit manually
-# Source: src/data/pipelineData.yaml
-# Regenerate with: npm run convert-pipeline
+# Source: src/data/gavento/import/source.yaml
+# Regenerate with: npm run convert-gavento
 #
 # This file is regenerated from the shallow-review pipeline output.
 # Manual edits will be overwritten.
